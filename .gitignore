@@ -1,0 +1,4 @@
+.vs/
+jvm4csharp/bin/
+jvm4csharp/obj/
+*.DotSettings

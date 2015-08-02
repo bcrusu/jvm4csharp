@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0061CDF6-3CAE-46CB-A2EB-E3C744CED389}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>jvm4csharp</RootNamespace>
+    <AssemblyName>jvm4csharp</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArrayUtils\ArrayEnumerator.cs" />
+    <Compile Include="ArrayUtils\PrimitiveArray.cs" />
+    <Compile Include="ArrayUtils\ObjectArray.cs" />
+    <Compile Include="ArrayUtils\ArrayBase.cs" />
+    <Compile Include="ArrayUtils\DoubleArray.cs" />
+    <Compile Include="ArrayUtils\FloatArray.cs" />
+    <Compile Include="ArrayUtils\LongArray.cs" />
+    <Compile Include="ArrayUtils\CharArray.cs" />
+    <Compile Include="ArrayUtils\ShortArray.cs" />
+    <Compile Include="ArrayUtils\ByteArray.cs" />
+    <Compile Include="ArrayUtils\BooleanArray.cs" />
+    <Compile Include="ArrayUtils\IntArray.cs" />
+    <Compile Include="JvmContext.cs" />
+    <Compile Include="JniApiWrappers\JniWrapper.cs" />
+    <Compile Include="Session\Win32Api.cs" />
+    <Compile Include="Session\CurrentThreadProvider.cs" />
+    <Compile Include="Session\IJvmThreadProvider.cs" />
+    <Compile Include="Session\CurrentThread.cs" />
+    <Compile Include="Session\IJvmThread.cs" />
+    <Compile Include="Session\PooledThreadProvider.cs" />
+    <Compile Include="IJavaObject.cs" />
+    <Compile Include="java\lang\Error.cs" />
+    <Compile Include="java\lang\Exception.cs" />
+    <Compile Include="JniApiWrappers\JniEnvArraysWrapper.cs" />
+    <Compile Include="JniApiWrappers\ProxyRegistry.cs" />
+    <Compile Include="Session\PooledThread.cs" />
+    <Compile Include="Session\TaskHelpers.cs" />
+    <Compile Include="_java\util\_Iterator.cs" />
+    <Compile Include="JavaVoid.cs" />
+    <Compile Include="java\lang\Class.cs" />
+    <Compile Include="java\lang\Object.cs" />
+    <Compile Include="java\lang\String.cs" />
+    <Compile Include="java\lang\Throwable.cs" />
+    <Compile Include="JavaProxyAttribute.cs" />
+    <Compile Include="java\util\Iterator.cs" />
+    <Compile Include="JniApiWrappers\ProxyFactory.cs" />
+    <Compile Include="JniApiWrappers\IJavaProxy.cs" />
+    <Compile Include="JvmLocalFrame.cs" />
+    <Compile Include="JniApiWrappers\ModifiedUtfString.cs" />
+    <Compile Include="JniApiWrappers\GlobalReferencesMap.cs" />
+    <Compile Include="JniApiWrappers\JniEnvClassesWrapper.cs" />
+    <Compile Include="JvmConfigurator.cs" />
+    <Compile Include="JniApiWrappers\WrapperHelpers.cs" />
+    <Compile Include="JniApiWrappers\JniEnvExceptionsWrapper.cs" />
+    <Compile Include="JniApiWrappers\JniEnvStringsWrapper.cs" />
+    <Compile Include="JniApi\JniBooleanValue.cs" />
+    <Compile Include="JniApiWrappers\JniEnvWrapper.cs" />
+    <Compile Include="JniApi\JniNativeInterfaceSig.cs" />
+    <Compile Include="JniApi\JniValue.cs" />
+    <Compile Include="JniApi\JniEnv.cs" />
+    <Compile Include="JniApi\JniNativeInterface.cs" />
+    <Compile Include="JniApi\JniNativeMethod.cs" />
+    <Compile Include="JniApi\JniInvokeInterfaceSig.cs" />
+    <Compile Include="JniApiWrappers\JavaVmWrapper.cs" />
+    <Compile Include="JniApi\JavaVm.cs" />
+    <Compile Include="JniApi\JavaVmAttachArgs.cs" />
+    <Compile Include="JniApi\JniInvokeInterface.cs" />
+    <Compile Include="JniApi\JniObjectRefType.cs" />
+    <Compile Include="JvmException.cs" />
+    <Compile Include="JniApi\JniApiImport.cs" />
+    <Compile Include="JniApi\JavaVmInitArgs.cs" />
+    <Compile Include="JniApi\JavaVmOption.cs" />
+    <Compile Include="JniApi\JniVersion.cs" />
+    <Compile Include="JniApi\JniResult.cs" />
+    <Compile Include="JvmManagerOptions.cs" />
+    <Compile Include="JvmManager.cs" />
+    <Compile Include="JvmSession.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
