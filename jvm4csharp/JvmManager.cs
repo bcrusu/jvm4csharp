@@ -58,10 +58,10 @@ namespace jvm4csharp
                 Current.GetJavaVm();
         }
 
-        public JvmSession OpenSession(bool useCurrentThread)
+        public JvmSession OpenSession(bool attachCurrentThread)
         {
             var threadProvider = _pooledThreadProvider;
-            if (useCurrentThread)
+            if (attachCurrentThread)
                 threadProvider = _currentThreadProvider;
 
             var javaVm = GetJavaVm();

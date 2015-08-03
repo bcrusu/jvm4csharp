@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Runtime.Serialization;
 using jvm4csharp.java.lang;
 
@@ -10,7 +11,8 @@ namespace jvm4csharp.JniApiWrappers
 
         public ProxyFactory(JniEnvWrapper jniEnvWrapper)
         {
-            if (jniEnvWrapper == null) throw new ArgumentNullException(nameof(jniEnvWrapper));
+            Debug.Assert(jniEnvWrapper != null);
+
             _jniEnvWrapper = jniEnvWrapper;
         }
 
@@ -25,8 +27,9 @@ namespace jvm4csharp.JniApiWrappers
 
         public IJavaProxy CreateProxy(Type expectedProxyType, Class clazz, IntPtr nativePtr)
         {
-            if (expectedProxyType == null) throw new ArgumentNullException(nameof(expectedProxyType));
-            if (clazz == null) throw new ArgumentNullException(nameof(clazz));
+            Debug.Assert(expectedProxyType != null);
+            Debug.Assert(clazz != null);
+
             if (nativePtr == IntPtr.Zero)
                 return null;
 
@@ -50,6 +53,7 @@ namespace jvm4csharp.JniApiWrappers
             }
 
             result.NativePtr = nativePtr;
+            result.Context = JvmContext.Current;
             result.Class = clazz;
             return result;
         }

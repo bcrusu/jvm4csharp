@@ -68,7 +68,7 @@ namespace jvm4csharp.Session
 
                 var nativeThreadId = Win32Api.GetCurrentThreadId();
                 if (nativeThreadId != _nativeThreadId)
-                    throw new JvmException("Cannot detach current thread. 'Detach' must be called on the same OS thread as 'Attach' was called.");
+                    throw new InvalidOperationException("Cannot detach current thread. 'Detach' must be called on the same OS thread as 'Attach' was called.");
 
                 JvmContext.SetCurrentContext(null);
 
@@ -112,7 +112,7 @@ namespace jvm4csharp.Session
 
                 var nativeThreadId = Win32Api.GetCurrentThreadId();
                 if (nativeThreadId != _nativeThreadId)
-                    throw new JvmException("Cannot run on the current thread. 'Run' must be called on the same OS thread as 'Attach' was called.");
+                    throw new InvalidOperationException("Cannot run on the current thread. 'Run' must be called on the same OS thread as 'Attach' was called.");
 
                 var tsc = new TaskCompletionSource<T>();
                 try

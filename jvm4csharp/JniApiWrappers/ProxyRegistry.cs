@@ -17,7 +17,7 @@ namespace jvm4csharp.JniApiWrappers
 
         private ProxyRegistry(IEnumerable<Type> proxyTypes)
         {
-            if (proxyTypes == null) throw new ArgumentNullException(nameof(proxyTypes));
+            Debug.Assert(proxyTypes != null);
 
             var defaultProxyTypes = GetDefaultProxyTypes();
             RegisterProxies(defaultProxyTypes);
@@ -33,7 +33,7 @@ namespace jvm4csharp.JniApiWrappers
         //TODO: handle arrays
         public string GetClassName(Type javaProxyType)
         {
-            if (javaProxyType == null) throw new ArgumentNullException(nameof(javaProxyType));
+            Debug.Assert(javaProxyType != null);
 
             if (javaProxyType.IsGenericTypeDefinition)
                 throw new ArgumentException(""); //TODO
@@ -50,6 +50,8 @@ namespace jvm4csharp.JniApiWrappers
 
         public Type GetProxyType(string internalClassName)
         {
+            Debug.Assert(internalClassName != null);
+
             Type result;
             _classNameToConcreteProxyType.TryGetValue(internalClassName, out result);
             return result;
@@ -57,14 +59,13 @@ namespace jvm4csharp.JniApiWrappers
 
         private void RegisterProxies(IEnumerable<Type> types)
         {
-            if (types == null) throw new ArgumentNullException(nameof(types));
             foreach (var type in types)
                 RegisterProxy(type);
         }
 
         private void RegisterProxy(Type type)
         {
-            if (type == null) throw new ArgumentNullException(nameof(type));
+            Debug.Assert(type != null);
 
             var attr = (JavaProxyAttribute)type.GetCustomAttributes(typeof(JavaProxyAttribute), false).FirstOrDefault();
             if (attr == null)

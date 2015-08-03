@@ -9,8 +9,8 @@
         
         public override TElement this[int index]
         {
-            get { return JvmContext.Current.JniEnvWrapper.Arrays.GetObjectArrayElement<TElement>(this, index); }
-            set { JvmContext.Current.JniEnvWrapper.Arrays.SetObjectArrayElement(this, index, value); }
+            get { return JvmContext.Current.JniEnv.Arrays.GetObjectArrayElement<TElement>(this, index); }
+            set { JvmContext.Current.JniEnv.Arrays.SetObjectArrayElement(this, index, value); }
         }
     }
 }

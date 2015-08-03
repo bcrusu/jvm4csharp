@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace jvm4csharp.JniApiWrappers
 {
@@ -11,9 +12,9 @@ namespace jvm4csharp.JniApiWrappers
 
         internal ModifiedUtfString(JniEnvStringsWrapper jniEnvStringsWrapper, IntPtr nativePtr, java.lang.String originalString)
         {
-            if (jniEnvStringsWrapper == null) throw new ArgumentNullException(nameof(jniEnvStringsWrapper));
-            if (nativePtr == IntPtr.Zero) throw new ArgumentException(nameof(nativePtr));
-            if (originalString == null) throw new ArgumentNullException(nameof(originalString));
+            Debug.Assert(jniEnvStringsWrapper != null);
+            Debug.Assert(originalString != null);
+            Debug.Assert(nativePtr != IntPtr.Zero);
 
             _jniEnvStringsWrapper = jniEnvStringsWrapper;
             NativePtr = nativePtr;

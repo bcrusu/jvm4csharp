@@ -20,7 +20,7 @@
 
         public static implicit operator String(string str)
         {
-            return str == null ? null : JvmContext.Current.JniEnvWrapper.Strings.NewString(str);
+            return str == null ? null : JvmContext.Current.JniEnv.Strings.NewString(str);
         }
 
         public int length()
@@ -36,7 +36,7 @@
         public override string ToString()
         {
             if (_clrString == null)
-                _clrString = JvmContext.Current.JniEnvWrapper.Strings.ToClrString(this);
+                _clrString = JvmContext.Current.JniEnv.Strings.ToClrString(this);
             return _clrString;
         }
     }

@@ -10,7 +10,7 @@ namespace jvm4csharp.ArrayUtils
 
         protected ArrayBase(int length) : base(JavaVoid.Void)
         {
-            var tmpArray = JvmContext.Current.JniEnvWrapper.Arrays.NewArray<TElement>(length);
+            var tmpArray = JvmContext.Current.JniEnv.Arrays.NewArray<TElement>(length);
             NativePtr = tmpArray.NativePtr;
             _length = length;
         }
@@ -20,7 +20,7 @@ namespace jvm4csharp.ArrayUtils
             get
             {
                 if (!_length.HasValue)
-                    _length = JvmContext.Current.JniEnvWrapper.Arrays.GetArrayLength(this);
+                    _length = JvmContext.Current.JniEnv.Arrays.GetArrayLength(this);
                 return _length.Value;
             }
         }

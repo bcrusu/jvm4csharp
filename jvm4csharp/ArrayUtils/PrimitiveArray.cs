@@ -23,7 +23,7 @@ namespace jvm4csharp.ArrayUtils
 
         public TElement[] GetRegion(int startIndex, int length)
         {
-            return JvmContext.Current.JniEnvWrapper.Arrays.GetArrayRegion<TElement>(this, startIndex, length);
+            return JvmContext.Current.JniEnv.Arrays.GetArrayRegion<TElement>(this, startIndex, length);
         }
 
         public TElement[] GetElements()
@@ -33,7 +33,7 @@ namespace jvm4csharp.ArrayUtils
 
         public void SetRegion(int startIndex, int length, TElement[] buffer)
         {
-            JvmContext.Current.JniEnvWrapper.Arrays.SetArrayRegion(this, startIndex, length, buffer);
+            JvmContext.Current.JniEnv.Arrays.SetArrayRegion(this, startIndex, length, buffer);
         }
     }
 }

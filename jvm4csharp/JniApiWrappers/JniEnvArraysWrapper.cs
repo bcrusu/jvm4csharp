@@ -85,7 +85,8 @@ namespace jvm4csharp.JniApiWrappers
 
         public int GetArrayLength(java.lang.Object array)
         {
-            Debug.Assert(array != null);
+            if (array == null) throw new ArgumentNullException(nameof(array));
+            JvmContext.Current.ValidateProxyInstane(array);
 
             var length = _getArrayLength(_jniEnvWrapper.JniEnvPtr, array.NativePtr);
             _jniEnvWrapper.Exceptions.CheckLastException();
@@ -165,6 +166,7 @@ namespace jvm4csharp.JniApiWrappers
             if (array == null) throw new ArgumentNullException(nameof(array));
             if (startIndex < 0) throw new ArgumentException(nameof(startIndex));
             if (length <= 0) throw new ArgumentException(nameof(length));
+            JvmContext.Current.ValidateProxyInstane(array);
 
             var elementType = typeof(TElement);
             Array result;
@@ -244,7 +246,8 @@ namespace jvm4csharp.JniApiWrappers
             if (buffer == null) throw new ArgumentNullException(nameof(buffer));
             if (startIndex < 0) throw new ArgumentException(nameof(startIndex));
             if (length <= 0) throw new ArgumentException(nameof(length));
-            if (buffer.Length < length) throw new ArgumentException("Buffer length too short.", nameof(buffer));
+            if (buffer.Length < length) throw new ArgumentException("Buffer length is too short.", nameof(buffer));
+            JvmContext.Current.ValidateProxyInstane(array);
 
             var elementType = typeof(TElement);
 
@@ -307,6 +310,7 @@ namespace jvm4csharp.JniApiWrappers
         {
             if (array == null) throw new ArgumentNullException(nameof(array));
             if (index < 0) throw new ArgumentException(nameof(index));
+            JvmContext.Current.ValidateProxyInstane(array);
 
             var objPtr = _getObjectArrayElement(_jniEnvWrapper.JniEnvPtr, array.NativePtr, index);
             _jniEnvWrapper.Exceptions.CheckLastException();
@@ -319,6 +323,7 @@ namespace jvm4csharp.JniApiWrappers
         {
             if (array == null) throw new ArgumentNullException(nameof(array));
             if (index < 0) throw new ArgumentException(nameof(index));
+            JvmContext.Current.ValidateProxyInstane(array);
 
             var elementProxy = (IJavaProxy) element;
             var elemPtr = elementProxy?.NativePtr ?? IntPtr.Zero;

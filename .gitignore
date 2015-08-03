@@ -2,3 +2,6 @@
 jvm4csharp/bin/
 jvm4csharp/obj/
 *.DotSettings
+packages/
+jvm4csharp.Tests/obj/
+jvm4csharp.Tests/bin/

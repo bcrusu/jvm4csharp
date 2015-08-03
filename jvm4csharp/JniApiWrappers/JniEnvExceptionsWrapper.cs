@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using jvm4csharp.java.lang;
 using jvm4csharp.JniApi;
 
@@ -16,7 +17,7 @@ namespace jvm4csharp.JniApiWrappers
 
         internal JniEnvExceptionsWrapper(JniEnvWrapper jniEnvWrapper)
         {
-            if (jniEnvWrapper == null) throw new ArgumentNullException(nameof(jniEnvWrapper));
+            Debug.Assert(jniEnvWrapper != null);
             _jniEnvWrapper = jniEnvWrapper;
 
             InitFunctions();

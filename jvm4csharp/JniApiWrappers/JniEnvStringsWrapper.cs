@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using jvm4csharp.JniApi;
 
@@ -59,6 +60,8 @@ namespace jvm4csharp.JniApiWrappers
 
         public ModifiedUtfString GetModifiedUtfString(java.lang.String str)
         {
+            Debug.Assert(str != null);
+
             byte isCopy;
             var ptr = _getStringUtfChars(_jniEnvWrapper.JniEnvPtr, str.NativePtr, out isCopy);
             _jniEnvWrapper.Exceptions.CheckLastException();
@@ -68,13 +71,15 @@ namespace jvm4csharp.JniApiWrappers
 
         public void ReleaseModifiedUtfString(ModifiedUtfString str)
         {
+            Debug.Assert(str != null);
+
             _releaseStringUtfChars(_jniEnvWrapper.JniEnvPtr, str.OriginalString.NativePtr, str.NativePtr);
             _jniEnvWrapper.Exceptions.CheckLastException();
         }
 
         public unsafe string ToClrString(IntPtr strPtr)
         {
-            if (strPtr == IntPtr.Zero) throw new ArgumentException(nameof(strPtr));
+            Debug.Assert(strPtr != IntPtr.Zero);
 
             var intPtr = IntPtr.Zero;
             try
@@ -94,6 +99,8 @@ namespace jvm4csharp.JniApiWrappers
         public string ToClrString(java.lang.String str)
         {
             if (str == null) throw new ArgumentNullException(nameof(str));
+            JvmContext.Current.ValidateProxyInstane(str);
+
             return ToClrString(str.NativePtr);
         }
     }

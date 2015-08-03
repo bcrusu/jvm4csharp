@@ -30,6 +30,14 @@ namespace jvm4csharp.java.lang
 
         internal IntPtr NativePtr { get; set; }
 
+        JvmContext IJavaProxy.Context
+        {
+            set { Context = value; }
+            get { return Context; }
+        }
+
+        internal JvmContext Context { get; set; }
+
         Class IJavaProxy.Class
         {
             set { Class = value; }
@@ -108,47 +116,47 @@ namespace jvm4csharp.java.lang
         #region Utility Methods
         protected TField GetField<TField>(string name, string signature)
         {
-            return JvmContext.Current.JniEnvWrapper.Classes.GetField<TField>(this, name, signature);
+            return JvmContext.Current.JniEnv.Classes.GetField<TField>(this, name, signature);
         }
 
         protected static TField GetStaticField<TField>(Type proxyType, string name, string signature)
         {
-            return JvmContext.Current.JniEnvWrapper.Classes.GetStaticField<TField>(proxyType, name, signature);
+            return JvmContext.Current.JniEnv.Classes.GetStaticField<TField>(proxyType, name, signature);
         }
 
         public void SetField<TField>(string name, string signature, TField value)
         {
-            JvmContext.Current.JniEnvWrapper.Classes.SetField(this, name, signature, value);
+            JvmContext.Current.JniEnv.Classes.SetField(this, name, signature, value);
         }
 
         protected static void SetStaticField<TField>(Type proxyType, string name, string signature, TField value)
         {
-            JvmContext.Current.JniEnvWrapper.Classes.SetStaticField(proxyType, name, signature, value);
+            JvmContext.Current.JniEnv.Classes.SetStaticField(proxyType, name, signature, value);
         }
 
         protected TResult CallMethod<TResult>(string name, string signature, params object[] args)
         {
-            return JvmContext.Current.JniEnvWrapper.Classes.CallMethod<TResult>(this, name, signature, args);
+            return JvmContext.Current.JniEnv.Classes.CallMethod<TResult>(this, name, signature, args);
         }
 
         protected void CallMethod(string name, string signature, params object[] args)
         {
-            JvmContext.Current.JniEnvWrapper.Classes.CallMethod<JavaVoid>(this, name, signature, args);
+            JvmContext.Current.JniEnv.Classes.CallMethod<JavaVoid>(this, name, signature, args);
         }
 
         protected static TResult CallStaticMethod<TResult>(Type proxyType, string name, string signature, params object[] args)
         {
-            return JvmContext.Current.JniEnvWrapper.Classes.CallStaticMethod<TResult>(proxyType, name, signature, args);
+            return JvmContext.Current.JniEnv.Classes.CallStaticMethod<TResult>(proxyType, name, signature, args);
         }
 
         protected static void CallStaticMethod(Type proxyType, string name, string signature, params object[] args)
         {
-            JvmContext.Current.JniEnvWrapper.Classes.CallStaticMethod<JavaVoid>(proxyType, name, signature, args);
+            JvmContext.Current.JniEnv.Classes.CallStaticMethod<JavaVoid>(proxyType, name, signature, args);
         }
 
         protected void CallConstructor(string signature, params object[] args)
         {
-            JvmContext.Current.JniEnvWrapper.Classes.NewObjectForProxy(this, signature, args);
+            JvmContext.Current.JniEnv.Classes.NewObjectForProxy(this, signature, args);
         }
         #endregion
     }

@@ -161,7 +161,7 @@ namespace jvm4csharp.JniApiWrappers
 
         public Class FindClass(string className)
         {
-            if (className == null) throw new ArgumentNullException(nameof(className));
+            Debug.Assert(className != null);
 
             Class result;
             if (!_jniEnvWrapper.JavaVm.GlobalReferences.TryGetClass(className, out result))
@@ -189,7 +189,7 @@ namespace jvm4csharp.JniApiWrappers
 
         public Class FindClass(Type javaProxyType)
         {
-            if (javaProxyType == null) throw new ArgumentNullException(nameof(javaProxyType));
+            Debug.Assert(javaProxyType != null);
 
             var className = ProxyRegistry.Current.GetClassName(javaProxyType);
             return FindClass(className);
@@ -197,7 +197,7 @@ namespace jvm4csharp.JniApiWrappers
 
         public Class GetObjectClass(IntPtr objPtr)
         {
-            if (objPtr == IntPtr.Zero) throw new ArgumentException(nameof(objPtr));
+            Debug.Assert(objPtr != IntPtr.Zero);
 
             using (_jniEnvWrapper.PushLocalFrame())
             {
@@ -222,6 +222,9 @@ namespace jvm4csharp.JniApiWrappers
 
         public Class CreateClassInstance(IntPtr classPtr, string internalClassName)
         {
+            Debug.Assert(classPtr != IntPtr.Zero);
+            Debug.Assert(internalClassName != null);
+
             var className = WrapperHelpers.GetClassName(internalClassName);
 
             var result = new Class(JavaVoid.Void, className, internalClassName);
@@ -237,7 +240,7 @@ namespace jvm4csharp.JniApiWrappers
 
         public T NewObject<T>(string ctorSignature, params object[] args)
         {
-            if (string.IsNullOrWhiteSpace(ctorSignature)) throw new ArgumentException(nameof(ctorSignature));
+            if (ctorSignature == null) throw new ArgumentNullException(nameof(ctorSignature));
 
             var clazz = FindClass(typeof(T));
             var methodId = GetMethodId(clazz, "<init>", false, ctorSignature);
@@ -252,8 +255,8 @@ namespace jvm4csharp.JniApiWrappers
         public void NewObjectForProxy(IJavaProxy proxy, string ctorSignature, params object[] args)
         {
             if (proxy == null) throw new ArgumentNullException(nameof(proxy));
+            if (ctorSignature == null) throw new ArgumentNullException(nameof(ctorSignature));
             if (proxy.NativePtr != IntPtr.Zero) throw new ArgumentException("Proxy object already initialized.");
-            if (string.IsNullOrWhiteSpace(ctorSignature)) throw new ArgumentException(nameof(ctorSignature));
 
             var clazz = FindClass(proxy.GetType());
             var methodId = GetMethodId(clazz, "<init>", false, ctorSignature);
@@ -263,13 +266,16 @@ namespace jvm4csharp.JniApiWrappers
             _jniEnvWrapper.Exceptions.CheckLastException();
 
             proxy.NativePtr = ptr;
+            proxy.Context = JvmContext.Current;
             proxy.Class = clazz;
         }
 
         public TField GetField<TField>(IJavaProxy proxy, string name, string signature)
         {
-            if (proxy == null) throw new ArgumentException(nameof(proxy));
-            if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException(nameof(name));
+            if (proxy == null) throw new ArgumentNullException(nameof(proxy));
+            if (name == null) throw new ArgumentNullException(nameof(name));
+            if (signature == null) throw new ArgumentNullException(nameof(signature));
+            JvmContext.Current.ValidateProxyInstane(proxy);
 
             var clazz = proxy.Class;
             var fieldType = typeof(TField);
@@ -313,8 +319,9 @@ namespace jvm4csharp.JniApiWrappers
 
         public TField GetStaticField<TField>(Type javaProxyType, string name, string signature)
         {
-            if (javaProxyType == null) throw new ArgumentException(nameof(javaProxyType));
-            if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException(nameof(name));
+            if (javaProxyType == null) throw new ArgumentNullException(nameof(javaProxyType));
+            if (name == null) throw new ArgumentNullException(nameof(name));
+            if (signature == null) throw new ArgumentNullException(nameof(signature));
 
             var clazz = FindClass(javaProxyType);
             var fieldType = typeof(TField);
@@ -358,8 +365,10 @@ namespace jvm4csharp.JniApiWrappers
 
         public void SetField<TField>(IJavaProxy proxy, string name, string signature, TField value)
         {
-            if (proxy == null) throw new ArgumentException(nameof(proxy));
-            if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException(nameof(name));
+            if (proxy == null) throw new ArgumentNullException(nameof(proxy));
+            if (name == null) throw new ArgumentNullException(nameof(name));
+            if (signature == null) throw new ArgumentNullException(nameof(signature));
+            JvmContext.Current.ValidateProxyInstane(proxy);
 
             var clazz = proxy.Class;
             var fieldType = typeof(TField);
@@ -398,7 +407,8 @@ namespace jvm4csharp.JniApiWrappers
         public void SetStaticField<TField>(Type javaProxyType, string name, string signature, TField value)
         {
             if (javaProxyType == null) throw new ArgumentNullException(nameof(javaProxyType));
-            if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException(nameof(name));
+            if (name == null) throw new ArgumentNullException(nameof(name));
+            if (signature == null) throw new ArgumentNullException(nameof(signature));
 
             var clazz = FindClass(javaProxyType);
             var fieldType = typeof(TField);
@@ -436,9 +446,10 @@ namespace jvm4csharp.JniApiWrappers
 
         public TResult CallMethod<TResult>(IJavaProxy proxy, string name, string signature, params object[] args)
         {
-            if (proxy == null) throw new ArgumentException(nameof(proxy));
-            if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException(nameof(name));
-            if (string.IsNullOrWhiteSpace(signature)) throw new ArgumentException(nameof(signature));
+            if (proxy == null) throw new ArgumentNullException(nameof(proxy));
+            if (name == null) throw new ArgumentNullException(nameof(name));
+            if (signature == null) throw new ArgumentNullException(nameof(signature));
+            JvmContext.Current.ValidateProxyInstane(proxy);
 
             var clazz = proxy.Class;
 
@@ -489,9 +500,9 @@ namespace jvm4csharp.JniApiWrappers
 
         public TResult CallStaticMethod<TResult>(Type javaProxyType, string name, string signature, params object[] args)
         {
-            if (javaProxyType == null) throw new ArgumentException(nameof(javaProxyType));
-            if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException(nameof(name));
-            if (string.IsNullOrWhiteSpace(signature)) throw new ArgumentException(nameof(signature));
+            if (javaProxyType == null) throw new ArgumentNullException(nameof(javaProxyType));
+            if (name == null) throw new ArgumentNullException(nameof(name));
+            if (signature == null) throw new ArgumentNullException(nameof(signature));
 
             var clazz = FindClass(javaProxyType);
             var methodId = GetMethodId(clazz, name, false, signature);
@@ -541,6 +552,8 @@ namespace jvm4csharp.JniApiWrappers
 
         public string GetClassName(IntPtr classPtr)
         {
+            Debug.Assert(classPtr != IntPtr.Zero);
+
             using (_jniEnvWrapper.PushLocalFrame())
             {
                 var methodId = GetMethodId(_javaLangClass.NativePtr, "getName", false, "()Ljava/lang/String;");
@@ -555,6 +568,8 @@ namespace jvm4csharp.JniApiWrappers
 
         public string CallToString(IntPtr objPtr)
         {
+            Debug.Assert(objPtr != IntPtr.Zero);
+
             var classPtr = _getObjectClass(_jniEnvWrapper.JniEnvPtr, objPtr);
             _jniEnvWrapper.Exceptions.CheckLastException();
 
@@ -569,8 +584,9 @@ namespace jvm4csharp.JniApiWrappers
 
         private IntPtr GetFieldId(Class clazz, string name, bool isStatic, string signature)
         {
-            if (clazz == null) throw new ArgumentNullException(nameof(clazz));
-            if (name == null) throw new ArgumentNullException(nameof(name));
+            Debug.Assert(clazz != null);
+            Debug.Assert(name != null);
+            Debug.Assert(signature != null);
 
             using (_jniEnvWrapper.PushLocalFrame())
             {
@@ -595,8 +611,9 @@ namespace jvm4csharp.JniApiWrappers
 
         private IntPtr GetMethodId(IntPtr classPtr, string name, bool isStatic, string signature)
         {
-            if (name == null) throw new ArgumentNullException(nameof(name));
-            if (signature == null) throw new ArgumentNullException(nameof(signature));
+            Debug.Assert(classPtr != IntPtr.Zero);
+            Debug.Assert(name != null);
+            Debug.Assert(signature != null);
 
             using (_jniEnvWrapper.PushLocalFrame())
             {
@@ -621,7 +638,7 @@ namespace jvm4csharp.JniApiWrappers
 
         private IntPtr GetMethodId(Class clazz, string name, bool isStatic, string signature)
         {
-            if (clazz == null) throw new ArgumentNullException(nameof(clazz));
+            Debug.Assert(clazz != null);
             return GetMethodId(clazz.NativePtr, name, isStatic, signature);
         }
 
@@ -639,7 +656,11 @@ namespace jvm4csharp.JniApiWrappers
             else if (argType == typeof(bool))
                 result.Bool = JniBooleanValue.ToNativeBool((bool)val);
             else if (typeof(IJavaProxy).IsAssignableFrom(argType))
-                result.Object = ((IJavaProxy)val).NativePtr;
+            {
+                var proxy = (IJavaProxy)val;
+                JvmContext.Current.ValidateProxyInstane(proxy);
+                result.Object = proxy.NativePtr;
+            }
             else if (argType == typeof(byte))
                 result.Byte = (byte)val;
             else if (argType == typeof(double))

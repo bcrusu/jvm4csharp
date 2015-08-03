@@ -14,7 +14,6 @@ namespace jvm4csharp
 
         public JavaProxyAttribute(string className)
         {
-            if (className == null) throw new ArgumentNullException(nameof(className));
             ClassName = className;
         }
     }

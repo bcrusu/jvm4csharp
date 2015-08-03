@@ -17,13 +17,14 @@ namespace jvm4csharp.JniApiWrappers
         private JniNativeInterfaceSig.Activation.DeleteLocalRef _deleteLocalRef;
         private JniNativeInterfaceSig.Activation.NewGlobalRef _newGlobalRef;
         private JniNativeInterfaceSig.Activation.DeleteGlobalRef _deleteGlobalRef;
-        private JniNativeInterfaceSig.Activation.NewLocalRef _newLocalRef;
         private JniNativeInterfaceSig.Activation.EnsureLocalCapacity _ensureLocalCapacity;
+        private JniNativeInterfaceSig.MonitorEnter _monitorEnter;
+        private JniNativeInterfaceSig.MonitorExit _monitorExit;
 
         internal JniEnvWrapper(JavaVmWrapper javaVm, IntPtr jniEnvPtr)
         {
-            if (javaVm == null) throw new ArgumentNullException(nameof(javaVm));
-            if (jniEnvPtr == IntPtr.Zero) throw new ArgumentException(nameof(jniEnvPtr));
+            Debug.Assert(javaVm != null);
+            Debug.Assert(jniEnvPtr != IntPtr.Zero);
 
             JavaVm = javaVm;
             JniEnvPtr = jniEnvPtr;
@@ -49,6 +50,8 @@ namespace jvm4csharp.JniApiWrappers
 
         public JvmLocalFrame PushLocalFrame(int minCapacity = 16)
         {
+            if (minCapacity <= 0) throw new ArgumentException(nameof(minCapacity));
+
             var result = _pushLocalFrame(JniEnvPtr, minCapacity);
             if (result != 0)
                 Exceptions.CheckLastException();
@@ -64,13 +67,17 @@ namespace jvm4csharp.JniApiWrappers
         public T PopLocalFrame<T>(IJavaProxy proxy)
 
         {
-            Debug.Assert(proxy != null);
+            if (proxy == null) throw new ArgumentNullException(nameof(proxy));
+            JvmContext.Current.ValidateProxyInstane(proxy);
+
             var ptr = _popLocalFrame(JniEnvPtr, proxy.NativePtr);
             return (T)ProxyFactory.CreateProxy(proxy.GetType(), ptr);
         }
 
         public void EnsureLocalCapacity(int minCapacity)
         {
+            if (minCapacity <= 0) throw new ArgumentException(nameof(minCapacity));
+
             var result = _ensureLocalCapacity(JniEnvPtr, minCapacity);
             if (result != 0)
                 Exceptions.CheckLastException();
@@ -78,13 +85,18 @@ namespace jvm4csharp.JniApiWrappers
 
         public void DeleteLocalReference(IJavaProxy proxy)
         {
-            Debug.Assert(proxy != null);
+            if (proxy == null) throw new ArgumentNullException(nameof(proxy));
+            JvmContext.Current.ValidateProxyInstane(proxy);
+
             _deleteLocalRef(JniEnvPtr, proxy.NativePtr);
             proxy.NativePtr = IntPtr.Zero;
+            proxy.Context = null;
         }
 
         public IntPtr NewGlobalReference(IntPtr refPtr)
         {
+            Debug.Assert(refPtr != IntPtr.Zero);
+
             var ptr = _newGlobalRef(JniEnvPtr, refPtr);
             if (ptr == IntPtr.Zero)
                 throw new JvmException("Could not create global reference.");
@@ -92,23 +104,48 @@ namespace jvm4csharp.JniApiWrappers
             return ptr;
         }
 
-        public T NewGlobalReference<T>(T proxy)
-            where T : IJavaProxy
+        public IJavaProxy NewGlobalReference(IJavaProxy proxy)
         {
-            Debug.Assert(proxy != null);
+            if (proxy == null) throw new ArgumentNullException(nameof(proxy));
+            JvmContext.Current.ValidateProxyInstane(proxy);
 
             var globalPtr = NewGlobalReference(proxy.NativePtr);
-
-            return (T)ProxyFactory.CreateProxy(proxy.GetType(), globalPtr);
+            return ProxyFactory.CreateProxy(proxy.GetType(), globalPtr);
         }
 
         public void DeleteGlobalReference(IJavaProxy proxy)
         {
-            Debug.Assert(proxy != null);
+            if (proxy == null) throw new ArgumentNullException(nameof(proxy));
+            JvmContext.Current.ValidateProxyInstane(proxy);
+
             JavaVm.GlobalReferences.ValidateDeleteReference(proxy);
 
             _deleteGlobalRef(JniEnvPtr, proxy.NativePtr);
             proxy.NativePtr = IntPtr.Zero;
+            proxy.Context = null;
+        }
+
+        public void MonitorEnter(IJavaProxy proxy)
+        {
+            if (proxy == null) throw new ArgumentNullException(nameof(proxy));
+            JvmContext.Current.ValidateProxyInstane(proxy);
+
+            var result = _monitorEnter(JniEnvPtr, proxy.NativePtr);
+            if (result < 0)
+                throw new JvmException($"Could not enter monitor. Error code '{result}'.");
+        }
+
+        public void MonitorExit(IJavaProxy proxy)
+        {
+            if (proxy == null) throw new ArgumentNullException(nameof(proxy));
+            JvmContext.Current.ValidateProxyInstane(proxy);
+
+            var result = _monitorExit(JniEnvPtr, proxy.NativePtr);
+            if (result < 0)
+            {
+                Exceptions.CheckLastException();
+                throw new JvmException("Could not exit monitor. Error code '{result}'.");
+            }
         }
 
         private void InitFunctions()
@@ -121,8 +158,9 @@ namespace jvm4csharp.JniApiWrappers
             _deleteLocalRef = WrapperHelpers.GetDelegateForPointer<JniNativeInterfaceSig.Activation.DeleteLocalRef>(jni.DeleteLocalRef);
             _newGlobalRef = WrapperHelpers.GetDelegateForPointer<JniNativeInterfaceSig.Activation.NewGlobalRef>(jni.NewGlobalRef);
             _deleteGlobalRef = WrapperHelpers.GetDelegateForPointer<JniNativeInterfaceSig.Activation.DeleteGlobalRef>(jni.DeleteGlobalRef);
-            _newLocalRef = WrapperHelpers.GetDelegateForPointer<JniNativeInterfaceSig.Activation.NewLocalRef>(jni.NewLocalRef);
             _ensureLocalCapacity = WrapperHelpers.GetDelegateForPointer<JniNativeInterfaceSig.Activation.EnsureLocalCapacity>(jni.EnsureLocalCapacity);
+            _monitorEnter = WrapperHelpers.GetDelegateForPointer<JniNativeInterfaceSig.MonitorEnter>(jni.MonitorEnter);
+            _monitorExit = WrapperHelpers.GetDelegateForPointer<JniNativeInterfaceSig.MonitorExit>(jni.MonitorExit);
         }
     }
 }

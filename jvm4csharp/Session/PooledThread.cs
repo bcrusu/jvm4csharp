@@ -199,15 +199,18 @@ namespace jvm4csharp.Session
                     if (_threadCancellationToken.IsCancellationRequested)
                         break;
 
+                    Action action;
+
                     try
                     {
-                        var action = _actionQueue.Take(_threadCancellationToken);
-                        action();
+                        action = _actionQueue.Take(_threadCancellationToken);
                     }
                     catch (OperationCanceledException)
                     {
                         break;
                     }
+
+                    action();
                 }
             }
             finally
