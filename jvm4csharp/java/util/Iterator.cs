@@ -1,8 +1,6 @@
-﻿using jvm4csharp._java.util;
-
-namespace jvm4csharp.java.util
+﻿namespace jvm4csharp.java.util
 {
-    [JavaProxy("java/util/Iterator", ConcreteProxyType = typeof(_Iterator<>))]
+    [JavaProxy("java/util/Iterator")]
     public interface Iterator<E> : IJavaObject
         where E : IJavaObject
     {

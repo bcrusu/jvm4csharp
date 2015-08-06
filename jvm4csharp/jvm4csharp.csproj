@@ -54,6 +54,11 @@
     <Compile Include="ArrayUtils\ByteArray.cs" />
     <Compile Include="ArrayUtils\BooleanArray.cs" />
     <Compile Include="ArrayUtils\IntArray.cs" />
+    <Compile Include="JavaSignatureAttribute.cs" />
+    <Compile Include="JniApiWrappers\JavaObjectMembers.cs" />
+    <Compile Include="JniApiWrappers\ProxyActivation\RemotingProxyActivator.cs" />
+    <Compile Include="JniApiWrappers\ProxyActivation\NonAbstractProxyActivator.cs" />
+    <Compile Include="JniApiWrappers\ProxyActivation\IProxyActivator.cs" />
     <Compile Include="JvmContext.cs" />
     <Compile Include="JniApiWrappers\JniWrapper.cs" />
     <Compile Include="Session\Win32Api.cs" />
@@ -69,7 +74,6 @@
     <Compile Include="JniApiWrappers\ProxyRegistry.cs" />
     <Compile Include="Session\PooledThread.cs" />
     <Compile Include="Session\TaskHelpers.cs" />
-    <Compile Include="_java\util\_Iterator.cs" />
     <Compile Include="JavaVoid.cs" />
     <Compile Include="java\lang\Class.cs" />
     <Compile Include="java\lang\Object.cs" />

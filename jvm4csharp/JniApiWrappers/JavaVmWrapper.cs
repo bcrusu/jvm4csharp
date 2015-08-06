@@ -67,7 +67,7 @@ namespace jvm4csharp.JniApiWrappers
                 return null;
 
             JniWrapper.VerifyJniResult(jniResult);
-            
+
             return new JniEnvWrapper(this, envPtr);
         }
 

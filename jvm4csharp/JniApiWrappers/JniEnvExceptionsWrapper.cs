@@ -19,7 +19,6 @@ namespace jvm4csharp.JniApiWrappers
         {
             Debug.Assert(jniEnvWrapper != null);
             _jniEnvWrapper = jniEnvWrapper;
-
             InitFunctions();
         }
 

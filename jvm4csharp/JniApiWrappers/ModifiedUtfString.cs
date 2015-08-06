@@ -8,17 +8,17 @@ namespace jvm4csharp.JniApiWrappers
         private readonly JniEnvStringsWrapper _jniEnvStringsWrapper;
 
         internal readonly IntPtr NativePtr;
-        internal readonly java.lang.String OriginalString;
+        internal readonly IntPtr OriginalStringPtr;
 
-        internal ModifiedUtfString(JniEnvStringsWrapper jniEnvStringsWrapper, IntPtr nativePtr, java.lang.String originalString)
+        internal ModifiedUtfString(JniEnvStringsWrapper jniEnvStringsWrapper, IntPtr nativePtr, IntPtr originalStringPtr)
         {
             Debug.Assert(jniEnvStringsWrapper != null);
-            Debug.Assert(originalString != null);
+            Debug.Assert(originalStringPtr != null);
             Debug.Assert(nativePtr != IntPtr.Zero);
 
             _jniEnvStringsWrapper = jniEnvStringsWrapper;
             NativePtr = nativePtr;
-            OriginalString = originalString;
+            OriginalStringPtr = originalStringPtr;
         }
 
         public void Dispose()

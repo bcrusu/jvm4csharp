@@ -1,8 +1,11 @@
 ﻿namespace jvm4csharp.java.lang
 {
-    [JavaProxy("java/lang/String")]
+    [JavaProxy(JavaInternalClassName)]
     public sealed class String : Object
     {
+        internal const string JavaClassName = "java.lang.String";
+        internal const string JavaInternalClassName = "java/lang/String";
+
         private string _clrString;
 
         internal String(JavaVoid jv) : base(jv)

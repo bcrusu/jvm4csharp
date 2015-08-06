@@ -10,8 +10,6 @@ namespace jvm4csharp
         /// </summary>
         public string ClassName { get; private set; }
 
-        public Type ConcreteProxyType { get; set; }
-
         public JavaProxyAttribute(string className)
         {
             ClassName = className;

@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Runtime.Serialization;
 using jvm4csharp.java.lang;
+using jvm4csharp.JniApiWrappers.ProxyActivation;
 
 namespace jvm4csharp.JniApiWrappers
 {
@@ -40,7 +41,7 @@ namespace jvm4csharp.JniApiWrappers
 
             if (WrapperHelpers.IsObjectArrayClass(clazz.InternalClassName))
             {
-                result = (IJavaProxy)FormatterServices.GetUninitializedObject(expectedProxyType);
+                result = NonAbstractProxyActivator.Instance.CreateInstance(expectedProxyType);
             }
             else
             {
@@ -60,19 +61,33 @@ namespace jvm4csharp.JniApiWrappers
 
         private static bool TryActivateProxy(Class clazz, Type expectedProxyType, out IJavaProxy proxy)
         {
-            var proxyType = ProxyRegistry.Current.GetProxyType(clazz.InternalClassName);
-            if (proxyType != null)
+            Type proxyType;
+            if (ProxyRegistry.Current.TryGetProxyType(clazz.InternalClassName, out proxyType))
             {
                 if (proxyType.IsGenericTypeDefinition)
                     proxyType = proxyType.MakeGenericType(expectedProxyType.GenericTypeArguments);
 
-                var instance = FormatterServices.GetUninitializedObject(proxyType);
-                proxy = (IJavaProxy)instance;
+                var proxyActivator = GetProxyActivator(proxyType);
+
+                proxy = proxyActivator.CreateInstance(proxyType);
                 return true;
             }
 
             proxy = null;
             return false;
+        }
+
+        private static IProxyActivator GetProxyActivator(Type proxyType)
+        {
+            IProxyActivator proxyActivator = NonAbstractProxyActivator.Instance;
+
+            if (proxyType.IsAbstract || proxyType.IsInterface)
+            {
+                //TODO: support 3rd party libraris (e.g. Castle.Core/Unity...)
+                proxyActivator = RemotingProxyActivator.Instance;
+            }
+
+            return proxyActivator;
         }
     }
 }

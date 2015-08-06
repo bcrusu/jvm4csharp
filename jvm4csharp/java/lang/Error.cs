@@ -7,22 +7,22 @@
         {
         }
 
-        public Error()
+        public Error() : base(JavaVoid.Void)
         {
             CallConstructor("()V");
         }
 
-        public Error(String message)
+        public Error(String message) : base(JavaVoid.Void)
         {
             CallConstructor("(Ljava/lang/String;)V", message);
         }
 
-        public Error(String message, Throwable cause)
+        public Error(String message, Throwable cause) : base(JavaVoid.Void)
         {
             CallConstructor("(Ljava/lang/String;Ljava/lang/Throwable;)V", message, cause);
         }
 
-        public Error(Throwable cause)
+        public Error(Throwable cause) : base(JavaVoid.Void)
         {
             CallConstructor("(Ljava/lang/Throwable;)V", cause);
         }

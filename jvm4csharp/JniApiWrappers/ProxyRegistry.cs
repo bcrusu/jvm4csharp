@@ -12,8 +12,8 @@ namespace jvm4csharp.JniApiWrappers
     {
         public static ProxyRegistry Current { get; private set; } 
 
-        private readonly IDictionary<string, Type> _classNameToConcreteProxyType = new Dictionary<string, Type>();
-        private readonly IDictionary<Type, string> _proxyTypeMap = new Dictionary<Type, string>();
+        private readonly IDictionary<string, Type> _classNameToProxyTypeMap = new Dictionary<string, Type>();
+        private readonly IDictionary<Type, string> _proxyTypeToClassNameMap = new Dictionary<Type, string>();
 
         private ProxyRegistry(IEnumerable<Type> proxyTypes)
         {
@@ -42,19 +42,16 @@ namespace jvm4csharp.JniApiWrappers
                 javaProxyType = javaProxyType.GetGenericTypeDefinition();
 
             string className;
-            if (!_proxyTypeMap.TryGetValue(javaProxyType, out className))
+            if (!_proxyTypeToClassNameMap.TryGetValue(javaProxyType, out className))
                 throw new ArgumentException($"Proxy type '{javaProxyType}' not recognized.");
 
             return className;
         }
 
-        public Type GetProxyType(string internalClassName)
+        public bool TryGetProxyType(string internalClassName, out Type proxyType)
         {
             Debug.Assert(internalClassName != null);
-
-            Type result;
-            _classNameToConcreteProxyType.TryGetValue(internalClassName, out result);
-            return result;
+            return _classNameToProxyTypeMap.TryGetValue(internalClassName, out proxyType);
         }
 
         private void RegisterProxies(IEnumerable<Type> types)
@@ -63,73 +60,43 @@ namespace jvm4csharp.JniApiWrappers
                 RegisterProxy(type);
         }
 
-        private void RegisterProxy(Type type)
+        private void RegisterProxy(Type proxyType)
         {
-            Debug.Assert(type != null);
-
-            var attr = (JavaProxyAttribute)type.GetCustomAttributes(typeof(JavaProxyAttribute), false).FirstOrDefault();
-            if (attr == null)
-                throw new ArgumentException($"Invalid proxy definition '{type}'. Could not find 'JavaProxyAttribute'.");
-
-            var className = attr.ClassName;
-            if (_classNameToConcreteProxyType.ContainsKey(className))
-                throw new ArgumentException($"Duplicate proxy type '{type}' detected. Java class name '{className}'.");
-
-            var concreteProxyType = attr.ConcreteProxyType;
-            var proxyType = type;
-
-            if (string.IsNullOrWhiteSpace(className))
-                throw new ArgumentException($"Invalid proxy definition '{type}'. Missing 'JavaProxyAttribute.ClassName' property.");
-
-            if (type.IsAbstract || type.IsInterface)
-            {
-                if (concreteProxyType == null)
-                    throw new ArgumentException($"Invalid proxy definition '{type}'. Abstract proxy types must specify the 'JavaProxyAttribute.ConcreteProxyType' property.");
-
-                proxyType = concreteProxyType;
-            }
-
-            ValidateProxyType(type, proxyType);
-
             Debug.Assert(proxyType != null);
 
-            _classNameToConcreteProxyType[className] = proxyType;
-            _proxyTypeMap[type] = className;
-        }
+            var attr = (JavaProxyAttribute)proxyType.GetCustomAttributes(typeof(JavaProxyAttribute), false).FirstOrDefault();
+            if (attr == null)
+                throw new ArgumentException($"Invalid proxy definition '{proxyType}'. Could not find 'JavaProxyAttribute'.");
 
-        private static void ValidateProxyType(Type baseType, Type proxyType)
-        {
-            if (!typeof(java.lang.Object).IsAssignableFrom(proxyType) && !typeof(java.lang.Throwable).IsAssignableFrom(proxyType))
-                throw new ArgumentException($"Invalid proxy definition '{proxyType}'. Proxy types must inherit from 'java.lang.Object' or 'java.lang.Throwable'.");
+            var className = attr.ClassName;
+            if (_classNameToProxyTypeMap.ContainsKey(className))
+                throw new ArgumentException($"Duplicate proxy type '{proxyType}' detected. Java class name '{className}'.");
 
-            if (!ValidateGenericTypeParameters(baseType, out baseType))
-                throw new ArgumentException(""); //TODO
+            if (string.IsNullOrWhiteSpace(className))
+                throw new ArgumentException($"Invalid proxy definition '{proxyType}'. Missing 'JavaProxyAttribute.ClassName' property.");
 
-            if (baseType != proxyType)
+            if (!proxyType.IsInterface)
             {
-                if (!ValidateGenericTypeParameters(proxyType, out proxyType))
-                    throw new ArgumentException(""); //TODO
-
-                if (!baseType.IsAssignableFrom(proxyType))
-                {
-                    var correctiveAction = baseType.IsInterface ? "implement" : "subclass";
-                    throw new ArgumentException($"Invalid proxy definition '{baseType}'. Concrete proxy type '{proxyType}' must {correctiveAction} '{baseType}'.");
-                }
+                if (!typeof (java.lang.Object).IsAssignableFrom(proxyType) && !typeof (java.lang.Throwable).IsAssignableFrom(proxyType))
+                    throw new ArgumentException($"Invalid proxy definition '{proxyType}'. Proxy types must inherit from 'java.lang.Object' or 'java.lang.Throwable'.");
             }
+
+            ValidateGenericTypeParameters(proxyType);
+
+            _classNameToProxyTypeMap[className] = proxyType;
+            _proxyTypeToClassNameMap[proxyType] = className;
         }
 
-        private static bool ValidateGenericTypeParameters(Type type, out Type concreteType)
+        private static void ValidateGenericTypeParameters(Type type)
         {
-            concreteType = type;
             if (!type.IsGenericTypeDefinition)
-                return true;
+                return;
 
             var genericTypeDefinition = type.GetGenericTypeDefinition().GetTypeInfo();
             var genericTypeParameters = genericTypeDefinition.GenericTypeParameters;
 
-            for (var i = 0; i < genericTypeParameters.Length; i++)
+            foreach (var typeParameter in genericTypeParameters)
             {
-                var typeParameter = genericTypeParameters[i];
                 var constraints = typeParameter.GetGenericParameterConstraints();
 
                 if (constraints.Length == 0)
@@ -139,11 +106,6 @@ namespace jvm4csharp.JniApiWrappers
                     if (!(typeof(IJavaObject).IsAssignableFrom(constraint)))
                         throw new ArgumentException(""); //TODO
             }
-
-            var typeArguments = genericTypeParameters.Select(x => typeof(IJavaObject)).ToArray();
-            concreteType = genericTypeDefinition.MakeGenericType(typeArguments);
-
-            return true;
         }
 
         [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]

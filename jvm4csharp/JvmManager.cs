@@ -9,6 +9,7 @@ using jvm4csharp.Session;
 
 namespace jvm4csharp
 {
+    //TODO: unload JVM functionality
     public class JvmManager
     {
         public static JvmManager Current { get; private set; }
@@ -67,15 +68,8 @@ namespace jvm4csharp
             var javaVm = GetJavaVm();
             var jvmThread = threadProvider.GetThread();
 
-            try
-            {
-                var jvmSession = jvmThread.Attach(javaVm).Result;
-                return jvmSession;
-            }
-            catch (Exception e)
-            {
-                throw TaskHelpers.UnwrapException(e);
-            }
+            var jvmSession = jvmThread.Attach(javaVm).Result;
+            return jvmSession;
         }
 
         public void CloseSession(JvmSession session)

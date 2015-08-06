@@ -28,17 +28,18 @@ namespace jvm4csharp.JniApiWrappers
 
             JavaVm = javaVm;
             JniEnvPtr = jniEnvPtr;
+            ProxyFactory = new ProxyFactory(this);
+
             InitFunctions();
 
-            Strings = new JniEnvStringsWrapper(this);
             Exceptions = new JniEnvExceptionsWrapper(this);
+            Strings = new JniEnvStringsWrapper(this);
             Classes = new JniEnvClassesWrapper(this);
             Arrays = new JniEnvArraysWrapper(this);
-            ProxyFactory = new ProxyFactory(this);
         }
 
         public JniEnvStringsWrapper Strings { get; private set; }
-        public JniEnvExceptionsWrapper Exceptions { get; }
+        public JniEnvExceptionsWrapper Exceptions { get; private set; }
         public JniEnvClassesWrapper Classes { get; private set; }
         public JniEnvArraysWrapper Arrays { get; private set; }
 

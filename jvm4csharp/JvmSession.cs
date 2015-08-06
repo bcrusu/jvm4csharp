@@ -29,6 +29,11 @@ namespace jvm4csharp
             Dispose(false);
         }
 
+        public bool IsAttached
+        {
+            get { return JvmThread.IsAttached; }
+        }
+
         public void Dispose()
         {
             Dispose(true);
@@ -50,7 +55,7 @@ namespace jvm4csharp
             CheckDisposed();
             await JvmThread.Run(action);
         }
-        
+
         private void CheckDisposed()
         {
             if (_disposed == 1)
@@ -63,16 +68,10 @@ namespace jvm4csharp
             if (disposed == 1)
                 return;
 
+            JvmThread.Detach().Wait();
+
             if (disposing)
-            {
-                JvmThread.Detach().Wait();
                 GC.SuppressFinalize(this);
-            }
-            else
-            {
-                //TODO: on finalizer thread use timeout; destory VM if cannot dispose?
-                JvmThread.Detach().Wait();
-            }
         }
     }
 }

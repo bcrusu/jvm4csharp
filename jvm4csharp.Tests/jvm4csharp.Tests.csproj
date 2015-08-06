@@ -44,11 +44,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="AssertEx.cs" />
+    <Compile Include="java\lang\StringTests.cs" />
+    <Compile Include="JniApiWrappers\ProxyActivation\RemotingProxyActivatorTests.cs" />
+    <Compile Include="JniApiWrappers\ProxyActivation\NonAbstractProxyActivatorTests.cs" />
+    <Compile Include="IntegrationTestBase.cs" />
+    <Compile Include="UnitTestBase.cs" />
+    <Compile Include="GlobalSetUp.cs" />
+    <Compile Include="Session\JvmSessionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\jvm4csharp\jvm4csharp.csproj">
+      <Project>{0061CDF6-3CAE-46CB-A2EB-E3C744CED389}</Project>
+      <Name>jvm4csharp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ArrayUtils\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

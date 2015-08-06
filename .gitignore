@@ -5,3 +5,4 @@ jvm4csharp/obj/
 packages/
 jvm4csharp.Tests/obj/
 jvm4csharp.Tests/bin/
+*.user

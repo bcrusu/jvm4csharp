@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using jvm4csharp.java.lang;
 using jvm4csharp.JniApi;
 
 namespace jvm4csharp.JniApiWrappers
@@ -8,6 +9,7 @@ namespace jvm4csharp.JniApiWrappers
     internal class JniEnvStringsWrapper
     {
         private readonly JniEnvWrapper _jniEnvWrapper;
+        private Class _javaLangStringClass;
 
         private JniNativeInterfaceSig.Strings.NewString _newString;
         private JniNativeInterfaceSig.Strings.GetStringUTFChars _getStringUtfChars;
@@ -19,7 +21,6 @@ namespace jvm4csharp.JniApiWrappers
         {
             if (jniEnvWrapper == null) throw new ArgumentNullException(nameof(jniEnvWrapper));
             _jniEnvWrapper = jniEnvWrapper;
-
             InitFunctions();
         }
 
@@ -34,7 +35,7 @@ namespace jvm4csharp.JniApiWrappers
             _releaseStringChars = WrapperHelpers.GetDelegateForPointer<JniNativeInterfaceSig.Strings.ReleaseStringChars>(jni.ReleaseStringChars);
         }
 
-        public java.lang.String NewString(string str)
+        public IntPtr NewStringPtr(string str)
         {
             if (str == null) throw new ArgumentNullException(nameof(str));
 
@@ -45,11 +46,7 @@ namespace jvm4csharp.JniApiWrappers
 
                 var ptr = _newString(_jniEnvWrapper.JniEnvPtr, intPtr, str.Length);
                 _jniEnvWrapper.Exceptions.CheckLastException();
-
-                var result = new java.lang.String(JavaVoid.Void);
-                result.NativePtr = ptr;
-
-                return result;
+                return ptr;
             }
             finally
             {
@@ -58,22 +55,35 @@ namespace jvm4csharp.JniApiWrappers
             }
         }
 
-        public ModifiedUtfString GetModifiedUtfString(java.lang.String str)
+        public java.lang.String NewString(string str)
         {
-            Debug.Assert(str != null);
+            if (str == null) throw new ArgumentNullException(nameof(str));
+
+            var ptr = NewStringPtr(str);
+
+            var result = new java.lang.String(JavaVoid.Void);
+            result.NativePtr = ptr;
+            result.Class = GetJavaLangClass();
+            result.Context = JvmContext.Current;
+            return result;
+        }
+
+        public ModifiedUtfString GetModifiedUtfString(IntPtr strPtr)
+        {
+            Debug.Assert(strPtr != IntPtr.Zero);
 
             byte isCopy;
-            var ptr = _getStringUtfChars(_jniEnvWrapper.JniEnvPtr, str.NativePtr, out isCopy);
+            var ptr = _getStringUtfChars(_jniEnvWrapper.JniEnvPtr, strPtr, out isCopy);
             _jniEnvWrapper.Exceptions.CheckLastException();
 
-            return new ModifiedUtfString(this, ptr, str);
+            return new ModifiedUtfString(this, ptr, strPtr);
         }
 
         public void ReleaseModifiedUtfString(ModifiedUtfString str)
         {
             Debug.Assert(str != null);
 
-            _releaseStringUtfChars(_jniEnvWrapper.JniEnvPtr, str.OriginalString.NativePtr, str.NativePtr);
+            _releaseStringUtfChars(_jniEnvWrapper.JniEnvPtr, str.OriginalStringPtr, str.NativePtr);
             _jniEnvWrapper.Exceptions.CheckLastException();
         }
 
@@ -102,6 +112,13 @@ namespace jvm4csharp.JniApiWrappers
             JvmContext.Current.ValidateProxyInstane(str);
 
             return ToClrString(str.NativePtr);
+        }
+
+        private Class GetJavaLangClass()
+        {
+            if (_javaLangStringClass == null)
+                _javaLangStringClass = _jniEnvWrapper.Classes.FindClass(java.lang.String.JavaInternalClassName);
+            return _javaLangStringClass;
         }
     }
 }

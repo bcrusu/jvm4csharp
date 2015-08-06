@@ -1,10 +1,10 @@
 ﻿namespace jvm4csharp.java.lang
 {
-    [JavaProxy(JavaLangInternalClassName)]
+    [JavaProxy(JavaInternalClassName)]
     public sealed class Class : Object
     {
-        internal const string JavaLangClassName = "java.lang.Class";
-        internal const string JavaLangInternalClassName = "java/lang/Class";
+        internal const string JavaClassName = "java.lang.Class";
+        internal const string JavaInternalClassName = "java/lang/Class";
 
         internal string ClassName { get; private set; }
 

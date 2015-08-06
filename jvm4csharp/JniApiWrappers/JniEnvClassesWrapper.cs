@@ -9,7 +9,7 @@ namespace jvm4csharp.JniApiWrappers
     internal class JniEnvClassesWrapper
     {
         private readonly JniEnvWrapper _jniEnvWrapper;
-        private readonly Class _javaLangClass;
+        private Class _javaLangClass;
 
         private JniNativeInterfaceSig.Methods.NewObjectA _newObject;
         private JniNativeInterfaceSig.Fields.GetFieldID _getFieldId;
@@ -79,10 +79,7 @@ namespace jvm4csharp.JniApiWrappers
         {
             Debug.Assert(jniEnvWrapper != null);
             _jniEnvWrapper = jniEnvWrapper;
-
             InitFunctions();
-
-            _javaLangClass = FindClass(Class.JavaLangInternalClassName);
         }
 
         private void InitFunctions()
@@ -168,9 +165,9 @@ namespace jvm4csharp.JniApiWrappers
             {
                 using (_jniEnvWrapper.PushLocalFrame())
                 {
-                    var str = _jniEnvWrapper.Strings.NewString(className);
+                    var strPtr = _jniEnvWrapper.Strings.NewStringPtr(className);
 
-                    using (var modifiedStr = _jniEnvWrapper.Strings.GetModifiedUtfString(str))
+                    using (var modifiedStr = _jniEnvWrapper.Strings.GetModifiedUtfString(strPtr))
                     {
                         var classPtr = _findClass(_jniEnvWrapper.JniEnvPtr, modifiedStr.NativePtr);
                         _jniEnvWrapper.Exceptions.CheckLastException();
@@ -229,11 +226,12 @@ namespace jvm4csharp.JniApiWrappers
 
             var result = new Class(JavaVoid.Void, className, internalClassName);
             result.NativePtr = classPtr;
+            result.Context = JvmContext.Current;
 
-            if (string.Equals(className, Class.JavaLangClassName, StringComparison.CurrentCultureIgnoreCase))
+            if (string.Equals(className, Class.JavaClassName, StringComparison.CurrentCultureIgnoreCase))
                 result.Class = result;
             else
-                result.Class = _javaLangClass;
+                result.Class = GetJavaLangClass();
 
             return result;
         }
@@ -556,7 +554,7 @@ namespace jvm4csharp.JniApiWrappers
 
             using (_jniEnvWrapper.PushLocalFrame())
             {
-                var methodId = GetMethodId(_javaLangClass.NativePtr, "getName", false, "()Ljava/lang/String;");
+                var methodId = GetMethodId(GetJavaLangClass(), "getName", false, "()Ljava/lang/String;");
 
                 var classNamePtr = _callObjectMethod(_jniEnvWrapper.JniEnvPtr, classPtr, methodId);
                 _jniEnvWrapper.Exceptions.CheckLastException();
@@ -566,21 +564,22 @@ namespace jvm4csharp.JniApiWrappers
             }
         }
 
-        public string CallToString(IntPtr objPtr)
-        {
-            Debug.Assert(objPtr != IntPtr.Zero);
+        //TODO: better logging 4 debug mode
+        //public string CallToString(IntPtr objPtr)
+        //{
+        //    Debug.Assert(objPtr != IntPtr.Zero);
 
-            var classPtr = _getObjectClass(_jniEnvWrapper.JniEnvPtr, objPtr);
-            _jniEnvWrapper.Exceptions.CheckLastException();
+        //    var classPtr = _getObjectClass(_jniEnvWrapper.JniEnvPtr, objPtr);
+        //    _jniEnvWrapper.Exceptions.CheckLastException();
 
-            var methodId = GetMethodId(classPtr, "toString", false, "()Ljava/lang/String;");
+        //    var methodId = GetMethodId(classPtr, "toString", false, "()Ljava/lang/String;");
 
-            var strPtr = _callObjectMethod(_jniEnvWrapper.JniEnvPtr, objPtr, methodId);
-            _jniEnvWrapper.Exceptions.CheckLastException();
+        //    var strPtr = _callObjectMethod(_jniEnvWrapper.JniEnvPtr, objPtr, methodId);
+        //    _jniEnvWrapper.Exceptions.CheckLastException();
 
-            var clrStr = _jniEnvWrapper.Strings.ToClrString(strPtr);
-            return clrStr;
-        }
+        //    var clrStr = _jniEnvWrapper.Strings.ToClrString(strPtr);
+        //    return clrStr;
+        //}
 
         private IntPtr GetFieldId(Class clazz, string name, bool isStatic, string signature)
         {
@@ -590,11 +589,11 @@ namespace jvm4csharp.JniApiWrappers
 
             using (_jniEnvWrapper.PushLocalFrame())
             {
-                var nameString = _jniEnvWrapper.Strings.NewString(name);
-                var signatureString = _jniEnvWrapper.Strings.NewString(signature);
+                var nameStringPtr = _jniEnvWrapper.Strings.NewStringPtr(name);
+                var signatureStringPtr = _jniEnvWrapper.Strings.NewStringPtr(signature);
 
-                using (var nameModifiedString = _jniEnvWrapper.Strings.GetModifiedUtfString(nameString))
-                using (var signatureModifiedString = _jniEnvWrapper.Strings.GetModifiedUtfString(signatureString))
+                using (var nameModifiedString = _jniEnvWrapper.Strings.GetModifiedUtfString(nameStringPtr))
+                using (var signatureModifiedString = _jniEnvWrapper.Strings.GetModifiedUtfString(signatureStringPtr))
                 {
                     IntPtr ptr;
                     if (isStatic)
@@ -603,33 +602,8 @@ namespace jvm4csharp.JniApiWrappers
                         ptr = _getFieldId(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, nameModifiedString.NativePtr, signatureModifiedString.NativePtr);
 
                     _jniEnvWrapper.Exceptions.CheckLastException();
-
-                    return ptr;
-                }
-            }
-        }
-
-        private IntPtr GetMethodId(IntPtr classPtr, string name, bool isStatic, string signature)
-        {
-            Debug.Assert(classPtr != IntPtr.Zero);
-            Debug.Assert(name != null);
-            Debug.Assert(signature != null);
-
-            using (_jniEnvWrapper.PushLocalFrame())
-            {
-                var nameString = _jniEnvWrapper.Strings.NewString(name);
-                var signatureString = _jniEnvWrapper.Strings.NewString(signature);
-
-                using (var nameModifiedString = _jniEnvWrapper.Strings.GetModifiedUtfString(nameString))
-                using (var signatureModifiedString = _jniEnvWrapper.Strings.GetModifiedUtfString(signatureString))
-                {
-                    IntPtr ptr;
-                    if (isStatic)
-                        ptr = _getStaticMethodId(_jniEnvWrapper.JniEnvPtr, classPtr, nameModifiedString.NativePtr, signatureModifiedString.NativePtr);
-                    else
-                        ptr = _getMethodId(_jniEnvWrapper.JniEnvPtr, classPtr, nameModifiedString.NativePtr, signatureModifiedString.NativePtr);
-
-                    _jniEnvWrapper.Exceptions.CheckLastException();
+                    if (ptr == IntPtr.Zero)
+                        throw new JvmException($"Could not get field id. Class: '{clazz.ClassName}', name: '{name}', isStatic: '{isStatic}', signature: '{signature}'");
 
                     return ptr;
                 }
@@ -639,7 +613,30 @@ namespace jvm4csharp.JniApiWrappers
         private IntPtr GetMethodId(Class clazz, string name, bool isStatic, string signature)
         {
             Debug.Assert(clazz != null);
-            return GetMethodId(clazz.NativePtr, name, isStatic, signature);
+            Debug.Assert(name != null);
+            Debug.Assert(signature != null);
+
+            using (_jniEnvWrapper.PushLocalFrame())
+            {
+                var nameStringPtr = _jniEnvWrapper.Strings.NewStringPtr(name);
+                var signatureStringPtr = _jniEnvWrapper.Strings.NewStringPtr(signature);
+
+                using (var nameModifiedString = _jniEnvWrapper.Strings.GetModifiedUtfString(nameStringPtr))
+                using (var signatureModifiedString = _jniEnvWrapper.Strings.GetModifiedUtfString(signatureStringPtr))
+                {
+                    IntPtr ptr;
+                    if (isStatic)
+                        ptr = _getStaticMethodId(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, nameModifiedString.NativePtr, signatureModifiedString.NativePtr);
+                    else
+                        ptr = _getMethodId(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, nameModifiedString.NativePtr, signatureModifiedString.NativePtr);
+
+                    _jniEnvWrapper.Exceptions.CheckLastException();
+                    if (ptr == IntPtr.Zero)
+                        throw new JvmException($"Could not get method id. Class: '{clazz.ClassName}', name: '{name}', isStatic: '{isStatic}', signature: '{signature}'");
+
+                    return ptr;
+                }
+            }
         }
 
         private static JniValue GetJniValue(object val)
@@ -687,6 +684,13 @@ namespace jvm4csharp.JniApiWrappers
                 result[i] = GetJniValue(args[i]);
 
             return result;
+        }
+
+        private Class GetJavaLangClass()
+        {
+            if (_javaLangClass == null)
+                _javaLangClass = FindClass(Class.JavaInternalClassName);
+            return _javaLangClass;
         }
     }
 }

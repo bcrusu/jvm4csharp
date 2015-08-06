@@ -12,7 +12,7 @@ namespace jvm4csharp.java.lang
         {
         }
 
-        public Throwable()
+        public Throwable() //TODO: constructors
         {
         }
 
@@ -50,47 +50,47 @@ namespace jvm4csharp.java.lang
         #region IJavaObject
         public Class getClass()
         {
-            return Class;
+            return JavaObjectMembers.getClass(this);
         }
 
-        public virtual int hashCode()
+        public int hashCode()
         {
-            return CallMethod<int>("hashCode", "()I");
+            return JavaObjectMembers.hashCode(this);
         }
 
-        public virtual bool equals(Object obj)
+        public bool equals(IJavaObject obj)
         {
-            return CallMethod<bool>("equals", "(Ljava/lang/Object;)Z", obj);
+            return JavaObjectMembers.equals(this, obj);
         }
 
-        public virtual String toString()
+        public String toString()
         {
-            return CallMethod<String>("toString", "()Ljava/lang/String;");
+            return JavaObjectMembers.toString(this);
         }
 
         public void notify()
         {
-            CallMethod("notify", "()V");
+            JavaObjectMembers.notify(this);
         }
 
         public void notifyAll()
         {
-            CallMethod("notifyAll", "()V");
+            JavaObjectMembers.notifyAll(this);
         }
 
         public void wait()
         {
-            CallMethod("wait", "()V");
+            JavaObjectMembers.wait(this);
         }
 
         public void wait(long timeout)
         {
-            CallMethod("wait", "(J)V", timeout);
+            JavaObjectMembers.wait(this, timeout);
         }
 
         public void wait(long timeout, int nanos)
         {
-            CallMethod("wait", "(JI)V", timeout, nanos);
+            JavaObjectMembers.wait(this, timeout, nanos);
         }
         #endregion
 
@@ -100,7 +100,7 @@ namespace jvm4csharp.java.lang
             if (tmp == null)
                 return false;
 
-            return CallMethod<bool>("equals", "(Ljava/lang/Object;)Z", tmp);
+            return equals(tmp);
         }
 
         public override int GetHashCode()
