@@ -4,17 +4,9 @@ using jvm4csharp.JniApiWrappers;
 
 namespace jvm4csharp.java.lang
 {
-    [JavaProxy("java/lang/Throwable")]
-    public class Throwable : System.Exception, IJavaProxy, IJavaObject
+    public partial class Throwable : global::System.Exception, IJavaProxy, IJavaObject
     {
-        // ReSharper disable once UnusedParameter.Local
-        protected internal Throwable(JavaVoid jv)
-        {
-        }
-
-        public Throwable() //TODO: constructors
-        {
-        }
+        protected Throwable(JavaVoid v) {}
 
         protected Throwable(SerializationInfo info, StreamingContext context)
         {

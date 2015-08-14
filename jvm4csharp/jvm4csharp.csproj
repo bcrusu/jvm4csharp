@@ -68,8 +68,6 @@
     <Compile Include="Session\IJvmThread.cs" />
     <Compile Include="Session\PooledThreadProvider.cs" />
     <Compile Include="IJavaObject.cs" />
-    <Compile Include="java\lang\Error.cs" />
-    <Compile Include="java\lang\Exception.cs" />
     <Compile Include="JniApiWrappers\JniEnvArraysWrapper.cs" />
     <Compile Include="JniApiWrappers\ProxyRegistry.cs" />
     <Compile Include="Session\PooledThread.cs" />
@@ -80,7 +78,6 @@
     <Compile Include="java\lang\String.cs" />
     <Compile Include="java\lang\Throwable.cs" />
     <Compile Include="JavaProxyAttribute.cs" />
-    <Compile Include="java\util\Iterator.cs" />
     <Compile Include="JniApiWrappers\ProxyFactory.cs" />
     <Compile Include="JniApiWrappers\IJavaProxy.cs" />
     <Compile Include="JvmLocalFrame.cs" />
@@ -115,7 +112,9 @@
     <Compile Include="JvmSession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="generated\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

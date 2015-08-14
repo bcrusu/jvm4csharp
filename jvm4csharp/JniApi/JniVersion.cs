@@ -1,4 +1,5 @@
-﻿namespace jvm4csharp.JniApi
+﻿// ReSharper disable InconsistentNaming
+namespace jvm4csharp.JniApi
 {
     internal enum JniVersion
     {

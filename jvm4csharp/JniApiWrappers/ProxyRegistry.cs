@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using jvm4csharp.ArrayUtils;
+using jvm4csharp.java.lang;
 
 namespace jvm4csharp.JniApiWrappers
 {
     internal sealed class ProxyRegistry
     {
-        public static ProxyRegistry Current { get; private set; } 
+        public static ProxyRegistry Current { get; private set; }
 
         private readonly IDictionary<string, Type> _classNameToProxyTypeMap = new Dictionary<string, Type>();
+        private readonly IDictionary<string, Type> _classNameToGenericProxyTypeMap = new Dictionary<string, Type>();
         private readonly IDictionary<Type, string> _proxyTypeToClassNameMap = new Dictionary<Type, string>();
 
         private ProxyRegistry(IEnumerable<Type> proxyTypes)
@@ -21,7 +22,7 @@ namespace jvm4csharp.JniApiWrappers
 
             var defaultProxyTypes = GetDefaultProxyTypes();
             RegisterProxies(defaultProxyTypes);
-            
+
             RegisterProxies(proxyTypes);
         }
 
@@ -48,10 +49,15 @@ namespace jvm4csharp.JniApiWrappers
             return className;
         }
 
-        public bool TryGetProxyType(string internalClassName, out Type proxyType)
+        public bool TryGetProxyType(string internalClassName, bool isGenericProxy, out Type proxyType)
         {
             Debug.Assert(internalClassName != null);
-            return _classNameToProxyTypeMap.TryGetValue(internalClassName, out proxyType);
+
+            var map = _classNameToProxyTypeMap;
+            if (isGenericProxy)
+                map = _classNameToGenericProxyTypeMap;
+
+            return map.TryGetValue(internalClassName, out proxyType);
         }
 
         private void RegisterProxies(IEnumerable<Type> types)
@@ -68,23 +74,27 @@ namespace jvm4csharp.JniApiWrappers
             if (attr == null)
                 throw new ArgumentException($"Invalid proxy definition '{proxyType}'. Could not find 'JavaProxyAttribute'.");
 
-            var className = attr.ClassName;
-            if (_classNameToProxyTypeMap.ContainsKey(className))
-                throw new ArgumentException($"Duplicate proxy type '{proxyType}' detected. Java class name '{className}'.");
+            var destinationProxyMap = _classNameToProxyTypeMap;
+            if (proxyType.IsGenericTypeDefinition)
+                destinationProxyMap = _classNameToGenericProxyTypeMap;
 
-            if (string.IsNullOrWhiteSpace(className))
+            var internalClassName = attr.ClassName;
+            if (destinationProxyMap.ContainsKey(internalClassName))
+                throw new ArgumentException($"Duplicate proxy type '{proxyType}' detected. Java class name '{internalClassName}'.");
+
+            if (string.IsNullOrWhiteSpace(internalClassName))
                 throw new ArgumentException($"Invalid proxy definition '{proxyType}'. Missing 'JavaProxyAttribute.ClassName' property.");
 
             if (!proxyType.IsInterface)
             {
-                if (!typeof (java.lang.Object).IsAssignableFrom(proxyType) && !typeof (java.lang.Throwable).IsAssignableFrom(proxyType))
+                if (!typeof(java.lang.Object).IsAssignableFrom(proxyType) && !typeof(Throwable).IsAssignableFrom(proxyType))
                     throw new ArgumentException($"Invalid proxy definition '{proxyType}'. Proxy types must inherit from 'java.lang.Object' or 'java.lang.Throwable'.");
             }
 
             ValidateGenericTypeParameters(proxyType);
 
-            _classNameToProxyTypeMap[className] = proxyType;
-            _proxyTypeToClassNameMap[proxyType] = className;
+            destinationProxyMap[internalClassName] = proxyType;
+            _proxyTypeToClassNameMap[proxyType] = internalClassName;
         }
 
         private static void ValidateGenericTypeParameters(Type type)
@@ -108,7 +118,6 @@ namespace jvm4csharp.JniApiWrappers
             }
         }
 
-        [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
         private static IEnumerable<Type> GetDefaultProxyTypes()
         {
             var javaLangNamespace = "jvm4csharp.java.";
@@ -123,14 +132,14 @@ namespace jvm4csharp.JniApiWrappers
                     yield return type;
             }
 
-            yield return typeof (BooleanArray);
-            yield return typeof (ByteArray);
-            yield return typeof (CharArray);
-            yield return typeof (DoubleArray);
-            yield return typeof (FloatArray);
-            yield return typeof (IntArray);
-            yield return typeof (LongArray);
-            yield return typeof (ShortArray);
+            yield return typeof(BooleanArray);
+            yield return typeof(ByteArray);
+            yield return typeof(CharArray);
+            yield return typeof(DoubleArray);
+            yield return typeof(FloatArray);
+            yield return typeof(IntArray);
+            yield return typeof(LongArray);
+            yield return typeof(ShortArray);
         }
     }
 }

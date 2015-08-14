@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Runtime.Serialization;
 using jvm4csharp.java.lang;
 using jvm4csharp.JniApiWrappers.ProxyActivation;
 
@@ -61,17 +60,26 @@ namespace jvm4csharp.JniApiWrappers
 
         private static bool TryActivateProxy(Class clazz, Type expectedProxyType, out IJavaProxy proxy)
         {
-            Type proxyType;
-            if (ProxyRegistry.Current.TryGetProxyType(clazz.InternalClassName, out proxyType))
-            {
-                if (proxyType.IsGenericTypeDefinition)
-                    proxyType = proxyType.MakeGenericType(expectedProxyType.GenericTypeArguments);
+            var isGenericProxy = expectedProxyType.IsGenericTypeDefinition;
 
+            Type proxyType;
+            if (ProxyRegistry.Current.TryGetProxyType(clazz.InternalClassName, isGenericProxy, out proxyType))
+            {
+                proxyType = proxyType.MakeGenericType(expectedProxyType.GenericTypeArguments);
                 var proxyActivator = GetProxyActivator(proxyType);
 
                 proxy = proxyActivator.CreateInstance(proxyType);
                 return true;
             }
+
+            // fallback to erased type
+            if (isGenericProxy)
+                if (ProxyRegistry.Current.TryGetProxyType(clazz.InternalClassName, false, out proxyType))
+                {
+                    var proxyActivator = GetProxyActivator(proxyType);
+                    proxy = proxyActivator.CreateInstance(proxyType);
+                    return true;
+                }
 
             proxy = null;
             return false;

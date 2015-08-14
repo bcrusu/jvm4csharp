@@ -1,5 +1,6 @@
 ﻿using jvm4csharp.java.lang;
 
+// ReSharper disable InconsistentNaming
 namespace jvm4csharp
 {
     public interface IJavaObject
