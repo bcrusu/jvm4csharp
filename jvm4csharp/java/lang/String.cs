@@ -7,9 +7,7 @@
 
         private string _clrString;
 
-        internal String(JavaVoid jv) : base(jv)
-        {
-        }
+        internal String(JavaVoid v) : base(v) { }
 
         public static implicit operator string (String str)
         {
