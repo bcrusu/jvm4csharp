@@ -27,27 +27,27 @@ namespace jvm4csharp.JniApiWrappers
 
         public static void notify(this IJavaProxy proxy)
         {
-            JvmContext.Current.JniEnv.Classes.CallMethod<JavaVoid>(proxy, "notify", "()V");
+            JvmContext.Current.JniEnv.Classes.CallMethod<Void>(proxy, "notify", "()V");
         }
 
         public static void notifyAll(this IJavaProxy proxy)
         {
-            JvmContext.Current.JniEnv.Classes.CallMethod<JavaVoid>(proxy, "notifyAll", "()V");
+            JvmContext.Current.JniEnv.Classes.CallMethod<Void>(proxy, "notifyAll", "()V");
         }
 
         public static void wait(this IJavaProxy proxy)
         {
-            JvmContext.Current.JniEnv.Classes.CallMethod<JavaVoid>(proxy, "wait", "()V");
+            JvmContext.Current.JniEnv.Classes.CallMethod<Void>(proxy, "wait", "()V");
         }
 
         public static void wait(this IJavaProxy proxy, long timeout)
         {
-            JvmContext.Current.JniEnv.Classes.CallMethod<JavaVoid>(proxy, "wait", "(J)V", timeout);
+            JvmContext.Current.JniEnv.Classes.CallMethod<Void>(proxy, "wait", "(J)V", timeout);
         }
 
         public static void wait(this IJavaProxy proxy, long timeout, int nanos)
         {
-            JvmContext.Current.JniEnv.Classes.CallMethod<JavaVoid>(proxy, "wait", "(JI)V", timeout, nanos);
+            JvmContext.Current.JniEnv.Classes.CallMethod<Void>(proxy, "wait", "(JI)V", timeout, nanos);
         }
     }
 }

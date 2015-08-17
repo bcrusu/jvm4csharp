@@ -50,7 +50,7 @@ namespace jvm4csharp.JniApiWrappers.ProxyActivation
             public JvmRealProxy(Type proxyType) : base(proxyType)
             {
                 _proxyType = proxyType;
-                _proxy = new java.lang.Object(JavaVoid.Void);
+                _proxy = new java.lang.Object(ProxyCtor.I);
             }
 
             public override IMessage Invoke(IMessage msg)

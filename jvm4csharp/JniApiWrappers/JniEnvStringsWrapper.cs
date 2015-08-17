@@ -61,7 +61,7 @@ namespace jvm4csharp.JniApiWrappers
 
             var ptr = NewStringPtr(str);
 
-            var result = new java.lang.String(JavaVoid.Void);
+            var result = new java.lang.String(ProxyCtor.I);
             result.ProxyState = new JavaProxyState(ptr, GetJavaLangStringClass());
             return result;
         }

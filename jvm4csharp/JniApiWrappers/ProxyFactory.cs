@@ -33,9 +33,6 @@ namespace jvm4csharp.JniApiWrappers
             if (nativePtr == IntPtr.Zero)
                 return null;
 
-            if (expectedProxyType.IsGenericTypeDefinition)
-                throw new ArgumentException("TODO"); //TODO
-
             IJavaProxy result;
 
             if (WrapperHelpers.IsObjectArrayClass(clazz.InternalClassName))
@@ -58,10 +55,8 @@ namespace jvm4csharp.JniApiWrappers
 
         private static bool TryActivateProxy(Class clazz, Type expectedProxyType, out IJavaProxy proxy)
         {
-            var isGenericProxy = expectedProxyType.IsGenericTypeDefinition;
-
             Type proxyType;
-            if (ProxyRegistry.Current.TryGetProxyType(clazz.InternalClassName, isGenericProxy, out proxyType))
+            if (ProxyRegistry.Current.TryGetProxyType(clazz.InternalClassName, out proxyType))
             {
                 proxyType = proxyType.MakeGenericType(expectedProxyType.GenericTypeArguments);
                 var proxyActivator = GetProxyActivator(proxyType);
@@ -69,15 +64,6 @@ namespace jvm4csharp.JniApiWrappers
                 proxy = proxyActivator.CreateInstance(proxyType);
                 return true;
             }
-
-            // fallback to erased type
-            if (isGenericProxy)
-                if (ProxyRegistry.Current.TryGetProxyType(clazz.InternalClassName, false, out proxyType))
-                {
-                    var proxyActivator = GetProxyActivator(proxyType);
-                    proxy = proxyActivator.CreateInstance(proxyType);
-                    return true;
-                }
 
             proxy = null;
             return false;

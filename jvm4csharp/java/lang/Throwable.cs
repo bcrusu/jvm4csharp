@@ -9,7 +9,7 @@ namespace jvm4csharp.java.lang
 
         protected static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 
-        protected Throwable(JavaVoid j)
+        protected Throwable(ProxyCtor p)
         {
             Instance = new JavaProxyOperations.Instance(this);
         }

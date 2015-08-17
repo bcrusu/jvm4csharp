@@ -8,7 +8,7 @@ namespace jvm4csharp.ArrayUtils
     {
         private int? _length;
 
-        protected ArrayBase(int length) : base(JavaVoid.Void)
+        protected ArrayBase(int length) : base(ProxyCtor.I)
         {
             var tmpArray = JvmContext.Current.JniEnv.Arrays.NewArray<TElement>(length);
             ProxyState = tmpArray.ProxyState;

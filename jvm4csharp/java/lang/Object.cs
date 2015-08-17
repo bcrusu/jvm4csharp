@@ -10,12 +10,12 @@ namespace jvm4csharp.java.lang
         protected static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 
         // ReSharper disable once UnusedParameter.Local
-        protected internal Object(JavaVoid j)
+        protected internal Object(ProxyCtor p)
         {
             Instance = new JavaProxyOperations.Instance(this);
         }
 
-        public Object() : this(JavaVoid.Void)
+        public Object() : this(ProxyCtor.I)
         {
             Instance.CallConstructor("()V");
         }

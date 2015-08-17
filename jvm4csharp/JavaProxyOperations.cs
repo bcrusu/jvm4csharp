@@ -33,7 +33,7 @@ namespace jvm4csharp
 
             public void CallMethod(string name, string signature, params object[] args)
             {
-                JvmContext.Current.JniEnv.Classes.CallMethod<JavaVoid>(_javaProxy, name, signature, args);
+                JvmContext.Current.JniEnv.Classes.CallMethod<java.lang.Void>(_javaProxy, name, signature, args);
             }
 
             public void CallConstructor(string signature, params object[] args)
@@ -63,7 +63,7 @@ namespace jvm4csharp
 
             public void CallMethod(Type proxyType, string name, string signature, params object[] args)
             {
-                JvmContext.Current.JniEnv.Classes.CallStaticMethod<JavaVoid>(proxyType, name, signature, args);
+                JvmContext.Current.JniEnv.Classes.CallStaticMethod<java.lang.Void>(proxyType, name, signature, args);
             }
         }
     }

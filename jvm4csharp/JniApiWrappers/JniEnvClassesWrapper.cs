@@ -8,6 +8,9 @@ namespace jvm4csharp.JniApiWrappers
     //TODO: cache fieldId & memeberId
     internal class JniEnvClassesWrapper
     {
+        private const string JavaLangClassName = "java.lang.Class";
+        private const string JavaLangClassInternalName = "java/lang/Class";
+
         private readonly JniEnvWrapper _jniEnvWrapper;
         private Class _javaLangClass;
 
@@ -224,10 +227,10 @@ namespace jvm4csharp.JniApiWrappers
 
             var className = WrapperHelpers.GetClassName(internalClassName);
 
-            var result = new Class(JavaVoid.Void, className, internalClassName);
+            var result = new Class(ProxyCtor.I, className, internalClassName);
 
             Class clazz;
-            if (string.Equals(className, Class.JavaClassName, StringComparison.CurrentCultureIgnoreCase))
+            if (string.Equals(className, JavaLangClassName, StringComparison.CurrentCultureIgnoreCase))
                 clazz = result;
             else
                 clazz = GetJavaLangClass();
@@ -468,10 +471,10 @@ namespace jvm4csharp.JniApiWrappers
                     result = _callIntMethod(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, methodId, argValues);
                 else if (resultType == typeof(bool))
                     result = _callBooleanMethod(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, methodId, argValues) == JniBooleanValue.True;
-                else if (resultType == typeof(JavaVoid))
+                else if (resultType == typeof(java.lang.Void))
                 {
                     _callVoidMethod(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, methodId, argValues);
-                    result = JavaVoid.Void;
+                    result = null;
                 }
                 else if (resultType == typeof(byte))
                     result = _callByteMethod(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, methodId, argValues);
@@ -520,10 +523,10 @@ namespace jvm4csharp.JniApiWrappers
                     result = _callStaticIntMethod(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, methodId, argValues);
                 else if (resultType == typeof(bool))
                     result = _callStaticBooleanMethod(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, methodId, argValues) == JniBooleanValue.True;
-                else if (resultType == typeof(JavaVoid))
+                else if (resultType == typeof(java.lang.Void))
                 {
                     _callStaticVoidMethod(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, methodId, argValues);
-                    result = JavaVoid.Void;
+                    result = null;
                 }
                 else if (resultType == typeof(byte))
                     result = _callStaticByteMethod(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, methodId, argValues);
@@ -687,7 +690,7 @@ namespace jvm4csharp.JniApiWrappers
         private Class GetJavaLangClass()
         {
             if (_javaLangClass == null)
-                _javaLangClass = FindClass(Class.JavaInternalClassName);
+                _javaLangClass = FindClass(JavaLangClassInternalName);
             return _javaLangClass;
         }
     }

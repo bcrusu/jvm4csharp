@@ -10,7 +10,7 @@
 
         internal string InternalClassName { get; private set; }
 
-        internal Class(JavaVoid jv, string className, string internalClassName) : base(jv)
+        internal Class(ProxyCtor p, string className, string internalClassName) : base(p)
         {
             ClassName = className;
             InternalClassName = internalClassName;
@@ -19,7 +19,7 @@
 
     public partial class Class : Class<IJavaObject>
     {
-        internal Class(JavaVoid jv, string className, string internalClassName) : base(jv, className, internalClassName)
+        internal Class(ProxyCtor p, string className, string internalClassName) : base(p, className, internalClassName)
         {
         }
     }

@@ -7,7 +7,7 @@
 
         private string _clrString;
 
-        internal String(JavaVoid v) : base(v) { }
+        internal String(ProxyCtor p) : base(p) { }
 
         public static implicit operator string (String str)
         {
