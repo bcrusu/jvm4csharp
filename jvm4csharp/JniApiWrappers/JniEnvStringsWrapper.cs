@@ -62,9 +62,7 @@ namespace jvm4csharp.JniApiWrappers
             var ptr = NewStringPtr(str);
 
             var result = new java.lang.String(JavaVoid.Void);
-            result.NativePtr = ptr;
-            result.Class = GetJavaLangClass();
-            result.Context = JvmContext.Current;
+            result.ProxyState = new JavaProxyState(ptr, GetJavaLangStringClass());
             return result;
         }
 
@@ -111,10 +109,10 @@ namespace jvm4csharp.JniApiWrappers
             if (str == null) throw new ArgumentNullException(nameof(str));
             JvmContext.Current.ValidateProxyInstane(str);
 
-            return ToClrString(str.NativePtr);
+            return ToClrString(str.ProxyState.NativePtr);
         }
 
-        private Class GetJavaLangClass()
+        private Class GetJavaLangStringClass()
         {
             if (_javaLangStringClass == null)
                 _javaLangStringClass = _jniEnvWrapper.Classes.FindClass(java.lang.String.JavaInternalClassName);

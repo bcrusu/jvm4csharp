@@ -11,7 +11,7 @@ namespace jvm4csharp.ArrayUtils
         protected ArrayBase(int length) : base(JavaVoid.Void)
         {
             var tmpArray = JvmContext.Current.JniEnv.Arrays.NewArray<TElement>(length);
-            NativePtr = tmpArray.NativePtr;
+            ProxyState = tmpArray.ProxyState;
             _length = length;
         }
 

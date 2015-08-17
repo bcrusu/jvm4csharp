@@ -225,14 +225,14 @@ namespace jvm4csharp.JniApiWrappers
             var className = WrapperHelpers.GetClassName(internalClassName);
 
             var result = new Class(JavaVoid.Void, className, internalClassName);
-            result.NativePtr = classPtr;
-            result.Context = JvmContext.Current;
 
+            Class clazz;
             if (string.Equals(className, Class.JavaClassName, StringComparison.CurrentCultureIgnoreCase))
-                result.Class = result;
+                clazz = result;
             else
-                result.Class = GetJavaLangClass();
+                clazz = GetJavaLangClass();
 
+            result.ProxyState = new JavaProxyState(classPtr, clazz);
             return result;
         }
 
@@ -244,7 +244,7 @@ namespace jvm4csharp.JniApiWrappers
             var methodId = GetMethodId(clazz, "<init>", false, ctorSignature);
             var argValues = GetJniValues(args);
 
-            var ptr = _newObject(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, methodId, argValues);
+            var ptr = _newObject(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, methodId, argValues);
             _jniEnvWrapper.Exceptions.CheckLastException();
 
             return (T)_jniEnvWrapper.ProxyFactory.CreateProxy(typeof(T), clazz, ptr);
@@ -254,18 +254,16 @@ namespace jvm4csharp.JniApiWrappers
         {
             if (proxy == null) throw new ArgumentNullException(nameof(proxy));
             if (ctorSignature == null) throw new ArgumentNullException(nameof(ctorSignature));
-            if (proxy.NativePtr != IntPtr.Zero) throw new ArgumentException("Proxy object already initialized.");
+            if (proxy.ProxyState != null) throw new ArgumentException("Proxy object already initialized.");
 
             var clazz = FindClass(proxy.GetType());
             var methodId = GetMethodId(clazz, "<init>", false, ctorSignature);
             var argValues = GetJniValues(args);
 
-            var ptr = _newObject(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, methodId, argValues);
+            var ptr = _newObject(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, methodId, argValues);
             _jniEnvWrapper.Exceptions.CheckLastException();
 
-            proxy.NativePtr = ptr;
-            proxy.Context = JvmContext.Current;
-            proxy.Class = clazz;
+            proxy.ProxyState = new JavaProxyState(ptr, clazz);
         }
 
         public TField GetField<TField>(IJavaProxy proxy, string name, string signature)
@@ -275,7 +273,7 @@ namespace jvm4csharp.JniApiWrappers
             if (signature == null) throw new ArgumentNullException(nameof(signature));
             JvmContext.Current.ValidateProxyInstane(proxy);
 
-            var clazz = proxy.Class;
+            var clazz = proxy.ProxyState.Class;
             var fieldType = typeof(TField);
             var fieldId = GetFieldId(clazz, name, false, signature);
 
@@ -283,7 +281,7 @@ namespace jvm4csharp.JniApiWrappers
 
             if (typeof(IJavaProxy).IsAssignableFrom(fieldType))
             {
-                var objPtr = _getObjectField(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, fieldId);
+                var objPtr = _getObjectField(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, fieldId);
                 _jniEnvWrapper.Exceptions.CheckLastException();
 
                 result = _jniEnvWrapper.ProxyFactory.CreateProxy(fieldType, objPtr);
@@ -291,21 +289,21 @@ namespace jvm4csharp.JniApiWrappers
             else
             {
                 if (fieldType == typeof(int))
-                    result = _getIntField(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, fieldId);
+                    result = _getIntField(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, fieldId);
                 else if (fieldType == typeof(bool))
-                    result = _getBooleanField(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, fieldId) == JniBooleanValue.True;
+                    result = _getBooleanField(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, fieldId) == JniBooleanValue.True;
                 else if (fieldType == typeof(byte))
-                    result = _getByteField(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, fieldId);
+                    result = _getByteField(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, fieldId);
                 else if (fieldType == typeof(double))
-                    result = _getDoubleField(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, fieldId);
+                    result = _getDoubleField(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, fieldId);
                 else if (fieldType == typeof(char))
-                    result = _getCharField(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, fieldId);
+                    result = _getCharField(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, fieldId);
                 else if (fieldType == typeof(long))
-                    result = _getLongField(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, fieldId);
+                    result = _getLongField(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, fieldId);
                 else if (fieldType == typeof(float))
-                    result = _getFloatField(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, fieldId);
+                    result = _getFloatField(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, fieldId);
                 else if (fieldType == typeof(short))
-                    result = _getShortField(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, fieldId);
+                    result = _getShortField(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, fieldId);
                 else
                     throw new ArgumentException($"Unsupported CLR type '{fieldType}'.");
 
@@ -329,7 +327,7 @@ namespace jvm4csharp.JniApiWrappers
 
             if (typeof(IJavaProxy).IsAssignableFrom(fieldType))
             {
-                var objPtr = _getStaticObjectField(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, fieldId);
+                var objPtr = _getStaticObjectField(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, fieldId);
                 _jniEnvWrapper.Exceptions.CheckLastException();
 
                 result = _jniEnvWrapper.ProxyFactory.CreateProxy(fieldType, objPtr);
@@ -337,21 +335,21 @@ namespace jvm4csharp.JniApiWrappers
             else
             {
                 if (fieldType == typeof(int))
-                    result = _getStaticIntField(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, fieldId);
+                    result = _getStaticIntField(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, fieldId);
                 else if (fieldType == typeof(bool))
-                    result = _getStaticBooleanField(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, fieldId) == JniBooleanValue.True;
+                    result = _getStaticBooleanField(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, fieldId) == JniBooleanValue.True;
                 else if (fieldType == typeof(byte))
-                    result = _getStaticByteField(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, fieldId);
+                    result = _getStaticByteField(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, fieldId);
                 else if (fieldType == typeof(double))
-                    result = _getStaticDoubleField(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, fieldId);
+                    result = _getStaticDoubleField(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, fieldId);
                 else if (fieldType == typeof(char))
-                    result = _getStaticCharField(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, fieldId);
+                    result = _getStaticCharField(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, fieldId);
                 else if (fieldType == typeof(long))
-                    result = _getStaticLongField(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, fieldId);
+                    result = _getStaticLongField(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, fieldId);
                 else if (fieldType == typeof(float))
-                    result = _getStaticFloatField(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, fieldId);
+                    result = _getStaticFloatField(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, fieldId);
                 else if (fieldType == typeof(short))
-                    result = _getStaticShortField(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, fieldId);
+                    result = _getStaticShortField(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, fieldId);
                 else
                     throw new ArgumentException($"Unsupported CLR type '{fieldType}'.");
 
@@ -368,7 +366,7 @@ namespace jvm4csharp.JniApiWrappers
             if (signature == null) throw new ArgumentNullException(nameof(signature));
             JvmContext.Current.ValidateProxyInstane(proxy);
 
-            var clazz = proxy.Class;
+            var clazz = proxy.ProxyState.Class;
             var fieldType = typeof(TField);
             var fieldId = GetFieldId(clazz, name, false, signature);
 
@@ -376,26 +374,26 @@ namespace jvm4csharp.JniApiWrappers
             {
                 var valuePtr = IntPtr.Zero;
                 if (value != null)
-                    valuePtr = ((IJavaProxy)value).NativePtr;
+                    valuePtr = ((IJavaProxy)value).ProxyState.NativePtr;
 
-                _setObjectField(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, fieldId, valuePtr);
+                _setObjectField(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, fieldId, valuePtr);
             }
             else if (fieldType == typeof(int))
-                _setIntField(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, fieldId, Convert.ToInt32(value));
+                _setIntField(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, fieldId, Convert.ToInt32(value));
             else if (fieldType == typeof(bool))
-                _setBooleanField(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, fieldId, JniBooleanValue.ToNativeBool(Convert.ToBoolean(value)));
+                _setBooleanField(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, fieldId, JniBooleanValue.ToNativeBool(Convert.ToBoolean(value)));
             else if (fieldType == typeof(byte))
-                _setByteField(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, fieldId, Convert.ToByte(value));
+                _setByteField(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, fieldId, Convert.ToByte(value));
             else if (fieldType == typeof(double))
-                _setDoubleField(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, fieldId, Convert.ToDouble(value));
+                _setDoubleField(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, fieldId, Convert.ToDouble(value));
             else if (fieldType == typeof(char))
-                _setCharField(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, fieldId, Convert.ToChar(value));
+                _setCharField(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, fieldId, Convert.ToChar(value));
             else if (fieldType == typeof(long))
-                _setLongField(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, fieldId, Convert.ToInt64(value));
+                _setLongField(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, fieldId, Convert.ToInt64(value));
             else if (fieldType == typeof(float))
-                _setFloatField(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, fieldId, Convert.ToSingle(value));
+                _setFloatField(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, fieldId, Convert.ToSingle(value));
             else if (fieldType == typeof(short))
-                _setShortField(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, fieldId, Convert.ToInt16(value));
+                _setShortField(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, fieldId, Convert.ToInt16(value));
             else
                 throw new ArgumentException($"Unsupported CLR type '{fieldType}'.");
 
@@ -416,26 +414,26 @@ namespace jvm4csharp.JniApiWrappers
             {
                 var valuePtr = IntPtr.Zero;
                 if (value != null)
-                    valuePtr = ((IJavaProxy)value).NativePtr;
+                    valuePtr = ((IJavaProxy)value).ProxyState.NativePtr;
 
-                _setStaticObjectField(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, fieldId, valuePtr);
+                _setStaticObjectField(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, fieldId, valuePtr);
             }
             else if (fieldType == typeof(int))
-                _setStaticIntField(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, fieldId, Convert.ToInt32(value));
+                _setStaticIntField(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, fieldId, Convert.ToInt32(value));
             else if (fieldType == typeof(bool))
-                _setStaticBooleanField(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, fieldId, JniBooleanValue.ToNativeBool(Convert.ToBoolean(value)));
+                _setStaticBooleanField(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, fieldId, JniBooleanValue.ToNativeBool(Convert.ToBoolean(value)));
             else if (fieldType == typeof(byte))
-                _setStaticByteField(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, fieldId, Convert.ToByte(value));
+                _setStaticByteField(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, fieldId, Convert.ToByte(value));
             else if (fieldType == typeof(double))
-                _setStaticDoubleField(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, fieldId, Convert.ToDouble(value));
+                _setStaticDoubleField(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, fieldId, Convert.ToDouble(value));
             else if (fieldType == typeof(char))
-                _setStaticCharField(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, fieldId, Convert.ToChar(value));
+                _setStaticCharField(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, fieldId, Convert.ToChar(value));
             else if (fieldType == typeof(long))
-                _setStaticLongField(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, fieldId, Convert.ToInt64(value));
+                _setStaticLongField(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, fieldId, Convert.ToInt64(value));
             else if (fieldType == typeof(float))
-                _setStaticFloatField(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, fieldId, Convert.ToSingle(value));
+                _setStaticFloatField(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, fieldId, Convert.ToSingle(value));
             else if (fieldType == typeof(short))
-                _setStaticShortField(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, fieldId, Convert.ToInt16(value));
+                _setStaticShortField(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, fieldId, Convert.ToInt16(value));
             else
                 throw new ArgumentException($"Unsupported CLR type '{fieldType}'.");
 
@@ -449,7 +447,7 @@ namespace jvm4csharp.JniApiWrappers
             if (signature == null) throw new ArgumentNullException(nameof(signature));
             JvmContext.Current.ValidateProxyInstane(proxy);
 
-            var clazz = proxy.Class;
+            var clazz = proxy.ProxyState.Class;
 
             var methodId = GetMethodId(clazz, name, false, signature);
             var argValues = GetJniValues(args);
@@ -459,7 +457,7 @@ namespace jvm4csharp.JniApiWrappers
 
             if (typeof(IJavaObject).IsAssignableFrom(resultType))
             {
-                var objPtr = _callObjectMethod(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, methodId, argValues);
+                var objPtr = _callObjectMethod(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, methodId, argValues);
                 _jniEnvWrapper.Exceptions.CheckLastException();
 
                 result = _jniEnvWrapper.ProxyFactory.CreateProxy(resultType, objPtr);
@@ -467,26 +465,26 @@ namespace jvm4csharp.JniApiWrappers
             else
             {
                 if (resultType == typeof(int))
-                    result = _callIntMethod(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, methodId, argValues);
+                    result = _callIntMethod(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, methodId, argValues);
                 else if (resultType == typeof(bool))
-                    result = _callBooleanMethod(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, methodId, argValues) == JniBooleanValue.True;
+                    result = _callBooleanMethod(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, methodId, argValues) == JniBooleanValue.True;
                 else if (resultType == typeof(JavaVoid))
                 {
-                    _callVoidMethod(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, methodId, argValues);
+                    _callVoidMethod(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, methodId, argValues);
                     result = JavaVoid.Void;
                 }
                 else if (resultType == typeof(byte))
-                    result = _callByteMethod(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, methodId, argValues);
+                    result = _callByteMethod(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, methodId, argValues);
                 else if (resultType == typeof(double))
-                    result = _callDoubleMethod(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, methodId, argValues);
+                    result = _callDoubleMethod(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, methodId, argValues);
                 else if (resultType == typeof(char))
-                    result = _callCharMethod(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, methodId, argValues);
+                    result = _callCharMethod(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, methodId, argValues);
                 else if (resultType == typeof(long))
-                    result = _callLongMethod(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, methodId, argValues);
+                    result = _callLongMethod(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, methodId, argValues);
                 else if (resultType == typeof(float))
-                    result = _callFloatMethod(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, methodId, argValues);
+                    result = _callFloatMethod(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, methodId, argValues);
                 else if (resultType == typeof(short))
-                    result = _callShortMethod(_jniEnvWrapper.JniEnvPtr, proxy.NativePtr, methodId, argValues);
+                    result = _callShortMethod(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, methodId, argValues);
                 else
                     throw new ArgumentException($"Unsupported CLR type '{resultType}'.");
 
@@ -511,7 +509,7 @@ namespace jvm4csharp.JniApiWrappers
 
             if (typeof(IJavaProxy).IsAssignableFrom(resultType))
             {
-                var objPtr = _callStaticObjectMethod(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, methodId, argValues);
+                var objPtr = _callStaticObjectMethod(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, methodId, argValues);
                 _jniEnvWrapper.Exceptions.CheckLastException();
 
                 result = _jniEnvWrapper.ProxyFactory.CreateProxy(resultType, objPtr);
@@ -519,26 +517,26 @@ namespace jvm4csharp.JniApiWrappers
             else
             {
                 if (resultType == typeof(int))
-                    result = _callStaticIntMethod(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, methodId, argValues);
+                    result = _callStaticIntMethod(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, methodId, argValues);
                 else if (resultType == typeof(bool))
-                    result = _callStaticBooleanMethod(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, methodId, argValues) == JniBooleanValue.True;
+                    result = _callStaticBooleanMethod(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, methodId, argValues) == JniBooleanValue.True;
                 else if (resultType == typeof(JavaVoid))
                 {
-                    _callStaticVoidMethod(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, methodId, argValues);
+                    _callStaticVoidMethod(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, methodId, argValues);
                     result = JavaVoid.Void;
                 }
                 else if (resultType == typeof(byte))
-                    result = _callStaticByteMethod(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, methodId, argValues);
+                    result = _callStaticByteMethod(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, methodId, argValues);
                 else if (resultType == typeof(double))
-                    result = _callStaticDoubleMethod(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, methodId, argValues);
+                    result = _callStaticDoubleMethod(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, methodId, argValues);
                 else if (resultType == typeof(char))
-                    result = _callStaticCharMethod(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, methodId, argValues);
+                    result = _callStaticCharMethod(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, methodId, argValues);
                 else if (resultType == typeof(long))
-                    result = _callStaticLongMethod(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, methodId, argValues);
+                    result = _callStaticLongMethod(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, methodId, argValues);
                 else if (resultType == typeof(float))
-                    result = _callStaticFloatMethod(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, methodId, argValues);
+                    result = _callStaticFloatMethod(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, methodId, argValues);
                 else if (resultType == typeof(short))
-                    result = _callStaticShortMethod(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, methodId, argValues);
+                    result = _callStaticShortMethod(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, methodId, argValues);
                 else
                     throw new ArgumentException($"Unsupported CLR type '{resultType}'.");
 
@@ -597,9 +595,9 @@ namespace jvm4csharp.JniApiWrappers
                 {
                     IntPtr ptr;
                     if (isStatic)
-                        ptr = _getStaticFieldId(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, nameModifiedString.NativePtr, signatureModifiedString.NativePtr);
+                        ptr = _getStaticFieldId(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, nameModifiedString.NativePtr, signatureModifiedString.NativePtr);
                     else
-                        ptr = _getFieldId(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, nameModifiedString.NativePtr, signatureModifiedString.NativePtr);
+                        ptr = _getFieldId(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, nameModifiedString.NativePtr, signatureModifiedString.NativePtr);
 
                     _jniEnvWrapper.Exceptions.CheckLastException();
                     if (ptr == IntPtr.Zero)
@@ -626,9 +624,9 @@ namespace jvm4csharp.JniApiWrappers
                 {
                     IntPtr ptr;
                     if (isStatic)
-                        ptr = _getStaticMethodId(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, nameModifiedString.NativePtr, signatureModifiedString.NativePtr);
+                        ptr = _getStaticMethodId(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, nameModifiedString.NativePtr, signatureModifiedString.NativePtr);
                     else
-                        ptr = _getMethodId(_jniEnvWrapper.JniEnvPtr, clazz.NativePtr, nameModifiedString.NativePtr, signatureModifiedString.NativePtr);
+                        ptr = _getMethodId(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, nameModifiedString.NativePtr, signatureModifiedString.NativePtr);
 
                     _jniEnvWrapper.Exceptions.CheckLastException();
                     if (ptr == IntPtr.Zero)
@@ -656,7 +654,7 @@ namespace jvm4csharp.JniApiWrappers
             {
                 var proxy = (IJavaProxy)val;
                 JvmContext.Current.ValidateProxyInstane(proxy);
-                result.Object = proxy.NativePtr;
+                result.Object = proxy.ProxyState.NativePtr;
             }
             else if (argType == typeof(byte))
                 result.Byte = (byte)val;

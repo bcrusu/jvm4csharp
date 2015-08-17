@@ -1,5 +1,4 @@
-﻿using System;
-using jvm4csharp.JniApiWrappers;
+﻿using jvm4csharp.JniApiWrappers;
 
 namespace jvm4csharp.java.lang
 {
@@ -22,29 +21,13 @@ namespace jvm4csharp.java.lang
         }
 
         #region IJavaProxy
-        IntPtr IJavaProxy.NativePtr
+        JavaProxyState IJavaProxy.ProxyState
         {
-            set { NativePtr = value; }
-            get { return NativePtr; }
+            set { ProxyState = value; }
+            get { return ProxyState; }
         }
 
-        internal IntPtr NativePtr { get; set; }
-
-        JvmContext IJavaProxy.Context
-        {
-            set { Context = value; }
-            get { return Context; }
-        }
-
-        internal JvmContext Context { get; set; }
-
-        Class IJavaProxy.Class
-        {
-            set { Class = value; }
-            get { return Class; }
-        }
-
-        internal Class Class { get; set; }
+        internal JavaProxyState ProxyState { get; set; }
         #endregion
 
         #region IJavaObject

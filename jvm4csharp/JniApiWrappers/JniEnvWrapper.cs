@@ -71,7 +71,7 @@ namespace jvm4csharp.JniApiWrappers
             if (proxy == null) throw new ArgumentNullException(nameof(proxy));
             JvmContext.Current.ValidateProxyInstane(proxy);
 
-            var ptr = _popLocalFrame(JniEnvPtr, proxy.NativePtr);
+            var ptr = _popLocalFrame(JniEnvPtr, proxy.ProxyState.NativePtr);
             return (T)ProxyFactory.CreateProxy(proxy.GetType(), ptr);
         }
 
@@ -89,9 +89,8 @@ namespace jvm4csharp.JniApiWrappers
             if (proxy == null) throw new ArgumentNullException(nameof(proxy));
             JvmContext.Current.ValidateProxyInstane(proxy);
 
-            _deleteLocalRef(JniEnvPtr, proxy.NativePtr);
-            proxy.NativePtr = IntPtr.Zero;
-            proxy.Context = null;
+            _deleteLocalRef(JniEnvPtr, proxy.ProxyState.NativePtr);
+            proxy.ProxyState = null;
         }
 
         public IntPtr NewGlobalReference(IntPtr refPtr)
@@ -110,7 +109,7 @@ namespace jvm4csharp.JniApiWrappers
             if (proxy == null) throw new ArgumentNullException(nameof(proxy));
             JvmContext.Current.ValidateProxyInstane(proxy);
 
-            var globalPtr = NewGlobalReference(proxy.NativePtr);
+            var globalPtr = NewGlobalReference(proxy.ProxyState.NativePtr);
             return ProxyFactory.CreateProxy(proxy.GetType(), globalPtr);
         }
 
@@ -121,9 +120,8 @@ namespace jvm4csharp.JniApiWrappers
 
             JavaVm.GlobalReferences.ValidateDeleteReference(proxy);
 
-            _deleteGlobalRef(JniEnvPtr, proxy.NativePtr);
-            proxy.NativePtr = IntPtr.Zero;
-            proxy.Context = null;
+            _deleteGlobalRef(JniEnvPtr, proxy.ProxyState.NativePtr);
+            proxy.ProxyState = null;
         }
 
         public void MonitorEnter(IJavaProxy proxy)
@@ -131,7 +129,7 @@ namespace jvm4csharp.JniApiWrappers
             if (proxy == null) throw new ArgumentNullException(nameof(proxy));
             JvmContext.Current.ValidateProxyInstane(proxy);
 
-            var result = _monitorEnter(JniEnvPtr, proxy.NativePtr);
+            var result = _monitorEnter(JniEnvPtr, proxy.ProxyState.NativePtr);
             if (result < 0)
                 throw new JvmException($"Could not enter monitor. Error code '{result}'.");
         }
@@ -141,7 +139,7 @@ namespace jvm4csharp.JniApiWrappers
             if (proxy == null) throw new ArgumentNullException(nameof(proxy));
             JvmContext.Current.ValidateProxyInstane(proxy);
 
-            var result = _monitorExit(JniEnvPtr, proxy.NativePtr);
+            var result = _monitorExit(JniEnvPtr, proxy.ProxyState.NativePtr);
             if (result < 0)
             {
                 Exceptions.CheckLastException();

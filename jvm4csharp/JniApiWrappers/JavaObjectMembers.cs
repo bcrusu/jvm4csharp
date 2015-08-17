@@ -7,7 +7,7 @@ namespace jvm4csharp.JniApiWrappers
     {
         public static Class getClass(this IJavaProxy proxy)
         {
-            return proxy.Class;
+            return proxy.ProxyState.Class;
         }
 
         public static int hashCode(this IJavaProxy proxy)

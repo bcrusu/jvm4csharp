@@ -70,10 +70,10 @@ namespace jvm4csharp
         {
             if (proxy == null) throw new ArgumentNullException(nameof(proxy));
 
-            if (proxy.Context == null || proxy.NativePtr == IntPtr.Zero)
+            if (proxy.ProxyState == null)
                 throw new ArgumentException("Invalid proxy instance. Does not belong to the current JVM Context.");
 
-            if (proxy.Context != this)
+            if (proxy.ProxyState.Context != this)
                 throw new ArgumentException("Invalid proxy instance. Belongs to a different JVM Context.");
         }
     }

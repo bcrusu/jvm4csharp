@@ -55,6 +55,7 @@
     <Compile Include="ArrayUtils\BooleanArray.cs" />
     <Compile Include="ArrayUtils\IntArray.cs" />
     <Compile Include="JavaSignatureAttribute.cs" />
+    <Compile Include="JniApiWrappers\JavaProxyState.cs" />
     <Compile Include="JniApiWrappers\JavaObjectMembers.cs" />
     <Compile Include="JniApiWrappers\ProxyActivation\RemotingProxyActivator.cs" />
     <Compile Include="JniApiWrappers\ProxyActivation\NonAbstractProxyActivator.cs" />

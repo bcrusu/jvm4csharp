@@ -88,7 +88,7 @@ namespace jvm4csharp.JniApiWrappers
             if (array == null) throw new ArgumentNullException(nameof(array));
             JvmContext.Current.ValidateProxyInstane(array);
 
-            var length = _getArrayLength(_jniEnvWrapper.JniEnvPtr, array.NativePtr);
+            var length = _getArrayLength(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr);
             _jniEnvWrapper.Exceptions.CheckLastException();
             return length;
         }
@@ -106,7 +106,7 @@ namespace jvm4csharp.JniApiWrappers
             {
                 expectedProxyType = typeof (ObjectArray<>).MakeGenericType(elementType);
                 var clazz = _jniEnvWrapper.Classes.FindClass(elementType);
-                arrayPtr = _newObjectArray(_jniEnvWrapper.JniEnvPtr, length, clazz.NativePtr, IntPtr.Zero);
+                arrayPtr = _newObjectArray(_jniEnvWrapper.JniEnvPtr, length, clazz.ProxyState.NativePtr, IntPtr.Zero);
                 _jniEnvWrapper.Exceptions.CheckLastException();
             }
             else
@@ -175,7 +175,7 @@ namespace jvm4csharp.JniApiWrappers
             {
                 var buffer = new byte[length];
                 fixed (byte* addr = &buffer[0])
-                    _getBooleanArrayRegion(_jniEnvWrapper.JniEnvPtr, array.NativePtr, startIndex, length, addr);
+                    _getBooleanArrayRegion(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr, startIndex, length, addr);
                 _jniEnvWrapper.Exceptions.CheckLastException();
 
                 result = JniBooleanValue.ToClrBool(buffer);
@@ -186,49 +186,49 @@ namespace jvm4csharp.JniApiWrappers
                 {
                     var buffer = new int[length];
                     fixed (int* addr = &buffer[0])
-                        _getIntArrayRegion(_jniEnvWrapper.JniEnvPtr, array.NativePtr, startIndex, length, addr);
+                        _getIntArrayRegion(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr, startIndex, length, addr);
                     result = buffer;
                 }
                 else if (elementType == typeof(byte))
                 {
                     var buffer = new byte[length];
                     fixed (byte* addr = &buffer[0])
-                        _getByteArrayRegion(_jniEnvWrapper.JniEnvPtr, array.NativePtr, startIndex, length, addr);
+                        _getByteArrayRegion(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr, startIndex, length, addr);
                     result = buffer;
                 }
                 else if (elementType == typeof(double))
                 {
                     var buffer = new double[length];
                     fixed (double* addr = &buffer[0])
-                        _getDoubleArrayRegion(_jniEnvWrapper.JniEnvPtr, array.NativePtr, startIndex, length, addr);
+                        _getDoubleArrayRegion(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr, startIndex, length, addr);
                     result = buffer;
                 }
                 else if (elementType == typeof(char))
                 {
                     var buffer = new char[length];
                     fixed (char* addr = &buffer[0])
-                        _getCharArrayRegion(_jniEnvWrapper.JniEnvPtr, array.NativePtr, startIndex, length, addr);
+                        _getCharArrayRegion(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr, startIndex, length, addr);
                     result = buffer;
                 }
                 else if (elementType == typeof(long))
                 {
                     var buffer = new long[length];
                     fixed (long* addr = &buffer[0])
-                        _getLongArrayRegion(_jniEnvWrapper.JniEnvPtr, array.NativePtr, startIndex, length, addr);
+                        _getLongArrayRegion(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr, startIndex, length, addr);
                     result = buffer;
                 }
                 else if (elementType == typeof(float))
                 {
                     var buffer = new float[length];
                     fixed (float* addr = &buffer[0])
-                        _getFloatArrayRegion(_jniEnvWrapper.JniEnvPtr, array.NativePtr, startIndex, length, addr);
+                        _getFloatArrayRegion(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr, startIndex, length, addr);
                     result = buffer;
                 }
                 else if (elementType == typeof(short))
                 {
                     var buffer = new short[length];
                     fixed (short* addr = &buffer[0])
-                        _getShortArrayRegion(_jniEnvWrapper.JniEnvPtr, array.NativePtr, startIndex, length, addr);
+                        _getShortArrayRegion(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr, startIndex, length, addr);
                     result = buffer;
                 }
                 else
@@ -255,50 +255,50 @@ namespace jvm4csharp.JniApiWrappers
             {
                 var tmpBuffer = JniBooleanValue.ToNativeBool((bool[])(object)buffer);
                 fixed (byte* addr = &tmpBuffer[0])
-                    _setBooleanArrayRegion(_jniEnvWrapper.JniEnvPtr, array.NativePtr, startIndex, length, addr);
+                    _setBooleanArrayRegion(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr, startIndex, length, addr);
 
             }
             else if (elementType == typeof(int))
             {
                 var tmpBuffer = (int[])(object)buffer;
                 fixed (int* addr = &tmpBuffer[0])
-                    _setIntArrayRegion(_jniEnvWrapper.JniEnvPtr, array.NativePtr, startIndex, length, addr);
+                    _setIntArrayRegion(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr, startIndex, length, addr);
             }
             else if (elementType == typeof(byte))
             {
                 var tmpBuffer = (byte[])(object)buffer;
                 fixed (byte* addr = &tmpBuffer[0])
-                    _setByteArrayRegion(_jniEnvWrapper.JniEnvPtr, array.NativePtr, startIndex, length, addr);
+                    _setByteArrayRegion(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr, startIndex, length, addr);
             }
             else if (elementType == typeof(double))
             {
                 var tmpBuffer = (double[])(object)buffer;
                 fixed (double* addr = &tmpBuffer[0])
-                    _setDoubleArrayRegion(_jniEnvWrapper.JniEnvPtr, array.NativePtr, startIndex, length, addr);
+                    _setDoubleArrayRegion(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr, startIndex, length, addr);
             }
             else if (elementType == typeof(char))
             {
                 var tmpBuffer = (char[])(object)buffer;
                 fixed (char* addr = &tmpBuffer[0])
-                    _setCharArrayRegion(_jniEnvWrapper.JniEnvPtr, array.NativePtr, startIndex, length, addr);
+                    _setCharArrayRegion(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr, startIndex, length, addr);
             }
             else if (elementType == typeof(long))
             {
                 var tmpBuffer = (long[])(object)buffer;
                 fixed (long* addr = &tmpBuffer[0])
-                    _setLongArrayRegion(_jniEnvWrapper.JniEnvPtr, array.NativePtr, startIndex, length, addr);
+                    _setLongArrayRegion(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr, startIndex, length, addr);
             }
             else if (elementType == typeof(float))
             {
                 var tmpBuffer = (float[])(object)buffer;
                 fixed (float* addr = &tmpBuffer[0])
-                    _setFloatArrayRegion(_jniEnvWrapper.JniEnvPtr, array.NativePtr, startIndex, length, addr);
+                    _setFloatArrayRegion(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr, startIndex, length, addr);
             }
             else if (elementType == typeof(short))
             {
                 var tmpBuffer = (short[])(object)buffer;
                 fixed (short* addr = &tmpBuffer[0])
-                    _setShortArrayRegion(_jniEnvWrapper.JniEnvPtr, array.NativePtr, startIndex, length, addr);
+                    _setShortArrayRegion(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr, startIndex, length, addr);
             }
             else
                 throw new ArgumentException($"Unsupported CLR type '{elementType}'.");
@@ -312,7 +312,7 @@ namespace jvm4csharp.JniApiWrappers
             if (index < 0) throw new ArgumentException(nameof(index));
             JvmContext.Current.ValidateProxyInstane(array);
 
-            var objPtr = _getObjectArrayElement(_jniEnvWrapper.JniEnvPtr, array.NativePtr, index);
+            var objPtr = _getObjectArrayElement(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr, index);
             _jniEnvWrapper.Exceptions.CheckLastException();
 
             var proxy = _jniEnvWrapper.ProxyFactory.CreateProxy(typeof(TElement), objPtr);
@@ -326,9 +326,9 @@ namespace jvm4csharp.JniApiWrappers
             JvmContext.Current.ValidateProxyInstane(array);
 
             var elementProxy = (IJavaProxy) element;
-            var elemPtr = elementProxy?.NativePtr ?? IntPtr.Zero;
+            var elemPtr = elementProxy?.ProxyState.NativePtr ?? IntPtr.Zero;
 
-            _setObjectArrayElement(_jniEnvWrapper.JniEnvPtr, array.NativePtr, index, elemPtr);
+            _setObjectArrayElement(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr, index, elemPtr);
             _jniEnvWrapper.Exceptions.CheckLastException();
         }
     }

@@ -3,7 +3,6 @@ using System.Reflection;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Messaging;
 using System.Runtime.Remoting.Proxies;
-using jvm4csharp.java.lang;
 
 namespace jvm4csharp.JniApiWrappers.ProxyActivation
 {
@@ -42,12 +41,8 @@ namespace jvm4csharp.JniApiWrappers.ProxyActivation
             private static readonly MethodBase JavaObjectWait = typeof(IJavaObject).GetMethod("wait", new Type[0]);
             private static readonly MethodBase JavaObjectWaitLong = typeof(IJavaObject).GetMethod("wait", new[] { typeof(long) });
             private static readonly MethodBase JavaObjectWaitLongInt = typeof(IJavaObject).GetMethod("wait", new[] { typeof(long), typeof(int) });
-            private static readonly MethodBase JavaProxyGetNativePtr = typeof(IJavaProxy).GetProperty("NativePtr").GetMethod;
-            private static readonly MethodBase JavaProxySetNativePtr = typeof(IJavaProxy).GetProperty("NativePtr").SetMethod;
-            private static readonly MethodBase JavaProxyGetContext = typeof(IJavaProxy).GetProperty("Context").GetMethod;
-            private static readonly MethodBase JavaProxySetContext = typeof(IJavaProxy).GetProperty("Context").SetMethod;
-            private static readonly MethodBase JavaProxyGetClass = typeof(IJavaProxy).GetProperty("Class").GetMethod;
-            private static readonly MethodBase JavaProxySetClass = typeof(IJavaProxy).GetProperty("Class").SetMethod;
+            private static readonly MethodBase JavaProxyGetProxyState = typeof(IJavaProxy).GetProperty("ProxyState").GetMethod;
+            private static readonly MethodBase JavaProxySetProxyState = typeof(IJavaProxy).GetProperty("ProxyState").SetMethod;
 
             private readonly Type _proxyType;
             private readonly IJavaProxy _proxy;
@@ -79,7 +74,7 @@ namespace jvm4csharp.JniApiWrappers.ProxyActivation
 
                     return HandleProxyMembers(mcm, method);
                 }
-                catch (System.Exception e)
+                catch (Exception e)
                 {
                     return CreateErrorReturnMessage(e, mcm);
                 }
@@ -106,7 +101,7 @@ namespace jvm4csharp.JniApiWrappers.ProxyActivation
                 return new ReturnMessage(result, new object[0], 0, mcm.LogicalCallContext, mcm);
             }
 
-            private static IMethodReturnMessage CreateErrorReturnMessage(System.Exception e, IMethodCallMessage mcm)
+            private static IMethodReturnMessage CreateErrorReturnMessage(Exception e, IMethodCallMessage mcm)
             {
                 return new ReturnMessage(e, mcm);
             }
@@ -166,26 +161,12 @@ namespace jvm4csharp.JniApiWrappers.ProxyActivation
 
             private IMethodReturnMessage HandleJavaProxyMembers(IMethodCallMessage mcm, MethodBase method)
             {
-                if (method == JavaProxyGetNativePtr)
-                    return CreateReturnMessage(_proxy.NativePtr, mcm);
-                if (method == JavaProxyGetClass)
-                    return CreateReturnMessage(_proxy.Class, mcm);
-                if (method == JavaProxyGetContext)
-                    return CreateReturnMessage(_proxy.Context, mcm);
+                if (method == JavaProxyGetProxyState)
+                    return CreateReturnMessage(_proxy.ProxyState.NativePtr, mcm);
 
-                if (method == JavaProxySetNativePtr)
+                if (method == JavaProxySetProxyState)
                 {
-                    _proxy.NativePtr = (IntPtr)mcm.Args[0];
-                    return CreateEmptyReturnMessage(mcm);
-                }
-                if (method == JavaProxySetClass)
-                {
-                    _proxy.Class = (Class)mcm.Args[0];
-                    return CreateEmptyReturnMessage(mcm);
-                }
-                if (method == JavaProxySetContext)
-                {
-                    _proxy.Context = (JvmContext)mcm.Args[0];
+                    _proxy.ProxyState = (JavaProxyState)mcm.Args[0];
                     return CreateEmptyReturnMessage(mcm);
                 }
 

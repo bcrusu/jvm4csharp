@@ -52,9 +52,7 @@ namespace jvm4csharp.JniApiWrappers
                 }
             }
 
-            result.NativePtr = nativePtr;
-            result.Context = JvmContext.Current;
-            result.Class = clazz;
+            result.ProxyState = new JavaProxyState(nativePtr, clazz);
             return result;
         }
 
