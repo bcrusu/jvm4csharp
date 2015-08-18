@@ -253,10 +253,12 @@ namespace jvm4csharp.JniApiWrappers
             return (T)_jniEnvWrapper.ProxyFactory.CreateProxy(typeof(T), clazz, ptr);
         }
 
-        public void NewObjectForProxy(IJavaProxy proxy, string ctorSignature, params object[] args)
+        public void NewObjectForProxy(IJavaObject javaObject, string ctorSignature, params object[] args)
         {
-            if (proxy == null) throw new ArgumentNullException(nameof(proxy));
             if (ctorSignature == null) throw new ArgumentNullException(nameof(ctorSignature));
+
+            var proxy = javaObject as IJavaProxy;
+            if (proxy == null) throw new ArgumentException("Invalid Java proxy.");
             if (proxy.ProxyState != null) throw new ArgumentException("Proxy object already initialized.");
 
             var clazz = FindClass(proxy.GetType());
@@ -269,12 +271,11 @@ namespace jvm4csharp.JniApiWrappers
             proxy.ProxyState = new JavaProxyState(ptr, clazz);
         }
 
-        public TField GetField<TField>(IJavaProxy proxy, string name, string signature)
+        public TField GetField<TField>(IJavaObject javaObject, string name, string signature)
         {
-            if (proxy == null) throw new ArgumentNullException(nameof(proxy));
             if (name == null) throw new ArgumentNullException(nameof(name));
             if (signature == null) throw new ArgumentNullException(nameof(signature));
-            JvmContext.Current.ValidateProxyInstane(proxy);
+            var proxy = WrapperHelpers.GetJavaProxy(javaObject);
 
             var clazz = proxy.ProxyState.Class;
             var fieldType = typeof(TField);
@@ -282,7 +283,7 @@ namespace jvm4csharp.JniApiWrappers
 
             object result;
 
-            if (typeof(IJavaProxy).IsAssignableFrom(fieldType))
+            if (typeof(IJavaObject).IsAssignableFrom(fieldType))
             {
                 var objPtr = _getObjectField(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, fieldId);
                 _jniEnvWrapper.Exceptions.CheckLastException();
@@ -324,11 +325,11 @@ namespace jvm4csharp.JniApiWrappers
 
             var clazz = FindClass(javaProxyType);
             var fieldType = typeof(TField);
-            var fieldId = GetFieldId(clazz, name, false, signature);
+            var fieldId = GetFieldId(clazz, name, true, signature);
 
             object result;
 
-            if (typeof(IJavaProxy).IsAssignableFrom(fieldType))
+            if (typeof(IJavaObject).IsAssignableFrom(fieldType))
             {
                 var objPtr = _getStaticObjectField(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, fieldId);
                 _jniEnvWrapper.Exceptions.CheckLastException();
@@ -362,22 +363,24 @@ namespace jvm4csharp.JniApiWrappers
             return (TField)result;
         }
 
-        public void SetField<TField>(IJavaProxy proxy, string name, string signature, TField value)
+        public void SetField<TField>(IJavaObject javaObject, string name, string signature, TField value)
         {
-            if (proxy == null) throw new ArgumentNullException(nameof(proxy));
             if (name == null) throw new ArgumentNullException(nameof(name));
             if (signature == null) throw new ArgumentNullException(nameof(signature));
-            JvmContext.Current.ValidateProxyInstane(proxy);
+            var proxy = WrapperHelpers.GetJavaProxy(javaObject);
 
             var clazz = proxy.ProxyState.Class;
             var fieldType = typeof(TField);
             var fieldId = GetFieldId(clazz, name, false, signature);
 
-            if (typeof(IJavaProxy).IsAssignableFrom(fieldType))
+            if (typeof(IJavaObject).IsAssignableFrom(fieldType))
             {
                 var valuePtr = IntPtr.Zero;
                 if (value != null)
-                    valuePtr = ((IJavaProxy)value).ProxyState.NativePtr;
+                {
+                    var valueProxy = WrapperHelpers.GetJavaProxy((IJavaObject)value);
+                    valuePtr = valueProxy.ProxyState.NativePtr;
+                }
 
                 _setObjectField(_jniEnvWrapper.JniEnvPtr, proxy.ProxyState.NativePtr, fieldId, valuePtr);
             }
@@ -411,13 +414,16 @@ namespace jvm4csharp.JniApiWrappers
 
             var clazz = FindClass(javaProxyType);
             var fieldType = typeof(TField);
-            var fieldId = GetFieldId(clazz, name, false, signature);
+            var fieldId = GetFieldId(clazz, name, true, signature);
 
-            if (typeof(IJavaProxy).IsAssignableFrom(fieldType))
+            if (typeof(IJavaObject).IsAssignableFrom(fieldType))
             {
                 var valuePtr = IntPtr.Zero;
                 if (value != null)
-                    valuePtr = ((IJavaProxy)value).ProxyState.NativePtr;
+                {
+                    var valueProxy = WrapperHelpers.GetJavaProxy((IJavaObject)value);
+                    valuePtr = valueProxy.ProxyState.NativePtr;
+                }
 
                 _setStaticObjectField(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, fieldId, valuePtr);
             }
@@ -443,12 +449,11 @@ namespace jvm4csharp.JniApiWrappers
             _jniEnvWrapper.Exceptions.CheckLastException();
         }
 
-        public TResult CallMethod<TResult>(IJavaProxy proxy, string name, string signature, params object[] args)
+        public TResult CallMethod<TResult>(IJavaObject javaObject, string name, string signature, params object[] args)
         {
-            if (proxy == null) throw new ArgumentNullException(nameof(proxy));
             if (name == null) throw new ArgumentNullException(nameof(name));
             if (signature == null) throw new ArgumentNullException(nameof(signature));
-            JvmContext.Current.ValidateProxyInstane(proxy);
+            var proxy = WrapperHelpers.GetJavaProxy(javaObject);
 
             var clazz = proxy.ProxyState.Class;
 
@@ -504,13 +509,13 @@ namespace jvm4csharp.JniApiWrappers
             if (signature == null) throw new ArgumentNullException(nameof(signature));
 
             var clazz = FindClass(javaProxyType);
-            var methodId = GetMethodId(clazz, name, false, signature);
+            var methodId = GetMethodId(clazz, name, true, signature);
             var argValues = GetJniValues(args);
 
             object result;
             var resultType = typeof(TResult);
 
-            if (typeof(IJavaProxy).IsAssignableFrom(resultType))
+            if (typeof(IJavaObject).IsAssignableFrom(resultType))
             {
                 var objPtr = _callStaticObjectMethod(_jniEnvWrapper.JniEnvPtr, clazz.ProxyState.NativePtr, methodId, argValues);
                 _jniEnvWrapper.Exceptions.CheckLastException();
@@ -653,10 +658,9 @@ namespace jvm4csharp.JniApiWrappers
                 result.Int = (int)val;
             else if (argType == typeof(bool))
                 result.Bool = JniBooleanValue.ToNativeBool((bool)val);
-            else if (typeof(IJavaProxy).IsAssignableFrom(argType))
+            else if (typeof(IJavaObject).IsAssignableFrom(argType))
             {
-                var proxy = (IJavaProxy)val;
-                JvmContext.Current.ValidateProxyInstane(proxy);
+                var proxy = WrapperHelpers.GetJavaProxy((IJavaObject)val);
                 result.Object = proxy.ProxyState.NativePtr;
             }
             else if (argType == typeof(byte))

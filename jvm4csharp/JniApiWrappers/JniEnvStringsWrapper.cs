@@ -107,7 +107,7 @@ namespace jvm4csharp.JniApiWrappers
         public string ToClrString(java.lang.String str)
         {
             if (str == null) throw new ArgumentNullException(nameof(str));
-            JvmContext.Current.ValidateProxyInstane(str);
+            JvmContext.Current.ValidateProxyInstance(str);
 
             return ToClrString(str.ProxyState.NativePtr);
         }

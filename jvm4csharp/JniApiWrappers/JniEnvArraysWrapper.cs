@@ -86,7 +86,7 @@ namespace jvm4csharp.JniApiWrappers
         public int GetArrayLength(java.lang.Object array)
         {
             if (array == null) throw new ArgumentNullException(nameof(array));
-            JvmContext.Current.ValidateProxyInstane(array);
+            JvmContext.Current.ValidateProxyInstance(array);
 
             var length = _getArrayLength(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr);
             _jniEnvWrapper.Exceptions.CheckLastException();
@@ -102,51 +102,51 @@ namespace jvm4csharp.JniApiWrappers
             IntPtr arrayPtr;
             Type expectedProxyType;
 
-            if (typeof(IJavaProxy).IsAssignableFrom(elementType))
+            if (typeof(IJavaObject).IsAssignableFrom(elementType))
             {
-                expectedProxyType = typeof (ObjectArray<>).MakeGenericType(elementType);
+                expectedProxyType = typeof(ObjectArray<>).MakeGenericType(elementType);
                 var clazz = _jniEnvWrapper.Classes.FindClass(elementType);
                 arrayPtr = _newObjectArray(_jniEnvWrapper.JniEnvPtr, length, clazz.ProxyState.NativePtr, IntPtr.Zero);
                 _jniEnvWrapper.Exceptions.CheckLastException();
             }
             else
             {
-                if (elementType == typeof (int))
+                if (elementType == typeof(int))
                 {
                     expectedProxyType = typeof(IntArray);
                     arrayPtr = _newIntArray(_jniEnvWrapper.JniEnvPtr, length);
                 }
-                else if (elementType == typeof (bool))
+                else if (elementType == typeof(bool))
                 {
                     expectedProxyType = typeof(BooleanArray);
                     arrayPtr = _newBooleanArray(_jniEnvWrapper.JniEnvPtr, length);
                 }
-                else if (elementType == typeof (byte))
+                else if (elementType == typeof(byte))
                 {
                     expectedProxyType = typeof(ByteArray);
                     arrayPtr = _newByteArray(_jniEnvWrapper.JniEnvPtr, length);
                 }
-                else if (elementType == typeof (double))
+                else if (elementType == typeof(double))
                 {
                     expectedProxyType = typeof(DoubleArray);
                     arrayPtr = _newDoubleArray(_jniEnvWrapper.JniEnvPtr, length);
                 }
-                else if (elementType == typeof (char))
+                else if (elementType == typeof(char))
                 {
                     expectedProxyType = typeof(CharArray);
                     arrayPtr = _newCharArray(_jniEnvWrapper.JniEnvPtr, length);
                 }
-                else if (elementType == typeof (long))
+                else if (elementType == typeof(long))
                 {
                     expectedProxyType = typeof(LongArray);
                     arrayPtr = _newLongArray(_jniEnvWrapper.JniEnvPtr, length);
                 }
-                else if (elementType == typeof (float))
+                else if (elementType == typeof(float))
                 {
                     expectedProxyType = typeof(FloatArray);
                     arrayPtr = _newFloatArray(_jniEnvWrapper.JniEnvPtr, length);
                 }
-                else if (elementType == typeof (short))
+                else if (elementType == typeof(short))
                 {
                     expectedProxyType = typeof(ShortArray);
                     arrayPtr = _newShortArray(_jniEnvWrapper.JniEnvPtr, length);
@@ -166,7 +166,7 @@ namespace jvm4csharp.JniApiWrappers
             if (array == null) throw new ArgumentNullException(nameof(array));
             if (startIndex < 0) throw new ArgumentException(nameof(startIndex));
             if (length <= 0) throw new ArgumentException(nameof(length));
-            JvmContext.Current.ValidateProxyInstane(array);
+            JvmContext.Current.ValidateProxyInstance(array);
 
             var elementType = typeof(TElement);
             Array result;
@@ -247,7 +247,7 @@ namespace jvm4csharp.JniApiWrappers
             if (startIndex < 0) throw new ArgumentException(nameof(startIndex));
             if (length <= 0) throw new ArgumentException(nameof(length));
             if (buffer.Length < length) throw new ArgumentException("Buffer length is too short.", nameof(buffer));
-            JvmContext.Current.ValidateProxyInstane(array);
+            JvmContext.Current.ValidateProxyInstance(array);
 
             var elementType = typeof(TElement);
 
@@ -310,7 +310,7 @@ namespace jvm4csharp.JniApiWrappers
         {
             if (array == null) throw new ArgumentNullException(nameof(array));
             if (index < 0) throw new ArgumentException(nameof(index));
-            JvmContext.Current.ValidateProxyInstane(array);
+            JvmContext.Current.ValidateProxyInstance(array);
 
             var objPtr = _getObjectArrayElement(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr, index);
             _jniEnvWrapper.Exceptions.CheckLastException();
@@ -323,9 +323,9 @@ namespace jvm4csharp.JniApiWrappers
         {
             if (array == null) throw new ArgumentNullException(nameof(array));
             if (index < 0) throw new ArgumentException(nameof(index));
-            JvmContext.Current.ValidateProxyInstane(array);
+            JvmContext.Current.ValidateProxyInstance(array);
 
-            var elementProxy = (IJavaProxy) element;
+            var elementProxy = WrapperHelpers.GetJavaProxy(element);
             var elemPtr = elementProxy?.ProxyState.NativePtr ?? IntPtr.Zero;
 
             _setObjectArrayElement(_jniEnvWrapper.JniEnvPtr, array.ProxyState.NativePtr, index, elemPtr);

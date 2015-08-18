@@ -5,49 +5,50 @@ namespace jvm4csharp.JniApiWrappers
     // ReSharper disable InconsistentNaming
     internal static class JavaObjectMembers
     {
-        public static Class getClass(this IJavaProxy proxy)
+        public static Class getClass(this IJavaObject javaObject)
         {
+            var proxy = WrapperHelpers.GetJavaProxy(javaObject);
             return proxy.ProxyState.Class;
         }
 
-        public static int hashCode(this IJavaProxy proxy)
+        public static int hashCode(this IJavaObject javaObject)
         {
-            return JvmContext.Current.JniEnv.Classes.CallMethod<int>(proxy, "hashCode", "()I");
+            return JvmContext.Current.JniEnv.Classes.CallMethod<int>(javaObject, "hashCode", "()I");
         }
 
-        public static bool equals(this IJavaProxy proxy, IJavaObject obj)
+        public static bool equals(this IJavaObject javaObject, IJavaObject obj)
         {
-            return JvmContext.Current.JniEnv.Classes.CallMethod<bool>(proxy, "equals", "(Ljava/lang/Object;)Z", obj);
+            return JvmContext.Current.JniEnv.Classes.CallMethod<bool>(javaObject, "equals", "(Ljava/lang/Object;)Z", obj);
         }
 
-        public static String toString(this IJavaProxy proxy)
+        public static String toString(this IJavaObject javaObject)
         {
-            return JvmContext.Current.JniEnv.Classes.CallMethod<String>(proxy, "toString", "()Ljava/lang/String;");
+            return JvmContext.Current.JniEnv.Classes.CallMethod<String>(javaObject, "toString", "()Ljava/lang/String;");
         }
 
-        public static void notify(this IJavaProxy proxy)
+        public static void notify(this IJavaObject javaObject)
         {
-            JvmContext.Current.JniEnv.Classes.CallMethod<Void>(proxy, "notify", "()V");
+            JvmContext.Current.JniEnv.Classes.CallMethod<Void>(javaObject, "notify", "()V");
         }
 
-        public static void notifyAll(this IJavaProxy proxy)
+        public static void notifyAll(this IJavaObject javaObject)
         {
-            JvmContext.Current.JniEnv.Classes.CallMethod<Void>(proxy, "notifyAll", "()V");
+            JvmContext.Current.JniEnv.Classes.CallMethod<Void>(javaObject, "notifyAll", "()V");
         }
 
-        public static void wait(this IJavaProxy proxy)
+        public static void wait(this IJavaObject javaObject)
         {
-            JvmContext.Current.JniEnv.Classes.CallMethod<Void>(proxy, "wait", "()V");
+            JvmContext.Current.JniEnv.Classes.CallMethod<Void>(javaObject, "wait", "()V");
         }
 
-        public static void wait(this IJavaProxy proxy, long timeout)
+        public static void wait(this IJavaObject javaObject, long timeout)
         {
-            JvmContext.Current.JniEnv.Classes.CallMethod<Void>(proxy, "wait", "(J)V", timeout);
+            JvmContext.Current.JniEnv.Classes.CallMethod<Void>(javaObject, "wait", "(J)V", timeout);
         }
 
-        public static void wait(this IJavaProxy proxy, long timeout, int nanos)
+        public static void wait(this IJavaObject javaObject, long timeout, int nanos)
         {
-            JvmContext.Current.JniEnv.Classes.CallMethod<Void>(proxy, "wait", "(JI)V", timeout, nanos);
+            JvmContext.Current.JniEnv.Classes.CallMethod<Void>(javaObject, "wait", "(JI)V", timeout, nanos);
         }
     }
 }

@@ -34,5 +34,13 @@ namespace jvm4csharp.JniApiWrappers
         {
             return internalClassName.StartsWith("[L", StringComparison.InvariantCultureIgnoreCase);
         }
+
+        public static IJavaProxy GetJavaProxy(IJavaObject javaObject)
+        {
+            if (javaObject == null) throw new ArgumentNullException(nameof(javaObject));
+            JvmContext.Current.ValidateProxyInstance(javaObject);
+
+            return (IJavaProxy)javaObject;
+        }
     }
 }

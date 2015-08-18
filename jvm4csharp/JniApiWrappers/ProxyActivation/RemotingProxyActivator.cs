@@ -45,7 +45,7 @@ namespace jvm4csharp.JniApiWrappers.ProxyActivation
             private static readonly MethodBase JavaProxySetProxyState = typeof(IJavaProxy).GetProperty("ProxyState").SetMethod;
 
             private readonly Type _proxyType;
-            private readonly IJavaProxy _proxy;
+            private readonly java.lang.Object _proxy;
 
             public JvmRealProxy(Type proxyType) : base(proxyType)
             {
@@ -82,7 +82,9 @@ namespace jvm4csharp.JniApiWrappers.ProxyActivation
 
             public bool CanCastTo(Type toType, object o)
             {
-                return toType == typeof(IJavaProxy) || toType.IsAssignableFrom(_proxyType);
+                return toType == typeof(IJavaProxy) ||
+                    toType == typeof(IJavaObject) ||
+                    toType.IsAssignableFrom(_proxyType);
             }
 
             public string TypeName
@@ -162,7 +164,7 @@ namespace jvm4csharp.JniApiWrappers.ProxyActivation
             private IMethodReturnMessage HandleJavaProxyMembers(IMethodCallMessage mcm, MethodBase method)
             {
                 if (method == JavaProxyGetProxyState)
-                    return CreateReturnMessage(_proxy.ProxyState.NativePtr, mcm);
+                    return CreateReturnMessage(_proxy.ProxyState, mcm);
 
                 if (method == JavaProxySetProxyState)
                 {

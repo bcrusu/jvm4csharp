@@ -13,7 +13,7 @@ namespace jvm4csharp.Tests.java.lang
             String javaString = clrString;
 
             Assert.NotNull(javaString);
-            AssertEx.IsValidJavaProxy(javaString);
+            AssertEx.IsValidJavaObject(javaString);
 
             Assert.AreEqual(clrString.Length, javaString.length());
 

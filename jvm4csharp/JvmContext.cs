@@ -30,28 +30,28 @@ namespace jvm4csharp
 
         public void DeleteLocalReference(IJavaObject obj)
         {
-            JniEnv.DeleteLocalReference((IJavaProxy)obj);
+            JniEnv.DeleteLocalReference(obj);
         }
 
         public T NewGlobalReference<T>(T obj)
             where T : IJavaObject
         {
-            return (T)JniEnv.NewGlobalReference((IJavaProxy)obj);
+            return (T)JniEnv.NewGlobalReference(obj);
         }
 
         public void DeleteGlobalReference(IJavaObject obj)
         {
-            JniEnv.DeleteGlobalReference((IJavaProxy)obj);
+            JniEnv.DeleteGlobalReference(obj);
         }
 
         public void MonitorEnter(IJavaObject obj)
         {
-            JniEnv.MonitorEnter((IJavaProxy)obj);
+            JniEnv.MonitorEnter(obj);
         }
 
         public void MonitorExit(IJavaObject obj)
         {
-            JniEnv.MonitorExit((IJavaProxy)obj);
+            JniEnv.MonitorExit(obj);
         }
 
         internal static JvmContext GetCurrentContext(bool throwIfNotFound)
@@ -66,9 +66,11 @@ namespace jvm4csharp
             _current = context;
         }
 
-        internal void ValidateProxyInstane(IJavaProxy proxy)
+        internal void ValidateProxyInstance(IJavaObject javaObject)
         {
-            if (proxy == null) throw new ArgumentNullException(nameof(proxy));
+            var proxy = javaObject as IJavaProxy;
+            if (proxy == null)
+                throw new ArgumentException("Invalid proxy instance.");
 
             if (proxy.ProxyState == null)
                 throw new ArgumentException("Invalid proxy instance. Does not belong to the current JVM Context.");

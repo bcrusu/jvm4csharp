@@ -7,38 +7,37 @@ namespace jvm4csharp
     {
         public sealed class Instance
         {
-            private readonly IJavaProxy _javaProxy;
+            private readonly IJavaObject _javaObject;
 
             public Instance(IJavaObject javaObject)
             {
                 if (javaObject == null) throw new ArgumentNullException(nameof(javaObject));
-                if (!(javaObject is IJavaProxy)) throw new ArgumentException("Invalid Java proxy instance.");
-                _javaProxy = (IJavaProxy)javaObject;
+                _javaObject = javaObject;
             }
 
             public TField GetField<TField>(string name, string signature)
             {
-                return JvmContext.Current.JniEnv.Classes.GetField<TField>(_javaProxy, name, signature);
+                return JvmContext.Current.JniEnv.Classes.GetField<TField>(_javaObject, name, signature);
             }
 
             public void SetField<TField>(string name, string signature, TField value)
             {
-                JvmContext.Current.JniEnv.Classes.SetField(_javaProxy, name, signature, value);
+                JvmContext.Current.JniEnv.Classes.SetField(_javaObject, name, signature, value);
             }
 
             public TResult CallMethod<TResult>(string name, string signature, params object[] args)
             {
-                return JvmContext.Current.JniEnv.Classes.CallMethod<TResult>(_javaProxy, name, signature, args);
+                return JvmContext.Current.JniEnv.Classes.CallMethod<TResult>(_javaObject, name, signature, args);
             }
 
             public void CallMethod(string name, string signature, params object[] args)
             {
-                JvmContext.Current.JniEnv.Classes.CallMethod<java.lang.Void>(_javaProxy, name, signature, args);
+                JvmContext.Current.JniEnv.Classes.CallMethod<java.lang.Void>(_javaObject, name, signature, args);
             }
 
             public void CallConstructor(string signature, params object[] args)
             {
-                JvmContext.Current.JniEnv.Classes.NewObjectForProxy(_javaProxy, signature, args);
+                JvmContext.Current.JniEnv.Classes.NewObjectForProxy(_javaObject, signature, args);
             }
         }
 

@@ -32,7 +32,7 @@ namespace jvm4csharp
             where T : IJavaObject
         {
             if (referenceToKeep == null) throw new ArgumentNullException(nameof(referenceToKeep));
-            return _jniEnvWrapper.PopLocalFrame<T>((IJavaProxy)referenceToKeep);
+            return _jniEnvWrapper.PopLocalFrame<T>(referenceToKeep);
         }
 
         public void Pop()

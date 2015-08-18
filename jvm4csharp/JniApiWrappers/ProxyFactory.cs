@@ -58,7 +58,9 @@ namespace jvm4csharp.JniApiWrappers
             Type proxyType;
             if (ProxyRegistry.Current.TryGetProxyType(clazz.InternalClassName, out proxyType))
             {
-                proxyType = proxyType.MakeGenericType(expectedProxyType.GenericTypeArguments);
+                if (proxyType.IsGenericTypeDefinition)
+                    proxyType = proxyType.MakeGenericType(expectedProxyType.GenericTypeArguments);
+
                 var proxyActivator = GetProxyActivator(proxyType);
 
                 proxy = proxyActivator.CreateInstance(proxyType);

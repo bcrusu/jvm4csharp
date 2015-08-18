@@ -65,11 +65,9 @@ namespace jvm4csharp.JniApiWrappers
             _popLocalFrame(JniEnvPtr, IntPtr.Zero);
         }
 
-        public T PopLocalFrame<T>(IJavaProxy proxy)
-
+        public T PopLocalFrame<T>(IJavaObject javaObject)
         {
-            if (proxy == null) throw new ArgumentNullException(nameof(proxy));
-            JvmContext.Current.ValidateProxyInstane(proxy);
+            var proxy = WrapperHelpers.GetJavaProxy(javaObject);
 
             var ptr = _popLocalFrame(JniEnvPtr, proxy.ProxyState.NativePtr);
             return (T)ProxyFactory.CreateProxy(proxy.GetType(), ptr);
@@ -84,10 +82,9 @@ namespace jvm4csharp.JniApiWrappers
                 Exceptions.CheckLastException();
         }
 
-        public void DeleteLocalReference(IJavaProxy proxy)
+        public void DeleteLocalReference(IJavaObject javaObject)
         {
-            if (proxy == null) throw new ArgumentNullException(nameof(proxy));
-            JvmContext.Current.ValidateProxyInstane(proxy);
+            var proxy  = WrapperHelpers.GetJavaProxy(javaObject);
 
             _deleteLocalRef(JniEnvPtr, proxy.ProxyState.NativePtr);
             proxy.ProxyState = null;
@@ -104,40 +101,35 @@ namespace jvm4csharp.JniApiWrappers
             return ptr;
         }
 
-        public IJavaProxy NewGlobalReference(IJavaProxy proxy)
+        public IJavaObject NewGlobalReference(IJavaObject javaObject)
         {
-            if (proxy == null) throw new ArgumentNullException(nameof(proxy));
-            JvmContext.Current.ValidateProxyInstane(proxy);
+            var proxy = WrapperHelpers.GetJavaProxy(javaObject);
 
             var globalPtr = NewGlobalReference(proxy.ProxyState.NativePtr);
-            return ProxyFactory.CreateProxy(proxy.GetType(), globalPtr);
+            return (IJavaObject)ProxyFactory.CreateProxy(proxy.GetType(), globalPtr);
         }
 
-        public void DeleteGlobalReference(IJavaProxy proxy)
+        public void DeleteGlobalReference(IJavaObject javaObject)
         {
-            if (proxy == null) throw new ArgumentNullException(nameof(proxy));
-            JvmContext.Current.ValidateProxyInstane(proxy);
-
-            JavaVm.GlobalReferences.ValidateDeleteReference(proxy);
+            JavaVm.GlobalReferences.ValidateDeleteReference(javaObject);
+            var proxy = WrapperHelpers.GetJavaProxy(javaObject);
 
             _deleteGlobalRef(JniEnvPtr, proxy.ProxyState.NativePtr);
             proxy.ProxyState = null;
         }
 
-        public void MonitorEnter(IJavaProxy proxy)
+        public void MonitorEnter(IJavaObject javaObject)
         {
-            if (proxy == null) throw new ArgumentNullException(nameof(proxy));
-            JvmContext.Current.ValidateProxyInstane(proxy);
+            var proxy = WrapperHelpers.GetJavaProxy(javaObject);
 
             var result = _monitorEnter(JniEnvPtr, proxy.ProxyState.NativePtr);
             if (result < 0)
                 throw new JvmException($"Could not enter monitor. Error code '{result}'.");
         }
 
-        public void MonitorExit(IJavaProxy proxy)
+        public void MonitorExit(IJavaObject javaObject)
         {
-            if (proxy == null) throw new ArgumentNullException(nameof(proxy));
-            JvmContext.Current.ValidateProxyInstane(proxy);
+            var proxy = WrapperHelpers.GetJavaProxy(javaObject);
 
             var result = _monitorExit(JniEnvPtr, proxy.ProxyState.NativePtr);
             if (result < 0)

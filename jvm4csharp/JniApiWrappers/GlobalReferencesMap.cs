@@ -20,11 +20,11 @@ namespace jvm4csharp.JniApiWrappers
             _classes[className] = clazz;
         }
 
-        public void ValidateDeleteReference(IJavaProxy proxy)
+        public void ValidateDeleteReference(IJavaObject javaObject)
         {
-            Debug.Assert(proxy != null);
+            Debug.Assert(javaObject != null);
 
-            if (proxy is Class)
+            if (javaObject is Class)
                 throw new InvalidOperationException("Cannot delete global reference to 'java.lang.Class' object.");
         }
     }

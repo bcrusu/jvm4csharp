@@ -11,16 +11,17 @@ namespace jvm4csharp.ArrayUtils
         public ArrayEnumerator(ArrayBase<TElement> array)
         {
             _array = array;
+            _currentIndex = -1;
         }
 
         public void Dispose()
         {
-           Reset();
+            Reset();
         }
 
         public bool MoveNext()
         {
-            if (_currentIndex < _array.Length)
+            if (_currentIndex < _array.Length - 1)
             {
                 _currentIndex++;
                 return true;
