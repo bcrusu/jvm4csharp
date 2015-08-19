@@ -28,27 +28,27 @@ namespace jvm4csharp.JniApiWrappers
 
         public static void notify(this IJavaObject javaObject)
         {
-            JvmContext.Current.JniEnv.Classes.CallMethod<Void>(javaObject, "notify", "()V");
+            JvmContext.Current.JniEnv.Classes.CallMethod(javaObject, "notify", "()V");
         }
 
         public static void notifyAll(this IJavaObject javaObject)
         {
-            JvmContext.Current.JniEnv.Classes.CallMethod<Void>(javaObject, "notifyAll", "()V");
+            JvmContext.Current.JniEnv.Classes.CallMethod(javaObject, "notifyAll", "()V");
         }
 
         public static void wait(this IJavaObject javaObject)
         {
-            JvmContext.Current.JniEnv.Classes.CallMethod<Void>(javaObject, "wait", "()V");
+            JvmContext.Current.JniEnv.Classes.CallMethod(javaObject, "wait", "()V");
         }
 
         public static void wait(this IJavaObject javaObject, long timeout)
         {
-            JvmContext.Current.JniEnv.Classes.CallMethod<Void>(javaObject, "wait", "(J)V", timeout);
+            JvmContext.Current.JniEnv.Classes.CallMethod(javaObject, "wait", "(J)V", timeout);
         }
 
         public static void wait(this IJavaObject javaObject, long timeout, int nanos)
         {
-            JvmContext.Current.JniEnv.Classes.CallMethod<Void>(javaObject, "wait", "(JI)V", timeout, nanos);
+            JvmContext.Current.JniEnv.Classes.CallMethod(javaObject, "wait", "(JI)V", timeout, nanos);
         }
     }
 }

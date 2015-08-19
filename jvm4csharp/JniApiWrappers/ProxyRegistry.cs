@@ -59,7 +59,7 @@ namespace jvm4csharp.JniApiWrappers
 
             if (javaProxyAttribute == null)
             {
-                javaProxyAttribute = GetJavaProxyAttribute(proxyType);
+                javaProxyAttribute = WrapperHelpers.GetJavaProxyAttribute(proxyType);
                 if (javaProxyAttribute == null)
                     throw new ArgumentException($"Invalid proxy definition '{proxyType}'. Could not find 'JavaProxyAttribute'.");
             }
@@ -104,11 +104,6 @@ namespace jvm4csharp.JniApiWrappers
             }
         }
 
-        private static JavaProxyAttribute GetJavaProxyAttribute(Type type)
-        {
-            return (JavaProxyAttribute)type.GetCustomAttributes(typeof(JavaProxyAttribute), false).FirstOrDefault();
-        }
-
         private static IEnumerable<Tuple<Type, JavaProxyAttribute>> GetDefaultProxyTypes()
         {
             var assembly = typeof(ProxyRegistry).Assembly;
@@ -116,7 +111,7 @@ namespace jvm4csharp.JniApiWrappers
 
             foreach (var type in types)
             {
-                var attr = GetJavaProxyAttribute(type);
+                var attr = WrapperHelpers.GetJavaProxyAttribute(type);
                 if (attr != null)
                     yield return new Tuple<Type, JavaProxyAttribute>(type, attr);
             }

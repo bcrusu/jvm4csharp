@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using jvm4csharp.JniApi;
 
@@ -41,6 +43,16 @@ namespace jvm4csharp.JniApiWrappers
             JvmContext.Current.ValidateProxyInstance(javaObject);
 
             return (IJavaProxy)javaObject;
+        }
+
+        public static JavaProxyAttribute GetJavaProxyAttribute(Type type)
+        {
+            return (JavaProxyAttribute)type.GetCustomAttributes(typeof(JavaProxyAttribute), false).FirstOrDefault();
+        }
+
+        public static JavaSignatureAttribute GetJavaSignatureAttribute(MethodBase method)
+        {
+            return (JavaSignatureAttribute)method.GetCustomAttributes(typeof(JavaSignatureAttribute), false).FirstOrDefault();
         }
     }
 }

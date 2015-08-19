@@ -6,13 +6,13 @@ using System.Runtime.Remoting.Proxies;
 
 namespace jvm4csharp.JniApiWrappers.ProxyActivation
 {
+    //TODO: cache JavaSignatureAttribute
     internal class RemotingProxyActivator : IProxyActivator
     {
         public static readonly RemotingProxyActivator Instance = new RemotingProxyActivator();
 
         private RemotingProxyActivator()
         {
-
         }
 
         public IJavaProxy CreateInstance(Type proxyType)
@@ -177,8 +177,37 @@ namespace jvm4csharp.JniApiWrappers.ProxyActivation
 
             private IMessage HandleProxyMembers(IMethodCallMessage mcm, MethodBase method)
             {
-                //TODO:
-                throw new NotImplementedException();
+                var javaSignatureAttribute = WrapperHelpers.GetJavaSignatureAttribute(method);
+                if (javaSignatureAttribute == null)
+                    throw new ArgumentException($"Invalid proxy member definition '{method}'. Could not find 'JavaSignatureAttribute'.");
+
+                var methodInfo = (MethodInfo)method;
+                var signature = javaSignatureAttribute.Signature;
+                var returnType = methodInfo.ReturnType;
+
+                switch (method.MemberType)
+                {
+                    case MemberTypes.Method:
+                        if (returnType != typeof(void) && returnType != typeof(java.lang.Void))
+                        {
+                            var result = JvmContext.Current.JniEnv.Classes.CallMethod(_proxy, method.Name, signature, returnType, mcm.Args);
+                            return CreateReturnMessage(result, mcm);
+                        }
+
+                        JvmContext.Current.JniEnv.Classes.CallMethod(_proxy, method.Name, signature, mcm.Args);
+                        return CreateEmptyReturnMessage(mcm);
+                    case MemberTypes.Property:
+                        if (returnType != typeof (void))
+                        {
+                            var result = JvmContext.Current.JniEnv.Classes.GetField(_proxy, method.Name, signature, returnType);
+                            return CreateReturnMessage(result, mcm);
+                        }
+
+                        JvmContext.Current.JniEnv.Classes.SetField(_proxy, method.Name, signature, returnType);
+                        return CreateEmptyReturnMessage(mcm);
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
             }
         }
     }

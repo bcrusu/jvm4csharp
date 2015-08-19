@@ -59,15 +59,15 @@ namespace jvm4csharp.JniApiWrappers
             if (!pendingException)
                 return;
 
-            //TODO: only for debug
-            ExceptionDescribe();
-
             var exceptionPtr = ExceptionOccurred();
+            ExceptionClear();
             if (exceptionPtr != IntPtr.Zero)
             {
                 var proxy = _jniEnvWrapper.ProxyFactory.CreateProxy(typeof(Throwable), exceptionPtr);
                 throw (Throwable)proxy;
             }
+
+            throw new JvmException("Unknown JVM error occurred.");
         }
     }
 }
