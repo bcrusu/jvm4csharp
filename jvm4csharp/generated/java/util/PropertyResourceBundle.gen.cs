@@ -14,7 +14,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/PropertyResourceBundle")]
-	public class PropertyResourceBundle : ResourceBundle
+	public partial class PropertyResourceBundle : ResourceBundle
 	{
 		protected PropertyResourceBundle(ProxyCtor p) : base(p) {}
 		

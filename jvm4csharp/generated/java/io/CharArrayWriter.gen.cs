@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/CharArrayWriter")]
-	public class CharArrayWriter : Writer
+	public partial class CharArrayWriter : Writer
 	{
 		protected CharArrayWriter(ProxyCtor p) : base(p) {}
 		

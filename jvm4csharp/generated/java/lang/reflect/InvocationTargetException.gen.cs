@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/InvocationTargetException")]
-	public class InvocationTargetException : ReflectiveOperationException
+	public partial class InvocationTargetException : ReflectiveOperationException
 	{
 		protected InvocationTargetException(ProxyCtor p) : base(p) {}
 		

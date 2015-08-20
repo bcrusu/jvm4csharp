@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/Supplier")]
-	public interface Supplier<T> : IJavaObject
+	public partial interface Supplier<T> : IJavaObject
 		where T : IJavaObject
 	{
 		[JavaSignature("()Ljava/lang/Object;")]

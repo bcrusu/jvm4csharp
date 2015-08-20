@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/SelectionKey")]
-	public abstract class SelectionKey : Object
+	public abstract partial class SelectionKey : Object
 	{
 		protected SelectionKey(ProxyCtor p) : base(p) {}
 	
@@ -66,16 +66,22 @@ namespace jvm4csharp.java.nio.channels
 			return Instance.CallMethod<IJavaObject>("attachment", "()Ljava/lang/Object;");
 		}
 		
-		[JavaSignature("()I")]
-		public int interestOps()
+		[JavaSignature("()V")]
+		public void cancel()
 		{
-			return Instance.CallMethod<int>("interestOps", "()I");
+			Instance.CallMethod("cancel", "()V");
 		}
 		
 		[JavaSignature("(I)Ljava/nio/channels/SelectionKey;")]
 		public SelectionKey interestOps(int arg0)
 		{
 			return Instance.CallMethod<SelectionKey>("interestOps", "(I)Ljava/nio/channels/SelectionKey;", arg0);
+		}
+		
+		[JavaSignature("()I")]
+		public int interestOps()
+		{
+			return Instance.CallMethod<int>("interestOps", "()I");
 		}
 		
 		[JavaSignature("()Z")]
@@ -112,12 +118,6 @@ namespace jvm4csharp.java.nio.channels
 		public Selector selector()
 		{
 			return Instance.CallMethod<Selector>("selector", "()Ljava/nio/channels/Selector;");
-		}
-		
-		[JavaSignature("()V")]
-		public void cancel()
-		{
-			Instance.CallMethod("cancel", "()V");
 		}
 	}
 }

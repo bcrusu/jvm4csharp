@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/ClassCastException")]
-	public class ClassCastException : RuntimeException
+	public partial class ClassCastException : RuntimeException
 	{
 		protected ClassCastException(ProxyCtor p) : base(p) {}
 		

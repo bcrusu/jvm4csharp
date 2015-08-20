@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/DuplicateFormatFlagsException")]
-	public class DuplicateFormatFlagsException : IllegalFormatException
+	public partial class DuplicateFormatFlagsException : IllegalFormatException
 	{
 		protected DuplicateFormatFlagsException(ProxyCtor p) : base(p) {}
 		

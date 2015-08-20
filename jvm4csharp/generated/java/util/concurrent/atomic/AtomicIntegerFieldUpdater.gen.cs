@@ -15,7 +15,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util.concurrent.atomic
 {
 	[JavaProxy("java/util/concurrent/atomic/AtomicIntegerFieldUpdater")]
-	public abstract class AtomicIntegerFieldUpdater<T> : Object
+	public abstract partial class AtomicIntegerFieldUpdater<T> : Object
 		where T : IJavaObject
 	{
 		protected AtomicIntegerFieldUpdater(ProxyCtor p) : base(p) {}

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Enumeration")]
-	public interface Enumeration<E> : IJavaObject
+	public partial interface Enumeration<E> : IJavaObject
 		where E : IJavaObject
 	{
 		[JavaSignature("()Z")]

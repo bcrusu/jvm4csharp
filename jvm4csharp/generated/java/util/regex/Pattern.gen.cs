@@ -18,7 +18,7 @@ using jvm4csharp.java.util.stream;
 namespace jvm4csharp.java.util.regex
 {
 	[JavaProxy("java/util/regex/Pattern")]
-	public class Pattern : Object, Serializable
+	public partial class Pattern : Object, Serializable
 	{
 		protected Pattern(ProxyCtor p) : base(p) {}
 	

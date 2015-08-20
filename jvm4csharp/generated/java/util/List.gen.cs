@@ -15,7 +15,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/List")]
-	public interface List<E> : Collection<E>
+	public partial interface List<E> : Collection<E>
 		where E : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/Object;)Z")]

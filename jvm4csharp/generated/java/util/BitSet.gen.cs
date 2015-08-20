@@ -18,7 +18,7 @@ using jvm4csharp.java.util.stream;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/BitSet")]
-	public class BitSet : Object, Cloneable, Serializable
+	public partial class BitSet : Object, Cloneable, Serializable
 	{
 		protected BitSet(ProxyCtor p) : base(p) {}
 		

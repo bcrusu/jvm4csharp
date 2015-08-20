@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/Bidi")]
-	public class Bidi : Object
+	public partial class Bidi : Object
 	{
 		protected Bidi(ProxyCtor p) : base(p) {}
 		
@@ -62,6 +62,18 @@ namespace jvm4csharp.java.text
 		public int getLength()
 		{
 			return Instance.CallMethod<int>("getLength", "()I");
+		}
+		
+		[JavaSignature("(I)I")]
+		public int getRunLimit(int arg0)
+		{
+			return Instance.CallMethod<int>("getRunLimit", "(I)I", arg0);
+		}
+		
+		[JavaSignature("(I)I")]
+		public int getRunStart(int arg0)
+		{
+			return Instance.CallMethod<int>("getRunStart", "(I)I", arg0);
 		}
 		
 		[JavaSignature("()Z")]
@@ -128,18 +140,6 @@ namespace jvm4csharp.java.text
 		public static bool requiresBidi(CharArray arg0, int arg1, int arg2)
 		{
 			return Static.CallMethod<bool>(typeof(Bidi), "requiresBidi", "([CII)Z", arg0, arg1, arg2);
-		}
-		
-		[JavaSignature("(I)I")]
-		public int getRunLimit(int arg0)
-		{
-			return Instance.CallMethod<int>("getRunLimit", "(I)I", arg0);
-		}
-		
-		[JavaSignature("(I)I")]
-		public int getRunStart(int arg0)
-		{
-			return Instance.CallMethod<int>("getRunStart", "(I)I", arg0);
 		}
 	}
 }

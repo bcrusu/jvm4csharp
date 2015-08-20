@@ -16,7 +16,7 @@ using jvm4csharp.java.util.stream;
 namespace jvm4csharp.java.nio
 {
 	[JavaProxy("java/nio/CharBuffer")]
-	public abstract class CharBuffer : Buffer, Comparable<CharBuffer>, Appendable, CharSequence, Readable
+	public abstract partial class CharBuffer : Buffer, Comparable<CharBuffer>, Appendable, CharSequence, Readable
 	{
 		protected CharBuffer(ProxyCtor p) : base(p) {}
 	

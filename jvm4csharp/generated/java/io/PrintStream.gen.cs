@@ -16,7 +16,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/PrintStream")]
-	public class PrintStream : FilterOutputStream, Appendable, Closeable
+	public partial class PrintStream : FilterOutputStream, Appendable, Closeable
 	{
 		protected PrintStream(ProxyCtor p) : base(p) {}
 		

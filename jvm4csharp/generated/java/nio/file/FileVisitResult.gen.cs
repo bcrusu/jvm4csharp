@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/FileVisitResult")]
-	public class FileVisitResult : Enum<FileVisitResult>
+	public partial class FileVisitResult : Enum<FileVisitResult>
 	{
 		protected FileVisitResult(ProxyCtor p) : base(p) {}
 	

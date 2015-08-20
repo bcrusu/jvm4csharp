@@ -15,7 +15,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Comparator")]
-	public interface Comparator<T> : IJavaObject
+	public partial interface Comparator<T> : IJavaObject
 		where T : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/Object;Ljava/lang/Object;)I")]

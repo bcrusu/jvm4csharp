@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/IllegalFormatPrecisionException")]
-	public class IllegalFormatPrecisionException : IllegalFormatException
+	public partial class IllegalFormatPrecisionException : IllegalFormatException
 	{
 		protected IllegalFormatPrecisionException(ProxyCtor p) : base(p) {}
 		

@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/StringReader")]
-	public class StringReader : Reader
+	public partial class StringReader : Reader
 	{
 		protected StringReader(ProxyCtor p) : base(p) {}
 		

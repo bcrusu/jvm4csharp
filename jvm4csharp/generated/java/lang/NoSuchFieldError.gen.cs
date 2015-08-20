@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/NoSuchFieldError")]
-	public class NoSuchFieldError : IncompatibleClassChangeError
+	public partial class NoSuchFieldError : IncompatibleClassChangeError
 	{
 		protected NoSuchFieldError(ProxyCtor p) : base(p) {}
 		

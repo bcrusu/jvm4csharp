@@ -16,7 +16,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/ProcessBuilder")]
-	public class ProcessBuilder : Object
+	public partial class ProcessBuilder : Object
 	{
 		protected ProcessBuilder(ProxyCtor p) : base(p) {}
 		
@@ -145,7 +145,7 @@ namespace jvm4csharp.java.lang
 		}
 	
 		[JavaProxy("java/lang/ProcessBuilder/Redirect")]
-		public abstract class Redirect : Object
+		public abstract partial class Redirect : Object
 		{
 			protected Redirect(ProxyCtor p) : base(p) {}
 		
@@ -192,7 +192,7 @@ namespace jvm4csharp.java.lang
 			}
 		
 			[JavaProxy("java/lang/ProcessBuilder/Redirect/Type")]
-			public class Type : Enum<ProcessBuilder.Redirect.Type>
+			public partial class Type : Enum<ProcessBuilder.Redirect.Type>
 			{
 				protected Type(ProxyCtor p) : base(p) {}
 			

@@ -14,7 +14,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.nio.charset
 {
 	[JavaProxy("java/nio/charset/CharacterCodingException")]
-	public class CharacterCodingException : IOException
+	public partial class CharacterCodingException : IOException
 	{
 		protected CharacterCodingException(ProxyCtor p) : base(p) {}
 		

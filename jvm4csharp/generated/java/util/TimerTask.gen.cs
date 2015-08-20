@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/TimerTask")]
-	public abstract class TimerTask : Object, Runnable
+	public abstract partial class TimerTask : Object, Runnable
 	{
 		protected TimerTask(ProxyCtor p) : base(p) {}
 	

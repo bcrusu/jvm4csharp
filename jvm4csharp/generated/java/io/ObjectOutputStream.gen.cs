@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/ObjectOutputStream")]
-	public class ObjectOutputStream : OutputStream, ObjectOutput, ObjectStreamConstants
+	public partial class ObjectOutputStream : OutputStream, ObjectOutput, ObjectStreamConstants
 	{
 		protected ObjectOutputStream(ProxyCtor p) : base(p) {}
 		
@@ -90,24 +90,6 @@ namespace jvm4csharp.java.io
 		}
 		
 		[JavaSignature("(I)V")]
-		public void writeShort(int arg0)
-		{
-			Instance.CallMethod("writeShort", "(I)V", arg0);
-		}
-		
-		[JavaSignature("(D)V")]
-		public void writeDouble(double arg0)
-		{
-			Instance.CallMethod("writeDouble", "(D)V", arg0);
-		}
-		
-		[JavaSignature("(I)V")]
-		public void writeByte(int arg0)
-		{
-			Instance.CallMethod("writeByte", "(I)V", arg0);
-		}
-		
-		[JavaSignature("(I)V")]
 		public void useProtocolVersion(int arg0)
 		{
 			Instance.CallMethod("useProtocolVersion", "(I)V", arg0);
@@ -130,9 +112,27 @@ namespace jvm4csharp.java.io
 		{
 			Instance.CallMethod("writeUnshared", "(Ljava/lang/Object;)V", arg0);
 		}
+		
+		[JavaSignature("(I)V")]
+		public void writeShort(int arg0)
+		{
+			Instance.CallMethod("writeShort", "(I)V", arg0);
+		}
+		
+		[JavaSignature("(I)V")]
+		public void writeByte(int arg0)
+		{
+			Instance.CallMethod("writeByte", "(I)V", arg0);
+		}
+		
+		[JavaSignature("(D)V")]
+		public void writeDouble(double arg0)
+		{
+			Instance.CallMethod("writeDouble", "(D)V", arg0);
+		}
 	
 		[JavaProxy("java/io/ObjectOutputStream/PutField")]
-		public abstract class PutField : Object
+		public abstract partial class PutField : Object
 		{
 			protected PutField(ProxyCtor p) : base(p) {}
 		

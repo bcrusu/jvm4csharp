@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/ForkJoinPool")]
-	public class ForkJoinPool : AbstractExecutorService
+	public partial class ForkJoinPool : AbstractExecutorService
 	{
 		protected ForkJoinPool(ProxyCtor p) : base(p) {}
 		
@@ -90,17 +90,35 @@ namespace jvm4csharp.java.util.concurrent
 			return Instance.CallMethod<ForkJoinTask<T>>("submit", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/ForkJoinTask;", arg0, arg1);
 		}
 		
+		[JavaSignature("(Ljava/util/concurrent/ForkJoinTask;)Ljava/util/concurrent/ForkJoinTask;")]
+		public ForkJoinTask<T> submit<T>(ForkJoinTask<T> arg0)
+			where T : IJavaObject
+		{
+			return Instance.CallMethod<ForkJoinTask<T>>("submit", "(Ljava/util/concurrent/ForkJoinTask;)Ljava/util/concurrent/ForkJoinTask;", arg0);
+		}
+		
 		[JavaSignature("(Ljava/lang/Runnable;)Ljava/util/concurrent/ForkJoinTask;")]
 		public new ForkJoinTask<IJavaObject> submit(Runnable arg0)
 		{
 			return Instance.CallMethod<ForkJoinTask<IJavaObject>>("submit", "(Ljava/lang/Runnable;)Ljava/util/concurrent/ForkJoinTask;", arg0);
 		}
 		
-		[JavaSignature("(Ljava/util/concurrent/ForkJoinTask;)Ljava/util/concurrent/ForkJoinTask;")]
-		public ForkJoinTask<T> submit<T>(ForkJoinTask<T> arg0)
-			where T : IJavaObject
+		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
+		public bool awaitTermination(long arg0, TimeUnit arg1)
 		{
-			return Instance.CallMethod<ForkJoinTask<T>>("submit", "(Ljava/util/concurrent/ForkJoinTask;)Ljava/util/concurrent/ForkJoinTask;", arg0);
+			return Instance.CallMethod<bool>("awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1);
+		}
+		
+		[JavaSignature("()Z")]
+		public bool isShutdown()
+		{
+			return Instance.CallMethod<bool>("isShutdown", "()Z");
+		}
+		
+		[JavaSignature("()Z")]
+		public bool isTerminated()
+		{
+			return Instance.CallMethod<bool>("isTerminated", "()Z");
 		}
 		
 		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
@@ -181,24 +199,6 @@ namespace jvm4csharp.java.util.concurrent
 			Static.CallMethod(typeof(ForkJoinPool), "managedBlock", "(Ljava/util/concurrent/ForkJoinPool/ManagedBlocker;)V", arg0);
 		}
 		
-		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
-		public bool awaitTermination(long arg0, TimeUnit arg1)
-		{
-			return Instance.CallMethod<bool>("awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1);
-		}
-		
-		[JavaSignature("()Z")]
-		public bool isShutdown()
-		{
-			return Instance.CallMethod<bool>("isShutdown", "()Z");
-		}
-		
-		[JavaSignature("()Z")]
-		public bool isTerminated()
-		{
-			return Instance.CallMethod<bool>("isTerminated", "()Z");
-		}
-		
 		[JavaSignature("()Ljava/util/List;")]
 		public List<Runnable> shutdownNow()
 		{
@@ -212,14 +212,14 @@ namespace jvm4csharp.java.util.concurrent
 		}
 	
 		[JavaProxy("java/util/concurrent/ForkJoinPool/ForkJoinWorkerThreadFactory")]
-		public interface ForkJoinWorkerThreadFactory : IJavaObject
+		public partial interface ForkJoinWorkerThreadFactory : IJavaObject
 		{
 			[JavaSignature("(Ljava/util/concurrent/ForkJoinPool;)Ljava/util/concurrent/ForkJoinWorkerThread;")]
 			ForkJoinWorkerThread newThread(ForkJoinPool arg0);
 		}
 		
 		[JavaProxy("java/util/concurrent/ForkJoinPool/ManagedBlocker")]
-		public interface ManagedBlocker : IJavaObject
+		public partial interface ManagedBlocker : IJavaObject
 		{
 			[JavaSignature("()Z")]
 			bool block();

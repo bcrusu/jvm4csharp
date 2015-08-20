@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/StringJoiner")]
-	public class StringJoiner : Object
+	public partial class StringJoiner : Object
 	{
 		protected StringJoiner(ProxyCtor p) : base(p) {}
 		

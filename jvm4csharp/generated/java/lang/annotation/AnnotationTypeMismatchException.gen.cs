@@ -14,7 +14,7 @@ using jvm4csharp.java.lang.reflect;
 namespace jvm4csharp.java.lang.annotation
 {
 	[JavaProxy("java/lang/annotation/AnnotationTypeMismatchException")]
-	public class AnnotationTypeMismatchException : RuntimeException
+	public partial class AnnotationTypeMismatchException : RuntimeException
 	{
 		protected AnnotationTypeMismatchException(ProxyCtor p) : base(p) {}
 		

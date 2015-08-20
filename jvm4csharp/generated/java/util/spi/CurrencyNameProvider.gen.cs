@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.spi
 {
 	[JavaProxy("java/util/spi/CurrencyNameProvider")]
-	public abstract class CurrencyNameProvider : LocaleServiceProvider
+	public abstract partial class CurrencyNameProvider : LocaleServiceProvider
 	{
 		protected CurrencyNameProvider(ProxyCtor p) : base(p) {}
 	

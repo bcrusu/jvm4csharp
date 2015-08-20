@@ -14,7 +14,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/Channel")]
-	public interface Channel : Closeable
+	public partial interface Channel : Closeable
 	{
 		[JavaSignature("()V")]
 		new void close();

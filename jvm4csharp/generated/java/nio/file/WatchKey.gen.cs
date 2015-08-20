@@ -14,7 +14,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/WatchKey")]
-	public interface WatchKey : IJavaObject
+	public partial interface WatchKey : IJavaObject
 	{
 		[JavaSignature("()Z")]
 		bool reset();

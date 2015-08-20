@@ -15,7 +15,7 @@ using jvm4csharp.java.util.jar;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/JarURLConnection")]
-	public abstract class JarURLConnection : URLConnection
+	public abstract partial class JarURLConnection : URLConnection
 	{
 		protected JarURLConnection(ProxyCtor p) : base(p) {}
 	

@@ -16,7 +16,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/DateFormat")]
-	public abstract class DateFormat : Format
+	public abstract partial class DateFormat : Format
 	{
 		protected DateFormat(ProxyCtor p) : base(p) {}
 	
@@ -218,16 +218,16 @@ namespace jvm4csharp.java.text
 			return Instance.CallMethod<TimeZone>("getTimeZone", "()Ljava/util/TimeZone;");
 		}
 		
-		[JavaSignature("(Z)V")]
-		public void setLenient(bool arg0)
-		{
-			Instance.CallMethod("setLenient", "(Z)V", arg0);
-		}
-		
 		[JavaSignature("(Ljava/util/TimeZone;)V")]
 		public void setTimeZone(TimeZone arg0)
 		{
 			Instance.CallMethod("setTimeZone", "(Ljava/util/TimeZone;)V", arg0);
+		}
+		
+		[JavaSignature("(Z)V")]
+		public void setLenient(bool arg0)
+		{
+			Instance.CallMethod("setLenient", "(Z)V", arg0);
 		}
 		
 		[JavaSignature("()Ljava/util/Calendar;")]
@@ -297,7 +297,7 @@ namespace jvm4csharp.java.text
 		}
 	
 		[JavaProxy("java/text/DateFormat/Field")]
-		public class Field : Format.Field
+		public partial class Field : Format.Field
 		{
 			protected Field(ProxyCtor p) : base(p) {}
 		

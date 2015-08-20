@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/InterruptibleChannel")]
-	public interface InterruptibleChannel : Channel
+	public partial interface InterruptibleChannel : Channel
 	{
 		[JavaSignature("()V")]
 		new void close();

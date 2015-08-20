@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/ReflectiveOperationException")]
-	public class ReflectiveOperationException : Exception
+	public partial class ReflectiveOperationException : Exception
 	{
 		protected ReflectiveOperationException(ProxyCtor p) : base(p) {}
 		

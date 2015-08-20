@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/DoubleUnaryOperator")]
-	public interface DoubleUnaryOperator : IJavaObject
+	public partial interface DoubleUnaryOperator : IJavaObject
 	{
 		[JavaSignature("(Ljava/util/function/DoubleUnaryOperator;)Ljava/util/function/DoubleUnaryOperator;")]
 		DoubleUnaryOperator andThen(DoubleUnaryOperator arg0);

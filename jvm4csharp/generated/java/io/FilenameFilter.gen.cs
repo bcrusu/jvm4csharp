@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/FilenameFilter")]
-	public interface FilenameFilter : IJavaObject
+	public partial interface FilenameFilter : IJavaObject
 	{
 		[JavaSignature("(Ljava/io/File;Ljava/lang/String;)Z")]
 		bool accept(File arg0, String arg1);

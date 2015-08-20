@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/InvocationHandler")]
-	public interface InvocationHandler : IJavaObject
+	public partial interface InvocationHandler : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;")]
 		IJavaObject invoke(IJavaObject arg0, Method arg1, ObjectArray<IJavaObject> arg2);

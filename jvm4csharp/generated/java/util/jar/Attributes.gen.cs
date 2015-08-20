@@ -15,7 +15,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util.jar
 {
 	[JavaProxy("java/util/jar/Attributes")]
-	public class Attributes : Object, Map<IJavaObject, IJavaObject>, Cloneable
+	public partial class Attributes : Object, Map<IJavaObject, IJavaObject>, Cloneable
 	{
 		protected Attributes(ProxyCtor p) : base(p) {}
 		
@@ -191,7 +191,7 @@ namespace jvm4csharp.java.util.jar
 		}
 	
 		[JavaProxy("java/util/jar/Attributes/Name")]
-		public class Name : Object
+		public partial class Name : Object
 		{
 			protected Name(ProxyCtor p) : base(p) {}
 			

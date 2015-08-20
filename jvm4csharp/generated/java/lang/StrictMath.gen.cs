@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/StrictMath")]
-	public class StrictMath : Object
+	public partial class StrictMath : Object
 	{
 		protected StrictMath(ProxyCtor p) : base(p) {}
 	

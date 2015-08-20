@@ -16,7 +16,7 @@ using jvm4csharp.java.util.concurrent;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/AsynchronousChannelGroup")]
-	public abstract class AsynchronousChannelGroup : Object
+	public abstract partial class AsynchronousChannelGroup : Object
 	{
 		protected AsynchronousChannelGroup(ProxyCtor p) : base(p) {}
 	
@@ -30,24 +30,6 @@ namespace jvm4csharp.java.nio.channels
 		public AsynchronousChannelProvider provider()
 		{
 			return Instance.CallMethod<AsynchronousChannelProvider>("provider", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;");
-		}
-		
-		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
-		public bool awaitTermination(long arg0, TimeUnit arg1)
-		{
-			return Instance.CallMethod<bool>("awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1);
-		}
-		
-		[JavaSignature("()Z")]
-		public bool isShutdown()
-		{
-			return Instance.CallMethod<bool>("isShutdown", "()Z");
-		}
-		
-		[JavaSignature("()Z")]
-		public bool isTerminated()
-		{
-			return Instance.CallMethod<bool>("isTerminated", "()Z");
 		}
 		
 		[JavaSignature("(Ljava/util/concurrent/ExecutorService;I)Ljava/nio/channels/AsynchronousChannelGroup;")]
@@ -66,6 +48,24 @@ namespace jvm4csharp.java.nio.channels
 		public static AsynchronousChannelGroup withThreadPool(ExecutorService arg0)
 		{
 			return Static.CallMethod<AsynchronousChannelGroup>(typeof(AsynchronousChannelGroup), "withThreadPool", "(Ljava/util/concurrent/ExecutorService;)Ljava/nio/channels/AsynchronousChannelGroup;", arg0);
+		}
+		
+		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
+		public bool awaitTermination(long arg0, TimeUnit arg1)
+		{
+			return Instance.CallMethod<bool>("awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1);
+		}
+		
+		[JavaSignature("()Z")]
+		public bool isShutdown()
+		{
+			return Instance.CallMethod<bool>("isShutdown", "()Z");
+		}
+		
+		[JavaSignature("()Z")]
+		public bool isTerminated()
+		{
+			return Instance.CallMethod<bool>("isTerminated", "()Z");
 		}
 		
 		[JavaSignature("()V")]

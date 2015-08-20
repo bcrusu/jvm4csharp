@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio
 {
 	[JavaProxy("java/nio/BufferOverflowException")]
-	public class BufferOverflowException : RuntimeException
+	public partial class BufferOverflowException : RuntimeException
 	{
 		protected BufferOverflowException(ProxyCtor p) : base(p) {}
 		

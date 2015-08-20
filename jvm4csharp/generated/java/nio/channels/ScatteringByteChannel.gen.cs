@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/ScatteringByteChannel")]
-	public interface ScatteringByteChannel : ReadableByteChannel
+	public partial interface ScatteringByteChannel : ReadableByteChannel
 	{
 		[JavaSignature("([Ljava/nio/ByteBuffer;II)J")]
 		long read(ObjectArray<ByteBuffer> arg0, int arg1, int arg2);

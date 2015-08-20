@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang.management
 {
 	[JavaProxy("java/lang/management/MemoryType")]
-	public class MemoryType : Enum<MemoryType>
+	public partial class MemoryType : Enum<MemoryType>
 	{
 		protected MemoryType(ProxyCtor p) : base(p) {}
 	

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/AbstractMethodError")]
-	public class AbstractMethodError : IncompatibleClassChangeError
+	public partial class AbstractMethodError : IncompatibleClassChangeError
 	{
 		protected AbstractMethodError(ProxyCtor p) : base(p) {}
 		

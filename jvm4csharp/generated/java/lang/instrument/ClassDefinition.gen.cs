@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang.instrument
 {
 	[JavaProxy("java/lang/instrument/ClassDefinition")]
-	public class ClassDefinition : Object
+	public partial class ClassDefinition : Object
 	{
 		protected ClassDefinition(ProxyCtor p) : base(p) {}
 		

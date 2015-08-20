@@ -16,7 +16,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.lang.invoke
 {
 	[JavaProxy("java/lang/invoke/MethodHandles")]
-	public class MethodHandles : Object
+	public partial class MethodHandles : Object
 	{
 		protected MethodHandles(ProxyCtor p) : base(p) {}
 	
@@ -154,7 +154,7 @@ namespace jvm4csharp.java.lang.invoke
 		}
 	
 		[JavaProxy("java/lang/invoke/MethodHandles/Lookup")]
-		public class Lookup : Object
+		public partial class Lookup : Object
 		{
 			protected Lookup(ProxyCtor p) : base(p) {}
 		

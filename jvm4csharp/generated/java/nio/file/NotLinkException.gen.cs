@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/NotLinkException")]
-	public class NotLinkException : FileSystemException
+	public partial class NotLinkException : FileSystemException
 	{
 		protected NotLinkException(ProxyCtor p) : base(p) {}
 		

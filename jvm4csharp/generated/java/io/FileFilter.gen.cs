@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/FileFilter")]
-	public interface FileFilter : IJavaObject
+	public partial interface FileFilter : IJavaObject
 	{
 		[JavaSignature("(Ljava/io/File;)Z")]
 		bool accept(File arg0);

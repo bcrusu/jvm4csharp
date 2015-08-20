@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/RunnableFuture")]
-	public interface RunnableFuture<V> : Runnable, Future<V>
+	public partial interface RunnableFuture<V> : Runnable, Future<V>
 		where V : IJavaObject
 	{
 		[JavaSignature("()V")]

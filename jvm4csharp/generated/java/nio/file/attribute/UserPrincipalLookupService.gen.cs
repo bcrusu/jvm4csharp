@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file.attribute
 {
 	[JavaProxy("java/nio/file/attribute/UserPrincipalLookupService")]
-	public abstract class UserPrincipalLookupService : Object
+	public abstract partial class UserPrincipalLookupService : Object
 	{
 		protected UserPrincipalLookupService(ProxyCtor p) : base(p) {}
 	}

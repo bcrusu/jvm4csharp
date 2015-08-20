@@ -15,7 +15,7 @@ using jvm4csharp.java.util.stream;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/AbstractList")]
-	public abstract class AbstractList<E> : AbstractCollection<E>, List<E>
+	public abstract partial class AbstractList<E> : AbstractCollection<E>, List<E>
 		where E : IJavaObject
 	{
 		protected AbstractList(ProxyCtor p) : base(p) {}

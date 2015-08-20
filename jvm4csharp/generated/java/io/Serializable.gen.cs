@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/Serializable")]
-	public interface Serializable : IJavaObject
+	public partial interface Serializable : IJavaObject
 	{
 	}
 }

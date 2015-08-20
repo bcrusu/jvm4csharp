@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/IllegalAccessError")]
-	public class IllegalAccessError : IncompatibleClassChangeError
+	public partial class IllegalAccessError : IncompatibleClassChangeError
 	{
 		protected IllegalAccessError(ProxyCtor p) : base(p) {}
 		

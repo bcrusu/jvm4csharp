@@ -17,7 +17,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/DatagramChannel")]
-	public abstract class DatagramChannel : AbstractSelectableChannel, ByteChannel, ScatteringByteChannel, GatheringByteChannel, MulticastChannel
+	public abstract partial class DatagramChannel : AbstractSelectableChannel, ByteChannel, ScatteringByteChannel, GatheringByteChannel, MulticastChannel
 	{
 		protected DatagramChannel(ProxyCtor p) : base(p) {}
 	
@@ -45,10 +45,10 @@ namespace jvm4csharp.java.nio.channels
 			return Instance.CallMethod<DatagramChannel>("connect", "(Ljava/net/SocketAddress;)Ljava/nio/channels/DatagramChannel;", arg0);
 		}
 		
-		[JavaSignature("(Ljava/nio/ByteBuffer;)I")]
-		public int read(ByteBuffer arg0)
+		[JavaSignature("([Ljava/nio/ByteBuffer;II)J")]
+		public long read(ObjectArray<ByteBuffer> arg0, int arg1, int arg2)
 		{
-			return Instance.CallMethod<int>("read", "(Ljava/nio/ByteBuffer;)I", arg0);
+			return Instance.CallMethod<long>("read", "([Ljava/nio/ByteBuffer;II)J", arg0, arg1, arg2);
 		}
 		
 		[JavaSignature("([Ljava/nio/ByteBuffer;)J")]
@@ -57,10 +57,10 @@ namespace jvm4csharp.java.nio.channels
 			return Instance.CallMethod<long>("read", "([Ljava/nio/ByteBuffer;)J", arg0);
 		}
 		
-		[JavaSignature("([Ljava/nio/ByteBuffer;II)J")]
-		public long read(ObjectArray<ByteBuffer> arg0, int arg1, int arg2)
+		[JavaSignature("(Ljava/nio/ByteBuffer;)I")]
+		public int read(ByteBuffer arg0)
 		{
-			return Instance.CallMethod<long>("read", "([Ljava/nio/ByteBuffer;II)J", arg0, arg1, arg2);
+			return Instance.CallMethod<int>("read", "(Ljava/nio/ByteBuffer;)I", arg0);
 		}
 		
 		[JavaSignature("(Ljava/net/ProtocolFamily;)Ljava/nio/channels/DatagramChannel;")]
@@ -73,18 +73,6 @@ namespace jvm4csharp.java.nio.channels
 		public static DatagramChannel open()
 		{
 			return Static.CallMethod<DatagramChannel>(typeof(DatagramChannel), "open", "()Ljava/nio/channels/DatagramChannel;");
-		}
-		
-		[JavaSignature("()Ljava/net/SocketAddress;")]
-		public SocketAddress getLocalAddress()
-		{
-			return Instance.CallMethod<SocketAddress>("getLocalAddress", "()Ljava/net/SocketAddress;");
-		}
-		
-		[JavaSignature("()Z")]
-		public bool isConnected()
-		{
-			return Instance.CallMethod<bool>("isConnected", "()Z");
 		}
 		
 		[JavaSignature("(Ljava/net/SocketAddress;)Ljava/nio/channels/DatagramChannel;")]
@@ -100,22 +88,34 @@ namespace jvm4csharp.java.nio.channels
 			return Instance.CallMethod<DatagramChannel>("setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/DatagramChannel;", arg0, arg1);
 		}
 		
+		[JavaSignature("()Ljava/net/SocketAddress;")]
+		public SocketAddress getLocalAddress()
+		{
+			return Instance.CallMethod<SocketAddress>("getLocalAddress", "()Ljava/net/SocketAddress;");
+		}
+		
+		[JavaSignature("()Z")]
+		public bool isConnected()
+		{
+			return Instance.CallMethod<bool>("isConnected", "()Z");
+		}
+		
 		[JavaSignature("()Ljava/net/DatagramSocket;")]
 		public DatagramSocket socket()
 		{
 			return Instance.CallMethod<DatagramSocket>("socket", "()Ljava/net/DatagramSocket;");
 		}
 		
-		[JavaSignature("(Ljava/nio/ByteBuffer;)Ljava/net/SocketAddress;")]
-		public SocketAddress receive(ByteBuffer arg0)
-		{
-			return Instance.CallMethod<SocketAddress>("receive", "(Ljava/nio/ByteBuffer;)Ljava/net/SocketAddress;", arg0);
-		}
-		
 		[JavaSignature("()Ljava/net/SocketAddress;")]
 		public SocketAddress getRemoteAddress()
 		{
 			return Instance.CallMethod<SocketAddress>("getRemoteAddress", "()Ljava/net/SocketAddress;");
+		}
+		
+		[JavaSignature("(Ljava/nio/ByteBuffer;)Ljava/net/SocketAddress;")]
+		public SocketAddress receive(ByteBuffer arg0)
+		{
+			return Instance.CallMethod<SocketAddress>("receive", "(Ljava/nio/ByteBuffer;)Ljava/net/SocketAddress;", arg0);
 		}
 		
 		[JavaSignature("()Ljava/nio/channels/DatagramChannel;")]

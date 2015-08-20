@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/IntSupplier")]
-	public interface IntSupplier : IJavaObject
+	public partial interface IntSupplier : IJavaObject
 	{
 		[JavaSignature("()I")]
 		int getAsInt();

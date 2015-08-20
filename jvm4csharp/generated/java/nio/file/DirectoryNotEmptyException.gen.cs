@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/DirectoryNotEmptyException")]
-	public class DirectoryNotEmptyException : FileSystemException
+	public partial class DirectoryNotEmptyException : FileSystemException
 	{
 		protected DirectoryNotEmptyException(ProxyCtor p) : base(p) {}
 		

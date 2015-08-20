@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/StringWriter")]
-	public class StringWriter : Writer
+	public partial class StringWriter : Writer
 	{
 		protected StringWriter(ProxyCtor p) : base(p) {}
 		

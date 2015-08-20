@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent.locks
 {
 	[JavaProxy("java/util/concurrent/locks/AbstractOwnableSynchronizer")]
-	public abstract class AbstractOwnableSynchronizer : Object, Serializable
+	public abstract partial class AbstractOwnableSynchronizer : Object, Serializable
 	{
 		protected AbstractOwnableSynchronizer(ProxyCtor p) : base(p) {}
 	}

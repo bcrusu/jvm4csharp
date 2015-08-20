@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/CollationKey")]
-	public abstract class CollationKey : Object, Comparable<CollationKey>
+	public abstract partial class CollationKey : Object, Comparable<CollationKey>
 	{
 		protected CollationKey(ProxyCtor p) : base(p) {}
 	

@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang.annotation
 {
 	[JavaProxy("java/lang/annotation/Target")]
-	public interface Target : Annotation
+	public partial interface Target : Annotation
 	{
 		[JavaSignature("()[Ljava/lang/annotation/ElementType;")]
 		ObjectArray<ElementType> @value();

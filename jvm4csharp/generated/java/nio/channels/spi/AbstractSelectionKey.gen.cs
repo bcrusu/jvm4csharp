@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.nio.channels.spi
 {
 	[JavaProxy("java/nio/channels/spi/AbstractSelectionKey")]
-	public abstract class AbstractSelectionKey : SelectionKey
+	public abstract partial class AbstractSelectionKey : SelectionKey
 	{
 		protected AbstractSelectionKey(ProxyCtor p) : base(p) {}
 	}

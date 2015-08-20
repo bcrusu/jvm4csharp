@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/ClosedSelectorException")]
-	public class ClosedSelectorException : IllegalStateException
+	public partial class ClosedSelectorException : IllegalStateException
 	{
 		protected ClosedSelectorException(ProxyCtor p) : base(p) {}
 		

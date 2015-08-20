@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/CancelledKeyException")]
-	public class CancelledKeyException : IllegalStateException
+	public partial class CancelledKeyException : IllegalStateException
 	{
 		protected CancelledKeyException(ProxyCtor p) : base(p) {}
 		

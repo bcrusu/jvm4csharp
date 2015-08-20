@@ -14,7 +14,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/ThreadLocal")]
-	public class ThreadLocal<T> : Object
+	public partial class ThreadLocal<T> : Object
 		where T : IJavaObject
 	{
 		protected ThreadLocal(ProxyCtor p) : base(p) {}

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/NoClassDefFoundError")]
-	public class NoClassDefFoundError : LinkageError
+	public partial class NoClassDefFoundError : LinkageError
 	{
 		protected NoClassDefFoundError(ProxyCtor p) : base(p) {}
 		

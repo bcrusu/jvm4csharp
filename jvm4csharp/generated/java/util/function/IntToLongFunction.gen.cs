@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/IntToLongFunction")]
-	public interface IntToLongFunction : IJavaObject
+	public partial interface IntToLongFunction : IJavaObject
 	{
 		[JavaSignature("(I)J")]
 		long applyAsLong(int arg0);

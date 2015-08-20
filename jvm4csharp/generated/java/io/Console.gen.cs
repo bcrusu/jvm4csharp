@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/Console")]
-	public class Console : Object, Flushable
+	public partial class Console : Object, Flushable
 	{
 		protected Console(ProxyCtor p) : base(p) {}
 	

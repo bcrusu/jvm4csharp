@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio
 {
 	[JavaProxy("java/nio/ShortBuffer")]
-	public abstract class ShortBuffer : Buffer, Comparable<ShortBuffer>
+	public abstract partial class ShortBuffer : Buffer, Comparable<ShortBuffer>
 	{
 		protected ShortBuffer(ProxyCtor p) : base(p) {}
 	

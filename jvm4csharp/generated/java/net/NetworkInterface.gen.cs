@@ -16,7 +16,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/NetworkInterface")]
-	public class NetworkInterface : Object
+	public partial class NetworkInterface : Object
 	{
 		protected NetworkInterface(ProxyCtor p) : base(p) {}
 	
@@ -44,6 +44,12 @@ namespace jvm4csharp.java.net
 			return Instance.CallMethod<String>("getDisplayName", "()Ljava/lang/String;");
 		}
 		
+		[JavaSignature("()I")]
+		public int getIndex()
+		{
+			return Instance.CallMethod<int>("getIndex", "()I");
+		}
+		
 		[JavaSignature("()Ljava/util/Enumeration;")]
 		public Enumeration<InetAddress> getInetAddresses()
 		{
@@ -54,12 +60,6 @@ namespace jvm4csharp.java.net
 		public static Enumeration<NetworkInterface> getNetworkInterfaces()
 		{
 			return Static.CallMethod<Enumeration<NetworkInterface>>(typeof(NetworkInterface), "getNetworkInterfaces", "()Ljava/util/Enumeration;");
-		}
-		
-		[JavaSignature("()I")]
-		public int getIndex()
-		{
-			return Instance.CallMethod<int>("getIndex", "()I");
 		}
 		
 		[JavaSignature("(I)Ljava/net/NetworkInterface;")]

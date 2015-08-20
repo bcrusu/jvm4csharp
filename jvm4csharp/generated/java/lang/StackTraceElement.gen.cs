@@ -14,7 +14,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/StackTraceElement")]
-	public class StackTraceElement : Object, Serializable
+	public partial class StackTraceElement : Object, Serializable
 	{
 		protected StackTraceElement(ProxyCtor p) : base(p) {}
 		

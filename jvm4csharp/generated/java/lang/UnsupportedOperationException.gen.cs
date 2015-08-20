@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/UnsupportedOperationException")]
-	public class UnsupportedOperationException : RuntimeException
+	public partial class UnsupportedOperationException : RuntimeException
 	{
 		protected UnsupportedOperationException(ProxyCtor p) : base(p) {}
 		

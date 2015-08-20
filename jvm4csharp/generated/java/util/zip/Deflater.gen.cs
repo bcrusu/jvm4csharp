@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.zip
 {
 	[JavaProxy("java/util/zip/Deflater")]
-	public class Deflater : Object
+	public partial class Deflater : Object
 	{
 		protected Deflater(ProxyCtor p) : base(p) {}
 		
@@ -203,15 +203,15 @@ namespace jvm4csharp.java.util.zip
 		}
 		
 		[JavaSignature("(I)V")]
-		public void setStrategy(int arg0)
-		{
-			Instance.CallMethod("setStrategy", "(I)V", arg0);
-		}
-		
-		[JavaSignature("(I)V")]
 		public void setLevel(int arg0)
 		{
 			Instance.CallMethod("setLevel", "(I)V", arg0);
+		}
+		
+		[JavaSignature("(I)V")]
+		public void setStrategy(int arg0)
+		{
+			Instance.CallMethod("setStrategy", "(I)V", arg0);
 		}
 	}
 }

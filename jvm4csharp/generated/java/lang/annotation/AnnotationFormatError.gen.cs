@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.annotation
 {
 	[JavaProxy("java/lang/annotation/AnnotationFormatError")]
-	public class AnnotationFormatError : Error
+	public partial class AnnotationFormatError : Error
 	{
 		protected AnnotationFormatError(ProxyCtor p) : base(p) {}
 		

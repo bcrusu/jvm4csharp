@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/WritePendingException")]
-	public class WritePendingException : IllegalStateException
+	public partial class WritePendingException : IllegalStateException
 	{
 		protected WritePendingException(ProxyCtor p) : base(p) {}
 		

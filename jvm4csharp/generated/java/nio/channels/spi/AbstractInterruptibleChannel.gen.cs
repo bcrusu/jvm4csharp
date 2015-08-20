@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.channels.spi
 {
 	[JavaProxy("java/nio/channels/spi/AbstractInterruptibleChannel")]
-	public abstract class AbstractInterruptibleChannel : Object, Channel, InterruptibleChannel
+	public abstract partial class AbstractInterruptibleChannel : Object, Channel, InterruptibleChannel
 	{
 		protected AbstractInterruptibleChannel(ProxyCtor p) : base(p) {}
 	

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/InternalError")]
-	public class InternalError : VirtualMachineError
+	public partial class InternalError : VirtualMachineError
 	{
 		protected InternalError(ProxyCtor p) : base(p) {}
 		

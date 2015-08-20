@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Integer")]
-	public class Integer : Number, Comparable<Integer>
+	public partial class Integer : Number, Comparable<Integer>
 	{
 		protected Integer(ProxyCtor p) : base(p) {}
 		

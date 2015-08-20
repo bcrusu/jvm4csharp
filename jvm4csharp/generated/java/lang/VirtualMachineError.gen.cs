@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/VirtualMachineError")]
-	public abstract class VirtualMachineError : Error
+	public abstract partial class VirtualMachineError : Error
 	{
 		protected VirtualMachineError(ProxyCtor p) : base(p) {}
 	}

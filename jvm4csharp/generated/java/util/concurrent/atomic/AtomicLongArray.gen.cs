@@ -17,7 +17,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util.concurrent.atomic
 {
 	[JavaProxy("java/util/concurrent/atomic/AtomicLongArray")]
-	public class AtomicLongArray : Object, Serializable
+	public partial class AtomicLongArray : Object, Serializable
 	{
 		protected AtomicLongArray(ProxyCtor p) : base(p) {}
 		

@@ -12,18 +12,18 @@
 namespace jvm4csharp.java.util.logging
 {
 	[JavaProxy("java/util/logging/MemoryHandler")]
-	public class MemoryHandler : Handler
+	public partial class MemoryHandler : Handler
 	{
 		protected MemoryHandler(ProxyCtor p) : base(p) {}
-		
-		public MemoryHandler() : base(ProxyCtor.I)
-		{
-			Instance.CallConstructor("()V");
-		}
 		
 		public MemoryHandler(Handler arg0, int arg1, Level arg2) : base(ProxyCtor.I)
 		{
 			Instance.CallConstructor("(Ljava/util/logging/Handler;ILjava/util/logging/Level;)V", arg0, arg1, arg2);
+		}
+		
+		public MemoryHandler() : base(ProxyCtor.I)
+		{
+			Instance.CallConstructor("()V");
 		}
 	
 		[JavaSignature("()V")]

@@ -15,7 +15,7 @@ using jvm4csharp.java.nio.file.attribute;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/FileVisitor")]
-	public interface FileVisitor<T> : IJavaObject
+	public partial interface FileVisitor<T> : IJavaObject
 		where T : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/Object;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;")]

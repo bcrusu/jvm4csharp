@@ -16,7 +16,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util.concurrent.atomic
 {
 	[JavaProxy("java/util/concurrent/atomic/AtomicReference")]
-	public class AtomicReference<V> : Object, Serializable
+	public partial class AtomicReference<V> : Object, Serializable
 		where V : IJavaObject
 	{
 		protected AtomicReference(ProxyCtor p) : base(p) {}

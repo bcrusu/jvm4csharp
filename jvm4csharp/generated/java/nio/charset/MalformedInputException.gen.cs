@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.nio.charset
 {
 	[JavaProxy("java/nio/charset/MalformedInputException")]
-	public class MalformedInputException : CharacterCodingException
+	public partial class MalformedInputException : CharacterCodingException
 	{
 		protected MalformedInputException(ProxyCtor p) : base(p) {}
 		

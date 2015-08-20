@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/IllegalFormatConversionException")]
-	public class IllegalFormatConversionException : IllegalFormatException
+	public partial class IllegalFormatConversionException : IllegalFormatException
 	{
 		protected IllegalFormatConversionException(ProxyCtor p) : base(p) {}
 		

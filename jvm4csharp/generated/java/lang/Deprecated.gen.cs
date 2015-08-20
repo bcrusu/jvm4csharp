@@ -14,7 +14,7 @@ using jvm4csharp.java.lang.annotation;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Deprecated")]
-	public interface Deprecated : Annotation
+	public partial interface Deprecated : Annotation
 	{
 	}
 }

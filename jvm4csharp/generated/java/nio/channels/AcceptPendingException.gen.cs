@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/AcceptPendingException")]
-	public class AcceptPendingException : IllegalStateException
+	public partial class AcceptPendingException : IllegalStateException
 	{
 		protected AcceptPendingException(ProxyCtor p) : base(p) {}
 		

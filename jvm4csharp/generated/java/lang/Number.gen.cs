@@ -14,7 +14,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Number")]
-	public abstract class Number : Object, Serializable
+	public abstract partial class Number : Object, Serializable
 	{
 		protected Number(ProxyCtor p) : base(p) {}
 	

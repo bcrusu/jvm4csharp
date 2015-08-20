@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.nio.file.attribute
 {
 	[JavaProxy("java/nio/file/attribute/FileAttributeView")]
-	public interface FileAttributeView : AttributeView
+	public partial interface FileAttributeView : AttributeView
 	{
 	}
 }

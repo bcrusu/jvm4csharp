@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/DoubleBinaryOperator")]
-	public interface DoubleBinaryOperator : IJavaObject
+	public partial interface DoubleBinaryOperator : IJavaObject
 	{
 		[JavaSignature("(DD)D")]
 		double applyAsDouble(double arg0, double arg1);

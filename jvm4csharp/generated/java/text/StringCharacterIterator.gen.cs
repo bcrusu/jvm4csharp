@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/StringCharacterIterator")]
-	public class StringCharacterIterator : Object, CharacterIterator
+	public partial class StringCharacterIterator : Object, CharacterIterator
 	{
 		protected StringCharacterIterator(ProxyCtor p) : base(p) {}
 		
@@ -69,18 +69,6 @@ namespace jvm4csharp.java.text
 			return Instance.CallMethod<char>("current", "()C");
 		}
 		
-		[JavaSignature("()I")]
-		public int getBeginIndex()
-		{
-			return Instance.CallMethod<int>("getBeginIndex", "()I");
-		}
-		
-		[JavaSignature("()I")]
-		public int getEndIndex()
-		{
-			return Instance.CallMethod<int>("getEndIndex", "()I");
-		}
-		
 		[JavaSignature("(I)C")]
 		public char setIndex(int arg0)
 		{
@@ -91,6 +79,18 @@ namespace jvm4csharp.java.text
 		public void setText(String arg0)
 		{
 			Instance.CallMethod("setText", "(Ljava/lang/String;)V", arg0);
+		}
+		
+		[JavaSignature("()I")]
+		public int getBeginIndex()
+		{
+			return Instance.CallMethod<int>("getBeginIndex", "()I");
+		}
+		
+		[JavaSignature("()I")]
+		public int getEndIndex()
+		{
+			return Instance.CallMethod<int>("getEndIndex", "()I");
 		}
 		
 		[JavaSignature("()Ljava/lang/Object;")]

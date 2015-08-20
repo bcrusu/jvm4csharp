@@ -15,7 +15,7 @@ using jvm4csharp.java.lang.annotation;
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/Executable")]
-	public abstract class Executable : AccessibleObject, Member, GenericDeclaration
+	public abstract partial class Executable : AccessibleObject, Member, GenericDeclaration
 	{
 		protected Executable(ProxyCtor p) : base(p) {}
 	

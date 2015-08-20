@@ -16,7 +16,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/TimeZone")]
-	public abstract class TimeZone : Object, Serializable, Cloneable
+	public abstract partial class TimeZone : Object, Serializable, Cloneable
 	{
 		protected TimeZone(ProxyCtor p) : base(p) {}
 	

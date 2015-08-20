@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/URLStreamHandler")]
-	public abstract class URLStreamHandler : Object
+	public abstract partial class URLStreamHandler : Object
 	{
 		protected URLStreamHandler(ProxyCtor p) : base(p) {}
 	}

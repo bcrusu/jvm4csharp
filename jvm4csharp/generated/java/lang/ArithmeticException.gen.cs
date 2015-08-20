@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/ArithmeticException")]
-	public class ArithmeticException : RuntimeException
+	public partial class ArithmeticException : RuntimeException
 	{
 		protected ArithmeticException(ProxyCtor p) : base(p) {}
 		

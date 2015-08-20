@@ -14,7 +14,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/ConcurrentMap")]
-	public interface ConcurrentMap<K, V> : Map<K, V>
+	public partial interface ConcurrentMap<K, V> : Map<K, V>
 		where K : IJavaObject
 		where V : IJavaObject
 	{

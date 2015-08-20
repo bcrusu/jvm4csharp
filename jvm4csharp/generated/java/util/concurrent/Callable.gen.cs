@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/Callable")]
-	public interface Callable<V> : IJavaObject
+	public partial interface Callable<V> : IJavaObject
 		where V : IJavaObject
 	{
 		[JavaSignature("()Ljava/lang/Object;")]

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/ListResourceBundle")]
-	public abstract class ListResourceBundle : ResourceBundle
+	public abstract partial class ListResourceBundle : ResourceBundle
 	{
 		protected ListResourceBundle(ProxyCtor p) : base(p) {}
 	}

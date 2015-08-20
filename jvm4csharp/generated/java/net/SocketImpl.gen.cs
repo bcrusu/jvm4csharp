@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/SocketImpl")]
-	public abstract class SocketImpl : Object, SocketOptions
+	public abstract partial class SocketImpl : Object, SocketOptions
 	{
 		protected SocketImpl(ProxyCtor p) : base(p) {}
 	

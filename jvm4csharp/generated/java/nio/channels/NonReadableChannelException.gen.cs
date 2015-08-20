@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/NonReadableChannelException")]
-	public class NonReadableChannelException : IllegalStateException
+	public partial class NonReadableChannelException : IllegalStateException
 	{
 		protected NonReadableChannelException(ProxyCtor p) : base(p) {}
 		

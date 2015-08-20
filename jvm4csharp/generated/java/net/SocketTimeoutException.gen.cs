@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/SocketTimeoutException")]
-	public class SocketTimeoutException : InterruptedIOException
+	public partial class SocketTimeoutException : InterruptedIOException
 	{
 		protected SocketTimeoutException(ProxyCtor p) : base(p) {}
 		

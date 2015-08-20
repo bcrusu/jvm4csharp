@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/MissingFormatWidthException")]
-	public class MissingFormatWidthException : IllegalFormatException
+	public partial class MissingFormatWidthException : IllegalFormatException
 	{
 		protected MissingFormatWidthException(ProxyCtor p) : base(p) {}
 		

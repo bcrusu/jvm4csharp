@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang.management
 {
 	[JavaProxy("java/lang/management/MemoryManagerMXBean")]
-	public interface MemoryManagerMXBean : PlatformManagedObject
+	public partial interface MemoryManagerMXBean : PlatformManagedObject
 	{
 		[JavaSignature("()Ljava/lang/String;")]
 		String getName();

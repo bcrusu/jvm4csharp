@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/IllegalSelectorException")]
-	public class IllegalSelectorException : IllegalArgumentException
+	public partial class IllegalSelectorException : IllegalArgumentException
 	{
 		protected IllegalSelectorException(ProxyCtor p) : base(p) {}
 		

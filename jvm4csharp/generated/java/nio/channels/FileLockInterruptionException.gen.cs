@@ -14,7 +14,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/FileLockInterruptionException")]
-	public class FileLockInterruptionException : IOException
+	public partial class FileLockInterruptionException : IOException
 	{
 		protected FileLockInterruptionException(ProxyCtor p) : base(p) {}
 		

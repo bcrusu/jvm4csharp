@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/IntToDoubleFunction")]
-	public interface IntToDoubleFunction : IJavaObject
+	public partial interface IntToDoubleFunction : IJavaObject
 	{
 		[JavaSignature("(I)D")]
 		double applyAsDouble(int arg0);

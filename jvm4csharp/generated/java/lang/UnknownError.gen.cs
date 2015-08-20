@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/UnknownError")]
-	public class UnknownError : VirtualMachineError
+	public partial class UnknownError : VirtualMachineError
 	{
 		protected UnknownError(ProxyCtor p) : base(p) {}
 		

@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/IllformedLocaleException")]
-	public class IllformedLocaleException : RuntimeException
+	public partial class IllformedLocaleException : RuntimeException
 	{
 		protected IllformedLocaleException(ProxyCtor p) : base(p) {}
 		

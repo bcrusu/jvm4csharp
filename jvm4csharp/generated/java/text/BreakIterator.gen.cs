@@ -16,7 +16,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/BreakIterator")]
-	public abstract class BreakIterator : Object, Cloneable
+	public abstract partial class BreakIterator : Object, Cloneable
 	{
 		protected BreakIterator(ProxyCtor p) : base(p) {}
 	

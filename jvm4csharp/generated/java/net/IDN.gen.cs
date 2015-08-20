@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/IDN")]
-	public class IDN : Object
+	public partial class IDN : Object
 	{
 		protected IDN(ProxyCtor p) : base(p) {}
 	

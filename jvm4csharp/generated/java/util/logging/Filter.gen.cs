@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.logging
 {
 	[JavaProxy("java/util/logging/Filter")]
-	public interface Filter : IJavaObject
+	public partial interface Filter : IJavaObject
 	{
 		[JavaSignature("(Ljava/util/logging/LogRecord;)Z")]
 		bool isLoggable(LogRecord arg0);

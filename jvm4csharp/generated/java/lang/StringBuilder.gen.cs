@@ -16,7 +16,7 @@ using jvm4csharp.java.util.stream;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/StringBuilder")]
-	public class StringBuilder : Object, Serializable, CharSequence, Appendable
+	public partial class StringBuilder : Object, Serializable, CharSequence, Appendable
 	{
 		protected StringBuilder(ProxyCtor p) : base(p) {}
 		

@@ -15,7 +15,7 @@ using jvm4csharp.java.net;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/SecurityManager")]
-	public class SecurityManager : Object
+	public partial class SecurityManager : Object
 	{
 		protected SecurityManager(ProxyCtor p) : base(p) {}
 		

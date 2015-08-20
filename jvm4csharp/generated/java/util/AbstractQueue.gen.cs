@@ -15,7 +15,7 @@ using jvm4csharp.java.util.stream;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/AbstractQueue")]
-	public abstract class AbstractQueue<E> : AbstractCollection<E>, Queue<E>
+	public abstract partial class AbstractQueue<E> : AbstractCollection<E>, Queue<E>
 		where E : IJavaObject
 	{
 		protected AbstractQueue(ProxyCtor p) : base(p) {}

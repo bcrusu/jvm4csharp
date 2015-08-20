@@ -14,7 +14,7 @@ using jvm4csharp.java.lang.reflect;
 namespace jvm4csharp.java.lang.invoke
 {
 	[JavaProxy("java/lang/invoke/MethodHandleInfo")]
-	public interface MethodHandleInfo : IJavaObject
+	public partial interface MethodHandleInfo : IJavaObject
 	{
 		[JavaSignature("()I")]
 		int getModifiers();

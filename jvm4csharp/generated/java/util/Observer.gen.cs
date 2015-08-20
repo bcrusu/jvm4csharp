@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Observer")]
-	public interface Observer : IJavaObject
+	public partial interface Observer : IJavaObject
 	{
 		[JavaSignature("(Ljava/util/Observable;Ljava/lang/Object;)V")]
 		void update(Observable arg0, IJavaObject arg1);

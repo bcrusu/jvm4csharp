@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/FileNotFoundException")]
-	public class FileNotFoundException : IOException
+	public partial class FileNotFoundException : IOException
 	{
 		protected FileNotFoundException(ProxyCtor p) : base(p) {}
 		

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.nio.file.attribute
 {
 	[JavaProxy("java/nio/file/attribute/BasicFileAttributes")]
-	public interface BasicFileAttributes : IJavaObject
+	public partial interface BasicFileAttributes : IJavaObject
 	{
 		[JavaSignature("()J")]
 		long size();

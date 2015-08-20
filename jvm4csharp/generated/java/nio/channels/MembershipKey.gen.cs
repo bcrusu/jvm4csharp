@@ -15,7 +15,7 @@ using jvm4csharp.java.net;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/MembershipKey")]
-	public abstract class MembershipKey : Object
+	public abstract partial class MembershipKey : Object
 	{
 		protected MembershipKey(ProxyCtor p) : base(p) {}
 	

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/BufferedInputStream")]
-	public class BufferedInputStream : FilterInputStream
+	public partial class BufferedInputStream : FilterInputStream
 	{
 		protected BufferedInputStream(ProxyCtor p) : base(p) {}
 		

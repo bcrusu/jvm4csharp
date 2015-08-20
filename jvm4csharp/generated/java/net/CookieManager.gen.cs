@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/CookieManager")]
-	public class CookieManager : CookieHandler
+	public partial class CookieManager : CookieHandler
 	{
 		protected CookieManager(ProxyCtor p) : base(p) {}
 		

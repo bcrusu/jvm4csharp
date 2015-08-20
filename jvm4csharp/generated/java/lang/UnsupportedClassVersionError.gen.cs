@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/UnsupportedClassVersionError")]
-	public class UnsupportedClassVersionError : ClassFormatError
+	public partial class UnsupportedClassVersionError : ClassFormatError
 	{
 		protected UnsupportedClassVersionError(ProxyCtor p) : base(p) {}
 		

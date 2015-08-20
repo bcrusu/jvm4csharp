@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/CloneNotSupportedException")]
-	public class CloneNotSupportedException : Exception
+	public partial class CloneNotSupportedException : Exception
 	{
 		protected CloneNotSupportedException(ProxyCtor p) : base(p) {}
 		

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/GregorianCalendar")]
-	public class GregorianCalendar : Calendar
+	public partial class GregorianCalendar : Calendar
 	{
 		protected GregorianCalendar(ProxyCtor p) : base(p) {}
 		
@@ -69,16 +69,16 @@ namespace jvm4csharp.java.util
 			return Instance.CallMethod<bool>("isLeapYear", "(I)Z", arg0);
 		}
 		
-		[JavaSignature("()Ljava/util/Date;")]
-		public Date getGregorianChange()
-		{
-			return Instance.CallMethod<Date>("getGregorianChange", "()Ljava/util/Date;");
-		}
-		
 		[JavaSignature("(Ljava/util/Date;)V")]
 		public void setGregorianChange(Date arg0)
 		{
 			Instance.CallMethod("setGregorianChange", "(Ljava/util/Date;)V", arg0);
+		}
+		
+		[JavaSignature("()Ljava/util/Date;")]
+		public Date getGregorianChange()
+		{
+			return Instance.CallMethod<Date>("getGregorianChange", "()Ljava/util/Date;");
 		}
 	}
 }

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/AsynchronousCloseException")]
-	public class AsynchronousCloseException : ClosedChannelException
+	public partial class AsynchronousCloseException : ClosedChannelException
 	{
 		protected AsynchronousCloseException(ProxyCtor p) : base(p) {}
 		

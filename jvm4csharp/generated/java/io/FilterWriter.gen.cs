@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/FilterWriter")]
-	public abstract class FilterWriter : Writer
+	public abstract partial class FilterWriter : Writer
 	{
 		protected FilterWriter(ProxyCtor p) : base(p) {}
 	}

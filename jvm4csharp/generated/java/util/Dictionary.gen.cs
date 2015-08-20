@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Dictionary")]
-	public abstract class Dictionary<K, V> : Object
+	public abstract partial class Dictionary<K, V> : Object
 		where K : IJavaObject
 		where V : IJavaObject
 	{

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Void")]
-	public class Void : Object
+	public partial class Void : Object
 	{
 		protected Void(ProxyCtor p) : base(p) {}
 	

@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang.invoke
 {
 	[JavaProxy("java/lang/invoke/MutableCallSite")]
-	public class MutableCallSite : CallSite
+	public partial class MutableCallSite : CallSite
 	{
 		protected MutableCallSite(ProxyCtor p) : base(p) {}
 		

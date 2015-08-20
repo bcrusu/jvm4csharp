@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/RejectedExecutionHandler")]
-	public interface RejectedExecutionHandler : IJavaObject
+	public partial interface RejectedExecutionHandler : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/Runnable;Ljava/util/concurrent/ThreadPoolExecutor;)V")]
 		void rejectedExecution(Runnable arg0, ThreadPoolExecutor arg1);

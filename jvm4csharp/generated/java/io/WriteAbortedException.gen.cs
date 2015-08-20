@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/WriteAbortedException")]
-	public class WriteAbortedException : ObjectStreamException
+	public partial class WriteAbortedException : ObjectStreamException
 	{
 		protected WriteAbortedException(ProxyCtor p) : base(p) {}
 		

@@ -15,7 +15,7 @@ using jvm4csharp.java.util.concurrent;
 namespace jvm4csharp.java.nio.file.attribute
 {
 	[JavaProxy("java/nio/file/attribute/FileTime")]
-	public class FileTime : Object, Comparable<FileTime>
+	public partial class FileTime : Object, Comparable<FileTime>
 	{
 		protected FileTime(ProxyCtor p) : base(p) {}
 	

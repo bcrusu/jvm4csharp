@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/WatchEvent")]
-	public interface WatchEvent<T> : IJavaObject
+	public partial interface WatchEvent<T> : IJavaObject
 		where T : IJavaObject
 	{
 		[JavaSignature("()Ljava/lang/Object;")]
@@ -32,7 +32,7 @@ namespace jvm4csharp.java.nio.file
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 	
 		[JavaProxy("java/nio/file/WatchEvent/Kind")]
-		public interface Kind<T> : IJavaObject
+		public partial interface Kind<T> : IJavaObject
 			where T : IJavaObject
 		{
 			[JavaSignature("()Ljava/lang/String;")]
@@ -43,7 +43,7 @@ namespace jvm4csharp.java.nio.file
 		}
 		
 		[JavaProxy("java/nio/file/WatchEvent/Modifier")]
-		public interface Modifier : IJavaObject
+		public partial interface Modifier : IJavaObject
 		{
 			[JavaSignature("()Ljava/lang/String;")]
 			String name();

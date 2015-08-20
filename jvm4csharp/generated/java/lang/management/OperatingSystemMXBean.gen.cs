@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.management
 {
 	[JavaProxy("java/lang/management/OperatingSystemMXBean")]
-	public interface OperatingSystemMXBean : PlatformManagedObject
+	public partial interface OperatingSystemMXBean : PlatformManagedObject
 	{
 		[JavaSignature("()Ljava/lang/String;")]
 		String getName();

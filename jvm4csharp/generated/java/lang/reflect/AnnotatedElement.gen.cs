@@ -15,7 +15,7 @@ using jvm4csharp.java.lang.annotation;
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/AnnotatedElement")]
-	public interface AnnotatedElement : IJavaObject
+	public partial interface AnnotatedElement : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;")]
 		T getAnnotation<T>(Class<T> arg0)

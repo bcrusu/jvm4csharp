@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/AtomicMoveNotSupportedException")]
-	public class AtomicMoveNotSupportedException : FileSystemException
+	public partial class AtomicMoveNotSupportedException : FileSystemException
 	{
 		protected AtomicMoveNotSupportedException(ProxyCtor p) : base(p) {}
 		

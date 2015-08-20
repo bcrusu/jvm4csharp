@@ -14,7 +14,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/ClosedChannelException")]
-	public class ClosedChannelException : IOException
+	public partial class ClosedChannelException : IOException
 	{
 		protected ClosedChannelException(ProxyCtor p) : base(p) {}
 		

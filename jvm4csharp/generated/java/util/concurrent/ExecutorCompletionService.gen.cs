@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/ExecutorCompletionService")]
-	public class ExecutorCompletionService<V> : Object, CompletionService<V>
+	public partial class ExecutorCompletionService<V> : Object, CompletionService<V>
 		where V : IJavaObject
 	{
 		protected ExecutorCompletionService(ProxyCtor p) : base(p) {}

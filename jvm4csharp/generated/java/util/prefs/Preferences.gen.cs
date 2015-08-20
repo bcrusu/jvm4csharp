@@ -16,7 +16,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.prefs
 {
 	[JavaProxy("java/util/prefs/Preferences")]
-	public abstract class Preferences : Object
+	public abstract partial class Preferences : Object
 	{
 		protected Preferences(ProxyCtor p) : base(p) {}
 	

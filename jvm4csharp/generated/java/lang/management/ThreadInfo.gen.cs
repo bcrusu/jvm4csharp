@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang.management
 {
 	[JavaProxy("java/lang/management/ThreadInfo")]
-	public class ThreadInfo : Object
+	public partial class ThreadInfo : Object
 	{
 		protected ThreadInfo(ProxyCtor p) : base(p) {}
 	
@@ -22,6 +22,18 @@ namespace jvm4csharp.java.lang.management
 		public ObjectArray<StackTraceElement> getStackTrace()
 		{
 			return Instance.CallMethod<ObjectArray<StackTraceElement>>("getStackTrace", "()[Ljava/lang/StackTraceElement;");
+		}
+		
+		[JavaSignature("()J")]
+		public long getThreadId()
+		{
+			return Instance.CallMethod<long>("getThreadId", "()J");
+		}
+		
+		[JavaSignature("()Ljava/lang/management/LockInfo;")]
+		public LockInfo getLockInfo()
+		{
+			return Instance.CallMethod<LockInfo>("getLockInfo", "()Ljava/lang/management/LockInfo;");
 		}
 		
 		[JavaSignature("()J")]
@@ -100,18 +112,6 @@ namespace jvm4csharp.java.lang.management
 		public bool isSuspended()
 		{
 			return Instance.CallMethod<bool>("isSuspended", "()Z");
-		}
-		
-		[JavaSignature("()J")]
-		public long getThreadId()
-		{
-			return Instance.CallMethod<long>("getThreadId", "()J");
-		}
-		
-		[JavaSignature("()Ljava/lang/management/LockInfo;")]
-		public LockInfo getLockInfo()
-		{
-			return Instance.CallMethod<LockInfo>("getLockInfo", "()Ljava/lang/management/LockInfo;");
 		}
 	}
 }

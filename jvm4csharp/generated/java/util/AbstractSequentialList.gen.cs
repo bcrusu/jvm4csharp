@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/AbstractSequentialList")]
-	public abstract class AbstractSequentialList<E> : AbstractList<E>
+	public abstract partial class AbstractSequentialList<E> : AbstractList<E>
 		where E : IJavaObject
 	{
 		protected AbstractSequentialList(ProxyCtor p) : base(p) {}

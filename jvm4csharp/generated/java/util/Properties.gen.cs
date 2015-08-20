@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Properties")]
-	public class Properties : Hashtable<IJavaObject, IJavaObject>
+	public partial class Properties : Hashtable<IJavaObject, IJavaObject>
 	{
 		protected Properties(ProxyCtor p) : base(p) {}
 		

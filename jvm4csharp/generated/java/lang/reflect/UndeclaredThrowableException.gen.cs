@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/UndeclaredThrowableException")]
-	public class UndeclaredThrowableException : RuntimeException
+	public partial class UndeclaredThrowableException : RuntimeException
 	{
 		protected UndeclaredThrowableException(ProxyCtor p) : base(p) {}
 		

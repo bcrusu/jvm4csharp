@@ -16,7 +16,7 @@ using jvm4csharp.java.nio;
 namespace jvm4csharp.java.util.zip
 {
 	[JavaProxy("java/util/zip/CRC32")]
-	public class CRC32 : Object, Checksum
+	public partial class CRC32 : Object, Checksum
 	{
 		protected CRC32(ProxyCtor p) : base(p) {}
 		

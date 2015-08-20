@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent.atomic
 {
 	[JavaProxy("java/util/concurrent/atomic/AtomicBoolean")]
-	public class AtomicBoolean : Object, Serializable
+	public partial class AtomicBoolean : Object, Serializable
 	{
 		protected AtomicBoolean(ProxyCtor p) : base(p) {}
 		

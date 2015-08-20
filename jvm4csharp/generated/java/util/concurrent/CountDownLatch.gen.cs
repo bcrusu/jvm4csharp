@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/CountDownLatch")]
-	public class CountDownLatch : Object
+	public partial class CountDownLatch : Object
 	{
 		protected CountDownLatch(ProxyCtor p) : base(p) {}
 		
@@ -23,16 +23,16 @@ namespace jvm4csharp.java.util.concurrent
 			Instance.CallConstructor("(I)V", arg0);
 		}
 	
+		[JavaSignature("()V")]
+		public void countDown()
+		{
+			Instance.CallMethod("countDown", "()V");
+		}
+		
 		[JavaSignature("()J")]
 		public long getCount()
 		{
 			return Instance.CallMethod<long>("getCount", "()J");
-		}
-		
-		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
-		public bool @await(long arg0, TimeUnit arg1)
-		{
-			return Instance.CallMethod<bool>("await", "(JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1);
 		}
 		
 		[JavaSignature("()V")]
@@ -41,10 +41,10 @@ namespace jvm4csharp.java.util.concurrent
 			Instance.CallMethod("await", "()V");
 		}
 		
-		[JavaSignature("()V")]
-		public void countDown()
+		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
+		public bool @await(long arg0, TimeUnit arg1)
 		{
-			Instance.CallMethod("countDown", "()V");
+			return Instance.CallMethod<bool>("await", "(JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1);
 		}
 	}
 }

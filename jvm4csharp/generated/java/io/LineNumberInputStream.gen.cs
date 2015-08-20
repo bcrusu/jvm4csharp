@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/LineNumberInputStream")]
-	public class LineNumberInputStream : FilterInputStream
+	public partial class LineNumberInputStream : FilterInputStream
 	{
 		protected LineNumberInputStream(ProxyCtor p) : base(p) {}
 		

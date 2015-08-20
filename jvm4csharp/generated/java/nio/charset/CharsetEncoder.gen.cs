@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.charset
 {
 	[JavaProxy("java/nio/charset/CharsetEncoder")]
-	public abstract class CharsetEncoder : Object
+	public abstract partial class CharsetEncoder : Object
 	{
 		protected CharsetEncoder(ProxyCtor p) : base(p) {}
 	

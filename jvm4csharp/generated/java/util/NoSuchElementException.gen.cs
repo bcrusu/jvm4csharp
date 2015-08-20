@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/NoSuchElementException")]
-	public class NoSuchElementException : RuntimeException
+	public partial class NoSuchElementException : RuntimeException
 	{
 		protected NoSuchElementException(ProxyCtor p) : base(p) {}
 		

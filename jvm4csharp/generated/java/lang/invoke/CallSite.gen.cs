@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.invoke
 {
 	[JavaProxy("java/lang/invoke/CallSite")]
-	public abstract class CallSite : Object
+	public abstract partial class CallSite : Object
 	{
 		protected CallSite(ProxyCtor p) : base(p) {}
 	

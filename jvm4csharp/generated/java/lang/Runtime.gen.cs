@@ -15,7 +15,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Runtime")]
-	public class Runtime : Object
+	public partial class Runtime : Object
 	{
 		protected Runtime(ProxyCtor p) : base(p) {}
 	

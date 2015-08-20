@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/ClassFormatError")]
-	public class ClassFormatError : LinkageError
+	public partial class ClassFormatError : LinkageError
 	{
 		protected ClassFormatError(ProxyCtor p) : base(p) {}
 		

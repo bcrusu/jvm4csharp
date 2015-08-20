@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/URISyntaxException")]
-	public class URISyntaxException : Exception
+	public partial class URISyntaxException : Exception
 	{
 		protected URISyntaxException(ProxyCtor p) : base(p) {}
 		

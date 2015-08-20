@@ -17,7 +17,7 @@ using jvm4csharp.java.util.stream;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/ArrayDeque")]
-	public class ArrayDeque<E> : AbstractCollection<E>, Deque<E>, Cloneable, Serializable
+	public partial class ArrayDeque<E> : AbstractCollection<E>, Deque<E>, Cloneable, Serializable
 		where E : IJavaObject
 	{
 		protected ArrayDeque(ProxyCtor p) : base(p) {}

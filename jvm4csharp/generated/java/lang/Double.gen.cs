@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Double")]
-	public class Double : Number, Comparable<Double>
+	public partial class Double : Number, Comparable<Double>
 	{
 		protected Double(ProxyCtor p) : base(p) {}
 		

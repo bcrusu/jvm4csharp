@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/PortUnreachableException")]
-	public class PortUnreachableException : SocketException
+	public partial class PortUnreachableException : SocketException
 	{
 		protected PortUnreachableException(ProxyCtor p) : base(p) {}
 		

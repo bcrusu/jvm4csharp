@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/ScheduledFuture")]
-	public interface ScheduledFuture<V> : Delayed, Future<V>
+	public partial interface ScheduledFuture<V> : Delayed, Future<V>
 		where V : IJavaObject
 	{
 	}

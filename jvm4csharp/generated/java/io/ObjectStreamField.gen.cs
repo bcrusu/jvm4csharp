@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/ObjectStreamField")]
-	public class ObjectStreamField : Object, Comparable<IJavaObject>
+	public partial class ObjectStreamField : Object, Comparable<IJavaObject>
 	{
 		protected ObjectStreamField(ProxyCtor p) : base(p) {}
 		

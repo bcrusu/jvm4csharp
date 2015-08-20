@@ -14,7 +14,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.util.zip
 {
 	[JavaProxy("java/util/zip/CheckedOutputStream")]
-	public class CheckedOutputStream : FilterOutputStream
+	public partial class CheckedOutputStream : FilterOutputStream
 	{
 		protected CheckedOutputStream(ProxyCtor p) : base(p) {}
 		

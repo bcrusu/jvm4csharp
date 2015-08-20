@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/BindException")]
-	public class BindException : SocketException
+	public partial class BindException : SocketException
 	{
 		protected BindException(ProxyCtor p) : base(p) {}
 		

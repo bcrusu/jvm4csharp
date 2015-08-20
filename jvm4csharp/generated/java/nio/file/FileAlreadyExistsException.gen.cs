@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/FileAlreadyExistsException")]
-	public class FileAlreadyExistsException : FileSystemException
+	public partial class FileAlreadyExistsException : FileSystemException
 	{
 		protected FileAlreadyExistsException(ProxyCtor p) : base(p) {}
 		

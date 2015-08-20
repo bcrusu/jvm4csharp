@@ -17,7 +17,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Vector")]
-	public class Vector<E> : AbstractList<E>, List<E>, RandomAccess, Cloneable, Serializable
+	public partial class Vector<E> : AbstractList<E>, List<E>, RandomAccess, Cloneable, Serializable
 		where E : IJavaObject
 	{
 		protected Vector(ProxyCtor p) : base(p) {}

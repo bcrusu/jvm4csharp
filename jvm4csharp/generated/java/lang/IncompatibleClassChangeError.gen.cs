@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/IncompatibleClassChangeError")]
-	public class IncompatibleClassChangeError : LinkageError
+	public partial class IncompatibleClassChangeError : LinkageError
 	{
 		protected IncompatibleClassChangeError(ProxyCtor p) : base(p) {}
 		

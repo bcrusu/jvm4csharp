@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/UnsupportedAddressTypeException")]
-	public class UnsupportedAddressTypeException : IllegalArgumentException
+	public partial class UnsupportedAddressTypeException : IllegalArgumentException
 	{
 		protected UnsupportedAddressTypeException(ProxyCtor p) : base(p) {}
 		

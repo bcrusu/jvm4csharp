@@ -16,7 +16,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/EnumSet")]
-	public abstract class EnumSet<E> : AbstractSet<E>, Cloneable, Serializable
+	public abstract partial class EnumSet<E> : AbstractSet<E>, Cloneable, Serializable
 		where E : Enum<E>
 	{
 		protected EnumSet(ProxyCtor p) : base(p) {}
@@ -91,17 +91,17 @@ namespace jvm4csharp.java.util
 		}
 		
 		[JavaSignature("(Ljava/lang/Class;)Ljava/util/EnumSet;")]
-		public static EnumSet<E1> allOf<E1>(Class<E1> arg0)
-			where E1 : Enum<E1>
-		{
-			return Static.CallMethod<EnumSet<E1>>(typeof(EnumSet<>), "allOf", "(Ljava/lang/Class;)Ljava/util/EnumSet;", arg0);
-		}
-		
-		[JavaSignature("(Ljava/lang/Class;)Ljava/util/EnumSet;")]
 		public static EnumSet<E1> noneOf<E1>(Class<E1> arg0)
 			where E1 : Enum<E1>
 		{
 			return Static.CallMethod<EnumSet<E1>>(typeof(EnumSet<>), "noneOf", "(Ljava/lang/Class;)Ljava/util/EnumSet;", arg0);
+		}
+		
+		[JavaSignature("(Ljava/lang/Class;)Ljava/util/EnumSet;")]
+		public static EnumSet<E1> allOf<E1>(Class<E1> arg0)
+			where E1 : Enum<E1>
+		{
+			return Static.CallMethod<EnumSet<E1>>(typeof(EnumSet<>), "allOf", "(Ljava/lang/Class;)Ljava/util/EnumSet;", arg0);
 		}
 		
 		[JavaSignature("(Ljava/util/EnumSet;)Ljava/util/EnumSet;")]

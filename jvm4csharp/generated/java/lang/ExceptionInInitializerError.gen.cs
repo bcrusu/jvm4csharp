@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/ExceptionInInitializerError")]
-	public class ExceptionInInitializerError : LinkageError
+	public partial class ExceptionInInitializerError : LinkageError
 	{
 		protected ExceptionInInitializerError(ProxyCtor p) : base(p) {}
 		

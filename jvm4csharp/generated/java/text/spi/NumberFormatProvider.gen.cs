@@ -15,7 +15,7 @@ using jvm4csharp.java.util.spi;
 namespace jvm4csharp.java.text.spi
 {
 	[JavaProxy("java/text/spi/NumberFormatProvider")]
-	public abstract class NumberFormatProvider : LocaleServiceProvider
+	public abstract partial class NumberFormatProvider : LocaleServiceProvider
 	{
 		protected NumberFormatProvider(ProxyCtor p) : base(p) {}
 	
@@ -23,6 +23,12 @@ namespace jvm4csharp.java.text.spi
 		public NumberFormat getIntegerInstance(Locale arg0)
 		{
 			return Instance.CallMethod<NumberFormat>("getIntegerInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
+		}
+		
+		[JavaSignature("(Ljava/util/Locale;)Ljava/text/NumberFormat;")]
+		public NumberFormat getNumberInstance(Locale arg0)
+		{
+			return Instance.CallMethod<NumberFormat>("getNumberInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
 		}
 		
 		[JavaSignature("(Ljava/util/Locale;)Ljava/text/NumberFormat;")]
@@ -35,12 +41,6 @@ namespace jvm4csharp.java.text.spi
 		public NumberFormat getPercentInstance(Locale arg0)
 		{
 			return Instance.CallMethod<NumberFormat>("getPercentInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
-		}
-		
-		[JavaSignature("(Ljava/util/Locale;)Ljava/text/NumberFormat;")]
-		public NumberFormat getNumberInstance(Locale arg0)
-		{
-			return Instance.CallMethod<NumberFormat>("getNumberInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
 		}
 	}
 }

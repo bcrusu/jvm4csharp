@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file.attribute
 {
 	[JavaProxy("java/nio/file/attribute/UserPrincipalNotFoundException")]
-	public class UserPrincipalNotFoundException : IOException
+	public partial class UserPrincipalNotFoundException : IOException
 	{
 		protected UserPrincipalNotFoundException(ProxyCtor p) : base(p) {}
 		

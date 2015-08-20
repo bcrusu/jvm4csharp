@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent.atomic
 {
 	[JavaProxy("java/util/concurrent/atomic/LongAdder")]
-	public class LongAdder : Number, Serializable
+	public partial class LongAdder : Number, Serializable
 	{
 		protected LongAdder(ProxyCtor p) : base(p) {}
 		

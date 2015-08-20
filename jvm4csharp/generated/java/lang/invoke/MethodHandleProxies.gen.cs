@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.invoke
 {
 	[JavaProxy("java/lang/invoke/MethodHandleProxies")]
-	public class MethodHandleProxies : Object
+	public partial class MethodHandleProxies : Object
 	{
 		protected MethodHandleProxies(ProxyCtor p) : base(p) {}
 	

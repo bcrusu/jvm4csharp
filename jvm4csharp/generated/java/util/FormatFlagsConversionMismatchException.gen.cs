@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/FormatFlagsConversionMismatchException")]
-	public class FormatFlagsConversionMismatchException : IllegalFormatException
+	public partial class FormatFlagsConversionMismatchException : IllegalFormatException
 	{
 		protected FormatFlagsConversionMismatchException(ProxyCtor p) : base(p) {}
 		
@@ -23,16 +23,16 @@ namespace jvm4csharp.java.util
 			Instance.CallConstructor("(Ljava/lang/String;C)V", arg0, arg1);
 		}
 	
-		[JavaSignature("()Ljava/lang/String;")]
-		public String getFlags()
-		{
-			return Instance.CallMethod<String>("getFlags", "()Ljava/lang/String;");
-		}
-		
 		[JavaSignature("()C")]
 		public char getConversion()
 		{
 			return Instance.CallMethod<char>("getConversion", "()C");
+		}
+		
+		[JavaSignature("()Ljava/lang/String;")]
+		public String getFlags()
+		{
+			return Instance.CallMethod<String>("getFlags", "()Ljava/lang/String;");
 		}
 	}
 }

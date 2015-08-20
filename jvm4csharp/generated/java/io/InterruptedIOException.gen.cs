@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/InterruptedIOException")]
-	public class InterruptedIOException : IOException
+	public partial class InterruptedIOException : IOException
 	{
 		protected InterruptedIOException(ProxyCtor p) : base(p) {}
 		

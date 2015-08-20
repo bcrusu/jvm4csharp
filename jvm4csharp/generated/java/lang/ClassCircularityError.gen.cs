@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/ClassCircularityError")]
-	public class ClassCircularityError : LinkageError
+	public partial class ClassCircularityError : LinkageError
 	{
 		protected ClassCircularityError(ProxyCtor p) : base(p) {}
 		

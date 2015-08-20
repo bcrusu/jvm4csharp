@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/Array")]
-	public class Array : Object
+	public partial class Array : Object
 	{
 		protected Array(ProxyCtor p) : base(p) {}
 	

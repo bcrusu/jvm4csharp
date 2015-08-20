@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/EOFException")]
-	public class EOFException : IOException
+	public partial class EOFException : IOException
 	{
 		protected EOFException(ProxyCtor p) : base(p) {}
 		

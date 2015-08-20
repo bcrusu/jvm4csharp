@@ -16,7 +16,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/UUID")]
-	public class UUID : Object, Serializable, Comparable<UUID>
+	public partial class UUID : Object, Serializable, Comparable<UUID>
 	{
 		protected UUID(ProxyCtor p) : base(p) {}
 		

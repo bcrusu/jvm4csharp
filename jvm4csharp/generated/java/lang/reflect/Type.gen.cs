@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/Type")]
-	public interface Type : IJavaObject
+	public partial interface Type : IJavaObject
 	{
 		[JavaSignature("()Ljava/lang/String;")]
 		String getTypeName();

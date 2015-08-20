@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/Phaser")]
-	public class Phaser : Object
+	public partial class Phaser : Object
 	{
 		protected Phaser(ProxyCtor p) : base(p) {}
 		

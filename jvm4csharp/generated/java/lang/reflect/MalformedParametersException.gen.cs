@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/MalformedParametersException")]
-	public class MalformedParametersException : RuntimeException
+	public partial class MalformedParametersException : RuntimeException
 	{
 		protected MalformedParametersException(ProxyCtor p) : base(p) {}
 		

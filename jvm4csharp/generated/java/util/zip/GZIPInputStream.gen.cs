@@ -14,7 +14,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.util.zip
 {
 	[JavaProxy("java/util/zip/GZIPInputStream")]
-	public class GZIPInputStream : InflaterInputStream
+	public partial class GZIPInputStream : InflaterInputStream
 	{
 		protected GZIPInputStream(ProxyCtor p) : base(p) {}
 		

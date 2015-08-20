@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/DataOutputStream")]
-	public class DataOutputStream : FilterOutputStream, DataOutput
+	public partial class DataOutputStream : FilterOutputStream, DataOutput
 	{
 		protected DataOutputStream(ProxyCtor p) : base(p) {}
 		
@@ -65,24 +65,6 @@ namespace jvm4csharp.java.io
 			Instance.CallMethod("writeLong", "(J)V", arg0);
 		}
 		
-		[JavaSignature("(I)V")]
-		public void writeShort(int arg0)
-		{
-			Instance.CallMethod("writeShort", "(I)V", arg0);
-		}
-		
-		[JavaSignature("(D)V")]
-		public void writeDouble(double arg0)
-		{
-			Instance.CallMethod("writeDouble", "(D)V", arg0);
-		}
-		
-		[JavaSignature("(I)V")]
-		public void writeByte(int arg0)
-		{
-			Instance.CallMethod("writeByte", "(I)V", arg0);
-		}
-		
 		[JavaSignature("(Z)V")]
 		public void writeBoolean(bool arg0)
 		{
@@ -93,6 +75,24 @@ namespace jvm4csharp.java.io
 		public void writeChars(String arg0)
 		{
 			Instance.CallMethod("writeChars", "(Ljava/lang/String;)V", arg0);
+		}
+		
+		[JavaSignature("(I)V")]
+		public void writeShort(int arg0)
+		{
+			Instance.CallMethod("writeShort", "(I)V", arg0);
+		}
+		
+		[JavaSignature("(I)V")]
+		public void writeByte(int arg0)
+		{
+			Instance.CallMethod("writeByte", "(I)V", arg0);
+		}
+		
+		[JavaSignature("(D)V")]
+		public void writeDouble(double arg0)
+		{
+			Instance.CallMethod("writeDouble", "(D)V", arg0);
 		}
 	}
 }

@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.regex
 {
 	[JavaProxy("java/util/regex/MatchResult")]
-	public interface MatchResult : IJavaObject
+	public partial interface MatchResult : IJavaObject
 	{
 		[JavaSignature("()Ljava/lang/String;")]
 		String @group();
@@ -28,13 +28,13 @@ namespace jvm4csharp.java.util.regex
 		[JavaSignature("()I")]
 		int start();
 		
-		[JavaSignature("()I")]
-		int groupCount();
+		[JavaSignature("(I)I")]
+		int end(int arg0);
 		
 		[JavaSignature("()I")]
 		int end();
 		
-		[JavaSignature("(I)I")]
-		int end(int arg0);
+		[JavaSignature("()I")]
+		int groupCount();
 	}
 }

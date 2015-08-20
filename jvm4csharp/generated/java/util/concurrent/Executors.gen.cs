@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/Executors")]
-	public class Executors : Object
+	public partial class Executors : Object
 	{
 		protected Executors(ProxyCtor p) : base(p) {}
 	

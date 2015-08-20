@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/LongUnaryOperator")]
-	public interface LongUnaryOperator : IJavaObject
+	public partial interface LongUnaryOperator : IJavaObject
 	{
 		[JavaSignature("(Ljava/util/function/LongUnaryOperator;)Ljava/util/function/LongUnaryOperator;")]
 		LongUnaryOperator andThen(LongUnaryOperator arg0);

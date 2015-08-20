@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/StreamTokenizer")]
-	public class StreamTokenizer : Object
+	public partial class StreamTokenizer : Object
 	{
 		protected StreamTokenizer(ProxyCtor p) : base(p) {}
 		
@@ -77,12 +77,6 @@ namespace jvm4csharp.java.io
 		public int nextToken()
 		{
 			return Instance.CallMethod<int>("nextToken", "()I");
-		}
-		
-		[JavaSignature("()V")]
-		public void pushBack()
-		{
-			Instance.CallMethod("pushBack", "()V");
 		}
 		
 		[JavaSignature("(I)V")]
@@ -161,6 +155,12 @@ namespace jvm4csharp.java.io
 		public void wordChars(int arg0, int arg1)
 		{
 			Instance.CallMethod("wordChars", "(II)V", arg0, arg1);
+		}
+		
+		[JavaSignature("()V")]
+		public void pushBack()
+		{
+			Instance.CallMethod("pushBack", "()V");
 		}
 	}
 }

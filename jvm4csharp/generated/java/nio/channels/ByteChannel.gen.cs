@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/ByteChannel")]
-	public interface ByteChannel : ReadableByteChannel, WritableByteChannel
+	public partial interface ByteChannel : ReadableByteChannel, WritableByteChannel
 	{
 	}
 }

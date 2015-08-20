@@ -15,7 +15,7 @@ using jvm4csharp.java.util.stream;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/DelayQueue")]
-	public class DelayQueue<E> : AbstractQueue<E>, BlockingQueue<E>
+	public partial class DelayQueue<E> : AbstractQueue<E>, BlockingQueue<E>
 		where E : Delayed
 	{
 		protected DelayQueue(ProxyCtor p) : base(p) {}

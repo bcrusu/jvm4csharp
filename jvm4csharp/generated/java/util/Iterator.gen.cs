@@ -14,7 +14,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Iterator")]
-	public interface Iterator<E> : IJavaObject
+	public partial interface Iterator<E> : IJavaObject
 		where E : IJavaObject
 	{
 		[JavaSignature("()V")]

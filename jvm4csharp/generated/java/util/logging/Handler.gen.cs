@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.logging
 {
 	[JavaProxy("java/util/logging/Handler")]
-	public abstract class Handler : Object
+	public abstract partial class Handler : Object
 	{
 		protected Handler(ProxyCtor p) : base(p) {}
 	
@@ -34,6 +34,12 @@ namespace jvm4csharp.java.util.logging
 		public String getEncoding()
 		{
 			return Instance.CallMethod<String>("getEncoding", "()Ljava/lang/String;");
+		}
+		
+		[JavaSignature("(Ljava/util/logging/Level;)V")]
+		public void setLevel(Level arg0)
+		{
+			Instance.CallMethod("setLevel", "(Ljava/util/logging/Level;)V", arg0);
 		}
 		
 		[JavaSignature("(Ljava/util/logging/LogRecord;)V")]
@@ -94,12 +100,6 @@ namespace jvm4csharp.java.util.logging
 		public bool isLoggable(LogRecord arg0)
 		{
 			return Instance.CallMethod<bool>("isLoggable", "(Ljava/util/logging/LogRecord;)Z", arg0);
-		}
-		
-		[JavaSignature("(Ljava/util/logging/Level;)V")]
-		public void setLevel(Level arg0)
-		{
-			Instance.CallMethod("setLevel", "(Ljava/util/logging/Level;)V", arg0);
 		}
 	}
 }

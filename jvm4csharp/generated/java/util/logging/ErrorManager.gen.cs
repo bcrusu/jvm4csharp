@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.logging
 {
 	[JavaProxy("java/util/logging/ErrorManager")]
-	public class ErrorManager : Object
+	public partial class ErrorManager : Object
 	{
 		protected ErrorManager(ProxyCtor p) : base(p) {}
 		

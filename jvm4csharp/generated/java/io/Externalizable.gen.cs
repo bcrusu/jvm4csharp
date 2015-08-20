@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/Externalizable")]
-	public interface Externalizable : Serializable
+	public partial interface Externalizable : Serializable
 	{
 		[JavaSignature("(Ljava/io/ObjectOutput;)V")]
 		void writeExternal(ObjectOutput arg0);

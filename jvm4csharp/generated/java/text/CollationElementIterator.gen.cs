@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/CollationElementIterator")]
-	public class CollationElementIterator : Object
+	public partial class CollationElementIterator : Object
 	{
 		protected CollationElementIterator(ProxyCtor p) : base(p) {}
 	

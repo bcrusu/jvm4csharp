@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/UnsatisfiedLinkError")]
-	public class UnsatisfiedLinkError : LinkageError
+	public partial class UnsatisfiedLinkError : LinkageError
 	{
 		protected UnsatisfiedLinkError(ProxyCtor p) : base(p) {}
 		

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/ObjectStreamConstants")]
-	public interface ObjectStreamConstants : IJavaObject
+	public partial interface ObjectStreamConstants : IJavaObject
 	{
 	}
 	

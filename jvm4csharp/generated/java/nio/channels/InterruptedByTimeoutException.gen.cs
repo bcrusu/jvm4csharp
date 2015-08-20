@@ -14,7 +14,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/InterruptedByTimeoutException")]
-	public class InterruptedByTimeoutException : IOException
+	public partial class InterruptedByTimeoutException : IOException
 	{
 		protected InterruptedByTimeoutException(ProxyCtor p) : base(p) {}
 		

@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/ConnectException")]
-	public class ConnectException : SocketException
+	public partial class ConnectException : SocketException
 	{
 		protected ConnectException(ProxyCtor p) : base(p) {}
 		

@@ -16,7 +16,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/ForkJoinTask")]
-	public abstract class ForkJoinTask<V> : Object, Future<V>, Serializable
+	public abstract partial class ForkJoinTask<V> : Object, Future<V>, Serializable
 		where V : IJavaObject
 	{
 		protected ForkJoinTask(ProxyCtor p) : base(p) {}

@@ -15,7 +15,7 @@ using jvm4csharp.java.util.spi;
 namespace jvm4csharp.java.text.spi
 {
 	[JavaProxy("java/text/spi/CollatorProvider")]
-	public abstract class CollatorProvider : LocaleServiceProvider
+	public abstract partial class CollatorProvider : LocaleServiceProvider
 	{
 		protected CollatorProvider(ProxyCtor p) : base(p) {}
 	

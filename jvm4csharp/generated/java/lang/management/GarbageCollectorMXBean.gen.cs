@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.management
 {
 	[JavaProxy("java/lang/management/GarbageCollectorMXBean")]
-	public interface GarbageCollectorMXBean : MemoryManagerMXBean
+	public partial interface GarbageCollectorMXBean : MemoryManagerMXBean
 	{
 		[JavaSignature("()J")]
 		long getCollectionCount();

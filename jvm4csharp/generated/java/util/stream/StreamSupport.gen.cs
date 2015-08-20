@@ -15,7 +15,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util.stream
 {
 	[JavaProxy("java/util/stream/StreamSupport")]
-	public class StreamSupport : Object
+	public partial class StreamSupport : Object
 	{
 		protected StreamSupport(ProxyCtor p) : base(p) {}
 	

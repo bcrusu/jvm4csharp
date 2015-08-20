@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/PipedWriter")]
-	public class PipedWriter : Writer
+	public partial class PipedWriter : Writer
 	{
 		protected PipedWriter(ProxyCtor p) : base(p) {}
 		

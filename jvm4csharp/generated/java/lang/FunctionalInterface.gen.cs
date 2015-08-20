@@ -14,7 +14,7 @@ using jvm4csharp.java.lang.annotation;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/FunctionalInterface")]
-	public interface FunctionalInterface : Annotation
+	public partial interface FunctionalInterface : Annotation
 	{
 	}
 }

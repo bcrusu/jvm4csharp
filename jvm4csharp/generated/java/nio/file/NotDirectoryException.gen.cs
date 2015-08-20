@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/NotDirectoryException")]
-	public class NotDirectoryException : FileSystemException
+	public partial class NotDirectoryException : FileSystemException
 	{
 		protected NotDirectoryException(ProxyCtor p) : base(p) {}
 		

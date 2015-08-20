@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/UnsupportedEncodingException")]
-	public class UnsupportedEncodingException : IOException
+	public partial class UnsupportedEncodingException : IOException
 	{
 		protected UnsupportedEncodingException(ProxyCtor p) : base(p) {}
 		

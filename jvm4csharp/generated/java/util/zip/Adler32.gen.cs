@@ -16,7 +16,7 @@ using jvm4csharp.java.nio;
 namespace jvm4csharp.java.util.zip
 {
 	[JavaProxy("java/util/zip/Adler32")]
-	public class Adler32 : Object, Checksum
+	public partial class Adler32 : Object, Checksum
 	{
 		protected Adler32(ProxyCtor p) : base(p) {}
 		

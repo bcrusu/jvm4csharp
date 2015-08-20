@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/AlreadyConnectedException")]
-	public class AlreadyConnectedException : IllegalStateException
+	public partial class AlreadyConnectedException : IllegalStateException
 	{
 		protected AlreadyConnectedException(ProxyCtor p) : base(p) {}
 		

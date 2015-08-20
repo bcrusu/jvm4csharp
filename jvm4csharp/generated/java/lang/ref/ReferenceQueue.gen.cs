@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.@ref
 {
 	[JavaProxy("java/lang/ref/ReferenceQueue")]
-	public class ReferenceQueue<T> : Object
+	public partial class ReferenceQueue<T> : Object
 		where T : IJavaObject
 	{
 		protected ReferenceQueue(ProxyCtor p) : base(p) {}

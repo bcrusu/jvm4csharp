@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/InvalidClassException")]
-	public class InvalidClassException : ObjectStreamException
+	public partial class InvalidClassException : ObjectStreamException
 	{
 		protected InvalidClassException(ProxyCtor p) : base(p) {}
 		

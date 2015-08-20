@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang.invoke
 {
 	[JavaProxy("java/lang/invoke/LambdaMetafactory")]
-	public class LambdaMetafactory : Object
+	public partial class LambdaMetafactory : Object
 	{
 		protected LambdaMetafactory(ProxyCtor p) : base(p) {}
 		

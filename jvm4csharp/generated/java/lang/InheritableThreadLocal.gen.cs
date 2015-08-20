@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/InheritableThreadLocal")]
-	public class InheritableThreadLocal<T> : ThreadLocal<T>
+	public partial class InheritableThreadLocal<T> : ThreadLocal<T>
 		where T : IJavaObject
 	{
 		protected InheritableThreadLocal(ProxyCtor p) : base(p) {}

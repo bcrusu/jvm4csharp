@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Appendable")]
-	public interface Appendable : IJavaObject
+	public partial interface Appendable : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/CharSequence;)Ljava/lang/Appendable;")]
 		Appendable append(CharSequence arg0);

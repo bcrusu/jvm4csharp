@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.@ref
 {
 	[JavaProxy("java/lang/ref/PhantomReference")]
-	public class PhantomReference<T> : Reference<T>
+	public partial class PhantomReference<T> : Reference<T>
 		where T : IJavaObject
 	{
 		protected PhantomReference(ProxyCtor p) : base(p) {}

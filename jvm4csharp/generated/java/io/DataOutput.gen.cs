@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/DataOutput")]
-	public interface DataOutput : IJavaObject
+	public partial interface DataOutput : IJavaObject
 	{
 		[JavaSignature("(F)V")]
 		void writeFloat(float arg0);
@@ -44,19 +44,19 @@ namespace jvm4csharp.java.io
 		[JavaSignature("(J)V")]
 		void writeLong(long arg0);
 		
-		[JavaSignature("(I)V")]
-		void writeShort(int arg0);
-		
-		[JavaSignature("(D)V")]
-		void writeDouble(double arg0);
-		
-		[JavaSignature("(I)V")]
-		void writeByte(int arg0);
-		
 		[JavaSignature("(Z)V")]
 		void writeBoolean(bool arg0);
 		
 		[JavaSignature("(Ljava/lang/String;)V")]
 		void writeChars(String arg0);
+		
+		[JavaSignature("(I)V")]
+		void writeShort(int arg0);
+		
+		[JavaSignature("(I)V")]
+		void writeByte(int arg0);
+		
+		[JavaSignature("(D)V")]
+		void writeDouble(double arg0);
 	}
 }

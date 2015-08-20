@@ -18,7 +18,7 @@ using jvm4csharp.java.util.stream;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/CopyOnWriteArrayList")]
-	public class CopyOnWriteArrayList<E> : Object, List<E>, RandomAccess, Cloneable, Serializable
+	public partial class CopyOnWriteArrayList<E> : Object, List<E>, RandomAccess, Cloneable, Serializable
 		where E : IJavaObject
 	{
 		protected CopyOnWriteArrayList(ProxyCtor p) : base(p) {}

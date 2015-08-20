@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/FileSystemLoopException")]
-	public class FileSystemLoopException : FileSystemException
+	public partial class FileSystemLoopException : FileSystemException
 	{
 		protected FileSystemLoopException(ProxyCtor p) : base(p) {}
 		

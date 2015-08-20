@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Cloneable")]
-	public interface Cloneable : IJavaObject
+	public partial interface Cloneable : IJavaObject
 	{
 	}
 }

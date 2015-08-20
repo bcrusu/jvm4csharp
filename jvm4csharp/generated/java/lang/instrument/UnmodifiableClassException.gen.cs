@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.instrument
 {
 	[JavaProxy("java/lang/instrument/UnmodifiableClassException")]
-	public class UnmodifiableClassException : Exception
+	public partial class UnmodifiableClassException : Exception
 	{
 		protected UnmodifiableClassException(ProxyCtor p) : base(p) {}
 		

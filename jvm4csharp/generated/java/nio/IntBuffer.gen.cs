@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio
 {
 	[JavaProxy("java/nio/IntBuffer")]
-	public abstract class IntBuffer : Buffer, Comparable<IntBuffer>
+	public abstract partial class IntBuffer : Buffer, Comparable<IntBuffer>
 	{
 		protected IntBuffer(ProxyCtor p) : base(p) {}
 	

@@ -15,7 +15,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Map")]
-	public interface Map<K, V> : IJavaObject
+	public partial interface Map<K, V> : IJavaObject
 		where K : IJavaObject
 		where V : IJavaObject
 	{
@@ -94,7 +94,7 @@ namespace jvm4csharp.java.util
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 	
 		[JavaProxy("java/util/Map/Entry")]
-		public interface Entry<K, V> : IJavaObject
+		public partial interface Entry<K, V> : IJavaObject
 			where K : IJavaObject
 			where V : IJavaObject
 		{

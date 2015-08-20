@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/SocketImplFactory")]
-	public interface SocketImplFactory : IJavaObject
+	public partial interface SocketImplFactory : IJavaObject
 	{
 		[JavaSignature("()Ljava/net/SocketImpl;")]
 		SocketImpl createSocketImpl();

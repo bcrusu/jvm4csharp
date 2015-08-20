@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Date")]
-	public class Date : Object, Serializable, Cloneable, Comparable<Date>
+	public partial class Date : Object, Serializable, Cloneable, Comparable<Date>
 	{
 		protected Date(ProxyCtor p) : base(p) {}
 		

@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang.management
 {
 	[JavaProxy("java/lang/management/ThreadMXBean")]
-	public interface ThreadMXBean : PlatformManagedObject
+	public partial interface ThreadMXBean : PlatformManagedObject
 	{
 		[JavaSignature("(ZZ)[Ljava/lang/management/ThreadInfo;")]
 		ObjectArray<ThreadInfo> dumpAllThreads(bool arg0, bool arg1);

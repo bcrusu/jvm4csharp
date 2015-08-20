@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/HttpRetryException")]
-	public class HttpRetryException : IOException
+	public partial class HttpRetryException : IOException
 	{
 		protected HttpRetryException(ProxyCtor p) : base(p) {}
 		

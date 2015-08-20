@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang.annotation
 {
 	[JavaProxy("java/lang/annotation/ElementType")]
-	public class ElementType : Enum<ElementType>
+	public partial class ElementType : Enum<ElementType>
 	{
 		protected ElementType(ProxyCtor p) : base(p) {}
 	

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.invoke
 {
 	[JavaProxy("java/lang/invoke/ConstantCallSite")]
-	public class ConstantCallSite : CallSite
+	public partial class ConstantCallSite : CallSite
 	{
 		protected ConstantCallSite(ProxyCtor p) : base(p) {}
 		

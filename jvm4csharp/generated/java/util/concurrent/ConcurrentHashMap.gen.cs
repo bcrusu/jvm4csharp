@@ -18,7 +18,7 @@ using jvm4csharp.java.util.stream;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/ConcurrentHashMap")]
-	public class ConcurrentHashMap<K, V> : AbstractMap<K, V>, ConcurrentMap<K, V>, Serializable
+	public partial class ConcurrentHashMap<K, V> : AbstractMap<K, V>, ConcurrentMap<K, V>, Serializable
 		where K : IJavaObject
 		where V : IJavaObject
 	{
@@ -367,7 +367,7 @@ namespace jvm4csharp.java.util.concurrent
 	public class ConcurrentHashMap
 	{
 		[JavaProxy("java/util/concurrent/ConcurrentHashMap/KeySetView")]
-		public class KeySetView<K, V> : Object, Set<K>, Serializable, Collection<K>
+		public partial class KeySetView<K, V> : Object, Set<K>, Serializable, Collection<K>
 			where K : IJavaObject
 			where V : IJavaObject
 		{

@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/CompletionException")]
-	public class CompletionException : RuntimeException
+	public partial class CompletionException : RuntimeException
 	{
 		protected CompletionException(ProxyCtor p) : base(p) {}
 		

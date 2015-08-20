@@ -16,7 +16,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util.concurrent.atomic
 {
 	[JavaProxy("java/util/concurrent/atomic/AtomicLong")]
-	public class AtomicLong : Number, Serializable
+	public partial class AtomicLong : Number, Serializable
 	{
 		protected AtomicLong(ProxyCtor p) : base(p) {}
 		

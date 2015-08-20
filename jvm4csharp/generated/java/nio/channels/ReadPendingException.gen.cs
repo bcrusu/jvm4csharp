@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/ReadPendingException")]
-	public class ReadPendingException : IllegalStateException
+	public partial class ReadPendingException : IllegalStateException
 	{
 		protected ReadPendingException(ProxyCtor p) : base(p) {}
 		

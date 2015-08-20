@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/SimpleTimeZone")]
-	public class SimpleTimeZone : TimeZone
+	public partial class SimpleTimeZone : TimeZone
 	{
 		protected SimpleTimeZone(ProxyCtor p) : base(p) {}
 		

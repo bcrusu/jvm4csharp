@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.invoke
 {
 	[JavaProxy("java/lang/invoke/VolatileCallSite")]
-	public class VolatileCallSite : CallSite
+	public partial class VolatileCallSite : CallSite
 	{
 		protected VolatileCallSite(ProxyCtor p) : base(p) {}
 		

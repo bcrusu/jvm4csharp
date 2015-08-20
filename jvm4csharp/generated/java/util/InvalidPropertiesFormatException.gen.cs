@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/InvalidPropertiesFormatException")]
-	public class InvalidPropertiesFormatException : IOException
+	public partial class InvalidPropertiesFormatException : IOException
 	{
 		protected InvalidPropertiesFormatException(ProxyCtor p) : base(p) {}
 		

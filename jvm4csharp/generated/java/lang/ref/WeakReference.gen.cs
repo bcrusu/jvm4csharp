@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.@ref
 {
 	[JavaProxy("java/lang/ref/WeakReference")]
-	public class WeakReference<T> : Reference<T>
+	public partial class WeakReference<T> : Reference<T>
 		where T : IJavaObject
 	{
 		protected WeakReference(ProxyCtor p) : base(p) {}

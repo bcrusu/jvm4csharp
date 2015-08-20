@@ -16,7 +16,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Calendar")]
-	public abstract class Calendar : Object, Serializable, Cloneable, Comparable<Calendar>
+	public abstract partial class Calendar : Object, Serializable, Cloneable, Comparable<Calendar>
 	{
 		protected Calendar(ProxyCtor p) : base(p) {}
 	
@@ -362,16 +362,16 @@ namespace jvm4csharp.java.util
 			return Static.CallMethod<Calendar>(typeof(Calendar), "getInstance", "(Ljava/util/TimeZone;)Ljava/util/Calendar;", arg0);
 		}
 		
-		[JavaSignature("(Ljava/util/Locale;)Ljava/util/Calendar;")]
-		public static Calendar getInstance(Locale arg0)
-		{
-			return Static.CallMethod<Calendar>(typeof(Calendar), "getInstance", "(Ljava/util/Locale;)Ljava/util/Calendar;", arg0);
-		}
-		
 		[JavaSignature("(Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/util/Calendar;")]
 		public static Calendar getInstance(TimeZone arg0, Locale arg1)
 		{
 			return Static.CallMethod<Calendar>(typeof(Calendar), "getInstance", "(Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/util/Calendar;", arg0, arg1);
+		}
+		
+		[JavaSignature("(Ljava/util/Locale;)Ljava/util/Calendar;")]
+		public static Calendar getInstance(Locale arg0)
+		{
+			return Static.CallMethod<Calendar>(typeof(Calendar), "getInstance", "(Ljava/util/Locale;)Ljava/util/Calendar;", arg0);
 		}
 		
 		[JavaSignature("(I)Z")]
@@ -380,28 +380,28 @@ namespace jvm4csharp.java.util
 			return Instance.CallMethod<bool>("isSet", "(I)Z", arg0);
 		}
 		
-		[JavaSignature("(IIIII)V")]
-		public void @set(int arg0, int arg1, int arg2, int arg3, int arg4)
-		{
-			Instance.CallMethod("set", "(IIIII)V", arg0, arg1, arg2, arg3, arg4);
-		}
-		
 		[JavaSignature("(II)V")]
 		public void @set(int arg0, int arg1)
 		{
 			Instance.CallMethod("set", "(II)V", arg0, arg1);
 		}
 		
-		[JavaSignature("(IIIIII)V")]
-		public void @set(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5)
+		[JavaSignature("(IIIII)V")]
+		public void @set(int arg0, int arg1, int arg2, int arg3, int arg4)
 		{
-			Instance.CallMethod("set", "(IIIIII)V", arg0, arg1, arg2, arg3, arg4, arg5);
+			Instance.CallMethod("set", "(IIIII)V", arg0, arg1, arg2, arg3, arg4);
 		}
 		
 		[JavaSignature("(III)V")]
 		public void @set(int arg0, int arg1, int arg2)
 		{
 			Instance.CallMethod("set", "(III)V", arg0, arg1, arg2);
+		}
+		
+		[JavaSignature("(IIIIII)V")]
+		public void @set(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5)
+		{
+			Instance.CallMethod("set", "(IIIIII)V", arg0, arg1, arg2, arg3, arg4, arg5);
 		}
 		
 		[JavaSignature("(Ljava/lang/Object;)Z")]
@@ -446,18 +446,6 @@ namespace jvm4csharp.java.util
 			return Instance.CallMethod<Map<String, Integer>>("getDisplayNames", "(IILjava/util/Locale;)Ljava/util/Map;", arg0, arg1, arg2);
 		}
 		
-		[JavaSignature("(Z)V")]
-		public void setLenient(bool arg0)
-		{
-			Instance.CallMethod("setLenient", "(Z)V", arg0);
-		}
-		
-		[JavaSignature("(J)V")]
-		public void setTimeInMillis(long arg0)
-		{
-			Instance.CallMethod("setTimeInMillis", "(J)V", arg0);
-		}
-		
 		[JavaSignature("(Ljava/util/TimeZone;)V")]
 		public void setTimeZone(TimeZone arg0)
 		{
@@ -474,6 +462,18 @@ namespace jvm4csharp.java.util
 		public void setTime(Date arg0)
 		{
 			Instance.CallMethod("setTime", "(Ljava/util/Date;)V", arg0);
+		}
+		
+		[JavaSignature("(Z)V")]
+		public void setLenient(bool arg0)
+		{
+			Instance.CallMethod("setLenient", "(Z)V", arg0);
+		}
+		
+		[JavaSignature("(J)V")]
+		public void setTimeInMillis(long arg0)
+		{
+			Instance.CallMethod("setTimeInMillis", "(J)V", arg0);
 		}
 		
 		[JavaSignature("()Ljava/util/Set;")]
@@ -578,20 +578,20 @@ namespace jvm4csharp.java.util
 			return Instance.CallMethod<bool>("isLenient", "()Z");
 		}
 		
-		[JavaSignature("(IZ)V")]
-		public void roll(int arg0, bool arg1)
-		{
-			Instance.CallMethod("roll", "(IZ)V", arg0, arg1);
-		}
-		
 		[JavaSignature("(II)V")]
 		public void roll(int arg0, int arg1)
 		{
 			Instance.CallMethod("roll", "(II)V", arg0, arg1);
 		}
+		
+		[JavaSignature("(IZ)V")]
+		public void roll(int arg0, bool arg1)
+		{
+			Instance.CallMethod("roll", "(IZ)V", arg0, arg1);
+		}
 	
 		[JavaProxy("java/util/Calendar/Builder")]
-		public class Builder : Object
+		public partial class Builder : Object
 		{
 			protected Builder(ProxyCtor p) : base(p) {}
 			
@@ -630,16 +630,16 @@ namespace jvm4csharp.java.util
 				return Instance.CallMethod<Calendar.Builder>("setLocale", "(Ljava/util/Locale;)Ljava/util/Calendar/Builder;", arg0);
 			}
 			
-			[JavaSignature("(Z)Ljava/util/Calendar/Builder;")]
-			public Calendar.Builder setLenient(bool arg0)
-			{
-				return Instance.CallMethod<Calendar.Builder>("setLenient", "(Z)Ljava/util/Calendar/Builder;", arg0);
-			}
-			
 			[JavaSignature("(Ljava/util/TimeZone;)Ljava/util/Calendar/Builder;")]
 			public Calendar.Builder setTimeZone(TimeZone arg0)
 			{
 				return Instance.CallMethod<Calendar.Builder>("setTimeZone", "(Ljava/util/TimeZone;)Ljava/util/Calendar/Builder;", arg0);
+			}
+			
+			[JavaSignature("(Z)Ljava/util/Calendar/Builder;")]
+			public Calendar.Builder setLenient(bool arg0)
+			{
+				return Instance.CallMethod<Calendar.Builder>("setLenient", "(Z)Ljava/util/Calendar/Builder;", arg0);
 			}
 			
 			[JavaSignature("()Ljava/util/Calendar;")]

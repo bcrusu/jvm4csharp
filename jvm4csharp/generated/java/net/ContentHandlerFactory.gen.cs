@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/ContentHandlerFactory")]
-	public interface ContentHandlerFactory : IJavaObject
+	public partial interface ContentHandlerFactory : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/String;)Ljava/net/ContentHandler;")]
 		ContentHandler createContentHandler(String arg0);

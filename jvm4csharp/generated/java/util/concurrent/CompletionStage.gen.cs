@@ -15,7 +15,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/CompletionStage")]
-	public interface CompletionStage<T> : IJavaObject
+	public partial interface CompletionStage<T> : IJavaObject
 		where T : IJavaObject
 	{
 		[JavaSignature("(Ljava/util/function/BiFunction;)Ljava/util/concurrent/CompletionStage;")]

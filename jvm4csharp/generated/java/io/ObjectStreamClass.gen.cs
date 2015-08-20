@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/ObjectStreamClass")]
-	public class ObjectStreamClass : Object, Serializable
+	public partial class ObjectStreamClass : Object, Serializable
 	{
 		protected ObjectStreamClass(ProxyCtor p) : base(p) {}
 	

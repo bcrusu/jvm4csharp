@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio
 {
 	[JavaProxy("java/nio/FloatBuffer")]
-	public abstract class FloatBuffer : Buffer, Comparable<FloatBuffer>
+	public abstract partial class FloatBuffer : Buffer, Comparable<FloatBuffer>
 	{
 		protected FloatBuffer(ProxyCtor p) : base(p) {}
 	

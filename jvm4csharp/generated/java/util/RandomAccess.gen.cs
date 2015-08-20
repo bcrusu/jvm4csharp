@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/RandomAccess")]
-	public interface RandomAccess : IJavaObject
+	public partial interface RandomAccess : IJavaObject
 	{
 	}
 }

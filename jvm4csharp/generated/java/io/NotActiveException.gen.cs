@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/NotActiveException")]
-	public class NotActiveException : ObjectStreamException
+	public partial class NotActiveException : ObjectStreamException
 	{
 		protected NotActiveException(ProxyCtor p) : base(p) {}
 		

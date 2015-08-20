@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.charset
 {
 	[JavaProxy("java/nio/charset/UnsupportedCharsetException")]
-	public class UnsupportedCharsetException : IllegalArgumentException
+	public partial class UnsupportedCharsetException : IllegalArgumentException
 	{
 		protected UnsupportedCharsetException(ProxyCtor p) : base(p) {}
 		

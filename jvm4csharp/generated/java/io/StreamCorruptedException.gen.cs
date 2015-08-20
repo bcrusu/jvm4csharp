@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/StreamCorruptedException")]
-	public class StreamCorruptedException : ObjectStreamException
+	public partial class StreamCorruptedException : ObjectStreamException
 	{
 		protected StreamCorruptedException(ProxyCtor p) : base(p) {}
 		

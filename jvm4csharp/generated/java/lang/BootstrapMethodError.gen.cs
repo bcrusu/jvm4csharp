@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/BootstrapMethodError")]
-	public class BootstrapMethodError : LinkageError
+	public partial class BootstrapMethodError : LinkageError
 	{
 		protected BootstrapMethodError(ProxyCtor p) : base(p) {}
 		

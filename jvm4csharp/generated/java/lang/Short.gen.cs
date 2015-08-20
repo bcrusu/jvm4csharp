@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Short")]
-	public class Short : Number, Comparable<Short>
+	public partial class Short : Number, Comparable<Short>
 	{
 		protected Short(ProxyCtor p) : base(p) {}
 		

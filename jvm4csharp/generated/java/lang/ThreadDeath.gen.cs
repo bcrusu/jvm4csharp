@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/ThreadDeath")]
-	public class ThreadDeath : Error
+	public partial class ThreadDeath : Error
 	{
 		protected ThreadDeath(ProxyCtor p) : base(p) {}
 		

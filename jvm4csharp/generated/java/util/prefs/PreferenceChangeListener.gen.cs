@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.prefs
 {
 	[JavaProxy("java/util/prefs/PreferenceChangeListener")]
-	public interface PreferenceChangeListener : EventListener
+	public partial interface PreferenceChangeListener : EventListener
 	{
 		[JavaSignature("(Ljava/util/prefs/PreferenceChangeEvent;)V")]
 		void preferenceChange(PreferenceChangeEvent arg0);

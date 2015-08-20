@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang.invoke
 {
 	[JavaProxy("java/lang/invoke/SwitchPoint")]
-	public class SwitchPoint : Object
+	public partial class SwitchPoint : Object
 	{
 		protected SwitchPoint(ProxyCtor p) : base(p) {}
 		

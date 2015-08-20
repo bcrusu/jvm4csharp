@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/NonWritableChannelException")]
-	public class NonWritableChannelException : IllegalStateException
+	public partial class NonWritableChannelException : IllegalStateException
 	{
 		protected NonWritableChannelException(ProxyCtor p) : base(p) {}
 		

@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/FileDescriptor")]
-	public class FileDescriptor : Object
+	public partial class FileDescriptor : Object
 	{
 		protected FileDescriptor(ProxyCtor p) : base(p) {}
 		

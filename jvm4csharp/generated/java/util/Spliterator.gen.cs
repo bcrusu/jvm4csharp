@@ -15,7 +15,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Spliterator")]
-	public interface Spliterator<T> : IJavaObject
+	public partial interface Spliterator<T> : IJavaObject
 		where T : IJavaObject
 	{
 		[JavaSignature("(Ljava/util/function/Consumer;)V")]
@@ -96,7 +96,7 @@ namespace jvm4csharp.java.util
 		}
 	
 		[JavaProxy("java/util/Spliterator/OfDouble")]
-		public interface OfDouble : Spliterator_.OfPrimitive<Double, DoubleConsumer, Spliterator_.OfDouble>
+		public partial interface OfDouble : Spliterator_.OfPrimitive<Double, DoubleConsumer, Spliterator_.OfDouble>
 		{
 			[JavaSignature("(Ljava/util/function/DoubleConsumer;)V")]
 			new void forEachRemaining(DoubleConsumer arg0);
@@ -115,7 +115,7 @@ namespace jvm4csharp.java.util
 		}
 		
 		[JavaProxy("java/util/Spliterator/OfInt")]
-		public interface OfInt : Spliterator_.OfPrimitive<Integer, IntConsumer, Spliterator_.OfInt>
+		public partial interface OfInt : Spliterator_.OfPrimitive<Integer, IntConsumer, Spliterator_.OfInt>
 		{
 			[JavaSignature("(Ljava/util/function/IntConsumer;)V")]
 			new void forEachRemaining(IntConsumer arg0);
@@ -134,7 +134,7 @@ namespace jvm4csharp.java.util
 		}
 		
 		[JavaProxy("java/util/Spliterator/OfLong")]
-		public interface OfLong : Spliterator_.OfPrimitive<Long, LongConsumer, Spliterator_.OfLong>
+		public partial interface OfLong : Spliterator_.OfPrimitive<Long, LongConsumer, Spliterator_.OfLong>
 		{
 			[JavaSignature("(Ljava/util/function/LongConsumer;)V")]
 			new void forEachRemaining(LongConsumer arg0);
@@ -153,7 +153,7 @@ namespace jvm4csharp.java.util
 		}
 		
 		[JavaProxy("java/util/Spliterator/OfPrimitive")]
-		public interface OfPrimitive<T, T_CONS, T_SPLITR> : Spliterator<T>
+		public partial interface OfPrimitive<T, T_CONS, T_SPLITR> : Spliterator<T>
 			where T : IJavaObject
 			where T_CONS : IJavaObject
 			where T_SPLITR : Spliterator_.OfPrimitive<T, T_CONS, T_SPLITR>

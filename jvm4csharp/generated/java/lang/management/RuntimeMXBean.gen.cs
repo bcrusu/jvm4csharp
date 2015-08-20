@@ -14,7 +14,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.lang.management
 {
 	[JavaProxy("java/lang/management/RuntimeMXBean")]
-	public interface RuntimeMXBean : PlatformManagedObject
+	public partial interface RuntimeMXBean : PlatformManagedObject
 	{
 		[JavaSignature("()Ljava/lang/String;")]
 		String getName();

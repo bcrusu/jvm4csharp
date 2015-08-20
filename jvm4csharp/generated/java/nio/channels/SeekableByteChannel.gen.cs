@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/SeekableByteChannel")]
-	public interface SeekableByteChannel : ByteChannel
+	public partial interface SeekableByteChannel : ByteChannel
 	{
 		[JavaSignature("()J")]
 		long size();

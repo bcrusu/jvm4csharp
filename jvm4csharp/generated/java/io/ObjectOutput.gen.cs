@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/ObjectOutput")]
-	public interface ObjectOutput : DataOutput, AutoCloseable
+	public partial interface ObjectOutput : DataOutput, AutoCloseable
 	{
 		[JavaSignature("([B)V")]
 		new void write(ByteArray arg0);

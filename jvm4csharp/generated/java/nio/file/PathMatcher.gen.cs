@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/PathMatcher")]
-	public interface PathMatcher : IJavaObject
+	public partial interface PathMatcher : IJavaObject
 	{
 		[JavaSignature("(Ljava/nio/file/Path;)Z")]
 		bool matches(Path arg0);

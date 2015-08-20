@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.prefs
 {
 	[JavaProxy("java/util/prefs/PreferencesFactory")]
-	public interface PreferencesFactory : IJavaObject
+	public partial interface PreferencesFactory : IJavaObject
 	{
 		[JavaSignature("()Ljava/util/prefs/Preferences;")]
 		Preferences systemRoot();

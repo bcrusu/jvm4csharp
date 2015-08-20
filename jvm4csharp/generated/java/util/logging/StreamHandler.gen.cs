@@ -14,7 +14,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.util.logging
 {
 	[JavaProxy("java/util/logging/StreamHandler")]
-	public class StreamHandler : Handler
+	public partial class StreamHandler : Handler
 	{
 		protected StreamHandler(ProxyCtor p) : base(p) {}
 		

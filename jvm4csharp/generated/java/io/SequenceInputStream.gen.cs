@@ -14,7 +14,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/SequenceInputStream")]
-	public class SequenceInputStream : InputStream
+	public partial class SequenceInputStream : InputStream
 	{
 		protected SequenceInputStream(ProxyCtor p) : base(p) {}
 		

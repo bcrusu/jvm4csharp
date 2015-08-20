@@ -16,7 +16,7 @@ using jvm4csharp.java.util.stream;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/StringBuffer")]
-	public class StringBuffer : Object, Serializable, CharSequence, Appendable
+	public partial class StringBuffer : Object, Serializable, CharSequence, Appendable
 	{
 		protected StringBuffer(ProxyCtor p) : base(p) {}
 		

@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.logging
 {
 	[JavaProxy("java/util/logging/Formatter")]
-	public abstract class Formatter : Object
+	public abstract partial class Formatter : Object
 	{
 		protected Formatter(ProxyCtor p) : base(p) {}
 	

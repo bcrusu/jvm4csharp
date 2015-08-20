@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Stack")]
-	public class Stack<E> : Vector<E>
+	public partial class Stack<E> : Vector<E>
 		where E : IJavaObject
 	{
 		protected Stack(ProxyCtor p) : base(p) {}

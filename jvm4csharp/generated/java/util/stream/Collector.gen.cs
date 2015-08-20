@@ -16,7 +16,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util.stream
 {
 	[JavaProxy("java/util/stream/Collector")]
-	public interface Collector<T, A, R> : IJavaObject
+	public partial interface Collector<T, A, R> : IJavaObject
 		where T : IJavaObject
 		where A : IJavaObject
 		where R : IJavaObject
@@ -59,7 +59,7 @@ namespace jvm4csharp.java.util.stream
 		}
 	
 		[JavaProxy("java/util/stream/Collector/Characteristics")]
-		public class Characteristics : Enum<Collector_.Characteristics>
+		public partial class Characteristics : Enum<Collector_.Characteristics>
 		{
 			protected Characteristics(ProxyCtor p) : base(p) {}
 		

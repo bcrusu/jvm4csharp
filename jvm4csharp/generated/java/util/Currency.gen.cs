@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Currency")]
-	public class Currency : Object, Serializable
+	public partial class Currency : Object, Serializable
 	{
 		protected Currency(ProxyCtor p) : base(p) {}
 	

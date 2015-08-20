@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/FieldPosition")]
-	public class FieldPosition : Object
+	public partial class FieldPosition : Object
 	{
 		protected FieldPosition(ProxyCtor p) : base(p) {}
 		

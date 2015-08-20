@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/IOError")]
-	public class IOError : Error
+	public partial class IOError : Error
 	{
 		protected IOError(ProxyCtor p) : base(p) {}
 		

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.invoke
 {
 	[JavaProxy("java/lang/invoke/WrongMethodTypeException")]
-	public class WrongMethodTypeException : RuntimeException
+	public partial class WrongMethodTypeException : RuntimeException
 	{
 		protected WrongMethodTypeException(ProxyCtor p) : base(p) {}
 		

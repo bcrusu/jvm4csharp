@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/ResourceBundle")]
-	public abstract class ResourceBundle : Object
+	public abstract partial class ResourceBundle : Object
 	{
 		protected ResourceBundle(ProxyCtor p) : base(p) {}
 	
@@ -116,7 +116,7 @@ namespace jvm4csharp.java.util
 		}
 	
 		[JavaProxy("java/util/ResourceBundle/Control")]
-		public class Control : Object
+		public partial class Control : Object
 		{
 			protected Control(ProxyCtor p) : base(p) {}
 		

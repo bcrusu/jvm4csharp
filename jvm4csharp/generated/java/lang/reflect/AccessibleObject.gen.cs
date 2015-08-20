@@ -15,7 +15,7 @@ using jvm4csharp.java.lang.annotation;
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/AccessibleObject")]
-	public class AccessibleObject : Object, AnnotatedElement
+	public partial class AccessibleObject : Object, AnnotatedElement
 	{
 		protected AccessibleObject(ProxyCtor p) : base(p) {}
 	

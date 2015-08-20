@@ -16,7 +16,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/AttributedCharacterIterator")]
-	public interface AttributedCharacterIterator : CharacterIterator
+	public partial interface AttributedCharacterIterator : CharacterIterator
 	{
 		[JavaSignature("()Ljava/util/Map;")]
 		Map<AttributedCharacterIterator_.Attribute, IJavaObject> getAttributes();
@@ -51,7 +51,7 @@ namespace jvm4csharp.java.text
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 	
 		[JavaProxy("java/text/AttributedCharacterIterator/Attribute")]
-		public class Attribute : Object, Serializable
+		public partial class Attribute : Object, Serializable
 		{
 			protected Attribute(ProxyCtor p) : base(p) {}
 		

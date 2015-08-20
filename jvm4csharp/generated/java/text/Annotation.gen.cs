@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/Annotation")]
-	public class Annotation : Object
+	public partial class Annotation : Object
 	{
 		protected Annotation(ProxyCtor p) : base(p) {}
 		

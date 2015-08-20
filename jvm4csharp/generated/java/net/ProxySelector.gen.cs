@@ -16,7 +16,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/ProxySelector")]
-	public abstract class ProxySelector : Object
+	public abstract partial class ProxySelector : Object
 	{
 		protected ProxySelector(ProxyCtor p) : base(p) {}
 	

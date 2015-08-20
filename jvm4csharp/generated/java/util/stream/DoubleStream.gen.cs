@@ -16,7 +16,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util.stream
 {
 	[JavaProxy("java/util/stream/DoubleStream")]
-	public interface DoubleStream : BaseStream<Double, DoubleStream>
+	public partial interface DoubleStream : BaseStream<Double, DoubleStream>
 	{
 		[JavaSignature("(J)Ljava/util/stream/DoubleStream;")]
 		DoubleStream limit(long arg0);
@@ -73,11 +73,24 @@ namespace jvm4csharp.java.util.stream
 		[JavaSignature("()Ljava/util/stream/DoubleStream;")]
 		DoubleStream sorted();
 		
-		[JavaSignature("(Ljava/util/function/DoublePredicate;)Z")]
-		bool anyMatch(DoublePredicate arg0);
+		[JavaSignature("()Ljava/util/OptionalDouble;")]
+		OptionalDouble average();
+		
+		[JavaSignature("()Ljava/util/stream/Stream;")]
+		Stream<Double> boxed();
+		
+		[JavaSignature("(Ljava/util/function/DoubleFunction;)Ljava/util/stream/Stream;")]
+		Stream<U> mapToObj<U>(DoubleFunction<U> arg0)
+			where U : IJavaObject;
+		
+		[JavaSignature("()Ljava/util/DoubleSummaryStatistics;")]
+		DoubleSummaryStatistics summaryStatistics();
 		
 		[JavaSignature("(Ljava/util/function/DoublePredicate;)Z")]
 		bool allMatch(DoublePredicate arg0);
+		
+		[JavaSignature("(Ljava/util/function/DoublePredicate;)Z")]
+		bool anyMatch(DoublePredicate arg0);
 		
 		[JavaSignature("(Ljava/util/function/DoubleConsumer;)V")]
 		void forEachOrdered(DoubleConsumer arg0);
@@ -105,19 +118,6 @@ namespace jvm4csharp.java.util.stream
 		
 		[JavaSignature("()Ljava/util/stream/DoubleStream;")]
 		new DoubleStream sequential();
-		
-		[JavaSignature("()Ljava/util/OptionalDouble;")]
-		OptionalDouble average();
-		
-		[JavaSignature("()Ljava/util/stream/Stream;")]
-		Stream<Double> boxed();
-		
-		[JavaSignature("(Ljava/util/function/DoubleFunction;)Ljava/util/stream/Stream;")]
-		Stream<U> mapToObj<U>(DoubleFunction<U> arg0)
-			where U : IJavaObject;
-		
-		[JavaSignature("()Ljava/util/DoubleSummaryStatistics;")]
-		DoubleSummaryStatistics summaryStatistics();
 	}
 	
 	public static class DoubleStream_
@@ -167,7 +167,7 @@ namespace jvm4csharp.java.util.stream
 		}
 	
 		[JavaProxy("java/util/stream/DoubleStream/Builder")]
-		public interface Builder : DoubleConsumer
+		public partial interface Builder : DoubleConsumer
 		{
 			[JavaSignature("(D)Ljava/util/stream/DoubleStream/Builder;")]
 			DoubleStream_.Builder @add(double arg0);

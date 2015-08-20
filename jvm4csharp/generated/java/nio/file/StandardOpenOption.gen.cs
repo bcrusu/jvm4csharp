@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/StandardOpenOption")]
-	public class StandardOpenOption : Enum<StandardOpenOption>, OpenOption
+	public partial class StandardOpenOption : Enum<StandardOpenOption>, OpenOption
 	{
 		protected StandardOpenOption(ProxyCtor p) : base(p) {}
 	

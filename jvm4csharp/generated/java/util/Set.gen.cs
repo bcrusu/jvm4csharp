@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Set")]
-	public interface Set<E> : Collection<E>
+	public partial interface Set<E> : Collection<E>
 		where E : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/Object;)Z")]

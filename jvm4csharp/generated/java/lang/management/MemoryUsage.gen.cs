@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.management
 {
 	[JavaProxy("java/lang/management/MemoryUsage")]
-	public class MemoryUsage : Object
+	public partial class MemoryUsage : Object
 	{
 		protected MemoryUsage(ProxyCtor p) : base(p) {}
 		

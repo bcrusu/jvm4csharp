@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/EventListenerProxy")]
-	public abstract class EventListenerProxy<T> : Object, EventListener
+	public abstract partial class EventListenerProxy<T> : Object, EventListener
 		where T : EventListener
 	{
 		protected EventListenerProxy(ProxyCtor p) : base(p) {}

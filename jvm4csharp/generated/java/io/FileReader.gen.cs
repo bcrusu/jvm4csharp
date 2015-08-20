@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/FileReader")]
-	public class FileReader : InputStreamReader
+	public partial class FileReader : InputStreamReader
 	{
 		protected FileReader(ProxyCtor p) : base(p) {}
 		

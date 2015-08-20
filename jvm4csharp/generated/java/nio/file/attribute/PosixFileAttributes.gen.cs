@@ -14,7 +14,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.nio.file.attribute
 {
 	[JavaProxy("java/nio/file/attribute/PosixFileAttributes")]
-	public interface PosixFileAttributes : BasicFileAttributes
+	public partial interface PosixFileAttributes : BasicFileAttributes
 	{
 		[JavaSignature("()Ljava/util/Set;")]
 		Set<PosixFilePermission> permissions();

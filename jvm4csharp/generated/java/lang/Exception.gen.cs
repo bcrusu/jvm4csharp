@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Exception")]
-	public class Exception : Throwable
+	public partial class Exception : Throwable
 	{
 		protected Exception(ProxyCtor p) : base(p) {}
 		

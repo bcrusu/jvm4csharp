@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/TypeNotPresentException")]
-	public class TypeNotPresentException : RuntimeException
+	public partial class TypeNotPresentException : RuntimeException
 	{
 		protected TypeNotPresentException(ProxyCtor p) : base(p) {}
 		

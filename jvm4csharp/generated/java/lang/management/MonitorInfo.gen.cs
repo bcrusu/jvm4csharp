@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.management
 {
 	[JavaProxy("java/lang/management/MonitorInfo")]
-	public class MonitorInfo : LockInfo
+	public partial class MonitorInfo : LockInfo
 	{
 		protected MonitorInfo(ProxyCtor p) : base(p) {}
 		

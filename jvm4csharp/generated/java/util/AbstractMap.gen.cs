@@ -16,7 +16,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/AbstractMap")]
-	public abstract class AbstractMap<K, V> : Object, Map<K, V>
+	public abstract partial class AbstractMap<K, V> : Object, Map<K, V>
 		where K : IJavaObject
 		where V : IJavaObject
 	{
@@ -164,7 +164,7 @@ namespace jvm4csharp.java.util
 	public class AbstractMap
 	{
 		[JavaProxy("java/util/AbstractMap/SimpleEntry")]
-		public class SimpleEntry<K, V> : Object, Map_.Entry<K, V>, Serializable
+		public partial class SimpleEntry<K, V> : Object, Map_.Entry<K, V>, Serializable
 			where K : IJavaObject
 			where V : IJavaObject
 		{
@@ -200,7 +200,7 @@ namespace jvm4csharp.java.util
 		}
 		
 		[JavaProxy("java/util/AbstractMap/SimpleImmutableEntry")]
-		public class SimpleImmutableEntry<K, V> : Object, Map_.Entry<K, V>, Serializable
+		public partial class SimpleImmutableEntry<K, V> : Object, Map_.Entry<K, V>, Serializable
 			where K : IJavaObject
 			where V : IJavaObject
 		{

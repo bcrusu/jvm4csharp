@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.spi
 {
 	[JavaProxy("java/util/spi/ResourceBundleControlProvider")]
-	public interface ResourceBundleControlProvider : IJavaObject
+	public partial interface ResourceBundleControlProvider : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/String;)Ljava/util/ResourceBundle/Control;")]
 		ResourceBundle.Control getControl(String arg0);

@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/Proxy")]
-	public class Proxy : Object
+	public partial class Proxy : Object
 	{
 		protected Proxy(ProxyCtor p) : base(p) {}
 		
@@ -43,7 +43,7 @@ namespace jvm4csharp.java.net
 		}
 	
 		[JavaProxy("java/net/Proxy/Type")]
-		public class Type : Enum<Proxy.Type>
+		public partial class Type : Enum<Proxy.Type>
 		{
 			protected Type(ProxyCtor p) : base(p) {}
 		

@@ -14,7 +14,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/CopyOnWriteArraySet")]
-	public class CopyOnWriteArraySet<E> : AbstractSet<E>, Serializable
+	public partial class CopyOnWriteArraySet<E> : AbstractSet<E>, Serializable
 		where E : IJavaObject
 	{
 		protected CopyOnWriteArraySet(ProxyCtor p) : base(p) {}

@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/ConcurrentModificationException")]
-	public class ConcurrentModificationException : RuntimeException
+	public partial class ConcurrentModificationException : RuntimeException
 	{
 		protected ConcurrentModificationException(ProxyCtor p) : base(p) {}
 		

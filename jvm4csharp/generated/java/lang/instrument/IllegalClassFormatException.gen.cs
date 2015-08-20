@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.instrument
 {
 	[JavaProxy("java/lang/instrument/IllegalClassFormatException")]
-	public class IllegalClassFormatException : Exception
+	public partial class IllegalClassFormatException : Exception
 	{
 		protected IllegalClassFormatException(ProxyCtor p) : base(p) {}
 		

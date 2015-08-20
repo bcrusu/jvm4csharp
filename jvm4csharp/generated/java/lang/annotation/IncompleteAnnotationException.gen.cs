@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.annotation
 {
 	[JavaProxy("java/lang/annotation/IncompleteAnnotationException")]
-	public class IncompleteAnnotationException : RuntimeException
+	public partial class IncompleteAnnotationException : RuntimeException
 	{
 		protected IncompleteAnnotationException(ProxyCtor p) : base(p) {}
 		

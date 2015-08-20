@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/Constructor")]
-	public class Constructor<T> : Executable
+	public partial class Constructor<T> : Executable
 		where T : IJavaObject
 	{
 		protected Constructor(ProxyCtor p) : base(p) {}

@@ -16,7 +16,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/ClassLoader")]
-	public abstract class ClassLoader : Object
+	public abstract partial class ClassLoader : Object
 	{
 		protected ClassLoader(ProxyCtor p) : base(p) {}
 	

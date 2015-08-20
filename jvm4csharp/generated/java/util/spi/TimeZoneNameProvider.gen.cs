@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.spi
 {
 	[JavaProxy("java/util/spi/TimeZoneNameProvider")]
-	public abstract class TimeZoneNameProvider : LocaleServiceProvider
+	public abstract partial class TimeZoneNameProvider : LocaleServiceProvider
 	{
 		protected TimeZoneNameProvider(ProxyCtor p) : base(p) {}
 	

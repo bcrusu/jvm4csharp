@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/TimeoutException")]
-	public class TimeoutException : Exception
+	public partial class TimeoutException : Exception
 	{
 		protected TimeoutException(ProxyCtor p) : base(p) {}
 		

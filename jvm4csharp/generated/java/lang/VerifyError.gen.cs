@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/VerifyError")]
-	public class VerifyError : LinkageError
+	public partial class VerifyError : LinkageError
 	{
 		protected VerifyError(ProxyCtor p) : base(p) {}
 		

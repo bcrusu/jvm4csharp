@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.stream
 {
 	[JavaProxy("java/util/stream/BaseStream")]
-	public interface BaseStream<T, S> : AutoCloseable
+	public partial interface BaseStream<T, S> : AutoCloseable
 		where T : IJavaObject
 		where S : BaseStream<T, S>
 	{

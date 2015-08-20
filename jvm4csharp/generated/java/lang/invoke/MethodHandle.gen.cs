@@ -15,7 +15,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.lang.invoke
 {
 	[JavaProxy("java/lang/invoke/MethodHandle")]
-	public abstract class MethodHandle : Object
+	public abstract partial class MethodHandle : Object
 	{
 		protected MethodHandle(ProxyCtor p) : base(p) {}
 	

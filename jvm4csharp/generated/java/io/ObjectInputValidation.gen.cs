@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/ObjectInputValidation")]
-	public interface ObjectInputValidation : IJavaObject
+	public partial interface ObjectInputValidation : IJavaObject
 	{
 		[JavaSignature("()V")]
 		void validateObject();

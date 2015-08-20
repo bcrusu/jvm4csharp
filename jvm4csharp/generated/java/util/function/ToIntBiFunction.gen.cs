@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/ToIntBiFunction")]
-	public interface ToIntBiFunction<T, U> : IJavaObject
+	public partial interface ToIntBiFunction<T, U> : IJavaObject
 		where T : IJavaObject
 		where U : IJavaObject
 	{

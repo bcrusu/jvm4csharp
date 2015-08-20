@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.nio.file.attribute
 {
 	[JavaProxy("java/nio/file/attribute/DosFileAttributes")]
-	public interface DosFileAttributes : BasicFileAttributes
+	public partial interface DosFileAttributes : BasicFileAttributes
 	{
 		[JavaSignature("()Z")]
 		bool isHidden();

@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/InvalidPathException")]
-	public class InvalidPathException : IllegalArgumentException
+	public partial class InvalidPathException : IllegalArgumentException
 	{
 		protected InvalidPathException(ProxyCtor p) : base(p) {}
 		

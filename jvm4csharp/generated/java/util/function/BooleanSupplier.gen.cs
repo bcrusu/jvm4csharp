@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/BooleanSupplier")]
-	public interface BooleanSupplier : IJavaObject
+	public partial interface BooleanSupplier : IJavaObject
 	{
 		[JavaSignature("()Z")]
 		bool getAsBoolean();

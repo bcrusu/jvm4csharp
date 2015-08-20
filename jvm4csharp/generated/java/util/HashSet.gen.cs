@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/HashSet")]
-	public class HashSet<E> : AbstractSet<E>, Set<E>, Cloneable, Serializable
+	public partial class HashSet<E> : AbstractSet<E>, Set<E>, Cloneable, Serializable
 		where E : IJavaObject
 	{
 		protected HashSet(ProxyCtor p) : base(p) {}

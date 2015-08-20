@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/TreeSet")]
-	public class TreeSet<E> : AbstractSet<E>, NavigableSet<E>, Cloneable, Serializable
+	public partial class TreeSet<E> : AbstractSet<E>, NavigableSet<E>, Cloneable, Serializable
 		where E : IJavaObject
 	{
 		protected TreeSet(ProxyCtor p) : base(p) {}

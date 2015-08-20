@@ -16,7 +16,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/ConcurrentSkipListMap")]
-	public class ConcurrentSkipListMap<K, V> : AbstractMap<K, V>, ConcurrentNavigableMap<K, V>, Cloneable, Serializable
+	public partial class ConcurrentSkipListMap<K, V> : AbstractMap<K, V>, ConcurrentNavigableMap<K, V>, Cloneable, Serializable
 		where K : IJavaObject
 		where V : IJavaObject
 	{
@@ -162,16 +162,16 @@ namespace jvm4csharp.java.util.concurrent
 			return Instance.CallMethod<K>("floorKey", "(Ljava/lang/Object;)Ljava/lang/Object;", arg0);
 		}
 		
-		[JavaSignature("(Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentNavigableMap;")]
-		public ConcurrentNavigableMap<K, V> headMap(K arg0)
-		{
-			return Instance.CallMethod<ConcurrentNavigableMap<K, V>>("headMap", "(Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentNavigableMap;", arg0);
-		}
-		
 		[JavaSignature("(Ljava/lang/Object;Z)Ljava/util/concurrent/ConcurrentNavigableMap;")]
 		public ConcurrentNavigableMap<K, V> headMap(K arg0, bool arg1)
 		{
 			return Instance.CallMethod<ConcurrentNavigableMap<K, V>>("headMap", "(Ljava/lang/Object;Z)Ljava/util/concurrent/ConcurrentNavigableMap;", arg0, arg1);
+		}
+		
+		[JavaSignature("(Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentNavigableMap;")]
+		public ConcurrentNavigableMap<K, V> headMap(K arg0)
+		{
+			return Instance.CallMethod<ConcurrentNavigableMap<K, V>>("headMap", "(Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentNavigableMap;", arg0);
 		}
 		
 		[JavaSignature("(Ljava/lang/Object;)Ljava/util/Map/Entry;")]
@@ -222,16 +222,16 @@ namespace jvm4csharp.java.util.concurrent
 			return Instance.CallMethod<Map_.Entry<K, V>>("pollLastEntry", "()Ljava/util/Map/Entry;");
 		}
 		
-		[JavaSignature("(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentNavigableMap;")]
-		public ConcurrentNavigableMap<K, V> subMap(K arg0, K arg1)
-		{
-			return Instance.CallMethod<ConcurrentNavigableMap<K, V>>("subMap", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentNavigableMap;", arg0, arg1);
-		}
-		
 		[JavaSignature("(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/concurrent/ConcurrentNavigableMap;")]
 		public ConcurrentNavigableMap<K, V> subMap(K arg0, bool arg1, K arg2, bool arg3)
 		{
 			return Instance.CallMethod<ConcurrentNavigableMap<K, V>>("subMap", "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/concurrent/ConcurrentNavigableMap;", arg0, arg1, arg2, arg3);
+		}
+		
+		[JavaSignature("(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentNavigableMap;")]
+		public ConcurrentNavigableMap<K, V> subMap(K arg0, K arg1)
+		{
+			return Instance.CallMethod<ConcurrentNavigableMap<K, V>>("subMap", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentNavigableMap;", arg0, arg1);
 		}
 		
 		[JavaSignature("(Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentNavigableMap;")]

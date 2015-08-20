@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.charset
 {
 	[JavaProxy("java/nio/charset/CodingErrorAction")]
-	public class CodingErrorAction : Object
+	public partial class CodingErrorAction : Object
 	{
 		protected CodingErrorAction(ProxyCtor p) : base(p) {}
 	

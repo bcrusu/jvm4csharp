@@ -17,7 +17,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/NumberFormat")]
-	public abstract class NumberFormat : Format
+	public abstract partial class NumberFormat : Format
 	{
 		protected NumberFormat(ProxyCtor p) : base(p) {}
 	
@@ -87,16 +87,28 @@ namespace jvm4csharp.java.text
 			return Static.CallMethod<ObjectArray<Locale>>(typeof(NumberFormat), "getAvailableLocales", "()[Ljava/util/Locale;");
 		}
 		
+		[JavaSignature("()Ljava/text/NumberFormat;")]
+		public static NumberFormat getIntegerInstance()
+		{
+			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getIntegerInstance", "()Ljava/text/NumberFormat;");
+		}
+		
 		[JavaSignature("(Ljava/util/Locale;)Ljava/text/NumberFormat;")]
 		public static NumberFormat getIntegerInstance(Locale arg0)
 		{
 			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getIntegerInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
 		}
 		
-		[JavaSignature("()Ljava/text/NumberFormat;")]
-		public static NumberFormat getIntegerInstance()
+		[JavaSignature("()Ljava/util/Currency;")]
+		public Currency getCurrency()
 		{
-			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getIntegerInstance", "()Ljava/text/NumberFormat;");
+			return Instance.CallMethod<Currency>("getCurrency", "()Ljava/util/Currency;");
+		}
+		
+		[JavaSignature("(Ljava/util/Currency;)V")]
+		public void setCurrency(Currency arg0)
+		{
+			Instance.CallMethod("setCurrency", "(Ljava/util/Currency;)V", arg0);
 		}
 		
 		[JavaSignature("()I")]
@@ -184,30 +196,6 @@ namespace jvm4csharp.java.text
 		}
 		
 		[JavaSignature("(Ljava/util/Locale;)Ljava/text/NumberFormat;")]
-		public static NumberFormat getCurrencyInstance(Locale arg0)
-		{
-			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getCurrencyInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
-		}
-		
-		[JavaSignature("()Ljava/text/NumberFormat;")]
-		public static NumberFormat getCurrencyInstance()
-		{
-			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getCurrencyInstance", "()Ljava/text/NumberFormat;");
-		}
-		
-		[JavaSignature("()Ljava/text/NumberFormat;")]
-		public static NumberFormat getPercentInstance()
-		{
-			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getPercentInstance", "()Ljava/text/NumberFormat;");
-		}
-		
-		[JavaSignature("(Ljava/util/Locale;)Ljava/text/NumberFormat;")]
-		public static NumberFormat getPercentInstance(Locale arg0)
-		{
-			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getPercentInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
-		}
-		
-		[JavaSignature("(Ljava/util/Locale;)Ljava/text/NumberFormat;")]
 		public static NumberFormat getNumberInstance(Locale arg0)
 		{
 			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getNumberInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
@@ -219,20 +207,32 @@ namespace jvm4csharp.java.text
 			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getNumberInstance", "()Ljava/text/NumberFormat;");
 		}
 		
-		[JavaSignature("()Ljava/util/Currency;")]
-		public Currency getCurrency()
+		[JavaSignature("()Ljava/text/NumberFormat;")]
+		public static NumberFormat getCurrencyInstance()
 		{
-			return Instance.CallMethod<Currency>("getCurrency", "()Ljava/util/Currency;");
+			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getCurrencyInstance", "()Ljava/text/NumberFormat;");
 		}
 		
-		[JavaSignature("(Ljava/util/Currency;)V")]
-		public void setCurrency(Currency arg0)
+		[JavaSignature("(Ljava/util/Locale;)Ljava/text/NumberFormat;")]
+		public static NumberFormat getCurrencyInstance(Locale arg0)
 		{
-			Instance.CallMethod("setCurrency", "(Ljava/util/Currency;)V", arg0);
+			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getCurrencyInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
+		}
+		
+		[JavaSignature("(Ljava/util/Locale;)Ljava/text/NumberFormat;")]
+		public static NumberFormat getPercentInstance(Locale arg0)
+		{
+			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getPercentInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
+		}
+		
+		[JavaSignature("()Ljava/text/NumberFormat;")]
+		public static NumberFormat getPercentInstance()
+		{
+			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getPercentInstance", "()Ljava/text/NumberFormat;");
 		}
 	
 		[JavaProxy("java/text/NumberFormat/Field")]
-		public class Field : Format.Field
+		public partial class Field : Format.Field
 		{
 			protected Field(ProxyCtor p) : base(p) {}
 		

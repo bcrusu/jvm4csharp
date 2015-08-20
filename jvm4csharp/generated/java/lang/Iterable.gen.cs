@@ -15,7 +15,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Iterable")]
-	public interface Iterable<T> : IJavaObject
+	public partial interface Iterable<T> : IJavaObject
 		where T : IJavaObject
 	{
 		[JavaSignature("()Ljava/util/Iterator;")]

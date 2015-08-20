@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/IllegalMonitorStateException")]
-	public class IllegalMonitorStateException : RuntimeException
+	public partial class IllegalMonitorStateException : RuntimeException
 	{
 		protected IllegalMonitorStateException(ProxyCtor p) : base(p) {}
 		

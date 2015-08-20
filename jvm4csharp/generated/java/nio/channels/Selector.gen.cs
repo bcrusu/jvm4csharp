@@ -17,7 +17,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/Selector")]
-	public abstract class Selector : Object, Closeable
+	public abstract partial class Selector : Object, Closeable
 	{
 		protected Selector(ProxyCtor p) : base(p) {}
 	

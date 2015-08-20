@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/EnumConstantNotPresentException")]
-	public class EnumConstantNotPresentException : RuntimeException
+	public partial class EnumConstantNotPresentException : RuntimeException
 	{
 		protected EnumConstantNotPresentException(ProxyCtor p) : base(p) {}
 		

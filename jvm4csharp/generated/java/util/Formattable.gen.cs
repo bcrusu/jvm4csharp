@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Formattable")]
-	public interface Formattable : IJavaObject
+	public partial interface Formattable : IJavaObject
 	{
 		[JavaSignature("(Ljava/util/Formatter;III)V")]
 		void formatTo(Formatter arg0, int arg1, int arg2, int arg3);

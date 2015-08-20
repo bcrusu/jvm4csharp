@@ -15,7 +15,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/DirectoryIteratorException")]
-	public class DirectoryIteratorException : ConcurrentModificationException
+	public partial class DirectoryIteratorException : ConcurrentModificationException
 	{
 		protected DirectoryIteratorException(ProxyCtor p) : base(p) {}
 		

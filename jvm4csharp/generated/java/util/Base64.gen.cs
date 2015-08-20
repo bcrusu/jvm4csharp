@@ -17,7 +17,7 @@ using jvm4csharp.java.nio;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Base64")]
-	public class Base64 : Object
+	public partial class Base64 : Object
 	{
 		protected Base64(ProxyCtor p) : base(p) {}
 	
@@ -64,7 +64,7 @@ namespace jvm4csharp.java.util
 		}
 	
 		[JavaProxy("java/util/Base64/Decoder")]
-		public class Decoder : Object
+		public partial class Decoder : Object
 		{
 			protected Decoder(ProxyCtor p) : base(p) {}
 		
@@ -100,7 +100,7 @@ namespace jvm4csharp.java.util
 		}
 		
 		[JavaProxy("java/util/Base64/Encoder")]
-		public class Encoder : Object
+		public partial class Encoder : Object
 		{
 			protected Encoder(ProxyCtor p) : base(p) {}
 		

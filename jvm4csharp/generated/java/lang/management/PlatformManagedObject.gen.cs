@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.management
 {
 	[JavaProxy("java/lang/management/PlatformManagedObject")]
-	public interface PlatformManagedObject : IJavaObject
+	public partial interface PlatformManagedObject : IJavaObject
 	{
 	}
 }

@@ -16,7 +16,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util.concurrent.atomic
 {
 	[JavaProxy("java/util/concurrent/atomic/DoubleAccumulator")]
-	public class DoubleAccumulator : Number, Serializable
+	public partial class DoubleAccumulator : Number, Serializable
 	{
 		protected DoubleAccumulator(ProxyCtor p) : base(p) {}
 		

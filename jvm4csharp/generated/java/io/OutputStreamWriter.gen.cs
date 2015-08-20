@@ -15,7 +15,7 @@ using jvm4csharp.java.nio.charset;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/OutputStreamWriter")]
-	public class OutputStreamWriter : Writer
+	public partial class OutputStreamWriter : Writer
 	{
 		protected OutputStreamWriter(ProxyCtor p) : base(p) {}
 		

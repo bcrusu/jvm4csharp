@@ -17,10 +17,16 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/SocketChannel")]
-	public abstract class SocketChannel : AbstractSelectableChannel, ByteChannel, ScatteringByteChannel, GatheringByteChannel, NetworkChannel
+	public abstract partial class SocketChannel : AbstractSelectableChannel, ByteChannel, ScatteringByteChannel, GatheringByteChannel, NetworkChannel
 	{
 		protected SocketChannel(ProxyCtor p) : base(p) {}
 	
+		[JavaSignature("(Ljava/nio/ByteBuffer;)I")]
+		public int write(ByteBuffer arg0)
+		{
+			return Instance.CallMethod<int>("write", "(Ljava/nio/ByteBuffer;)I", arg0);
+		}
+		
 		[JavaSignature("([Ljava/nio/ByteBuffer;II)J")]
 		public long write(ObjectArray<ByteBuffer> arg0, int arg1, int arg2)
 		{
@@ -33,28 +39,10 @@ namespace jvm4csharp.java.nio.channels
 			return Instance.CallMethod<long>("write", "([Ljava/nio/ByteBuffer;)J", arg0);
 		}
 		
-		[JavaSignature("(Ljava/nio/ByteBuffer;)I")]
-		public int write(ByteBuffer arg0)
-		{
-			return Instance.CallMethod<int>("write", "(Ljava/nio/ByteBuffer;)I", arg0);
-		}
-		
 		[JavaSignature("(Ljava/net/SocketAddress;)Z")]
 		public bool connect(SocketAddress arg0)
 		{
 			return Instance.CallMethod<bool>("connect", "(Ljava/net/SocketAddress;)Z", arg0);
-		}
-		
-		[JavaSignature("(Ljava/nio/ByteBuffer;)I")]
-		public int read(ByteBuffer arg0)
-		{
-			return Instance.CallMethod<int>("read", "(Ljava/nio/ByteBuffer;)I", arg0);
-		}
-		
-		[JavaSignature("([Ljava/nio/ByteBuffer;II)J")]
-		public long read(ObjectArray<ByteBuffer> arg0, int arg1, int arg2)
-		{
-			return Instance.CallMethod<long>("read", "([Ljava/nio/ByteBuffer;II)J", arg0, arg1, arg2);
 		}
 		
 		[JavaSignature("([Ljava/nio/ByteBuffer;)J")]
@@ -63,10 +51,16 @@ namespace jvm4csharp.java.nio.channels
 			return Instance.CallMethod<long>("read", "([Ljava/nio/ByteBuffer;)J", arg0);
 		}
 		
-		[JavaSignature("()Ljava/nio/channels/SocketChannel;")]
-		public static SocketChannel open()
+		[JavaSignature("([Ljava/nio/ByteBuffer;II)J")]
+		public long read(ObjectArray<ByteBuffer> arg0, int arg1, int arg2)
 		{
-			return Static.CallMethod<SocketChannel>(typeof(SocketChannel), "open", "()Ljava/nio/channels/SocketChannel;");
+			return Instance.CallMethod<long>("read", "([Ljava/nio/ByteBuffer;II)J", arg0, arg1, arg2);
+		}
+		
+		[JavaSignature("(Ljava/nio/ByteBuffer;)I")]
+		public int read(ByteBuffer arg0)
+		{
+			return Instance.CallMethod<int>("read", "(Ljava/nio/ByteBuffer;)I", arg0);
 		}
 		
 		[JavaSignature("(Ljava/net/SocketAddress;)Ljava/nio/channels/SocketChannel;")]
@@ -75,16 +69,10 @@ namespace jvm4csharp.java.nio.channels
 			return Static.CallMethod<SocketChannel>(typeof(SocketChannel), "open", "(Ljava/net/SocketAddress;)Ljava/nio/channels/SocketChannel;", arg0);
 		}
 		
-		[JavaSignature("()Ljava/net/SocketAddress;")]
-		public SocketAddress getLocalAddress()
+		[JavaSignature("()Ljava/nio/channels/SocketChannel;")]
+		public static SocketChannel open()
 		{
-			return Instance.CallMethod<SocketAddress>("getLocalAddress", "()Ljava/net/SocketAddress;");
-		}
-		
-		[JavaSignature("()Z")]
-		public bool isConnected()
-		{
-			return Instance.CallMethod<bool>("isConnected", "()Z");
+			return Static.CallMethod<SocketChannel>(typeof(SocketChannel), "open", "()Ljava/nio/channels/SocketChannel;");
 		}
 		
 		[JavaSignature("(Ljava/net/SocketAddress;)Ljava/nio/channels/SocketChannel;")]
@@ -112,10 +100,28 @@ namespace jvm4csharp.java.nio.channels
 			return Instance.CallMethod<SocketChannel>("shutdownOutput", "()Ljava/nio/channels/SocketChannel;");
 		}
 		
+		[JavaSignature("()Ljava/net/SocketAddress;")]
+		public SocketAddress getLocalAddress()
+		{
+			return Instance.CallMethod<SocketAddress>("getLocalAddress", "()Ljava/net/SocketAddress;");
+		}
+		
+		[JavaSignature("()Z")]
+		public bool isConnected()
+		{
+			return Instance.CallMethod<bool>("isConnected", "()Z");
+		}
+		
 		[JavaSignature("()Ljava/net/Socket;")]
 		public Socket socket()
 		{
 			return Instance.CallMethod<Socket>("socket", "()Ljava/net/Socket;");
+		}
+		
+		[JavaSignature("()Ljava/net/SocketAddress;")]
+		public SocketAddress getRemoteAddress()
+		{
+			return Instance.CallMethod<SocketAddress>("getRemoteAddress", "()Ljava/net/SocketAddress;");
 		}
 		
 		[JavaSignature("()Z")]
@@ -128,12 +134,6 @@ namespace jvm4csharp.java.nio.channels
 		public bool isConnectionPending()
 		{
 			return Instance.CallMethod<bool>("isConnectionPending", "()Z");
-		}
-		
-		[JavaSignature("()Ljava/net/SocketAddress;")]
-		public SocketAddress getRemoteAddress()
-		{
-			return Instance.CallMethod<SocketAddress>("getRemoteAddress", "()Ljava/net/SocketAddress;");
 		}
 		
 		[JavaSignature("(Ljava/net/SocketAddress;)Ljava/nio/channels/NetworkChannel;")]

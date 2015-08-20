@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/PushbackInputStream")]
-	public class PushbackInputStream : FilterInputStream
+	public partial class PushbackInputStream : FilterInputStream
 	{
 		protected PushbackInputStream(ProxyCtor p) : base(p) {}
 		

@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.regex
 {
 	[JavaProxy("java/util/regex/Matcher")]
-	public class Matcher : Object, MatchResult
+	public partial class Matcher : Object, MatchResult
 	{
 		protected Matcher(ProxyCtor p) : base(p) {}
 	
@@ -120,6 +120,24 @@ namespace jvm4csharp.java.util.regex
 			return Instance.CallMethod<Matcher>("region", "(II)Ljava/util/regex/Matcher;", arg0, arg1);
 		}
 		
+		[JavaSignature("()I")]
+		public int end()
+		{
+			return Instance.CallMethod<int>("end", "()I");
+		}
+		
+		[JavaSignature("(I)I")]
+		public int end(int arg0)
+		{
+			return Instance.CallMethod<int>("end", "(I)I", arg0);
+		}
+		
+		[JavaSignature("(Ljava/lang/String;)I")]
+		public int end(String arg0)
+		{
+			return Instance.CallMethod<int>("end", "(Ljava/lang/String;)I", arg0);
+		}
+		
 		[JavaSignature("()Ljava/util/regex/Pattern;")]
 		public Pattern pattern()
 		{
@@ -196,24 +214,6 @@ namespace jvm4csharp.java.util.regex
 		public Matcher useTransparentBounds(bool arg0)
 		{
 			return Instance.CallMethod<Matcher>("useTransparentBounds", "(Z)Ljava/util/regex/Matcher;", arg0);
-		}
-		
-		[JavaSignature("(I)I")]
-		public int end(int arg0)
-		{
-			return Instance.CallMethod<int>("end", "(I)I", arg0);
-		}
-		
-		[JavaSignature("()I")]
-		public int end()
-		{
-			return Instance.CallMethod<int>("end", "()I");
-		}
-		
-		[JavaSignature("(Ljava/lang/String;)I")]
-		public int end(String arg0)
-		{
-			return Instance.CallMethod<int>("end", "(Ljava/lang/String;)I", arg0);
 		}
 	}
 }

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/Flushable")]
-	public interface Flushable : IJavaObject
+	public partial interface Flushable : IJavaObject
 	{
 		[JavaSignature("()V")]
 		void flush();

@@ -14,7 +14,7 @@ using jvm4csharp.java.nio.channels.spi;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/SelectableChannel")]
-	public abstract class SelectableChannel : AbstractInterruptibleChannel, Channel
+	public abstract partial class SelectableChannel : AbstractInterruptibleChannel, Channel
 	{
 		protected SelectableChannel(ProxyCtor p) : base(p) {}
 	

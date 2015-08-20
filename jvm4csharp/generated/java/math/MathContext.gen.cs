@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.math
 {
 	[JavaProxy("java/math/MathContext")]
-	public class MathContext : Object, Serializable
+	public partial class MathContext : Object, Serializable
 	{
 		protected MathContext(ProxyCtor p) : base(p) {}
 		

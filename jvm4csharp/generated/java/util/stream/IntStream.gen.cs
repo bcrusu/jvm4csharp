@@ -16,7 +16,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util.stream
 {
 	[JavaProxy("java/util/stream/IntStream")]
-	public interface IntStream : BaseStream<Integer, IntStream>
+	public partial interface IntStream : BaseStream<Integer, IntStream>
 	{
 		[JavaSignature("(J)Ljava/util/stream/IntStream;")]
 		IntStream limit(long arg0);
@@ -73,11 +73,30 @@ namespace jvm4csharp.java.util.stream
 		[JavaSignature("()Ljava/util/stream/IntStream;")]
 		IntStream sorted();
 		
-		[JavaSignature("(Ljava/util/function/IntPredicate;)Z")]
-		bool anyMatch(IntPredicate arg0);
+		[JavaSignature("()Ljava/util/stream/DoubleStream;")]
+		DoubleStream asDoubleStream();
+		
+		[JavaSignature("()Ljava/util/stream/LongStream;")]
+		LongStream asLongStream();
+		
+		[JavaSignature("()Ljava/util/OptionalDouble;")]
+		OptionalDouble average();
+		
+		[JavaSignature("()Ljava/util/stream/Stream;")]
+		Stream<Integer> boxed();
+		
+		[JavaSignature("(Ljava/util/function/IntFunction;)Ljava/util/stream/Stream;")]
+		Stream<U> mapToObj<U>(IntFunction<U> arg0)
+			where U : IJavaObject;
+		
+		[JavaSignature("()Ljava/util/IntSummaryStatistics;")]
+		IntSummaryStatistics summaryStatistics();
 		
 		[JavaSignature("(Ljava/util/function/IntPredicate;)Z")]
 		bool allMatch(IntPredicate arg0);
+		
+		[JavaSignature("(Ljava/util/function/IntPredicate;)Z")]
+		bool anyMatch(IntPredicate arg0);
 		
 		[JavaSignature("(Ljava/util/function/IntConsumer;)V")]
 		void forEachOrdered(IntConsumer arg0);
@@ -105,25 +124,6 @@ namespace jvm4csharp.java.util.stream
 		
 		[JavaSignature("()Ljava/util/stream/IntStream;")]
 		new IntStream sequential();
-		
-		[JavaSignature("()Ljava/util/stream/DoubleStream;")]
-		DoubleStream asDoubleStream();
-		
-		[JavaSignature("()Ljava/util/stream/LongStream;")]
-		LongStream asLongStream();
-		
-		[JavaSignature("()Ljava/util/OptionalDouble;")]
-		OptionalDouble average();
-		
-		[JavaSignature("()Ljava/util/stream/Stream;")]
-		Stream<Integer> boxed();
-		
-		[JavaSignature("(Ljava/util/function/IntFunction;)Ljava/util/stream/Stream;")]
-		Stream<U> mapToObj<U>(IntFunction<U> arg0)
-			where U : IJavaObject;
-		
-		[JavaSignature("()Ljava/util/IntSummaryStatistics;")]
-		IntSummaryStatistics summaryStatistics();
 	}
 	
 	public static class IntStream_
@@ -172,20 +172,20 @@ namespace jvm4csharp.java.util.stream
 			return Static.CallMethod<IntStream_.Builder>(typeof(IntStream), "builder", "()Ljava/util/stream/IntStream/Builder;");
 		}
 		
-		[JavaSignature("(ILjava/util/function/IntUnaryOperator;)Ljava/util/stream/IntStream;")]
-		public static IntStream iterate(int arg0, IntUnaryOperator arg1)
-		{
-			return Static.CallMethod<IntStream>(typeof(IntStream), "iterate", "(ILjava/util/function/IntUnaryOperator;)Ljava/util/stream/IntStream;", arg0, arg1);
-		}
-		
 		[JavaSignature("(II)Ljava/util/stream/IntStream;")]
 		public static IntStream rangeClosed(int arg0, int arg1)
 		{
 			return Static.CallMethod<IntStream>(typeof(IntStream), "rangeClosed", "(II)Ljava/util/stream/IntStream;", arg0, arg1);
 		}
+		
+		[JavaSignature("(ILjava/util/function/IntUnaryOperator;)Ljava/util/stream/IntStream;")]
+		public static IntStream iterate(int arg0, IntUnaryOperator arg1)
+		{
+			return Static.CallMethod<IntStream>(typeof(IntStream), "iterate", "(ILjava/util/function/IntUnaryOperator;)Ljava/util/stream/IntStream;", arg0, arg1);
+		}
 	
 		[JavaProxy("java/util/stream/IntStream/Builder")]
-		public interface Builder : IntConsumer
+		public partial interface Builder : IntConsumer
 		{
 			[JavaSignature("(I)Ljava/util/stream/IntStream/Builder;")]
 			IntStream_.Builder @add(int arg0);

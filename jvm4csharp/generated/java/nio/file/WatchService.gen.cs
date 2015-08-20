@@ -15,7 +15,7 @@ using jvm4csharp.java.util.concurrent;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/WatchService")]
-	public interface WatchService : Closeable
+	public partial interface WatchService : Closeable
 	{
 		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Ljava/nio/file/WatchKey;")]
 		WatchKey poll(long arg0, TimeUnit arg1);

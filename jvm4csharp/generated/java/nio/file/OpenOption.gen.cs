@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/OpenOption")]
-	public interface OpenOption : IJavaObject
+	public partial interface OpenOption : IJavaObject
 	{
 	}
 }

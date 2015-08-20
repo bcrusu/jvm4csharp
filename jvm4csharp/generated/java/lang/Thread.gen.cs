@@ -15,7 +15,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Thread")]
-	public class Thread : Object, Runnable
+	public partial class Thread : Object, Runnable
 	{
 		protected Thread(ProxyCtor p) : base(p) {}
 		
@@ -324,7 +324,7 @@ namespace jvm4csharp.java.lang
 		}
 	
 		[JavaProxy("java/lang/Thread/State")]
-		public class State : Enum<Thread.State>
+		public partial class State : Enum<Thread.State>
 		{
 			protected State(ProxyCtor p) : base(p) {}
 		
@@ -378,7 +378,7 @@ namespace jvm4csharp.java.lang
 		}
 		
 		[JavaProxy("java/lang/Thread/UncaughtExceptionHandler")]
-		public interface UncaughtExceptionHandler : IJavaObject
+		public partial interface UncaughtExceptionHandler : IJavaObject
 		{
 			[JavaSignature("(Ljava/lang/Thread;Ljava/lang/Throwable;)V")]
 			void uncaughtException(Thread arg0, Throwable arg1);

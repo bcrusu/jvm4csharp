@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.jar
 {
 	[JavaProxy("java/util/jar/Manifest")]
-	public class Manifest : Object, Cloneable
+	public partial class Manifest : Object, Cloneable
 	{
 		protected Manifest(ProxyCtor p) : base(p) {}
 		

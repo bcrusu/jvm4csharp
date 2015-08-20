@@ -18,7 +18,7 @@ using jvm4csharp.java.util.concurrent;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/AsynchronousServerSocketChannel")]
-	public abstract class AsynchronousServerSocketChannel : Object, AsynchronousChannel, NetworkChannel
+	public abstract partial class AsynchronousServerSocketChannel : Object, AsynchronousChannel, NetworkChannel
 	{
 		protected AsynchronousServerSocketChannel(ProxyCtor p) : base(p) {}
 	
@@ -28,23 +28,17 @@ namespace jvm4csharp.java.nio.channels
 			return Instance.CallMethod<AsynchronousChannelProvider>("provider", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;");
 		}
 		
-		[JavaSignature("(Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V")]
-		public void accept<A>(A arg0, CompletionHandler<AsynchronousSocketChannel, IJavaObject> arg1)
-			where A : IJavaObject
-		{
-			Instance.CallMethod("accept", "(Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", arg0, arg1);
-		}
-		
 		[JavaSignature("()Ljava/util/concurrent/Future;")]
 		public Future<AsynchronousSocketChannel> accept()
 		{
 			return Instance.CallMethod<Future<AsynchronousSocketChannel>>("accept", "()Ljava/util/concurrent/Future;");
 		}
 		
-		[JavaSignature("(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousServerSocketChannel;")]
-		public static AsynchronousServerSocketChannel open(AsynchronousChannelGroup arg0)
+		[JavaSignature("(Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V")]
+		public void accept<A>(A arg0, CompletionHandler<AsynchronousSocketChannel, IJavaObject> arg1)
+			where A : IJavaObject
 		{
-			return Static.CallMethod<AsynchronousServerSocketChannel>(typeof(AsynchronousServerSocketChannel), "open", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousServerSocketChannel;", arg0);
+			Instance.CallMethod("accept", "(Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", arg0, arg1);
 		}
 		
 		[JavaSignature("()Ljava/nio/channels/AsynchronousServerSocketChannel;")]
@@ -53,16 +47,10 @@ namespace jvm4csharp.java.nio.channels
 			return Static.CallMethod<AsynchronousServerSocketChannel>(typeof(AsynchronousServerSocketChannel), "open", "()Ljava/nio/channels/AsynchronousServerSocketChannel;");
 		}
 		
-		[JavaSignature("()Ljava/net/SocketAddress;")]
-		public SocketAddress getLocalAddress()
+		[JavaSignature("(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousServerSocketChannel;")]
+		public static AsynchronousServerSocketChannel open(AsynchronousChannelGroup arg0)
 		{
-			return Instance.CallMethod<SocketAddress>("getLocalAddress", "()Ljava/net/SocketAddress;");
-		}
-		
-		[JavaSignature("(Ljava/net/SocketAddress;)Ljava/nio/channels/AsynchronousServerSocketChannel;")]
-		public AsynchronousServerSocketChannel bind(SocketAddress arg0)
-		{
-			return Instance.CallMethod<AsynchronousServerSocketChannel>("bind", "(Ljava/net/SocketAddress;)Ljava/nio/channels/AsynchronousServerSocketChannel;", arg0);
+			return Static.CallMethod<AsynchronousServerSocketChannel>(typeof(AsynchronousServerSocketChannel), "open", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousServerSocketChannel;", arg0);
 		}
 		
 		[JavaSignature("(Ljava/net/SocketAddress;I)Ljava/nio/channels/AsynchronousServerSocketChannel;")]
@@ -71,11 +59,23 @@ namespace jvm4csharp.java.nio.channels
 			return Instance.CallMethod<AsynchronousServerSocketChannel>("bind", "(Ljava/net/SocketAddress;I)Ljava/nio/channels/AsynchronousServerSocketChannel;", arg0, arg1);
 		}
 		
+		[JavaSignature("(Ljava/net/SocketAddress;)Ljava/nio/channels/AsynchronousServerSocketChannel;")]
+		public AsynchronousServerSocketChannel bind(SocketAddress arg0)
+		{
+			return Instance.CallMethod<AsynchronousServerSocketChannel>("bind", "(Ljava/net/SocketAddress;)Ljava/nio/channels/AsynchronousServerSocketChannel;", arg0);
+		}
+		
 		[JavaSignature("(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/AsynchronousServerSocketChannel;")]
 		public AsynchronousServerSocketChannel setOption<T>(SocketOption<T> arg0, T arg1)
 			where T : IJavaObject
 		{
 			return Instance.CallMethod<AsynchronousServerSocketChannel>("setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/AsynchronousServerSocketChannel;", arg0, arg1);
+		}
+		
+		[JavaSignature("()Ljava/net/SocketAddress;")]
+		public SocketAddress getLocalAddress()
+		{
+			return Instance.CallMethod<SocketAddress>("getLocalAddress", "()Ljava/net/SocketAddress;");
 		}
 		
 		[JavaSignature("()V")]

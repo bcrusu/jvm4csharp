@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/GenericDeclaration")]
-	public interface GenericDeclaration : AnnotatedElement
+	public partial interface GenericDeclaration : AnnotatedElement
 	{
 		[JavaSignature("()[Ljava/lang/reflect/TypeVariable;")]
 		ObjectArray<TypeVariable<GenericDeclaration>> getTypeParameters();

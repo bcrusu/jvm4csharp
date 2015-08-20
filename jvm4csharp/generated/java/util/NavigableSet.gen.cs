@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/NavigableSet")]
-	public interface NavigableSet<E> : SortedSet<E>
+	public partial interface NavigableSet<E> : SortedSet<E>
 		where E : IJavaObject
 	{
 		[JavaSignature("()Ljava/util/Iterator;")]

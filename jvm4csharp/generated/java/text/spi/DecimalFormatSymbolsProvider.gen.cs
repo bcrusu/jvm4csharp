@@ -15,7 +15,7 @@ using jvm4csharp.java.util.spi;
 namespace jvm4csharp.java.text.spi
 {
 	[JavaProxy("java/text/spi/DecimalFormatSymbolsProvider")]
-	public abstract class DecimalFormatSymbolsProvider : LocaleServiceProvider
+	public abstract partial class DecimalFormatSymbolsProvider : LocaleServiceProvider
 	{
 		protected DecimalFormatSymbolsProvider(ProxyCtor p) : base(p) {}
 	

@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/StandardWatchEventKinds")]
-	public class StandardWatchEventKinds : Object
+	public partial class StandardWatchEventKinds : Object
 	{
 		protected StandardWatchEventKinds(ProxyCtor p) : base(p) {}
 	

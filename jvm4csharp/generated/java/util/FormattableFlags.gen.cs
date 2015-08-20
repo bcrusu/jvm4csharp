@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/FormattableFlags")]
-	public class FormattableFlags : Object
+	public partial class FormattableFlags : Object
 	{
 		protected FormattableFlags(ProxyCtor p) : base(p) {}
 	

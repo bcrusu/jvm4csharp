@@ -16,7 +16,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/LinkedList")]
-	public class LinkedList<E> : AbstractSequentialList<E>, List<E>, Deque<E>, Cloneable, Serializable
+	public partial class LinkedList<E> : AbstractSequentialList<E>, List<E>, Deque<E>, Cloneable, Serializable
 		where E : IJavaObject
 	{
 		protected LinkedList(ProxyCtor p) : base(p) {}

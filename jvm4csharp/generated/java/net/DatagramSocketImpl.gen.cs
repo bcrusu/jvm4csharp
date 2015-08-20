@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/DatagramSocketImpl")]
-	public abstract class DatagramSocketImpl : Object, SocketOptions
+	public abstract partial class DatagramSocketImpl : Object, SocketOptions
 	{
 		protected DatagramSocketImpl(ProxyCtor p) : base(p) {}
 	

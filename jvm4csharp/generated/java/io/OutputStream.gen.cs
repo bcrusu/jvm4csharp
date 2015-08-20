@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/OutputStream")]
-	public abstract class OutputStream : Object, Closeable, Flushable
+	public abstract partial class OutputStream : Object, Closeable, Flushable
 	{
 		protected OutputStream(ProxyCtor p) : base(p) {}
 	

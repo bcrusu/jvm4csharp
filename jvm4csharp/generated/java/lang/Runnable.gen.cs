@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Runnable")]
-	public interface Runnable : IJavaObject
+	public partial interface Runnable : IJavaObject
 	{
 		[JavaSignature("()V")]
 		void run();

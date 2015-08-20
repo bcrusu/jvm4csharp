@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.annotation
 {
 	[JavaProxy("java/lang/annotation/Annotation")]
-	public interface Annotation : IJavaObject
+	public partial interface Annotation : IJavaObject
 	{
 		[JavaSignature("()Ljava/lang/Class;")]
 		Class<Annotation> annotationType();

@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/AccessMode")]
-	public class AccessMode : Enum<AccessMode>
+	public partial class AccessMode : Enum<AccessMode>
 	{
 		protected AccessMode(ProxyCtor p) : base(p) {}
 	

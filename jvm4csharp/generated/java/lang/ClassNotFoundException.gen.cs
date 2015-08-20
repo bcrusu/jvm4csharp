@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/ClassNotFoundException")]
-	public class ClassNotFoundException : ReflectiveOperationException
+	public partial class ClassNotFoundException : ReflectiveOperationException
 	{
 		protected ClassNotFoundException(ProxyCtor p) : base(p) {}
 		

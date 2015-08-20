@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/Function")]
-	public interface Function<T, R> : IJavaObject
+	public partial interface Function<T, R> : IJavaObject
 		where T : IJavaObject
 		where R : IJavaObject
 	{

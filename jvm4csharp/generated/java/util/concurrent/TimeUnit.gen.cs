@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/TimeUnit")]
-	public abstract class TimeUnit : Enum<TimeUnit>
+	public abstract partial class TimeUnit : Enum<TimeUnit>
 	{
 		protected TimeUnit(ProxyCtor p) : base(p) {}
 	

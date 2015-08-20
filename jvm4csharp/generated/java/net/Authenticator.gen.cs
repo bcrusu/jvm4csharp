@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/Authenticator")]
-	public abstract class Authenticator : Object
+	public abstract partial class Authenticator : Object
 	{
 		protected Authenticator(ProxyCtor p) : base(p) {}
 	
@@ -44,7 +44,7 @@ namespace jvm4csharp.java.net
 		}
 	
 		[JavaProxy("java/net/Authenticator/RequestorType")]
-		public class RequestorType : Enum<Authenticator.RequestorType>
+		public partial class RequestorType : Enum<Authenticator.RequestorType>
 		{
 			protected RequestorType(ProxyCtor p) : base(p) {}
 		

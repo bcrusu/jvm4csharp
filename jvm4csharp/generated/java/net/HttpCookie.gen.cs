@@ -15,7 +15,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/HttpCookie")]
-	public class HttpCookie : Object, Cloneable
+	public partial class HttpCookie : Object, Cloneable
 	{
 		protected HttpCookie(ProxyCtor p) : base(p) {}
 		

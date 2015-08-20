@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent.atomic
 {
 	[JavaProxy("java/util/concurrent/atomic/DoubleAdder")]
-	public class DoubleAdder : Number, Serializable
+	public partial class DoubleAdder : Number, Serializable
 	{
 		protected DoubleAdder(ProxyCtor p) : base(p) {}
 		

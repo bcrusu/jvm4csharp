@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/Semaphore")]
-	public class Semaphore : Object, Serializable
+	public partial class Semaphore : Object, Serializable
 	{
 		protected Semaphore(ProxyCtor p) : base(p) {}
 		
@@ -77,12 +77,6 @@ namespace jvm4csharp.java.util.concurrent
 			return Instance.CallMethod<int>("availablePermits", "()I");
 		}
 		
-		[JavaSignature("()I")]
-		public int drainPermits()
-		{
-			return Instance.CallMethod<int>("drainPermits", "()I");
-		}
-		
 		[JavaSignature("(I)V")]
 		public void acquire(int arg0)
 		{
@@ -95,16 +89,22 @@ namespace jvm4csharp.java.util.concurrent
 			Instance.CallMethod("acquire", "()V");
 		}
 		
+		[JavaSignature("()Z")]
+		public bool tryAcquire()
+		{
+			return Instance.CallMethod<bool>("tryAcquire", "()Z");
+		}
+		
 		[JavaSignature("(IJLjava/util/concurrent/TimeUnit;)Z")]
 		public bool tryAcquire(int arg0, long arg1, TimeUnit arg2)
 		{
 			return Instance.CallMethod<bool>("tryAcquire", "(IJLjava/util/concurrent/TimeUnit;)Z", arg0, arg1, arg2);
 		}
 		
-		[JavaSignature("()Z")]
-		public bool tryAcquire()
+		[JavaSignature("(I)Z")]
+		public bool tryAcquire(int arg0)
 		{
-			return Instance.CallMethod<bool>("tryAcquire", "()Z");
+			return Instance.CallMethod<bool>("tryAcquire", "(I)Z", arg0);
 		}
 		
 		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
@@ -113,10 +113,10 @@ namespace jvm4csharp.java.util.concurrent
 			return Instance.CallMethod<bool>("tryAcquire", "(JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1);
 		}
 		
-		[JavaSignature("(I)Z")]
-		public bool tryAcquire(int arg0)
+		[JavaSignature("()I")]
+		public int drainPermits()
 		{
-			return Instance.CallMethod<bool>("tryAcquire", "(I)Z", arg0);
+			return Instance.CallMethod<int>("drainPermits", "()I");
 		}
 	}
 }

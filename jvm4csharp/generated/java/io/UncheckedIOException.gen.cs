@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/UncheckedIOException")]
-	public class UncheckedIOException : RuntimeException
+	public partial class UncheckedIOException : RuntimeException
 	{
 		protected UncheckedIOException(ProxyCtor p) : base(p) {}
 		

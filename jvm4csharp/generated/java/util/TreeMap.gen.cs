@@ -16,7 +16,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/TreeMap")]
-	public class TreeMap<K, V> : AbstractMap<K, V>, NavigableMap<K, V>, Cloneable, Serializable
+	public partial class TreeMap<K, V> : AbstractMap<K, V>, NavigableMap<K, V>, Cloneable, Serializable
 		where K : IJavaObject
 		where V : IJavaObject
 	{
@@ -180,16 +180,16 @@ namespace jvm4csharp.java.util
 			return Instance.CallMethod<SortedMap<K, V>>("subMap", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;", arg0, arg1);
 		}
 		
-		[JavaSignature("(Ljava/lang/Object;)Ljava/util/SortedMap;")]
-		public SortedMap<K, V> tailMap(K arg0)
-		{
-			return Instance.CallMethod<SortedMap<K, V>>("tailMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", arg0);
-		}
-		
 		[JavaSignature("(Ljava/lang/Object;Z)Ljava/util/NavigableMap;")]
 		public NavigableMap<K, V> tailMap(K arg0, bool arg1)
 		{
 			return Instance.CallMethod<NavigableMap<K, V>>("tailMap", "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", arg0, arg1);
+		}
+		
+		[JavaSignature("(Ljava/lang/Object;)Ljava/util/SortedMap;")]
+		public SortedMap<K, V> tailMap(K arg0)
+		{
+			return Instance.CallMethod<SortedMap<K, V>>("tailMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", arg0);
 		}
 		
 		[JavaSignature("()Ljava/lang/Object;")]

@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/ThreadGroup")]
-	public class ThreadGroup : Object, Thread.UncaughtExceptionHandler
+	public partial class ThreadGroup : Object, Thread.UncaughtExceptionHandler
 	{
 		protected ThreadGroup(ProxyCtor p) : base(p) {}
 		

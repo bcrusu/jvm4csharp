@@ -16,7 +16,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.lang.invoke
 {
 	[JavaProxy("java/lang/invoke/MethodType")]
-	public class MethodType : Object, Serializable
+	public partial class MethodType : Object, Serializable
 	{
 		protected MethodType(ProxyCtor p) : base(p) {}
 	

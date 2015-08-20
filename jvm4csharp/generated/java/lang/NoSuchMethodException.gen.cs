@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/NoSuchMethodException")]
-	public class NoSuchMethodException : ReflectiveOperationException
+	public partial class NoSuchMethodException : ReflectiveOperationException
 	{
 		protected NoSuchMethodException(ProxyCtor p) : base(p) {}
 		

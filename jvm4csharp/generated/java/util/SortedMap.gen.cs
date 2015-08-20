@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/SortedMap")]
-	public interface SortedMap<K, V> : Map<K, V>
+	public partial interface SortedMap<K, V> : Map<K, V>
 		where K : IJavaObject
 		where V : IJavaObject
 	{

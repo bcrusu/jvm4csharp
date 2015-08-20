@@ -15,7 +15,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.nio.file.attribute
 {
 	[JavaProxy("java/nio/file/attribute/PosixFileAttributeView")]
-	public interface PosixFileAttributeView : BasicFileAttributeView, FileOwnerAttributeView
+	public partial interface PosixFileAttributeView : BasicFileAttributeView, FileOwnerAttributeView
 	{
 		[JavaSignature("()Ljava/lang/String;")]
 		new String name();

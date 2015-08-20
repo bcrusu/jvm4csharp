@@ -16,7 +16,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.logging
 {
 	[JavaProxy("java/util/logging/LogRecord")]
-	public class LogRecord : Object, Serializable
+	public partial class LogRecord : Object, Serializable
 	{
 		protected LogRecord(ProxyCtor p) : base(p) {}
 		
@@ -47,6 +47,12 @@ namespace jvm4csharp.java.util.logging
 		public void setMillis(long arg0)
 		{
 			Instance.CallMethod("setMillis", "(J)V", arg0);
+		}
+		
+		[JavaSignature("(Ljava/util/logging/Level;)V")]
+		public void setLevel(Level arg0)
+		{
+			Instance.CallMethod("setLevel", "(Ljava/util/logging/Level;)V", arg0);
 		}
 		
 		[JavaSignature("()Ljava/util/logging/Level;")]
@@ -161,12 +167,6 @@ namespace jvm4csharp.java.util.logging
 		public void setThrown(Throwable arg0)
 		{
 			Instance.CallMethod("setThrown", "(Ljava/lang/Throwable;)V", arg0);
-		}
-		
-		[JavaSignature("(Ljava/util/logging/Level;)V")]
-		public void setLevel(Level arg0)
-		{
-			Instance.CallMethod("setLevel", "(Ljava/util/logging/Level;)V", arg0);
 		}
 	}
 }

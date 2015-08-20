@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/LinkOption")]
-	public class LinkOption : Enum<LinkOption>, OpenOption, CopyOption
+	public partial class LinkOption : Enum<LinkOption>, OpenOption, CopyOption
 	{
 		protected LinkOption(ProxyCtor p) : base(p) {}
 	

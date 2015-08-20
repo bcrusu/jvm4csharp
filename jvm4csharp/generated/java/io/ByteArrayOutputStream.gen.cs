@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/ByteArrayOutputStream")]
-	public class ByteArrayOutputStream : OutputStream
+	public partial class ByteArrayOutputStream : OutputStream
 	{
 		protected ByteArrayOutputStream(ProxyCtor p) : base(p) {}
 		

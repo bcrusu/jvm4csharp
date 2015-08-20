@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/AnnotatedType")]
-	public interface AnnotatedType : AnnotatedElement
+	public partial interface AnnotatedType : AnnotatedElement
 	{
 		[JavaSignature("()Ljava/lang/reflect/Type;")]
 		Type getType();

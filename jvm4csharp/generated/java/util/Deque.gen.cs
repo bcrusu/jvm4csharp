@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Deque")]
-	public interface Deque<E> : Queue<E>
+	public partial interface Deque<E> : Queue<E>
 		where E : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/Object;)Z")]

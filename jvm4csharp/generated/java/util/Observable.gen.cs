@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Observable")]
-	public class Observable : Object
+	public partial class Observable : Object
 	{
 		protected Observable(ProxyCtor p) : base(p) {}
 		

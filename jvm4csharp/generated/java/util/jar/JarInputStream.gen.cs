@@ -15,7 +15,7 @@ using jvm4csharp.java.util.zip;
 namespace jvm4csharp.java.util.jar
 {
 	[JavaProxy("java/util/jar/JarInputStream")]
-	public class JarInputStream : ZipInputStream
+	public partial class JarInputStream : ZipInputStream
 	{
 		protected JarInputStream(ProxyCtor p) : base(p) {}
 		

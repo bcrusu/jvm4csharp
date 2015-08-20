@@ -14,7 +14,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Boolean")]
-	public class Boolean : Object, Serializable, Comparable<Boolean>
+	public partial class Boolean : Object, Serializable, Comparable<Boolean>
 	{
 		protected Boolean(ProxyCtor p) : base(p) {}
 		

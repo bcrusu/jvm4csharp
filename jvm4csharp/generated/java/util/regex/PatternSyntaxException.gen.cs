@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.regex
 {
 	[JavaProxy("java/util/regex/PatternSyntaxException")]
-	public class PatternSyntaxException : IllegalArgumentException
+	public partial class PatternSyntaxException : IllegalArgumentException
 	{
 		protected PatternSyntaxException(ProxyCtor p) : base(p) {}
 		

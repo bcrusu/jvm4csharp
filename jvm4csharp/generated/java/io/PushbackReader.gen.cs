@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/PushbackReader")]
-	public class PushbackReader : FilterReader
+	public partial class PushbackReader : FilterReader
 	{
 		protected PushbackReader(ProxyCtor p) : base(p) {}
 		

@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/CountedCompleter")]
-	public abstract class CountedCompleter<T> : ForkJoinTask<T>
+	public abstract partial class CountedCompleter<T> : ForkJoinTask<T>
 		where T : IJavaObject
 	{
 		protected CountedCompleter(ProxyCtor p) : base(p) {}

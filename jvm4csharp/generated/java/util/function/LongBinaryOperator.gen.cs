@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/LongBinaryOperator")]
-	public interface LongBinaryOperator : IJavaObject
+	public partial interface LongBinaryOperator : IJavaObject
 	{
 		[JavaSignature("(JJ)J")]
 		long applyAsLong(long arg0, long arg1);

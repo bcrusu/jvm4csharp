@@ -16,7 +16,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Locale")]
-	public class Locale : Object, Cloneable, Serializable
+	public partial class Locale : Object, Cloneable, Serializable
 	{
 		protected Locale(ProxyCtor p) : base(p) {}
 		
@@ -408,7 +408,7 @@ namespace jvm4csharp.java.util
 		}
 	
 		[JavaProxy("java/util/Locale/Builder")]
-		public class Builder : Object
+		public partial class Builder : Object
 		{
 			protected Builder(ProxyCtor p) : base(p) {}
 			
@@ -497,7 +497,7 @@ namespace jvm4csharp.java.util
 		}
 		
 		[JavaProxy("java/util/Locale/Category")]
-		public class Category : Enum<Locale.Category>
+		public partial class Category : Enum<Locale.Category>
 		{
 			protected Category(ProxyCtor p) : base(p) {}
 		
@@ -527,7 +527,7 @@ namespace jvm4csharp.java.util
 		}
 		
 		[JavaProxy("java/util/Locale/FilteringMode")]
-		public class FilteringMode : Enum<Locale.FilteringMode>
+		public partial class FilteringMode : Enum<Locale.FilteringMode>
 		{
 			protected FilteringMode(ProxyCtor p) : base(p) {}
 		
@@ -575,7 +575,7 @@ namespace jvm4csharp.java.util
 		}
 		
 		[JavaProxy("java/util/Locale/LanguageRange")]
-		public class LanguageRange : Object
+		public partial class LanguageRange : Object
 		{
 			protected LanguageRange(ProxyCtor p) : base(p) {}
 			

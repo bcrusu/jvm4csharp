@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.nio
 {
 	[JavaProxy("java/nio/MappedByteBuffer")]
-	public abstract class MappedByteBuffer : ByteBuffer
+	public abstract partial class MappedByteBuffer : ByteBuffer
 	{
 		protected MappedByteBuffer(ProxyCtor p) : base(p) {}
 	

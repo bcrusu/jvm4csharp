@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.prefs
 {
 	[JavaProxy("java/util/prefs/BackingStoreException")]
-	public class BackingStoreException : Exception
+	public partial class BackingStoreException : Exception
 	{
 		protected BackingStoreException(ProxyCtor p) : base(p) {}
 		

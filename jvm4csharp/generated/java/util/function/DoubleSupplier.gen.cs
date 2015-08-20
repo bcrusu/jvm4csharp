@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/DoubleSupplier")]
-	public interface DoubleSupplier : IJavaObject
+	public partial interface DoubleSupplier : IJavaObject
 	{
 		[JavaSignature("()D")]
 		double getAsDouble();

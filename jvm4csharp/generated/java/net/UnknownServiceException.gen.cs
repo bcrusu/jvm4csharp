@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/UnknownServiceException")]
-	public class UnknownServiceException : IOException
+	public partial class UnknownServiceException : IOException
 	{
 		protected UnknownServiceException(ProxyCtor p) : base(p) {}
 		

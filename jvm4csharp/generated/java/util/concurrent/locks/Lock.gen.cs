@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.concurrent.locks
 {
 	[JavaProxy("java/util/concurrent/locks/Lock")]
-	public interface Lock : IJavaObject
+	public partial interface Lock : IJavaObject
 	{
 		[JavaSignature("()V")]
 		void @lock();

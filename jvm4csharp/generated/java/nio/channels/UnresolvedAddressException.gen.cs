@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/UnresolvedAddressException")]
-	public class UnresolvedAddressException : IllegalArgumentException
+	public partial class UnresolvedAddressException : IllegalArgumentException
 	{
 		protected UnresolvedAddressException(ProxyCtor p) : base(p) {}
 		

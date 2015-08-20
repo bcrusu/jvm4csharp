@@ -16,7 +16,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util.logging
 {
 	[JavaProxy("java/util/logging/Logger")]
-	public class Logger : Object
+	public partial class Logger : Object
 	{
 		protected Logger(ProxyCtor p) : base(p) {}
 	
@@ -104,16 +104,16 @@ namespace jvm4csharp.java.util.logging
 			return Static.CallMethod<Logger>(typeof(Logger), "getLogger", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/logging/Logger;", arg0, arg1);
 		}
 		
-		[JavaSignature("(Ljava/util/function/Supplier;)V")]
-		public void warning(Supplier<String> arg0)
-		{
-			Instance.CallMethod("warning", "(Ljava/util/function/Supplier;)V", arg0);
-		}
-		
 		[JavaSignature("(Ljava/lang/String;)V")]
 		public void warning(String arg0)
 		{
 			Instance.CallMethod("warning", "(Ljava/lang/String;)V", arg0);
+		}
+		
+		[JavaSignature("(Ljava/util/function/Supplier;)V")]
+		public void warning(Supplier<String> arg0)
+		{
+			Instance.CallMethod("warning", "(Ljava/util/function/Supplier;)V", arg0);
 		}
 		
 		[JavaSignature("(Ljava/lang/String;)V")]
@@ -132,6 +132,36 @@ namespace jvm4csharp.java.util.logging
 		public void addHandler(Handler arg0)
 		{
 			Instance.CallMethod("addHandler", "(Ljava/util/logging/Handler;)V", arg0);
+		}
+		
+		[JavaSignature("(Ljava/util/logging/Level;)V")]
+		public void setLevel(Level arg0)
+		{
+			Instance.CallMethod("setLevel", "(Ljava/util/logging/Level;)V", arg0);
+		}
+		
+		[JavaSignature("(Ljava/util/function/Supplier;)V")]
+		public void config(Supplier<String> arg0)
+		{
+			Instance.CallMethod("config", "(Ljava/util/function/Supplier;)V", arg0);
+		}
+		
+		[JavaSignature("(Ljava/lang/String;)V")]
+		public void config(String arg0)
+		{
+			Instance.CallMethod("config", "(Ljava/lang/String;)V", arg0);
+		}
+		
+		[JavaSignature("()[Ljava/util/logging/Handler;")]
+		public ObjectArray<Handler> getHandlers()
+		{
+			return Instance.CallMethod<ObjectArray<Handler>>("getHandlers", "()[Ljava/util/logging/Handler;");
+		}
+		
+		[JavaSignature("(Ljava/util/logging/Handler;)V")]
+		public void removeHandler(Handler arg0)
+		{
+			Instance.CallMethod("removeHandler", "(Ljava/util/logging/Handler;)V", arg0);
 		}
 		
 		[JavaSignature("(Ljava/util/logging/Filter;)V")]
@@ -170,6 +200,24 @@ namespace jvm4csharp.java.util.logging
 			Instance.CallMethod("setResourceBundle", "(Ljava/util/ResourceBundle;)V", arg0);
 		}
 		
+		[JavaSignature("(Ljava/util/logging/Level;)Z")]
+		public bool isLoggable(Level arg0)
+		{
+			return Instance.CallMethod<bool>("isLoggable", "(Ljava/util/logging/Level;)Z", arg0);
+		}
+		
+		[JavaSignature("(Z)V")]
+		public void setUseParentHandlers(bool arg0)
+		{
+			Instance.CallMethod("setUseParentHandlers", "(Z)V", arg0);
+		}
+		
+		[JavaSignature("(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V")]
+		public void entering(String arg0, String arg1, ObjectArray<IJavaObject> arg2)
+		{
+			Instance.CallMethod("entering", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", arg0, arg1, arg2);
+		}
+		
 		[JavaSignature("(Ljava/lang/String;Ljava/lang/String;)V")]
 		public void entering(String arg0, String arg1)
 		{
@@ -180,12 +228,6 @@ namespace jvm4csharp.java.util.logging
 		public void entering(String arg0, String arg1, IJavaObject arg2)
 		{
 			Instance.CallMethod("entering", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", arg0, arg1, arg2);
-		}
-		
-		[JavaSignature("(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V")]
-		public void entering(String arg0, String arg1, ObjectArray<IJavaObject> arg2)
-		{
-			Instance.CallMethod("entering", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", arg0, arg1, arg2);
 		}
 		
 		[JavaSignature("(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V")]
@@ -266,24 +308,6 @@ namespace jvm4csharp.java.util.logging
 			Instance.CallMethod("logp", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier;)V", arg0, arg1, arg2, arg3);
 		}
 		
-		[JavaSignature("(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Ljava/util/function/Supplier;)V")]
-		public void logp(Level arg0, String arg1, String arg2, Throwable arg3, Supplier<String> arg4)
-		{
-			Instance.CallMethod("logp", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Ljava/util/function/Supplier;)V", arg0, arg1, arg2, arg3, arg4);
-		}
-		
-		[JavaSignature("(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V")]
-		public void logp(Level arg0, String arg1, String arg2, String arg3, ObjectArray<IJavaObject> arg4)
-		{
-			Instance.CallMethod("logp", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", arg0, arg1, arg2, arg3, arg4);
-		}
-		
-		[JavaSignature("(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V")]
-		public void logp(Level arg0, String arg1, String arg2, String arg3, Throwable arg4)
-		{
-			Instance.CallMethod("logp", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", arg0, arg1, arg2, arg3, arg4);
-		}
-		
 		[JavaSignature("(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V")]
 		public void logp(Level arg0, String arg1, String arg2, String arg3, IJavaObject arg4)
 		{
@@ -294,6 +318,48 @@ namespace jvm4csharp.java.util.logging
 		public void logp(Level arg0, String arg1, String arg2, String arg3)
 		{
 			Instance.CallMethod("logp", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", arg0, arg1, arg2, arg3);
+		}
+		
+		[JavaSignature("(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Ljava/util/function/Supplier;)V")]
+		public void logp(Level arg0, String arg1, String arg2, Throwable arg3, Supplier<String> arg4)
+		{
+			Instance.CallMethod("logp", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Ljava/util/function/Supplier;)V", arg0, arg1, arg2, arg3, arg4);
+		}
+		
+		[JavaSignature("(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V")]
+		public void logp(Level arg0, String arg1, String arg2, String arg3, Throwable arg4)
+		{
+			Instance.CallMethod("logp", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", arg0, arg1, arg2, arg3, arg4);
+		}
+		
+		[JavaSignature("(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V")]
+		public void logp(Level arg0, String arg1, String arg2, String arg3, ObjectArray<IJavaObject> arg4)
+		{
+			Instance.CallMethod("logp", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", arg0, arg1, arg2, arg3, arg4);
+		}
+		
+		[JavaSignature("(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V")]
+		public void logrb(Level arg0, String arg1, String arg2, String arg3, String arg4, Throwable arg5)
+		{
+			Instance.CallMethod("logrb", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", arg0, arg1, arg2, arg3, arg4, arg5);
+		}
+		
+		[JavaSignature("(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V")]
+		public void logrb(Level arg0, String arg1, String arg2, String arg3, String arg4, IJavaObject arg5)
+		{
+			Instance.CallMethod("logrb", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", arg0, arg1, arg2, arg3, arg4, arg5);
+		}
+		
+		[JavaSignature("(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V")]
+		public void logrb(Level arg0, String arg1, String arg2, ResourceBundle arg3, String arg4, Throwable arg5)
+		{
+			Instance.CallMethod("logrb", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", arg0, arg1, arg2, arg3, arg4, arg5);
+		}
+		
+		[JavaSignature("(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V")]
+		public void logrb(Level arg0, String arg1, String arg2, String arg3, String arg4)
+		{
+			Instance.CallMethod("logrb", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", arg0, arg1, arg2, arg3, arg4);
 		}
 		
 		[JavaSignature("(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V")]
@@ -308,28 +374,10 @@ namespace jvm4csharp.java.util.logging
 			Instance.CallMethod("logrb", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", arg0, arg1, arg2, arg3, arg4, arg5);
 		}
 		
-		[JavaSignature("(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V")]
-		public void logrb(Level arg0, String arg1, String arg2, String arg3, String arg4, Throwable arg5)
+		[JavaSignature("(Ljava/lang/String;)V")]
+		public void severe(String arg0)
 		{
-			Instance.CallMethod("logrb", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", arg0, arg1, arg2, arg3, arg4, arg5);
-		}
-		
-		[JavaSignature("(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V")]
-		public void logrb(Level arg0, String arg1, String arg2, String arg3, String arg4)
-		{
-			Instance.CallMethod("logrb", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", arg0, arg1, arg2, arg3, arg4);
-		}
-		
-		[JavaSignature("(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V")]
-		public void logrb(Level arg0, String arg1, String arg2, ResourceBundle arg3, String arg4, Throwable arg5)
-		{
-			Instance.CallMethod("logrb", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", arg0, arg1, arg2, arg3, arg4, arg5);
-		}
-		
-		[JavaSignature("(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V")]
-		public void logrb(Level arg0, String arg1, String arg2, String arg3, String arg4, IJavaObject arg5)
-		{
-			Instance.CallMethod("logrb", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", arg0, arg1, arg2, arg3, arg4, arg5);
+			Instance.CallMethod("severe", "(Ljava/lang/String;)V", arg0);
 		}
 		
 		[JavaSignature("(Ljava/util/function/Supplier;)V")]
@@ -338,58 +386,10 @@ namespace jvm4csharp.java.util.logging
 			Instance.CallMethod("severe", "(Ljava/util/function/Supplier;)V", arg0);
 		}
 		
-		[JavaSignature("(Ljava/lang/String;)V")]
-		public void severe(String arg0)
-		{
-			Instance.CallMethod("severe", "(Ljava/lang/String;)V", arg0);
-		}
-		
 		[JavaSignature("(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V")]
 		public void throwing(String arg0, String arg1, Throwable arg2)
 		{
 			Instance.CallMethod("throwing", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", arg0, arg1, arg2);
-		}
-		
-		[JavaSignature("(Z)V")]
-		public void setUseParentHandlers(bool arg0)
-		{
-			Instance.CallMethod("setUseParentHandlers", "(Z)V", arg0);
-		}
-		
-		[JavaSignature("(Ljava/util/logging/Level;)Z")]
-		public bool isLoggable(Level arg0)
-		{
-			return Instance.CallMethod<bool>("isLoggable", "(Ljava/util/logging/Level;)Z", arg0);
-		}
-		
-		[JavaSignature("(Ljava/util/logging/Level;)V")]
-		public void setLevel(Level arg0)
-		{
-			Instance.CallMethod("setLevel", "(Ljava/util/logging/Level;)V", arg0);
-		}
-		
-		[JavaSignature("(Ljava/util/function/Supplier;)V")]
-		public void config(Supplier<String> arg0)
-		{
-			Instance.CallMethod("config", "(Ljava/util/function/Supplier;)V", arg0);
-		}
-		
-		[JavaSignature("(Ljava/lang/String;)V")]
-		public void config(String arg0)
-		{
-			Instance.CallMethod("config", "(Ljava/lang/String;)V", arg0);
-		}
-		
-		[JavaSignature("()[Ljava/util/logging/Handler;")]
-		public ObjectArray<Handler> getHandlers()
-		{
-			return Instance.CallMethod<ObjectArray<Handler>>("getHandlers", "()[Ljava/util/logging/Handler;");
-		}
-		
-		[JavaSignature("(Ljava/util/logging/Handler;)V")]
-		public void removeHandler(Handler arg0)
-		{
-			Instance.CallMethod("removeHandler", "(Ljava/util/logging/Handler;)V", arg0);
 		}
 	}
 }

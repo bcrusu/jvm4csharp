@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/OutOfMemoryError")]
-	public class OutOfMemoryError : VirtualMachineError
+	public partial class OutOfMemoryError : VirtualMachineError
 	{
 		protected OutOfMemoryError(ProxyCtor p) : base(p) {}
 		

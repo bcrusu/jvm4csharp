@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.spi
 {
 	[JavaProxy("java/util/spi/LocaleServiceProvider")]
-	public abstract class LocaleServiceProvider : Object
+	public abstract partial class LocaleServiceProvider : Object
 	{
 		protected LocaleServiceProvider(ProxyCtor p) : base(p) {}
 	

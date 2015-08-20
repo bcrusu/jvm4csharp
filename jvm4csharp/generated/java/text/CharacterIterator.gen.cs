@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/CharacterIterator")]
-	public interface CharacterIterator : Cloneable
+	public partial interface CharacterIterator : Cloneable
 	{
 		[JavaSignature("()Ljava/lang/Object;")]
 		IJavaObject clone();
@@ -37,14 +37,14 @@ namespace jvm4csharp.java.text
 		[JavaSignature("()C")]
 		char current();
 		
+		[JavaSignature("(I)C")]
+		char setIndex(int arg0);
+		
 		[JavaSignature("()I")]
 		int getBeginIndex();
 		
 		[JavaSignature("()I")]
 		int getEndIndex();
-		
-		[JavaSignature("(I)C")]
-		char setIndex(int arg0);
 	}
 	
 	public static class CharacterIterator_

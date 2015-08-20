@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.annotation
 {
 	[JavaProxy("java/lang/annotation/Inherited")]
-	public interface Inherited : Annotation
+	public partial interface Inherited : Annotation
 	{
 	}
 }

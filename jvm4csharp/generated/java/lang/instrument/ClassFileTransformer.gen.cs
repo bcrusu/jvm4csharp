@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.instrument
 {
 	[JavaProxy("java/lang/instrument/ClassFileTransformer")]
-	public interface ClassFileTransformer : IJavaObject
+	public partial interface ClassFileTransformer : IJavaObject
 	{
 	}
 }

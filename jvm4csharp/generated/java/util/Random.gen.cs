@@ -17,7 +17,7 @@ using jvm4csharp.java.util.stream;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Random")]
-	public class Random : Object, Serializable
+	public partial class Random : Object, Serializable
 	{
 		protected Random(ProxyCtor p) : base(p) {}
 		

@@ -16,7 +16,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Objects")]
-	public class Objects : Object
+	public partial class Objects : Object
 	{
 		protected Objects(ProxyCtor p) : base(p) {}
 	

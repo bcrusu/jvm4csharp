@@ -14,8 +14,11 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.logging
 {
 	[JavaProxy("java/util/logging/LoggingMXBean")]
-	public interface LoggingMXBean : IJavaObject
+	public partial interface LoggingMXBean : IJavaObject
 	{
+		[JavaSignature("()Ljava/util/List;")]
+		List<String> getLoggerNames();
+		
 		[JavaSignature("(Ljava/lang/String;)Ljava/lang/String;")]
 		String getLoggerLevel(String arg0);
 		
@@ -24,8 +27,5 @@ namespace jvm4csharp.java.util.logging
 		
 		[JavaSignature("(Ljava/lang/String;Ljava/lang/String;)V")]
 		void setLoggerLevel(String arg0, String arg1);
-		
-		[JavaSignature("()Ljava/util/List;")]
-		List<String> getLoggerNames();
 	}
 }

@@ -14,7 +14,7 @@ using jvm4csharp.java.lang.annotation;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/SafeVarargs")]
-	public interface SafeVarargs : Annotation
+	public partial interface SafeVarargs : Annotation
 	{
 	}
 }

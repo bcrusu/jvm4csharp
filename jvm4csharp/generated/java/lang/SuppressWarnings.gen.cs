@@ -15,7 +15,7 @@ using jvm4csharp.java.lang.annotation;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/SuppressWarnings")]
-	public interface SuppressWarnings : Annotation
+	public partial interface SuppressWarnings : Annotation
 	{
 		[JavaSignature("()[Ljava/lang/String;")]
 		ObjectArray<String> @value();

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/InstantiationError")]
-	public class InstantiationError : IncompatibleClassChangeError
+	public partial class InstantiationError : IncompatibleClassChangeError
 	{
 		protected InstantiationError(ProxyCtor p) : base(p) {}
 		

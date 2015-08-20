@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/CacheRequest")]
-	public abstract class CacheRequest : Object
+	public abstract partial class CacheRequest : Object
 	{
 		protected CacheRequest(ProxyCtor p) : base(p) {}
 	

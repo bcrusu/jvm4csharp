@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.logging
 {
 	[JavaProxy("java/util/logging/Level")]
-	public class Level : Object, Serializable
+	public partial class Level : Object, Serializable
 	{
 		protected Level(ProxyCtor p) : base(p) {}
 	

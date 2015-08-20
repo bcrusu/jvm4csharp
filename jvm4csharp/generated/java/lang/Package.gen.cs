@@ -17,7 +17,7 @@ using jvm4csharp.java.net;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Package")]
-	public class Package : Object, AnnotatedElement
+	public partial class Package : Object, AnnotatedElement
 	{
 		protected Package(ProxyCtor p) : base(p) {}
 	

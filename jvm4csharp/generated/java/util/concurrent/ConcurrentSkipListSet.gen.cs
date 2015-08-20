@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/ConcurrentSkipListSet")]
-	public class ConcurrentSkipListSet<E> : AbstractSet<E>, NavigableSet<E>, Cloneable, Serializable
+	public partial class ConcurrentSkipListSet<E> : AbstractSet<E>, NavigableSet<E>, Cloneable, Serializable
 		where E : IJavaObject
 	{
 		protected ConcurrentSkipListSet(ProxyCtor p) : base(p) {}

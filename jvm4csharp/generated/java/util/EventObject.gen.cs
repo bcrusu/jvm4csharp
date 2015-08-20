@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/EventObject")]
-	public class EventObject : Object, Serializable
+	public partial class EventObject : Object, Serializable
 	{
 		protected EventObject(ProxyCtor p) : base(p) {}
 		

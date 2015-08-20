@@ -17,7 +17,7 @@ using jvm4csharp.java.util.stream;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Collection")]
-	public interface Collection<E> : Iterable<E>
+	public partial interface Collection<E> : Iterable<E>
 		where E : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/Object;)Z")]

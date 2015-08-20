@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.prefs
 {
 	[JavaProxy("java/util/prefs/PreferenceChangeEvent")]
-	public class PreferenceChangeEvent : EventObject
+	public partial class PreferenceChangeEvent : EventObject
 	{
 		protected PreferenceChangeEvent(ProxyCtor p) : base(p) {}
 		

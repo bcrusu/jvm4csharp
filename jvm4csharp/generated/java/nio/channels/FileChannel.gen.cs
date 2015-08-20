@@ -19,7 +19,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/FileChannel")]
-	public abstract class FileChannel : AbstractInterruptibleChannel, SeekableByteChannel, GatheringByteChannel, ScatteringByteChannel
+	public abstract partial class FileChannel : AbstractInterruptibleChannel, SeekableByteChannel, GatheringByteChannel, ScatteringByteChannel
 	{
 		protected FileChannel(ProxyCtor p) : base(p) {}
 	
@@ -168,7 +168,7 @@ namespace jvm4csharp.java.nio.channels
 		}
 	
 		[JavaProxy("java/nio/channels/FileChannel/MapMode")]
-		public class MapMode : Object
+		public partial class MapMode : Object
 		{
 			protected MapMode(ProxyCtor p) : base(p) {}
 		

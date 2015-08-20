@@ -15,7 +15,7 @@ using jvm4csharp.java.util.zip;
 namespace jvm4csharp.java.util.jar
 {
 	[JavaProxy("java/util/jar/JarException")]
-	public class JarException : ZipException
+	public partial class JarException : ZipException
 	{
 		protected JarException(ProxyCtor p) : base(p) {}
 		

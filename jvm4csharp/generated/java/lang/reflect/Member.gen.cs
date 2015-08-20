@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/Member")]
-	public interface Member : IJavaObject
+	public partial interface Member : IJavaObject
 	{
 		[JavaSignature("()I")]
 		int getModifiers();

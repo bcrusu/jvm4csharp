@@ -16,7 +16,7 @@ using jvm4csharp.java.nio.channels;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/RandomAccessFile")]
-	public class RandomAccessFile : Object, DataOutput, DataInput, Closeable
+	public partial class RandomAccessFile : Object, DataOutput, DataInput, Closeable
 	{
 		protected RandomAccessFile(ProxyCtor p) : base(p) {}
 		
@@ -222,36 +222,6 @@ namespace jvm4csharp.java.io
 			return Instance.CallMethod<int>("skipBytes", "(I)I", arg0);
 		}
 		
-		[JavaSignature("()J")]
-		public long getFilePointer()
-		{
-			return Instance.CallMethod<long>("getFilePointer", "()J");
-		}
-		
-		[JavaSignature("(J)V")]
-		public void seek(long arg0)
-		{
-			Instance.CallMethod("seek", "(J)V", arg0);
-		}
-		
-		[JavaSignature("(I)V")]
-		public void writeShort(int arg0)
-		{
-			Instance.CallMethod("writeShort", "(I)V", arg0);
-		}
-		
-		[JavaSignature("(D)V")]
-		public void writeDouble(double arg0)
-		{
-			Instance.CallMethod("writeDouble", "(D)V", arg0);
-		}
-		
-		[JavaSignature("(I)V")]
-		public void writeByte(int arg0)
-		{
-			Instance.CallMethod("writeByte", "(I)V", arg0);
-		}
-		
 		[JavaSignature("(Z)V")]
 		public void writeBoolean(bool arg0)
 		{
@@ -262,6 +232,36 @@ namespace jvm4csharp.java.io
 		public void writeChars(String arg0)
 		{
 			Instance.CallMethod("writeChars", "(Ljava/lang/String;)V", arg0);
+		}
+		
+		[JavaSignature("(I)V")]
+		public void writeShort(int arg0)
+		{
+			Instance.CallMethod("writeShort", "(I)V", arg0);
+		}
+		
+		[JavaSignature("(I)V")]
+		public void writeByte(int arg0)
+		{
+			Instance.CallMethod("writeByte", "(I)V", arg0);
+		}
+		
+		[JavaSignature("(D)V")]
+		public void writeDouble(double arg0)
+		{
+			Instance.CallMethod("writeDouble", "(D)V", arg0);
+		}
+		
+		[JavaSignature("()J")]
+		public long getFilePointer()
+		{
+			return Instance.CallMethod<long>("getFilePointer", "()J");
+		}
+		
+		[JavaSignature("(J)V")]
+		public void seek(long arg0)
+		{
+			Instance.CallMethod("seek", "(J)V", arg0);
 		}
 	}
 }

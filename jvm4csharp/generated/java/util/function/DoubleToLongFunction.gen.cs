@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/DoubleToLongFunction")]
-	public interface DoubleToLongFunction : IJavaObject
+	public partial interface DoubleToLongFunction : IJavaObject
 	{
 		[JavaSignature("(D)J")]
 		long applyAsLong(double arg0);

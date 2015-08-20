@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent.locks
 {
 	[JavaProxy("java/util/concurrent/locks/AbstractQueuedSynchronizer")]
-	public abstract class AbstractQueuedSynchronizer : AbstractOwnableSynchronizer, Serializable
+	public abstract partial class AbstractQueuedSynchronizer : AbstractOwnableSynchronizer, Serializable
 	{
 		protected AbstractQueuedSynchronizer(ProxyCtor p) : base(p) {}
 	
@@ -146,7 +146,7 @@ namespace jvm4csharp.java.util.concurrent.locks
 		}
 	
 		[JavaProxy("java/util/concurrent/locks/AbstractQueuedSynchronizer/ConditionObject")]
-		public class ConditionObject : Object, Condition, Serializable
+		public partial class ConditionObject : Object, Condition, Serializable
 		{
 			protected ConditionObject(ProxyCtor p) : base(p) {}
 			
@@ -155,18 +155,6 @@ namespace jvm4csharp.java.util.concurrent.locks
 				Instance.CallConstructor("(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer;)V", arg0);
 			}
 		
-			[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
-			public bool @await(long arg0, TimeUnit arg1)
-			{
-				return Instance.CallMethod<bool>("await", "(JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1);
-			}
-			
-			[JavaSignature("()V")]
-			public void @await()
-			{
-				Instance.CallMethod("await", "()V");
-			}
-			
 			[JavaSignature("(J)J")]
 			public long awaitNanos(long arg0)
 			{
@@ -195,6 +183,18 @@ namespace jvm4csharp.java.util.concurrent.locks
 			public void signalAll()
 			{
 				Instance.CallMethod("signalAll", "()V");
+			}
+			
+			[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
+			public bool @await(long arg0, TimeUnit arg1)
+			{
+				return Instance.CallMethod<bool>("await", "(JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1);
+			}
+			
+			[JavaSignature("()V")]
+			public void @await()
+			{
+				Instance.CallMethod("await", "()V");
 			}
 		}
 	}

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.prefs
 {
 	[JavaProxy("java/util/prefs/NodeChangeEvent")]
-	public class NodeChangeEvent : EventObject
+	public partial class NodeChangeEvent : EventObject
 	{
 		protected NodeChangeEvent(ProxyCtor p) : base(p) {}
 		

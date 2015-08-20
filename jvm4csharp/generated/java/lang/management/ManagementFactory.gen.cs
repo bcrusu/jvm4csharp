@@ -14,7 +14,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.lang.management
 {
 	[JavaProxy("java/lang/management/ManagementFactory")]
-	public class ManagementFactory : Object
+	public partial class ManagementFactory : Object
 	{
 		protected ManagementFactory(ProxyCtor p) : base(p) {}
 	

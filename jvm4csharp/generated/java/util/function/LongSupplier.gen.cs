@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/LongSupplier")]
-	public interface LongSupplier : IJavaObject
+	public partial interface LongSupplier : IJavaObject
 	{
 		[JavaSignature("()J")]
 		long getAsLong();

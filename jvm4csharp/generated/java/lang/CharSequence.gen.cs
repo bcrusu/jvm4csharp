@@ -14,7 +14,7 @@ using jvm4csharp.java.util.stream;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/CharSequence")]
-	public interface CharSequence : IJavaObject
+	public partial interface CharSequence : IJavaObject
 	{
 		[JavaSignature("(I)C")]
 		char charAt(int arg0);

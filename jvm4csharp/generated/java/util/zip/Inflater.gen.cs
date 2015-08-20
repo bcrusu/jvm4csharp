@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.zip
 {
 	[JavaProxy("java/util/zip/Inflater")]
-	public class Inflater : Object
+	public partial class Inflater : Object
 	{
 		protected Inflater(ProxyCtor p) : base(p) {}
 		

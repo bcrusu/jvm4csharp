@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/Watchable")]
-	public interface Watchable : IJavaObject
+	public partial interface Watchable : IJavaObject
 	{
 		[JavaSignature("(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent/Kind;[Ljava/nio/file/WatchEvent/Modifier;)Ljava/nio/file/WatchKey;")]
 		WatchKey register(WatchService arg0, ObjectArray<WatchEvent_.Kind<IJavaObject>> arg1, ObjectArray<WatchEvent_.Modifier> arg2);

@@ -14,7 +14,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/WeakHashMap")]
-	public class WeakHashMap<K, V> : AbstractMap<K, V>, Map<K, V>
+	public partial class WeakHashMap<K, V> : AbstractMap<K, V>, Map<K, V>
 		where K : IJavaObject
 		where V : IJavaObject
 	{

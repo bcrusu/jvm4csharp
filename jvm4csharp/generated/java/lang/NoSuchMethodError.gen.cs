@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/NoSuchMethodError")]
-	public class NoSuchMethodError : IncompatibleClassChangeError
+	public partial class NoSuchMethodError : IncompatibleClassChangeError
 	{
 		protected NoSuchMethodError(ProxyCtor p) : base(p) {}
 		

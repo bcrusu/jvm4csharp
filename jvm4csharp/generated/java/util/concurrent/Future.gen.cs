@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/Future")]
-	public interface Future<V> : IJavaObject
+	public partial interface Future<V> : IJavaObject
 		where V : IJavaObject
 	{
 		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;")]

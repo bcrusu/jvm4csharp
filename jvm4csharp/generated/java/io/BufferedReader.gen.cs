@@ -15,7 +15,7 @@ using jvm4csharp.java.util.stream;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/BufferedReader")]
-	public class BufferedReader : Reader
+	public partial class BufferedReader : Reader
 	{
 		protected BufferedReader(ProxyCtor p) : base(p) {}
 		

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/NoSuchFieldException")]
-	public class NoSuchFieldException : ReflectiveOperationException
+	public partial class NoSuchFieldException : ReflectiveOperationException
 	{
 		protected NoSuchFieldException(ProxyCtor p) : base(p) {}
 		

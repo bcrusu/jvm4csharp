@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/PasswordAuthentication")]
-	public class PasswordAuthentication : Object
+	public partial class PasswordAuthentication : Object
 	{
 		protected PasswordAuthentication(ProxyCtor p) : base(p) {}
 		

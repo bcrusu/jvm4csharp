@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/AbstractExecutorService")]
-	public abstract class AbstractExecutorService : Object, ExecutorService
+	public abstract partial class AbstractExecutorService : Object, ExecutorService
 	{
 		protected AbstractExecutorService(ProxyCtor p) : base(p) {}
 	

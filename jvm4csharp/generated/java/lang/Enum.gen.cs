@@ -14,7 +14,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Enum")]
-	public abstract class Enum<E> : Enum, Comparable<E>, Serializable
+	public abstract partial class Enum<E> : Enum, Comparable<E>, Serializable
 		where E : Enum<E>
 	{
 		protected Enum(ProxyCtor p) : base(p) {}

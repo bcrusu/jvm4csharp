@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/IntFunction")]
-	public interface IntFunction<R> : IJavaObject
+	public partial interface IntFunction<R> : IJavaObject
 		where R : IJavaObject
 	{
 		[JavaSignature("(I)Ljava/lang/Object;")]

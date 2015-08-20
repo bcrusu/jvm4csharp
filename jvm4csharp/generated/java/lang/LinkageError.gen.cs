@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/LinkageError")]
-	public class LinkageError : Error
+	public partial class LinkageError : Error
 	{
 		protected LinkageError(ProxyCtor p) : base(p) {}
 		

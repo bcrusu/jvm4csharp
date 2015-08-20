@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.prefs
 {
 	[JavaProxy("java/util/prefs/InvalidPreferencesFormatException")]
-	public class InvalidPreferencesFormatException : Exception
+	public partial class InvalidPreferencesFormatException : Exception
 	{
 		protected InvalidPreferencesFormatException(ProxyCtor p) : base(p) {}
 		

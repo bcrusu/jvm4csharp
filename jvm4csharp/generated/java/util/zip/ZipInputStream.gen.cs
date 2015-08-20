@@ -15,7 +15,7 @@ using jvm4csharp.java.nio.charset;
 namespace jvm4csharp.java.util.zip
 {
 	[JavaProxy("java/util/zip/ZipInputStream")]
-	public class ZipInputStream : InflaterInputStream
+	public partial class ZipInputStream : InflaterInputStream
 	{
 		protected ZipInputStream(ProxyCtor p) : base(p) {}
 		

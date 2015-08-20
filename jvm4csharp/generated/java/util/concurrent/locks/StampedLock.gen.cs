@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent.locks
 {
 	[JavaProxy("java/util/concurrent/locks/StampedLock")]
-	public class StampedLock : Object, Serializable
+	public partial class StampedLock : Object, Serializable
 	{
 		protected StampedLock(ProxyCtor p) : base(p) {}
 		
@@ -34,6 +34,12 @@ namespace jvm4csharp.java.util.concurrent.locks
 		public bool validate(long arg0)
 		{
 			return Instance.CallMethod<bool>("validate", "(J)Z", arg0);
+		}
+		
+		[JavaSignature("()J")]
+		public long writeLockInterruptibly()
+		{
+			return Instance.CallMethod<long>("writeLockInterruptibly", "()J");
 		}
 		
 		[JavaSignature("()Ljava/util/concurrent/locks/ReadWriteLock;")]
@@ -97,12 +103,6 @@ namespace jvm4csharp.java.util.concurrent.locks
 		}
 		
 		[JavaSignature("()J")]
-		public long writeLockInterruptibly()
-		{
-			return Instance.CallMethod<long>("writeLockInterruptibly", "()J");
-		}
-		
-		[JavaSignature("()J")]
 		public long readLock()
 		{
 			return Instance.CallMethod<long>("readLock", "()J");
@@ -124,24 +124,6 @@ namespace jvm4csharp.java.util.concurrent.locks
 		public long tryReadLock()
 		{
 			return Instance.CallMethod<long>("tryReadLock", "()J");
-		}
-		
-		[JavaSignature("()Ljava/util/concurrent/locks/Lock;")]
-		public Lock asReadLock()
-		{
-			return Instance.CallMethod<Lock>("asReadLock", "()Ljava/util/concurrent/locks/Lock;");
-		}
-		
-		[JavaSignature("()Ljava/util/concurrent/locks/Lock;")]
-		public Lock asWriteLock()
-		{
-			return Instance.CallMethod<Lock>("asWriteLock", "()Ljava/util/concurrent/locks/Lock;");
-		}
-		
-		[JavaSignature("()J")]
-		public long writeLock()
-		{
-			return Instance.CallMethod<long>("writeLock", "()J");
 		}
 		
 		[JavaSignature("()I")]
@@ -166,6 +148,24 @@ namespace jvm4csharp.java.util.concurrent.locks
 		public long tryWriteLock(long arg0, TimeUnit arg1)
 		{
 			return Instance.CallMethod<long>("tryWriteLock", "(JLjava/util/concurrent/TimeUnit;)J", arg0, arg1);
+		}
+		
+		[JavaSignature("()Ljava/util/concurrent/locks/Lock;")]
+		public Lock asReadLock()
+		{
+			return Instance.CallMethod<Lock>("asReadLock", "()Ljava/util/concurrent/locks/Lock;");
+		}
+		
+		[JavaSignature("()Ljava/util/concurrent/locks/Lock;")]
+		public Lock asWriteLock()
+		{
+			return Instance.CallMethod<Lock>("asWriteLock", "()Ljava/util/concurrent/locks/Lock;");
+		}
+		
+		[JavaSignature("()J")]
+		public long writeLock()
+		{
+			return Instance.CallMethod<long>("writeLock", "()J");
 		}
 	}
 }

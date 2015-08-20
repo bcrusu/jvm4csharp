@@ -17,7 +17,7 @@ using jvm4csharp.java.util.stream;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Arrays")]
-	public class Arrays : Object
+	public partial class Arrays : Object
 	{
 		protected Arrays(ProxyCtor p) : base(p) {}
 	

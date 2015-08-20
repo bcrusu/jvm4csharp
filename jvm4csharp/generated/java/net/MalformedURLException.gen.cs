@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/MalformedURLException")]
-	public class MalformedURLException : IOException
+	public partial class MalformedURLException : IOException
 	{
 		protected MalformedURLException(ProxyCtor p) : base(p) {}
 		

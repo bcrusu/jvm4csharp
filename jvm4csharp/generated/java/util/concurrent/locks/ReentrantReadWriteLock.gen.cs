@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent.locks
 {
 	[JavaProxy("java/util/concurrent/locks/ReentrantReadWriteLock")]
-	public class ReentrantReadWriteLock : Object, ReadWriteLock, Serializable
+	public partial class ReentrantReadWriteLock : Object, ReadWriteLock, Serializable
 	{
 		protected ReentrantReadWriteLock(ProxyCtor p) : base(p) {}
 		
@@ -65,22 +65,16 @@ namespace jvm4csharp.java.util.concurrent.locks
 			return Instance.CallMethod<bool>("isFair", "()Z");
 		}
 		
-		[JavaSignature("()Z")]
-		public bool isWriteLockedByCurrentThread()
-		{
-			return Instance.CallMethod<bool>("isWriteLockedByCurrentThread", "()Z");
-		}
-		
 		[JavaSignature("()Ljava/util/concurrent/locks/ReentrantReadWriteLock/ReadLock;")]
 		public ReentrantReadWriteLock.ReadLock readLock()
 		{
 			return Instance.CallMethod<ReentrantReadWriteLock.ReadLock>("readLock", "()Ljava/util/concurrent/locks/ReentrantReadWriteLock/ReadLock;");
 		}
 		
-		[JavaSignature("()Ljava/util/concurrent/locks/ReentrantReadWriteLock/WriteLock;")]
-		public ReentrantReadWriteLock.WriteLock writeLock()
+		[JavaSignature("()Z")]
+		public bool isWriteLockedByCurrentThread()
 		{
-			return Instance.CallMethod<ReentrantReadWriteLock.WriteLock>("writeLock", "()Ljava/util/concurrent/locks/ReentrantReadWriteLock/WriteLock;");
+			return Instance.CallMethod<bool>("isWriteLockedByCurrentThread", "()Z");
 		}
 		
 		[JavaSignature("()I")]
@@ -107,6 +101,12 @@ namespace jvm4csharp.java.util.concurrent.locks
 			return Instance.CallMethod<bool>("isWriteLocked", "()Z");
 		}
 		
+		[JavaSignature("()Ljava/util/concurrent/locks/ReentrantReadWriteLock/WriteLock;")]
+		public ReentrantReadWriteLock.WriteLock writeLock()
+		{
+			return Instance.CallMethod<ReentrantReadWriteLock.WriteLock>("writeLock", "()Ljava/util/concurrent/locks/ReentrantReadWriteLock/WriteLock;");
+		}
+		
 		[JavaSignature("()Ljava/util/concurrent/locks/Lock;")]
 		Lock ReadWriteLock.readLock()
 		{
@@ -120,7 +120,7 @@ namespace jvm4csharp.java.util.concurrent.locks
 		}
 	
 		[JavaProxy("java/util/concurrent/locks/ReentrantReadWriteLock/ReadLock")]
-		public class ReadLock : Object, Lock, Serializable
+		public partial class ReadLock : Object, Lock, Serializable
 		{
 			protected ReadLock(ProxyCtor p) : base(p) {}
 		
@@ -162,7 +162,7 @@ namespace jvm4csharp.java.util.concurrent.locks
 		}
 		
 		[JavaProxy("java/util/concurrent/locks/ReentrantReadWriteLock/WriteLock")]
-		public class WriteLock : Object, Lock, Serializable
+		public partial class WriteLock : Object, Lock, Serializable
 		{
 			protected WriteLock(ProxyCtor p) : base(p) {}
 		

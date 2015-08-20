@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/IndexOutOfBoundsException")]
-	public class IndexOutOfBoundsException : RuntimeException
+	public partial class IndexOutOfBoundsException : RuntimeException
 	{
 		protected IndexOutOfBoundsException(ProxyCtor p) : base(p) {}
 		

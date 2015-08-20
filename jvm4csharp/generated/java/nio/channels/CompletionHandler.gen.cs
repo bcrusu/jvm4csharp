@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/CompletionHandler")]
-	public interface CompletionHandler<V, A> : IJavaObject
+	public partial interface CompletionHandler<V, A> : IJavaObject
 		where V : IJavaObject
 		where A : IJavaObject
 	{

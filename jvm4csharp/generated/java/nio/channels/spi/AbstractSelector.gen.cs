@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.nio.channels.spi
 {
 	[JavaProxy("java/nio/channels/spi/AbstractSelector")]
-	public abstract class AbstractSelector : Selector
+	public abstract partial class AbstractSelector : Selector
 	{
 		protected AbstractSelector(ProxyCtor p) : base(p) {}
 	}

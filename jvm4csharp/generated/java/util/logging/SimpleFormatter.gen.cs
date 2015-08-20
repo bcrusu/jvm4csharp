@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.logging
 {
 	[JavaProxy("java/util/logging/SimpleFormatter")]
-	public class SimpleFormatter : Formatter
+	public partial class SimpleFormatter : Formatter
 	{
 		protected SimpleFormatter(ProxyCtor p) : base(p) {}
 		

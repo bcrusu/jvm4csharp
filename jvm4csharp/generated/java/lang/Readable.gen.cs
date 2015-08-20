@@ -14,7 +14,7 @@ using jvm4csharp.java.nio;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Readable")]
-	public interface Readable : IJavaObject
+	public partial interface Readable : IJavaObject
 	{
 		[JavaSignature("(Ljava/nio/CharBuffer;)I")]
 		int read(CharBuffer arg0);

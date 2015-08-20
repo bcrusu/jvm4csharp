@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/Delayed")]
-	public interface Delayed : Comparable<Delayed>
+	public partial interface Delayed : Comparable<Delayed>
 	{
 		[JavaSignature("(Ljava/util/concurrent/TimeUnit;)J")]
 		long getDelay(TimeUnit arg0);

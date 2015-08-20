@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/LineNumberReader")]
-	public class LineNumberReader : BufferedReader
+	public partial class LineNumberReader : BufferedReader
 	{
 		protected LineNumberReader(ProxyCtor p) : base(p) {}
 		

@@ -15,7 +15,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util.concurrent.atomic
 {
 	[JavaProxy("java/util/concurrent/atomic/AtomicReferenceFieldUpdater")]
-	public abstract class AtomicReferenceFieldUpdater<T, V> : Object
+	public abstract partial class AtomicReferenceFieldUpdater<T, V> : Object
 		where T : IJavaObject
 		where V : IJavaObject
 	{

@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/Exchanger")]
-	public class Exchanger<V> : Object
+	public partial class Exchanger<V> : Object
 		where V : IJavaObject
 	{
 		protected Exchanger(ProxyCtor p) : base(p) {}

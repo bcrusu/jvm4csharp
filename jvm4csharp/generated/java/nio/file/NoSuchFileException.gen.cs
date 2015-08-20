@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/NoSuchFileException")]
-	public class NoSuchFileException : FileSystemException
+	public partial class NoSuchFileException : FileSystemException
 	{
 		protected NoSuchFileException(ProxyCtor p) : base(p) {}
 		

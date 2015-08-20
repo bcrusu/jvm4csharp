@@ -17,7 +17,7 @@ using jvm4csharp.java.util.stream;
 namespace jvm4csharp.java.util.zip
 {
 	[JavaProxy("java/util/zip/ZipFile")]
-	public class ZipFile : Object, Closeable
+	public partial class ZipFile : Object, Closeable
 	{
 		protected ZipFile(ProxyCtor p) : base(p) {}
 		

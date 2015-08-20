@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file.spi
 {
 	[JavaProxy("java/nio/file/spi/FileTypeDetector")]
-	public abstract class FileTypeDetector : Object
+	public abstract partial class FileTypeDetector : Object
 	{
 		protected FileTypeDetector(ProxyCtor p) : base(p) {}
 	

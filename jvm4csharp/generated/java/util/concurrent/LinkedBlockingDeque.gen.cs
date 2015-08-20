@@ -14,7 +14,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/LinkedBlockingDeque")]
-	public class LinkedBlockingDeque<E> : AbstractQueue<E>, BlockingDeque<E>, Serializable
+	public partial class LinkedBlockingDeque<E> : AbstractQueue<E>, BlockingDeque<E>, Serializable
 		where E : IJavaObject
 	{
 		protected LinkedBlockingDeque(ProxyCtor p) : base(p) {}
@@ -196,30 +196,6 @@ namespace jvm4csharp.java.util.concurrent
 			return Instance.CallMethod<bool>("removeLastOccurrence", "(Ljava/lang/Object;)Z", arg0);
 		}
 		
-		[JavaSignature("(Ljava/lang/Object;)V")]
-		public void putFirst(E arg0)
-		{
-			Instance.CallMethod("putFirst", "(Ljava/lang/Object;)V", arg0);
-		}
-		
-		[JavaSignature("(Ljava/lang/Object;)V")]
-		public void putLast(E arg0)
-		{
-			Instance.CallMethod("putLast", "(Ljava/lang/Object;)V", arg0);
-		}
-		
-		[JavaSignature("()Ljava/lang/Object;")]
-		public E takeFirst()
-		{
-			return Instance.CallMethod<E>("takeFirst", "()Ljava/lang/Object;");
-		}
-		
-		[JavaSignature("()Ljava/lang/Object;")]
-		public E takeLast()
-		{
-			return Instance.CallMethod<E>("takeLast", "()Ljava/lang/Object;");
-		}
-		
 		[JavaSignature("()Ljava/lang/Object;")]
 		public E take()
 		{
@@ -242,6 +218,30 @@ namespace jvm4csharp.java.util.concurrent
 		public int remainingCapacity()
 		{
 			return Instance.CallMethod<int>("remainingCapacity", "()I");
+		}
+		
+		[JavaSignature("(Ljava/lang/Object;)V")]
+		public void putFirst(E arg0)
+		{
+			Instance.CallMethod("putFirst", "(Ljava/lang/Object;)V", arg0);
+		}
+		
+		[JavaSignature("(Ljava/lang/Object;)V")]
+		public void putLast(E arg0)
+		{
+			Instance.CallMethod("putLast", "(Ljava/lang/Object;)V", arg0);
+		}
+		
+		[JavaSignature("()Ljava/lang/Object;")]
+		public E takeFirst()
+		{
+			return Instance.CallMethod<E>("takeFirst", "()Ljava/lang/Object;");
+		}
+		
+		[JavaSignature("()Ljava/lang/Object;")]
+		public E takeLast()
+		{
+			return Instance.CallMethod<E>("takeLast", "()Ljava/lang/Object;");
 		}
 	}
 }

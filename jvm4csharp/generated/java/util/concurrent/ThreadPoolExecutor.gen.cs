@@ -14,13 +14,13 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/ThreadPoolExecutor")]
-	public class ThreadPoolExecutor : AbstractExecutorService
+	public partial class ThreadPoolExecutor : AbstractExecutorService
 	{
 		protected ThreadPoolExecutor(ProxyCtor p) : base(p) {}
 		
-		public ThreadPoolExecutor(int arg0, int arg1, long arg2, TimeUnit arg3, BlockingQueue<Runnable> arg4, ThreadFactory arg5) : base(ProxyCtor.I)
+		public ThreadPoolExecutor(int arg0, int arg1, long arg2, TimeUnit arg3, BlockingQueue<Runnable> arg4, ThreadFactory arg5, RejectedExecutionHandler arg6) : base(ProxyCtor.I)
 		{
-			Instance.CallConstructor("(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;)V", arg0, arg1, arg2, arg3, arg4, arg5);
+			Instance.CallConstructor("(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;Ljava/util/concurrent/RejectedExecutionHandler;)V", arg0, arg1, arg2, arg3, arg4, arg5, arg6);
 		}
 		
 		public ThreadPoolExecutor(int arg0, int arg1, long arg2, TimeUnit arg3, BlockingQueue<Runnable> arg4, RejectedExecutionHandler arg5) : base(ProxyCtor.I)
@@ -28,9 +28,9 @@ namespace jvm4csharp.java.util.concurrent
 			Instance.CallConstructor("(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/RejectedExecutionHandler;)V", arg0, arg1, arg2, arg3, arg4, arg5);
 		}
 		
-		public ThreadPoolExecutor(int arg0, int arg1, long arg2, TimeUnit arg3, BlockingQueue<Runnable> arg4, ThreadFactory arg5, RejectedExecutionHandler arg6) : base(ProxyCtor.I)
+		public ThreadPoolExecutor(int arg0, int arg1, long arg2, TimeUnit arg3, BlockingQueue<Runnable> arg4, ThreadFactory arg5) : base(ProxyCtor.I)
 		{
-			Instance.CallConstructor("(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;Ljava/util/concurrent/RejectedExecutionHandler;)V", arg0, arg1, arg2, arg3, arg4, arg5, arg6);
+			Instance.CallConstructor("(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;)V", arg0, arg1, arg2, arg3, arg4, arg5);
 		}
 		
 		public ThreadPoolExecutor(int arg0, int arg1, long arg2, TimeUnit arg3, BlockingQueue<Runnable> arg4) : base(ProxyCtor.I)
@@ -54,6 +54,42 @@ namespace jvm4csharp.java.util.concurrent
 		public int getMaximumPoolSize()
 		{
 			return Instance.CallMethod<int>("getMaximumPoolSize", "()I");
+		}
+		
+		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
+		public bool awaitTermination(long arg0, TimeUnit arg1)
+		{
+			return Instance.CallMethod<bool>("awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1);
+		}
+		
+		[JavaSignature("()Z")]
+		public bool isShutdown()
+		{
+			return Instance.CallMethod<bool>("isShutdown", "()Z");
+		}
+		
+		[JavaSignature("()Z")]
+		public bool isTerminated()
+		{
+			return Instance.CallMethod<bool>("isTerminated", "()Z");
+		}
+		
+		[JavaSignature("()I")]
+		public int getPoolSize()
+		{
+			return Instance.CallMethod<int>("getPoolSize", "()I");
+		}
+		
+		[JavaSignature("()Z")]
+		public bool isTerminating()
+		{
+			return Instance.CallMethod<bool>("isTerminating", "()Z");
+		}
+		
+		[JavaSignature("()Ljava/util/List;")]
+		public List<Runnable> shutdownNow()
+		{
+			return Instance.CallMethod<List<Runnable>>("shutdownNow", "()Ljava/util/List;");
 		}
 		
 		[JavaSignature("(Z)V")]
@@ -169,45 +205,9 @@ namespace jvm4csharp.java.util.concurrent
 		{
 			Instance.CallMethod("setThreadFactory", "(Ljava/util/concurrent/ThreadFactory;)V", arg0);
 		}
-		
-		[JavaSignature("()I")]
-		public int getPoolSize()
-		{
-			return Instance.CallMethod<int>("getPoolSize", "()I");
-		}
-		
-		[JavaSignature("()Z")]
-		public bool isTerminating()
-		{
-			return Instance.CallMethod<bool>("isTerminating", "()Z");
-		}
-		
-		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
-		public bool awaitTermination(long arg0, TimeUnit arg1)
-		{
-			return Instance.CallMethod<bool>("awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1);
-		}
-		
-		[JavaSignature("()Z")]
-		public bool isShutdown()
-		{
-			return Instance.CallMethod<bool>("isShutdown", "()Z");
-		}
-		
-		[JavaSignature("()Z")]
-		public bool isTerminated()
-		{
-			return Instance.CallMethod<bool>("isTerminated", "()Z");
-		}
-		
-		[JavaSignature("()Ljava/util/List;")]
-		public List<Runnable> shutdownNow()
-		{
-			return Instance.CallMethod<List<Runnable>>("shutdownNow", "()Ljava/util/List;");
-		}
 	
 		[JavaProxy("java/util/concurrent/ThreadPoolExecutor/AbortPolicy")]
-		public class AbortPolicy : Object, RejectedExecutionHandler
+		public partial class AbortPolicy : Object, RejectedExecutionHandler
 		{
 			protected AbortPolicy(ProxyCtor p) : base(p) {}
 			
@@ -224,7 +224,7 @@ namespace jvm4csharp.java.util.concurrent
 		}
 		
 		[JavaProxy("java/util/concurrent/ThreadPoolExecutor/CallerRunsPolicy")]
-		public class CallerRunsPolicy : Object, RejectedExecutionHandler
+		public partial class CallerRunsPolicy : Object, RejectedExecutionHandler
 		{
 			protected CallerRunsPolicy(ProxyCtor p) : base(p) {}
 			
@@ -241,7 +241,7 @@ namespace jvm4csharp.java.util.concurrent
 		}
 		
 		[JavaProxy("java/util/concurrent/ThreadPoolExecutor/DiscardOldestPolicy")]
-		public class DiscardOldestPolicy : Object, RejectedExecutionHandler
+		public partial class DiscardOldestPolicy : Object, RejectedExecutionHandler
 		{
 			protected DiscardOldestPolicy(ProxyCtor p) : base(p) {}
 			
@@ -258,7 +258,7 @@ namespace jvm4csharp.java.util.concurrent
 		}
 		
 		[JavaProxy("java/util/concurrent/ThreadPoolExecutor/DiscardPolicy")]
-		public class DiscardPolicy : Object, RejectedExecutionHandler
+		public partial class DiscardPolicy : Object, RejectedExecutionHandler
 		{
 			protected DiscardPolicy(ProxyCtor p) : base(p) {}
 			

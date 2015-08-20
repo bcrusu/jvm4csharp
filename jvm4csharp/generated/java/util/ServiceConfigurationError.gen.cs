@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/ServiceConfigurationError")]
-	public class ServiceConfigurationError : Error
+	public partial class ServiceConfigurationError : Error
 	{
 		protected ServiceConfigurationError(ProxyCtor p) : base(p) {}
 		

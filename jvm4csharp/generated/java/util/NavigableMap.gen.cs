@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/NavigableMap")]
-	public interface NavigableMap<K, V> : SortedMap<K, V>
+	public partial interface NavigableMap<K, V> : SortedMap<K, V>
 		where K : IJavaObject
 		where V : IJavaObject
 	{

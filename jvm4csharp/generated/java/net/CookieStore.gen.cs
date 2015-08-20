@@ -14,7 +14,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/CookieStore")]
-	public interface CookieStore : IJavaObject
+	public partial interface CookieStore : IJavaObject
 	{
 		[JavaSignature("(Ljava/net/URI;Ljava/net/HttpCookie;)V")]
 		void @add(URI arg0, HttpCookie arg1);

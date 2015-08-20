@@ -15,7 +15,7 @@ using jvm4csharp.java.nio.channels;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/FileOutputStream")]
-	public class FileOutputStream : OutputStream
+	public partial class FileOutputStream : OutputStream
 	{
 		protected FileOutputStream(ProxyCtor p) : base(p) {}
 		

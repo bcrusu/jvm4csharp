@@ -16,7 +16,7 @@ using jvm4csharp.java.util.stream;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/ConcurrentLinkedDeque")]
-	public class ConcurrentLinkedDeque<E> : AbstractCollection<E>, Deque<E>, Serializable
+	public partial class ConcurrentLinkedDeque<E> : AbstractCollection<E>, Deque<E>, Serializable
 		where E : IJavaObject
 	{
 		protected ConcurrentLinkedDeque(ProxyCtor p) : base(p) {}

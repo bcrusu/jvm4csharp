@@ -15,7 +15,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/Proxy")]
-	public class Proxy : Object, Serializable
+	public partial class Proxy : Object, Serializable
 	{
 		protected Proxy(ProxyCtor p) : base(p) {}
 	

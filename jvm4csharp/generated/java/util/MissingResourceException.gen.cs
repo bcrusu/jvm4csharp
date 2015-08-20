@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/MissingResourceException")]
-	public class MissingResourceException : RuntimeException
+	public partial class MissingResourceException : RuntimeException
 	{
 		protected MissingResourceException(ProxyCtor p) : base(p) {}
 		

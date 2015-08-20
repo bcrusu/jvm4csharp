@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/OverlappingFileLockException")]
-	public class OverlappingFileLockException : IllegalStateException
+	public partial class OverlappingFileLockException : IllegalStateException
 	{
 		protected OverlappingFileLockException(ProxyCtor p) : base(p) {}
 		

@@ -16,7 +16,7 @@ using jvm4csharp.java.net;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/Paths")]
-	public class Paths : Object
+	public partial class Paths : Object
 	{
 		protected Paths(ProxyCtor p) : base(p) {}
 	

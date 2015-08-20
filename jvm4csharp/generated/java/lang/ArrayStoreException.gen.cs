@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/ArrayStoreException")]
-	public class ArrayStoreException : RuntimeException
+	public partial class ArrayStoreException : RuntimeException
 	{
 		protected ArrayStoreException(ProxyCtor p) : base(p) {}
 		

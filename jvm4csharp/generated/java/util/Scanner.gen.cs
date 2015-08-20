@@ -20,7 +20,7 @@ using jvm4csharp.java.util.regex;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Scanner")]
-	public class Scanner : Object, Iterator<String>, Closeable
+	public partial class Scanner : Object, Iterator<String>, Closeable
 	{
 		protected Scanner(ProxyCtor p) : base(p) {}
 		

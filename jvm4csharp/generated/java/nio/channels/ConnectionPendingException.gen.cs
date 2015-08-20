@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/ConnectionPendingException")]
-	public class ConnectionPendingException : IllegalStateException
+	public partial class ConnectionPendingException : IllegalStateException
 	{
 		protected ConnectionPendingException(ProxyCtor p) : base(p) {}
 		

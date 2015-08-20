@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio
 {
 	[JavaProxy("java/nio/LongBuffer")]
-	public abstract class LongBuffer : Buffer, Comparable<LongBuffer>
+	public abstract partial class LongBuffer : Buffer, Comparable<LongBuffer>
 	{
 		protected LongBuffer(ProxyCtor p) : base(p) {}
 	

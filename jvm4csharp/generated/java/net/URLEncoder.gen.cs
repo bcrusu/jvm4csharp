@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/URLEncoder")]
-	public class URLEncoder : Object
+	public partial class URLEncoder : Object
 	{
 		protected URLEncoder(ProxyCtor p) : base(p) {}
 	

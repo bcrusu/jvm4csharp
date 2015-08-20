@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/InputMismatchException")]
-	public class InputMismatchException : NoSuchElementException
+	public partial class InputMismatchException : NoSuchElementException
 	{
 		protected InputMismatchException(ProxyCtor p) : base(p) {}
 		

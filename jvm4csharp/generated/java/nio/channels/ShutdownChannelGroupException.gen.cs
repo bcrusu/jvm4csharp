@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/ShutdownChannelGroupException")]
-	public class ShutdownChannelGroupException : IllegalStateException
+	public partial class ShutdownChannelGroupException : IllegalStateException
 	{
 		protected ShutdownChannelGroupException(ProxyCtor p) : base(p) {}
 		

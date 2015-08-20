@@ -16,7 +16,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/DirectoryStream")]
-	public interface DirectoryStream<T> : Closeable, Iterable<T>
+	public partial interface DirectoryStream<T> : Closeable, Iterable<T>
 		where T : IJavaObject
 	{
 		[JavaSignature("()Ljava/util/Iterator;")]
@@ -28,7 +28,7 @@ namespace jvm4csharp.java.nio.file
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 	
 		[JavaProxy("java/nio/file/DirectoryStream/Filter")]
-		public interface Filter<T> : IJavaObject
+		public partial interface Filter<T> : IJavaObject
 			where T : IJavaObject
 		{
 			[JavaSignature("(Ljava/lang/Object;)Z")]

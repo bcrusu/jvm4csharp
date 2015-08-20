@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/AssertionError")]
-	public class AssertionError : Error
+	public partial class AssertionError : Error
 	{
 		protected AssertionError(ProxyCtor p) : base(p) {}
 		

@@ -14,7 +14,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.util.zip
 {
 	[JavaProxy("java/util/zip/DeflaterOutputStream")]
-	public class DeflaterOutputStream : FilterOutputStream
+	public partial class DeflaterOutputStream : FilterOutputStream
 	{
 		protected DeflaterOutputStream(ProxyCtor p) : base(p) {}
 		

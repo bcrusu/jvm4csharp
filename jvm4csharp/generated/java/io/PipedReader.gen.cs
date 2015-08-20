@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/PipedReader")]
-	public class PipedReader : Reader
+	public partial class PipedReader : Reader
 	{
 		protected PipedReader(ProxyCtor p) : base(p) {}
 		

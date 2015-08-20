@@ -15,7 +15,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/ServiceLoader")]
-	public class ServiceLoader<S> : Object, Iterable<S>
+	public partial class ServiceLoader<S> : Object, Iterable<S>
 		where S : IJavaObject
 	{
 		protected ServiceLoader(ProxyCtor p) : base(p) {}

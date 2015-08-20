@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/IntBinaryOperator")]
-	public interface IntBinaryOperator : IJavaObject
+	public partial interface IntBinaryOperator : IJavaObject
 	{
 		[JavaSignature("(II)I")]
 		int applyAsInt(int arg0, int arg1);

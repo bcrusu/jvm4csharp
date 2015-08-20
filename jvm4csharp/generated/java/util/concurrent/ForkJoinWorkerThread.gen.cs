@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/ForkJoinWorkerThread")]
-	public class ForkJoinWorkerThread : Thread
+	public partial class ForkJoinWorkerThread : Thread
 	{
 		protected ForkJoinWorkerThread(ProxyCtor p) : base(p) {}
 	

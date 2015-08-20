@@ -14,7 +14,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/PriorityQueue")]
-	public class PriorityQueue<E> : AbstractQueue<E>, Serializable
+	public partial class PriorityQueue<E> : AbstractQueue<E>, Serializable
 		where E : IJavaObject
 	{
 		protected PriorityQueue(ProxyCtor p) : base(p) {}

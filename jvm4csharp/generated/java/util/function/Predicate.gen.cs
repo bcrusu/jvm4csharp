@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/Predicate")]
-	public interface Predicate<T> : IJavaObject
+	public partial interface Predicate<T> : IJavaObject
 		where T : IJavaObject
 	{
 		[JavaSignature("(Ljava/util/function/Predicate;)Ljava/util/function/Predicate;")]

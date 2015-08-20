@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/NotSerializableException")]
-	public class NotSerializableException : ObjectStreamException
+	public partial class NotSerializableException : ObjectStreamException
 	{
 		protected NotSerializableException(ProxyCtor p) : base(p) {}
 		

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.logging
 {
 	[JavaProxy("java/util/logging/ConsoleHandler")]
-	public class ConsoleHandler : StreamHandler
+	public partial class ConsoleHandler : StreamHandler
 	{
 		protected ConsoleHandler(ProxyCtor p) : base(p) {}
 		

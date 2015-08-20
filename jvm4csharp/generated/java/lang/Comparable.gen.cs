@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Comparable")]
-	public interface Comparable<T> : IJavaObject
+	public partial interface Comparable<T> : IJavaObject
 		where T : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/Object;)I")]

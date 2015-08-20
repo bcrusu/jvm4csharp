@@ -15,11 +15,8 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/NetworkChannel")]
-	public interface NetworkChannel : Channel
+	public partial interface NetworkChannel : Channel
 	{
-		[JavaSignature("()Ljava/net/SocketAddress;")]
-		SocketAddress getLocalAddress();
-		
 		[JavaSignature("(Ljava/net/SocketAddress;)Ljava/nio/channels/NetworkChannel;")]
 		NetworkChannel bind(SocketAddress arg0);
 		
@@ -30,6 +27,9 @@ namespace jvm4csharp.java.nio.channels
 		[JavaSignature("(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/NetworkChannel;")]
 		NetworkChannel setOption<T>(SocketOption<T> arg0, T arg1)
 			where T : IJavaObject;
+		
+		[JavaSignature("()Ljava/net/SocketAddress;")]
+		SocketAddress getLocalAddress();
 		
 		[JavaSignature("()Ljava/util/Set;")]
 		Set<SocketOption<IJavaObject>> supportedOptions();

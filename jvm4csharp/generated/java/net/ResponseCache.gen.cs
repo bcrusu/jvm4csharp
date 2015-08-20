@@ -15,7 +15,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/ResponseCache")]
-	public abstract class ResponseCache : Object
+	public abstract partial class ResponseCache : Object
 	{
 		protected ResponseCache(ProxyCtor p) : base(p) {}
 	

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/AsynchronousChannel")]
-	public interface AsynchronousChannel : Channel
+	public partial interface AsynchronousChannel : Channel
 	{
 		[JavaSignature("()V")]
 		new void close();

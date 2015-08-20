@@ -15,7 +15,7 @@ using jvm4csharp.java.util.spi;
 namespace jvm4csharp.java.text.spi
 {
 	[JavaProxy("java/text/spi/DateFormatProvider")]
-	public abstract class DateFormatProvider : LocaleServiceProvider
+	public abstract partial class DateFormatProvider : LocaleServiceProvider
 	{
 		protected DateFormatProvider(ProxyCtor p) : base(p) {}
 	

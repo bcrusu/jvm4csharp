@@ -15,7 +15,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.lang.invoke
 {
 	[JavaProxy("java/lang/invoke/SerializedLambda")]
-	public class SerializedLambda : Object, Serializable
+	public partial class SerializedLambda : Object, Serializable
 	{
 		protected SerializedLambda(ProxyCtor p) : base(p) {}
 		

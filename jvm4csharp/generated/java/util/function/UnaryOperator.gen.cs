@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/UnaryOperator")]
-	public interface UnaryOperator<T> : Function<T, T>
+	public partial interface UnaryOperator<T> : Function<T, T>
 		where T : IJavaObject
 	{
 	}

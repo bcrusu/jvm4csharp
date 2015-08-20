@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/ChoiceFormat")]
-	public class ChoiceFormat : NumberFormat
+	public partial class ChoiceFormat : NumberFormat
 	{
 		protected ChoiceFormat(ProxyCtor p) : base(p) {}
 		
@@ -29,16 +29,22 @@ namespace jvm4csharp.java.text
 			Instance.CallConstructor("(Ljava/lang/String;)V", arg0);
 		}
 	
+		[JavaSignature("(DZ)D")]
+		public static double nextDouble(double arg0, bool arg1)
+		{
+			return Static.CallMethod<double>(typeof(ChoiceFormat), "nextDouble", "(DZ)D", arg0, arg1);
+		}
+		
 		[JavaSignature("(D)D")]
 		public static double nextDouble(double arg0)
 		{
 			return Static.CallMethod<double>(typeof(ChoiceFormat), "nextDouble", "(D)D", arg0);
 		}
 		
-		[JavaSignature("(DZ)D")]
-		public static double nextDouble(double arg0, bool arg1)
+		[JavaSignature("()[Ljava/lang/Object;")]
+		public ObjectArray<IJavaObject> getFormats()
 		{
-			return Static.CallMethod<double>(typeof(ChoiceFormat), "nextDouble", "(DZ)D", arg0, arg1);
+			return Instance.CallMethod<ObjectArray<IJavaObject>>("getFormats", "()[Ljava/lang/Object;");
 		}
 		
 		[JavaSignature("(Ljava/lang/String;)V")]
@@ -69,12 +75,6 @@ namespace jvm4csharp.java.text
 		public void setChoices(DoubleArray arg0, ObjectArray<String> arg1)
 		{
 			Instance.CallMethod("setChoices", "([D[Ljava/lang/String;)V", arg0, arg1);
-		}
-		
-		[JavaSignature("()[Ljava/lang/Object;")]
-		public ObjectArray<IJavaObject> getFormats()
-		{
-			return Instance.CallMethod<ObjectArray<IJavaObject>>("getFormats", "()[Ljava/lang/Object;");
 		}
 	}
 }

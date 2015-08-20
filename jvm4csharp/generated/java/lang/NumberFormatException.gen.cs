@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/NumberFormatException")]
-	public class NumberFormatException : IllegalArgumentException
+	public partial class NumberFormatException : IllegalArgumentException
 	{
 		protected NumberFormatException(ProxyCtor p) : base(p) {}
 		

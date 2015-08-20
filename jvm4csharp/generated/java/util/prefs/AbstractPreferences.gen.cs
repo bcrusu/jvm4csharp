@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.prefs
 {
 	[JavaProxy("java/util/prefs/AbstractPreferences")]
-	public abstract class AbstractPreferences : Preferences
+	public abstract partial class AbstractPreferences : Preferences
 	{
 		protected AbstractPreferences(ProxyCtor p) : base(p) {}
 	}

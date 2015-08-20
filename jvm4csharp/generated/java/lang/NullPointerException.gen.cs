@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/NullPointerException")]
-	public class NullPointerException : RuntimeException
+	public partial class NullPointerException : RuntimeException
 	{
 		protected NullPointerException(ProxyCtor p) : base(p) {}
 		

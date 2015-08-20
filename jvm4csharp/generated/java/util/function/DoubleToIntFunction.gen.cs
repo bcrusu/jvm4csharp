@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/DoubleToIntFunction")]
-	public interface DoubleToIntFunction : IJavaObject
+	public partial interface DoubleToIntFunction : IJavaObject
 	{
 		[JavaSignature("(D)I")]
 		int applyAsInt(double arg0);

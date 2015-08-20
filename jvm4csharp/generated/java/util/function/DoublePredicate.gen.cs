@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/DoublePredicate")]
-	public interface DoublePredicate : IJavaObject
+	public partial interface DoublePredicate : IJavaObject
 	{
 		[JavaSignature("(Ljava/util/function/DoublePredicate;)Ljava/util/function/DoublePredicate;")]
 		DoublePredicate and(DoublePredicate arg0);

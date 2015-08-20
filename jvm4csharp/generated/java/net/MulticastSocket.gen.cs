@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/MulticastSocket")]
-	public class MulticastSocket : DatagramSocket
+	public partial class MulticastSocket : DatagramSocket
 	{
 		protected MulticastSocket(ProxyCtor p) : base(p) {}
 		
@@ -31,6 +31,18 @@ namespace jvm4csharp.java.net
 			Instance.CallConstructor("()V");
 		}
 	
+		[JavaSignature("()I")]
+		public int getTimeToLive()
+		{
+			return Instance.CallMethod<int>("getTimeToLive", "()I");
+		}
+		
+		[JavaSignature("(Ljava/net/DatagramPacket;B)V")]
+		public void send(DatagramPacket arg0, byte arg1)
+		{
+			Instance.CallMethod("send", "(Ljava/net/DatagramPacket;B)V", arg0, arg1);
+		}
+		
 		[JavaSignature("()Ljava/net/InetAddress;")]
 		public InetAddress getInterface()
 		{
@@ -107,18 +119,6 @@ namespace jvm4csharp.java.net
 		public void setTimeToLive(int arg0)
 		{
 			Instance.CallMethod("setTimeToLive", "(I)V", arg0);
-		}
-		
-		[JavaSignature("()I")]
-		public int getTimeToLive()
-		{
-			return Instance.CallMethod<int>("getTimeToLive", "()I");
-		}
-		
-		[JavaSignature("(Ljava/net/DatagramPacket;B)V")]
-		public void send(DatagramPacket arg0, byte arg1)
-		{
-			Instance.CallMethod("send", "(Ljava/net/DatagramPacket;B)V", arg0, arg1);
 		}
 	}
 }

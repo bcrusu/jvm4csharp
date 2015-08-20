@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/Normalizer")]
-	public class Normalizer : Object
+	public partial class Normalizer : Object
 	{
 		protected Normalizer(ProxyCtor p) : base(p) {}
 	
@@ -32,7 +32,7 @@ namespace jvm4csharp.java.text
 		}
 	
 		[JavaProxy("java/text/Normalizer/Form")]
-		public class Form : Enum<Normalizer.Form>
+		public partial class Form : Enum<Normalizer.Form>
 		{
 			protected Form(ProxyCtor p) : base(p) {}
 		

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/ClassValue")]
-	public abstract class ClassValue<T> : Object
+	public abstract partial class ClassValue<T> : Object
 		where T : IJavaObject
 	{
 		protected ClassValue(ProxyCtor p) : base(p) {}

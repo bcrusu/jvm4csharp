@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/FutureTask")]
-	public class FutureTask<V> : Object, RunnableFuture<V>
+	public partial class FutureTask<V> : Object, RunnableFuture<V>
 		where V : IJavaObject
 	{
 		protected FutureTask(ProxyCtor p) : base(p) {}

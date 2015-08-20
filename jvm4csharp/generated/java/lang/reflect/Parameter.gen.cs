@@ -15,7 +15,7 @@ using jvm4csharp.java.lang.annotation;
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/Parameter")]
-	public class Parameter : Object, AnnotatedElement
+	public partial class Parameter : Object, AnnotatedElement
 	{
 		protected Parameter(ProxyCtor p) : base(p) {}
 	

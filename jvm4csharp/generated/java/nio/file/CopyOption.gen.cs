@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/CopyOption")]
-	public interface CopyOption : IJavaObject
+	public partial interface CopyOption : IJavaObject
 	{
 	}
 }

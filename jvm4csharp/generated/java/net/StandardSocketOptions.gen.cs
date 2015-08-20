@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/StandardSocketOptions")]
-	public class StandardSocketOptions : Object
+	public partial class StandardSocketOptions : Object
 	{
 		protected StandardSocketOptions(ProxyCtor p) : base(p) {}
 	

@@ -17,7 +17,7 @@ using jvm4csharp.java.nio.file;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/File")]
-	public class File : Object, Serializable, Comparable<File>
+	public partial class File : Object, Serializable, Comparable<File>
 	{
 		protected File(ProxyCtor p) : base(p) {}
 		

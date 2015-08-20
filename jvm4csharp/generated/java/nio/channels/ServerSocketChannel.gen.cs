@@ -16,7 +16,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/ServerSocketChannel")]
-	public abstract class ServerSocketChannel : AbstractSelectableChannel, NetworkChannel
+	public abstract partial class ServerSocketChannel : AbstractSelectableChannel, NetworkChannel
 	{
 		protected ServerSocketChannel(ProxyCtor p) : base(p) {}
 	
@@ -32,10 +32,10 @@ namespace jvm4csharp.java.nio.channels
 			return Static.CallMethod<ServerSocketChannel>(typeof(ServerSocketChannel), "open", "()Ljava/nio/channels/ServerSocketChannel;");
 		}
 		
-		[JavaSignature("()Ljava/net/SocketAddress;")]
-		public SocketAddress getLocalAddress()
+		[JavaSignature("(Ljava/net/SocketAddress;I)Ljava/nio/channels/ServerSocketChannel;")]
+		public ServerSocketChannel bind(SocketAddress arg0, int arg1)
 		{
-			return Instance.CallMethod<SocketAddress>("getLocalAddress", "()Ljava/net/SocketAddress;");
+			return Instance.CallMethod<ServerSocketChannel>("bind", "(Ljava/net/SocketAddress;I)Ljava/nio/channels/ServerSocketChannel;", arg0, arg1);
 		}
 		
 		[JavaSignature("(Ljava/net/SocketAddress;)Ljava/nio/channels/ServerSocketChannel;")]
@@ -44,17 +44,17 @@ namespace jvm4csharp.java.nio.channels
 			return Instance.CallMethod<ServerSocketChannel>("bind", "(Ljava/net/SocketAddress;)Ljava/nio/channels/ServerSocketChannel;", arg0);
 		}
 		
-		[JavaSignature("(Ljava/net/SocketAddress;I)Ljava/nio/channels/ServerSocketChannel;")]
-		public ServerSocketChannel bind(SocketAddress arg0, int arg1)
-		{
-			return Instance.CallMethod<ServerSocketChannel>("bind", "(Ljava/net/SocketAddress;I)Ljava/nio/channels/ServerSocketChannel;", arg0, arg1);
-		}
-		
 		[JavaSignature("(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/ServerSocketChannel;")]
 		public ServerSocketChannel setOption<T>(SocketOption<T> arg0, T arg1)
 			where T : IJavaObject
 		{
 			return Instance.CallMethod<ServerSocketChannel>("setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/ServerSocketChannel;", arg0, arg1);
+		}
+		
+		[JavaSignature("()Ljava/net/SocketAddress;")]
+		public SocketAddress getLocalAddress()
+		{
+			return Instance.CallMethod<SocketAddress>("getLocalAddress", "()Ljava/net/SocketAddress;");
 		}
 		
 		[JavaSignature("()Ljava/net/ServerSocket;")]

@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/CharArrayReader")]
-	public class CharArrayReader : Reader
+	public partial class CharArrayReader : Reader
 	{
 		protected CharArrayReader(ProxyCtor p) : base(p) {}
 		

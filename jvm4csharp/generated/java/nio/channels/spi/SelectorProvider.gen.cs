@@ -15,7 +15,7 @@ using jvm4csharp.java.net;
 namespace jvm4csharp.java.nio.channels.spi
 {
 	[JavaProxy("java/nio/channels/spi/SelectorProvider")]
-	public abstract class SelectorProvider : Object
+	public abstract partial class SelectorProvider : Object
 	{
 		protected SelectorProvider(ProxyCtor p) : base(p) {}
 	

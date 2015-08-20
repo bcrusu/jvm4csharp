@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/SocketAddress")]
-	public abstract class SocketAddress : Object, Serializable
+	public abstract partial class SocketAddress : Object, Serializable
 	{
 		protected SocketAddress(ProxyCtor p) : base(p) {}
 	}

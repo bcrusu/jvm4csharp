@@ -18,7 +18,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/SecureDirectoryStream")]
-	public interface SecureDirectoryStream<T> : DirectoryStream<T>
+	public partial interface SecureDirectoryStream<T> : DirectoryStream<T>
 		where T : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/Object;[Ljava/nio/file/LinkOption;)Ljava/nio/file/SecureDirectoryStream;")]

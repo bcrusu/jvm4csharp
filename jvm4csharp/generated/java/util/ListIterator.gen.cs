@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/ListIterator")]
-	public interface ListIterator<E> : Iterator<E>
+	public partial interface ListIterator<E> : Iterator<E>
 		where E : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/Object;)V")]

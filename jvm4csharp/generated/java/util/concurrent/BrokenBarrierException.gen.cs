@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/BrokenBarrierException")]
-	public class BrokenBarrierException : Exception
+	public partial class BrokenBarrierException : Exception
 	{
 		protected BrokenBarrierException(ProxyCtor p) : base(p) {}
 		

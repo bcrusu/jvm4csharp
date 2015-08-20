@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/CancellationException")]
-	public class CancellationException : IllegalStateException
+	public partial class CancellationException : IllegalStateException
 	{
 		protected CancellationException(ProxyCtor p) : base(p) {}
 		

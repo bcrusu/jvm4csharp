@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.management
 {
 	[JavaProxy("java/lang/management/MemoryNotificationInfo")]
-	public class MemoryNotificationInfo : Object
+	public partial class MemoryNotificationInfo : Object
 	{
 		protected MemoryNotificationInfo(ProxyCtor p) : base(p) {}
 		
@@ -33,16 +33,16 @@ namespace jvm4csharp.java.lang.management
 			get { return Static.GetField<String>(typeof(MemoryNotificationInfo), "MEMORY_COLLECTION_THRESHOLD_EXCEEDED", "Ljava/lang/String;"); }
 		}
 	
-		[JavaSignature("()J")]
-		public long getCount()
-		{
-			return Instance.CallMethod<long>("getCount", "()J");
-		}
-		
 		[JavaSignature("()Ljava/lang/management/MemoryUsage;")]
 		public MemoryUsage getUsage()
 		{
 			return Instance.CallMethod<MemoryUsage>("getUsage", "()Ljava/lang/management/MemoryUsage;");
+		}
+		
+		[JavaSignature("()J")]
+		public long getCount()
+		{
+			return Instance.CallMethod<long>("getCount", "()J");
 		}
 		
 		[JavaSignature("()Ljava/lang/String;")]

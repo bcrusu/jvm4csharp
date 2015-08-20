@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/AnnotatedTypeVariable")]
-	public interface AnnotatedTypeVariable : AnnotatedType
+	public partial interface AnnotatedTypeVariable : AnnotatedType
 	{
 		[JavaSignature("()[Ljava/lang/reflect/AnnotatedType;")]
 		ObjectArray<AnnotatedType> getAnnotatedBounds();

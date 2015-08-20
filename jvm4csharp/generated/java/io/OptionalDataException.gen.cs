@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/OptionalDataException")]
-	public class OptionalDataException : ObjectStreamException
+	public partial class OptionalDataException : ObjectStreamException
 	{
 		protected OptionalDataException(ProxyCtor p) : base(p) {}
 	

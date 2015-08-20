@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/ProviderMismatchException")]
-	public class ProviderMismatchException : IllegalArgumentException
+	public partial class ProviderMismatchException : IllegalArgumentException
 	{
 		protected ProviderMismatchException(ProxyCtor p) : base(p) {}
 		

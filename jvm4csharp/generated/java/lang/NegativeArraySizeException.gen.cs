@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/NegativeArraySizeException")]
-	public class NegativeArraySizeException : RuntimeException
+	public partial class NegativeArraySizeException : RuntimeException
 	{
 		protected NegativeArraySizeException(ProxyCtor p) : base(p) {}
 		

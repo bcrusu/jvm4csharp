@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/PipedInputStream")]
-	public class PipedInputStream : InputStream
+	public partial class PipedInputStream : InputStream
 	{
 		protected PipedInputStream(ProxyCtor p) : base(p) {}
 		

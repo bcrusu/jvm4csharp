@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/URLStreamHandlerFactory")]
-	public interface URLStreamHandlerFactory : IJavaObject
+	public partial interface URLStreamHandlerFactory : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/String;)Ljava/net/URLStreamHandler;")]
 		URLStreamHandler createURLStreamHandler(String arg0);

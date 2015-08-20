@@ -16,7 +16,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/IdentityHashMap")]
-	public class IdentityHashMap<K, V> : AbstractMap<K, V>, Map<K, V>, Serializable, Cloneable
+	public partial class IdentityHashMap<K, V> : AbstractMap<K, V>, Map<K, V>, Serializable, Cloneable
 		where K : IJavaObject
 		where V : IJavaObject
 	{

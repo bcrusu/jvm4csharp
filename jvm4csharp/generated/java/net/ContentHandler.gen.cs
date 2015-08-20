@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/ContentHandler")]
-	public abstract class ContentHandler : Object
+	public abstract partial class ContentHandler : Object
 	{
 		protected ContentHandler(ProxyCtor p) : base(p) {}
 	

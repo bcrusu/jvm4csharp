@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/CookiePolicy")]
-	public interface CookiePolicy : IJavaObject
+	public partial interface CookiePolicy : IJavaObject
 	{
 		[JavaSignature("(Ljava/net/URI;Ljava/net/HttpCookie;)Z")]
 		bool shouldAccept(URI arg0, HttpCookie arg1);

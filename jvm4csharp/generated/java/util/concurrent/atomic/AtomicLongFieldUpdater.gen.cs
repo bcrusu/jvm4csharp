@@ -15,7 +15,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util.concurrent.atomic
 {
 	[JavaProxy("java/util/concurrent/atomic/AtomicLongFieldUpdater")]
-	public abstract class AtomicLongFieldUpdater<T> : Object
+	public abstract partial class AtomicLongFieldUpdater<T> : Object
 		where T : IJavaObject
 	{
 		protected AtomicLongFieldUpdater(ProxyCtor p) : base(p) {}

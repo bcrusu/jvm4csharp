@@ -15,7 +15,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/PrimitiveIterator")]
-	public interface PrimitiveIterator<T, T_CONS> : Iterator<T>
+	public partial interface PrimitiveIterator<T, T_CONS> : Iterator<T>
 		where T : IJavaObject
 		where T_CONS : IJavaObject
 	{
@@ -28,7 +28,7 @@ namespace jvm4csharp.java.util
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 	
 		[JavaProxy("java/util/PrimitiveIterator/OfDouble")]
-		public interface OfDouble : PrimitiveIterator<Double, DoubleConsumer>
+		public partial interface OfDouble : PrimitiveIterator<Double, DoubleConsumer>
 		{
 			[JavaSignature("()Ljava/lang/Double;")]
 			new Double next();
@@ -44,7 +44,7 @@ namespace jvm4csharp.java.util
 		}
 		
 		[JavaProxy("java/util/PrimitiveIterator/OfInt")]
-		public interface OfInt : PrimitiveIterator<Integer, IntConsumer>
+		public partial interface OfInt : PrimitiveIterator<Integer, IntConsumer>
 		{
 			[JavaSignature("()Ljava/lang/Integer;")]
 			new Integer next();
@@ -60,7 +60,7 @@ namespace jvm4csharp.java.util
 		}
 		
 		[JavaProxy("java/util/PrimitiveIterator/OfLong")]
-		public interface OfLong : PrimitiveIterator<Long, LongConsumer>
+		public partial interface OfLong : PrimitiveIterator<Long, LongConsumer>
 		{
 			[JavaSignature("()Ljava/lang/Long;")]
 			new Long next();

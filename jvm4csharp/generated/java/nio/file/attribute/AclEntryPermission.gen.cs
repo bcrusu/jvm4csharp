@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file.attribute
 {
 	[JavaProxy("java/nio/file/attribute/AclEntryPermission")]
-	public class AclEntryPermission : Enum<AclEntryPermission>
+	public partial class AclEntryPermission : Enum<AclEntryPermission>
 	{
 		protected AclEntryPermission(ProxyCtor p) : base(p) {}
 	

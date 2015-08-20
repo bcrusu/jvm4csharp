@@ -15,7 +15,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.nio.charset.spi
 {
 	[JavaProxy("java/nio/charset/spi/CharsetProvider")]
-	public abstract class CharsetProvider : Object
+	public abstract partial class CharsetProvider : Object
 	{
 		protected CharsetProvider(ProxyCtor p) : base(p) {}
 	

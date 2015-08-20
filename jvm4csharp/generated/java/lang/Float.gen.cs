@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Float")]
-	public class Float : Number, Comparable<Float>
+	public partial class Float : Number, Comparable<Float>
 	{
 		protected Float(ProxyCtor p) : base(p) {}
 		

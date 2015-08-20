@@ -16,7 +16,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Spliterators")]
-	public class Spliterators : Object
+	public partial class Spliterators : Object
 	{
 		protected Spliterators(ProxyCtor p) : base(p) {}
 	
@@ -178,7 +178,7 @@ namespace jvm4csharp.java.util
 		}
 	
 		[JavaProxy("java/util/Spliterators/AbstractDoubleSpliterator")]
-		public abstract class AbstractDoubleSpliterator : Object, Spliterator_.OfDouble
+		public abstract partial class AbstractDoubleSpliterator : Object, Spliterator_.OfDouble
 		{
 			protected AbstractDoubleSpliterator(ProxyCtor p) : base(p) {}
 		
@@ -250,7 +250,7 @@ namespace jvm4csharp.java.util
 		}
 		
 		[JavaProxy("java/util/Spliterators/AbstractIntSpliterator")]
-		public abstract class AbstractIntSpliterator : Object, Spliterator_.OfInt
+		public abstract partial class AbstractIntSpliterator : Object, Spliterator_.OfInt
 		{
 			protected AbstractIntSpliterator(ProxyCtor p) : base(p) {}
 		
@@ -322,7 +322,7 @@ namespace jvm4csharp.java.util
 		}
 		
 		[JavaProxy("java/util/Spliterators/AbstractLongSpliterator")]
-		public abstract class AbstractLongSpliterator : Object, Spliterator_.OfLong
+		public abstract partial class AbstractLongSpliterator : Object, Spliterator_.OfLong
 		{
 			protected AbstractLongSpliterator(ProxyCtor p) : base(p) {}
 		
@@ -394,7 +394,7 @@ namespace jvm4csharp.java.util
 		}
 		
 		[JavaProxy("java/util/Spliterators/AbstractSpliterator")]
-		public abstract class AbstractSpliterator<T> : Object, Spliterator<T>
+		public abstract partial class AbstractSpliterator<T> : Object, Spliterator<T>
 			where T : IJavaObject
 		{
 			protected AbstractSpliterator(ProxyCtor p) : base(p) {}

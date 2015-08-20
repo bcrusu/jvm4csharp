@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/ExecutorService")]
-	public interface ExecutorService : Executor
+	public partial interface ExecutorService : Executor
 	{
 		[JavaSignature("()V")]
 		void shutdown();

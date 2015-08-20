@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/IntConsumer")]
-	public interface IntConsumer : IJavaObject
+	public partial interface IntConsumer : IJavaObject
 	{
 		[JavaSignature("(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;")]
 		IntConsumer andThen(IntConsumer arg0);

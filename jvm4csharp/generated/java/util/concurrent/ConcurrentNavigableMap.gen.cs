@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/ConcurrentNavigableMap")]
-	public interface ConcurrentNavigableMap<K, V> : ConcurrentMap<K, V>, NavigableMap<K, V>
+	public partial interface ConcurrentNavigableMap<K, V> : ConcurrentMap<K, V>, NavigableMap<K, V>
 		where K : IJavaObject
 		where V : IJavaObject
 	{

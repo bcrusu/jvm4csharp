@@ -15,7 +15,7 @@ using jvm4csharp.java.util.concurrent;
 namespace jvm4csharp.java.nio.channels.spi
 {
 	[JavaProxy("java/nio/channels/spi/AsynchronousChannelProvider")]
-	public abstract class AsynchronousChannelProvider : Object
+	public abstract partial class AsynchronousChannelProvider : Object
 	{
 		protected AsynchronousChannelProvider(ProxyCtor p) : base(p) {}
 	

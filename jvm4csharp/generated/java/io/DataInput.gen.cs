@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/DataInput")]
-	public interface DataInput : IJavaObject
+	public partial interface DataInput : IJavaObject
 	{
 		[JavaSignature("()F")]
 		float readFloat();

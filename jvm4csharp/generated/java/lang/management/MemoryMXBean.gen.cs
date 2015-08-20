@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.management
 {
 	[JavaProxy("java/lang/management/MemoryMXBean")]
-	public interface MemoryMXBean : PlatformManagedObject
+	public partial interface MemoryMXBean : PlatformManagedObject
 	{
 		[JavaSignature("()V")]
 		void gc();

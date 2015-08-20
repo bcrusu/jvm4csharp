@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.annotation
 {
 	[JavaProxy("java/lang/annotation/Documented")]
-	public interface Documented : Annotation
+	public partial interface Documented : Annotation
 	{
 	}
 }

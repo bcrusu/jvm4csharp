@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/ArrayIndexOutOfBoundsException")]
-	public class ArrayIndexOutOfBoundsException : IndexOutOfBoundsException
+	public partial class ArrayIndexOutOfBoundsException : IndexOutOfBoundsException
 	{
 		protected ArrayIndexOutOfBoundsException(ProxyCtor p) : base(p) {}
 		

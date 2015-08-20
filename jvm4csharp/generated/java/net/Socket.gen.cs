@@ -16,7 +16,7 @@ using jvm4csharp.java.nio.channels;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/Socket")]
-	public class Socket : Object, Closeable
+	public partial class Socket : Object, Closeable
 	{
 		protected Socket(ProxyCtor p) : base(p) {}
 		
@@ -94,6 +94,108 @@ namespace jvm4csharp.java.net
 		public SocketChannel getChannel()
 		{
 			return Instance.CallMethod<SocketChannel>("getChannel", "()Ljava/nio/channels/SocketChannel;");
+		}
+		
+		[JavaSignature("()Ljava/io/OutputStream;")]
+		public OutputStream getOutputStream()
+		{
+			return Instance.CallMethod<OutputStream>("getOutputStream", "()Ljava/io/OutputStream;");
+		}
+		
+		[JavaSignature("(Ljava/net/SocketAddress;)V")]
+		public void bind(SocketAddress arg0)
+		{
+			Instance.CallMethod("bind", "(Ljava/net/SocketAddress;)V", arg0);
+		}
+		
+		[JavaSignature("()Ljava/net/InetAddress;")]
+		public InetAddress getInetAddress()
+		{
+			return Instance.CallMethod<InetAddress>("getInetAddress", "()Ljava/net/InetAddress;");
+		}
+		
+		[JavaSignature("()I")]
+		public int getLocalPort()
+		{
+			return Instance.CallMethod<int>("getLocalPort", "()I");
+		}
+		
+		[JavaSignature("()Ljava/net/SocketAddress;")]
+		public SocketAddress getLocalSocketAddress()
+		{
+			return Instance.CallMethod<SocketAddress>("getLocalSocketAddress", "()Ljava/net/SocketAddress;");
+		}
+		
+		[JavaSignature("()I")]
+		public int getReceiveBufferSize()
+		{
+			return Instance.CallMethod<int>("getReceiveBufferSize", "()I");
+		}
+		
+		[JavaSignature("()Z")]
+		public bool getReuseAddress()
+		{
+			return Instance.CallMethod<bool>("getReuseAddress", "()Z");
+		}
+		
+		[JavaSignature("()I")]
+		public int getSoTimeout()
+		{
+			return Instance.CallMethod<int>("getSoTimeout", "()I");
+		}
+		
+		[JavaSignature("()Z")]
+		public bool isBound()
+		{
+			return Instance.CallMethod<bool>("isBound", "()Z");
+		}
+		
+		[JavaSignature("()Z")]
+		public bool isClosed()
+		{
+			return Instance.CallMethod<bool>("isClosed", "()Z");
+		}
+		
+		[JavaSignature("(III)V")]
+		public void setPerformancePreferences(int arg0, int arg1, int arg2)
+		{
+			Instance.CallMethod("setPerformancePreferences", "(III)V", arg0, arg1, arg2);
+		}
+		
+		[JavaSignature("(I)V")]
+		public void setReceiveBufferSize(int arg0)
+		{
+			Instance.CallMethod("setReceiveBufferSize", "(I)V", arg0);
+		}
+		
+		[JavaSignature("(Z)V")]
+		public void setReuseAddress(bool arg0)
+		{
+			Instance.CallMethod("setReuseAddress", "(Z)V", arg0);
+		}
+		
+		[JavaSignature("(I)V")]
+		public void setSoTimeout(int arg0)
+		{
+			Instance.CallMethod("setSoTimeout", "(I)V", arg0);
+		}
+		
+		[JavaSignature("(I)V")]
+		public void sendUrgentData(int arg0)
+		{
+			Instance.CallMethod("sendUrgentData", "(I)V", arg0);
+		}
+		
+		[JavaSignature("()V")]
+		public void shutdownInput()
+		{
+			Instance.CallMethod("shutdownInput", "()V");
+		}
+		
+		[JavaSignature("()V")]
+		public void shutdownOutput()
+		{
+			Instance.CallMethod("shutdownOutput", "()V");
 		}
 		
 		[JavaSignature("()Z")]
@@ -202,108 +304,6 @@ namespace jvm4csharp.java.net
 		public void setTrafficClass(int arg0)
 		{
 			Instance.CallMethod("setTrafficClass", "(I)V", arg0);
-		}
-		
-		[JavaSignature("()Ljava/io/OutputStream;")]
-		public OutputStream getOutputStream()
-		{
-			return Instance.CallMethod<OutputStream>("getOutputStream", "()Ljava/io/OutputStream;");
-		}
-		
-		[JavaSignature("(Ljava/net/SocketAddress;)V")]
-		public void bind(SocketAddress arg0)
-		{
-			Instance.CallMethod("bind", "(Ljava/net/SocketAddress;)V", arg0);
-		}
-		
-		[JavaSignature("()Ljava/net/InetAddress;")]
-		public InetAddress getInetAddress()
-		{
-			return Instance.CallMethod<InetAddress>("getInetAddress", "()Ljava/net/InetAddress;");
-		}
-		
-		[JavaSignature("()I")]
-		public int getLocalPort()
-		{
-			return Instance.CallMethod<int>("getLocalPort", "()I");
-		}
-		
-		[JavaSignature("()Ljava/net/SocketAddress;")]
-		public SocketAddress getLocalSocketAddress()
-		{
-			return Instance.CallMethod<SocketAddress>("getLocalSocketAddress", "()Ljava/net/SocketAddress;");
-		}
-		
-		[JavaSignature("()I")]
-		public int getReceiveBufferSize()
-		{
-			return Instance.CallMethod<int>("getReceiveBufferSize", "()I");
-		}
-		
-		[JavaSignature("()Z")]
-		public bool getReuseAddress()
-		{
-			return Instance.CallMethod<bool>("getReuseAddress", "()Z");
-		}
-		
-		[JavaSignature("()I")]
-		public int getSoTimeout()
-		{
-			return Instance.CallMethod<int>("getSoTimeout", "()I");
-		}
-		
-		[JavaSignature("()Z")]
-		public bool isBound()
-		{
-			return Instance.CallMethod<bool>("isBound", "()Z");
-		}
-		
-		[JavaSignature("()Z")]
-		public bool isClosed()
-		{
-			return Instance.CallMethod<bool>("isClosed", "()Z");
-		}
-		
-		[JavaSignature("(III)V")]
-		public void setPerformancePreferences(int arg0, int arg1, int arg2)
-		{
-			Instance.CallMethod("setPerformancePreferences", "(III)V", arg0, arg1, arg2);
-		}
-		
-		[JavaSignature("(I)V")]
-		public void setReceiveBufferSize(int arg0)
-		{
-			Instance.CallMethod("setReceiveBufferSize", "(I)V", arg0);
-		}
-		
-		[JavaSignature("(Z)V")]
-		public void setReuseAddress(bool arg0)
-		{
-			Instance.CallMethod("setReuseAddress", "(Z)V", arg0);
-		}
-		
-		[JavaSignature("(I)V")]
-		public void setSoTimeout(int arg0)
-		{
-			Instance.CallMethod("setSoTimeout", "(I)V", arg0);
-		}
-		
-		[JavaSignature("(I)V")]
-		public void sendUrgentData(int arg0)
-		{
-			Instance.CallMethod("sendUrgentData", "(I)V", arg0);
-		}
-		
-		[JavaSignature("()V")]
-		public void shutdownInput()
-		{
-			Instance.CallMethod("shutdownInput", "()V");
-		}
-		
-		[JavaSignature("()V")]
-		public void shutdownOutput()
-		{
-			Instance.CallMethod("shutdownOutput", "()V");
 		}
 	}
 }

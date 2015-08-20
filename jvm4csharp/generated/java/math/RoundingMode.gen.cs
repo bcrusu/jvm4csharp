@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.math
 {
 	[JavaProxy("java/math/RoundingMode")]
-	public class RoundingMode : Enum<RoundingMode>
+	public partial class RoundingMode : Enum<RoundingMode>
 	{
 		protected RoundingMode(ProxyCtor p) : base(p) {}
 	

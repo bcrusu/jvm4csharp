@@ -14,7 +14,7 @@ using jvm4csharp.java.net;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/MulticastChannel")]
-	public interface MulticastChannel : NetworkChannel
+	public partial interface MulticastChannel : NetworkChannel
 	{
 		[JavaSignature("(Ljava/net/InetAddress;Ljava/net/NetworkInterface;)Ljava/nio/channels/MembershipKey;")]
 		MembershipKey @join(InetAddress arg0, NetworkInterface arg1);

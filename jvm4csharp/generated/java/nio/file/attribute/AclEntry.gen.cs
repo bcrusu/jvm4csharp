@@ -16,7 +16,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.nio.file.attribute
 {
 	[JavaProxy("java/nio/file/attribute/AclEntry")]
-	public class AclEntry : Object
+	public partial class AclEntry : Object
 	{
 		protected AclEntry(ProxyCtor p) : base(p) {}
 	
@@ -49,12 +49,30 @@ namespace jvm4csharp.java.nio.file.attribute
 		{
 			return Static.CallMethod<AclEntry.Builder>(typeof(AclEntry), "newBuilder", "()Ljava/nio/file/attribute/AclEntry/Builder;");
 		}
-		
+	
 		[JavaProxy("java/nio/file/attribute/AclEntry/Builder")]
-		public class Builder : Object
+		public partial class Builder : Object
 		{
 			protected Builder(ProxyCtor p) : base(p) {}
 		
+			[JavaSignature("()Ljava/nio/file/attribute/AclEntry;")]
+			public AclEntry build()
+			{
+				return Instance.CallMethod<AclEntry>("build", "()Ljava/nio/file/attribute/AclEntry;");
+			}
+			
+			[JavaSignature("([Ljava/nio/file/attribute/AclEntryPermission;)Ljava/nio/file/attribute/AclEntry/Builder;")]
+			public AclEntry.Builder setPermissions(ObjectArray<AclEntryPermission> arg0)
+			{
+				return Instance.CallMethod<AclEntry.Builder>("setPermissions", "([Ljava/nio/file/attribute/AclEntryPermission;)Ljava/nio/file/attribute/AclEntry/Builder;", arg0);
+			}
+			
+			[JavaSignature("(Ljava/util/Set;)Ljava/nio/file/attribute/AclEntry/Builder;")]
+			public AclEntry.Builder setPermissions(Set<AclEntryPermission> arg0)
+			{
+				return Instance.CallMethod<AclEntry.Builder>("setPermissions", "(Ljava/util/Set;)Ljava/nio/file/attribute/AclEntry/Builder;", arg0);
+			}
+			
 			[JavaSignature("([Ljava/nio/file/attribute/AclEntryFlag;)Ljava/nio/file/attribute/AclEntry/Builder;")]
 			public AclEntry.Builder setFlags(ObjectArray<AclEntryFlag> arg0)
 			{
@@ -71,24 +89,6 @@ namespace jvm4csharp.java.nio.file.attribute
 			public AclEntry.Builder setType(AclEntryType arg0)
 			{
 				return Instance.CallMethod<AclEntry.Builder>("setType", "(Ljava/nio/file/attribute/AclEntryType;)Ljava/nio/file/attribute/AclEntry/Builder;", arg0);
-			}
-			
-			[JavaSignature("()Ljava/nio/file/attribute/AclEntry;")]
-			public AclEntry build()
-			{
-				return Instance.CallMethod<AclEntry>("build", "()Ljava/nio/file/attribute/AclEntry;");
-			}
-			
-			[JavaSignature("(Ljava/util/Set;)Ljava/nio/file/attribute/AclEntry/Builder;")]
-			public AclEntry.Builder setPermissions(Set<AclEntryPermission> arg0)
-			{
-				return Instance.CallMethod<AclEntry.Builder>("setPermissions", "(Ljava/util/Set;)Ljava/nio/file/attribute/AclEntry/Builder;", arg0);
-			}
-			
-			[JavaSignature("([Ljava/nio/file/attribute/AclEntryPermission;)Ljava/nio/file/attribute/AclEntry/Builder;")]
-			public AclEntry.Builder setPermissions(ObjectArray<AclEntryPermission> arg0)
-			{
-				return Instance.CallMethod<AclEntry.Builder>("setPermissions", "([Ljava/nio/file/attribute/AclEntryPermission;)Ljava/nio/file/attribute/AclEntry/Builder;", arg0);
 			}
 		}
 	}

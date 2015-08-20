@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/TooManyListenersException")]
-	public class TooManyListenersException : Exception
+	public partial class TooManyListenersException : Exception
 	{
 		protected TooManyListenersException(ProxyCtor p) : base(p) {}
 		

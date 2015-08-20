@@ -15,7 +15,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/CookieHandler")]
-	public abstract class CookieHandler : Object
+	public abstract partial class CookieHandler : Object
 	{
 		protected CookieHandler(ProxyCtor p) : base(p) {}
 	

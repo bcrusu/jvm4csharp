@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/ReadOnlyFileSystemException")]
-	public class ReadOnlyFileSystemException : UnsupportedOperationException
+	public partial class ReadOnlyFileSystemException : UnsupportedOperationException
 	{
 		protected ReadOnlyFileSystemException(ProxyCtor p) : base(p) {}
 		

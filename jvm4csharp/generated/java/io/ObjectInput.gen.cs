@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/ObjectInput")]
-	public interface ObjectInput : DataInput, AutoCloseable
+	public partial interface ObjectInput : DataInput, AutoCloseable
 	{
 		[JavaSignature("()Ljava/lang/Object;")]
 		IJavaObject readObject();

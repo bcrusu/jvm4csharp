@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/SocketOption")]
-	public interface SocketOption<T> : IJavaObject
+	public partial interface SocketOption<T> : IJavaObject
 		where T : IJavaObject
 	{
 		[JavaSignature("()Ljava/lang/String;")]

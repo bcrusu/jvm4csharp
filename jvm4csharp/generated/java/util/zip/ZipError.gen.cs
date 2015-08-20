@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.zip
 {
 	[JavaProxy("java/util/zip/ZipError")]
-	public class ZipError : InternalError
+	public partial class ZipError : InternalError
 	{
 		protected ZipError(ProxyCtor p) : base(p) {}
 		

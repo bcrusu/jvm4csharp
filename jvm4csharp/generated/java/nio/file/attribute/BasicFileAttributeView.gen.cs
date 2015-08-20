@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file.attribute
 {
 	[JavaProxy("java/nio/file/attribute/BasicFileAttributeView")]
-	public interface BasicFileAttributeView : FileAttributeView
+	public partial interface BasicFileAttributeView : FileAttributeView
 	{
 		[JavaSignature("()Ljava/lang/String;")]
 		new String name();

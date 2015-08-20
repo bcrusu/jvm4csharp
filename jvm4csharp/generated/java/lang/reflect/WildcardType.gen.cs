@@ -14,12 +14,12 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/WildcardType")]
-	public interface WildcardType : Type
+	public partial interface WildcardType : Type
 	{
 		[JavaSignature("()[Ljava/lang/reflect/Type;")]
-		ObjectArray<Type> getLowerBounds();
+		ObjectArray<Type> getUpperBounds();
 		
 		[JavaSignature("()[Ljava/lang/reflect/Type;")]
-		ObjectArray<Type> getUpperBounds();
+		ObjectArray<Type> getLowerBounds();
 	}
 }

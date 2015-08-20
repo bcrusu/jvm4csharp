@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/TransferQueue")]
-	public interface TransferQueue<E> : BlockingQueue<E>
+	public partial interface TransferQueue<E> : BlockingQueue<E>
 		where E : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/Object;)V")]

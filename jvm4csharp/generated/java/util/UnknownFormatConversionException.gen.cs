@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/UnknownFormatConversionException")]
-	public class UnknownFormatConversionException : IllegalFormatException
+	public partial class UnknownFormatConversionException : IllegalFormatException
 	{
 		protected UnknownFormatConversionException(ProxyCtor p) : base(p) {}
 		

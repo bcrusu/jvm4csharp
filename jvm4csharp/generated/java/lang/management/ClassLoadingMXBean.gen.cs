@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.management
 {
 	[JavaProxy("java/lang/management/ClassLoadingMXBean")]
-	public interface ClassLoadingMXBean : PlatformManagedObject
+	public partial interface ClassLoadingMXBean : PlatformManagedObject
 	{
 		[JavaSignature("()I")]
 		int getLoadedClassCount();

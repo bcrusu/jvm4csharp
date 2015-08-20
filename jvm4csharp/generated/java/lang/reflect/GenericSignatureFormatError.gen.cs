@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/GenericSignatureFormatError")]
-	public class GenericSignatureFormatError : ClassFormatError
+	public partial class GenericSignatureFormatError : ClassFormatError
 	{
 		protected GenericSignatureFormatError(ProxyCtor p) : base(p) {}
 		

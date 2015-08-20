@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/DatagramSocketImplFactory")]
-	public interface DatagramSocketImplFactory : IJavaObject
+	public partial interface DatagramSocketImplFactory : IJavaObject
 	{
 		[JavaSignature("()Ljava/net/DatagramSocketImpl;")]
 		DatagramSocketImpl createDatagramSocketImpl();

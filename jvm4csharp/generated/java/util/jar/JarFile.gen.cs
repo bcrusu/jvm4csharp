@@ -16,7 +16,7 @@ using jvm4csharp.java.util.zip;
 namespace jvm4csharp.java.util.jar
 {
 	[JavaProxy("java/util/jar/JarFile")]
-	public class JarFile : ZipFile
+	public partial class JarFile : ZipFile
 	{
 		protected JarFile(ProxyCtor p) : base(p) {}
 		

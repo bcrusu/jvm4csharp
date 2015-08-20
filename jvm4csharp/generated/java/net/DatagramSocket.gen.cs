@@ -16,7 +16,7 @@ using jvm4csharp.java.nio.channels;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/DatagramSocket")]
-	public class DatagramSocket : Object, Closeable
+	public partial class DatagramSocket : Object, Closeable
 	{
 		protected DatagramSocket(ProxyCtor p) : base(p) {}
 		
@@ -68,48 +68,6 @@ namespace jvm4csharp.java.net
 		public DatagramChannel getChannel()
 		{
 			return Instance.CallMethod<DatagramChannel>("getChannel", "()Ljava/nio/channels/DatagramChannel;");
-		}
-		
-		[JavaSignature("()Ljava/net/InetAddress;")]
-		public InetAddress getLocalAddress()
-		{
-			return Instance.CallMethod<InetAddress>("getLocalAddress", "()Ljava/net/InetAddress;");
-		}
-		
-		[JavaSignature("()Ljava/net/SocketAddress;")]
-		public SocketAddress getRemoteSocketAddress()
-		{
-			return Instance.CallMethod<SocketAddress>("getRemoteSocketAddress", "()Ljava/net/SocketAddress;");
-		}
-		
-		[JavaSignature("()I")]
-		public int getSendBufferSize()
-		{
-			return Instance.CallMethod<int>("getSendBufferSize", "()I");
-		}
-		
-		[JavaSignature("()I")]
-		public int getTrafficClass()
-		{
-			return Instance.CallMethod<int>("getTrafficClass", "()I");
-		}
-		
-		[JavaSignature("()Z")]
-		public bool isConnected()
-		{
-			return Instance.CallMethod<bool>("isConnected", "()Z");
-		}
-		
-		[JavaSignature("(I)V")]
-		public void setSendBufferSize(int arg0)
-		{
-			Instance.CallMethod("setSendBufferSize", "(I)V", arg0);
-		}
-		
-		[JavaSignature("(I)V")]
-		public void setTrafficClass(int arg0)
-		{
-			Instance.CallMethod("setTrafficClass", "(I)V", arg0);
 		}
 		
 		[JavaSignature("(Ljava/net/SocketAddress;)V")]
@@ -182,6 +140,48 @@ namespace jvm4csharp.java.net
 		public void setSoTimeout(int arg0)
 		{
 			Instance.CallMethod("setSoTimeout", "(I)V", arg0);
+		}
+		
+		[JavaSignature("()Ljava/net/InetAddress;")]
+		public InetAddress getLocalAddress()
+		{
+			return Instance.CallMethod<InetAddress>("getLocalAddress", "()Ljava/net/InetAddress;");
+		}
+		
+		[JavaSignature("()Ljava/net/SocketAddress;")]
+		public SocketAddress getRemoteSocketAddress()
+		{
+			return Instance.CallMethod<SocketAddress>("getRemoteSocketAddress", "()Ljava/net/SocketAddress;");
+		}
+		
+		[JavaSignature("()I")]
+		public int getSendBufferSize()
+		{
+			return Instance.CallMethod<int>("getSendBufferSize", "()I");
+		}
+		
+		[JavaSignature("()I")]
+		public int getTrafficClass()
+		{
+			return Instance.CallMethod<int>("getTrafficClass", "()I");
+		}
+		
+		[JavaSignature("()Z")]
+		public bool isConnected()
+		{
+			return Instance.CallMethod<bool>("isConnected", "()Z");
+		}
+		
+		[JavaSignature("(I)V")]
+		public void setSendBufferSize(int arg0)
+		{
+			Instance.CallMethod("setSendBufferSize", "(I)V", arg0);
+		}
+		
+		[JavaSignature("(I)V")]
+		public void setTrafficClass(int arg0)
+		{
+			Instance.CallMethod("setTrafficClass", "(I)V", arg0);
 		}
 		
 		[JavaSignature("(Ljava/net/DatagramPacket;)V")]

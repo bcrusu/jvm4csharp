@@ -16,7 +16,7 @@ using jvm4csharp.java.nio.channels.spi;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/Pipe")]
-	public abstract class Pipe : Object
+	public abstract partial class Pipe : Object
 	{
 		protected Pipe(ProxyCtor p) : base(p) {}
 	
@@ -39,7 +39,7 @@ namespace jvm4csharp.java.nio.channels
 		}
 	
 		[JavaProxy("java/nio/channels/Pipe/SinkChannel")]
-		public abstract class SinkChannel : AbstractSelectableChannel, WritableByteChannel, GatheringByteChannel
+		public abstract partial class SinkChannel : AbstractSelectableChannel, WritableByteChannel, GatheringByteChannel
 		{
 			protected SinkChannel(ProxyCtor p) : base(p) {}
 		
@@ -63,7 +63,7 @@ namespace jvm4csharp.java.nio.channels
 		}
 		
 		[JavaProxy("java/nio/channels/Pipe/SourceChannel")]
-		public abstract class SourceChannel : AbstractSelectableChannel, ReadableByteChannel, ScatteringByteChannel
+		public abstract partial class SourceChannel : AbstractSelectableChannel, ReadableByteChannel, ScatteringByteChannel
 		{
 			protected SourceChannel(ProxyCtor p) : base(p) {}
 		

@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/ParseException")]
-	public class ParseException : Exception
+	public partial class ParseException : Exception
 	{
 		protected ParseException(ProxyCtor p) : base(p) {}
 		

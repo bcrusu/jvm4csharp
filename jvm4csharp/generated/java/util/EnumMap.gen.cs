@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/EnumMap")]
-	public class EnumMap<K, V> : AbstractMap<K, V>, Serializable, Cloneable
+	public partial class EnumMap<K, V> : AbstractMap<K, V>, Serializable, Cloneable
 		where K : Enum<K>
 		where V : IJavaObject
 	{

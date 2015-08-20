@@ -15,7 +15,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Optional")]
-	public class Optional<T> : Object
+	public partial class Optional<T> : Object
 		where T : IJavaObject
 	{
 		protected Optional(ProxyCtor p) : base(p) {}

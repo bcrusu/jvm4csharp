@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/RunnableScheduledFuture")]
-	public interface RunnableScheduledFuture<V> : RunnableFuture<V>, ScheduledFuture<V>
+	public partial interface RunnableScheduledFuture<V> : RunnableFuture<V>, ScheduledFuture<V>
 		where V : IJavaObject
 	{
 		[JavaSignature("()Z")]

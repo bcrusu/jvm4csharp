@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/AnnotatedParameterizedType")]
-	public interface AnnotatedParameterizedType : AnnotatedType
+	public partial interface AnnotatedParameterizedType : AnnotatedType
 	{
 		[JavaSignature("()[Ljava/lang/reflect/AnnotatedType;")]
 		ObjectArray<AnnotatedType> getAnnotatedActualTypeArguments();

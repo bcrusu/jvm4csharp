@@ -16,7 +16,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/CompletableFuture")]
-	public class CompletableFuture<T> : Object, Future<T>, CompletionStage<T>
+	public partial class CompletableFuture<T> : Object, Future<T>, CompletionStage<T>
 		where T : IJavaObject
 	{
 		protected CompletableFuture(ProxyCtor p) : base(p) {}
@@ -57,22 +57,52 @@ namespace jvm4csharp.java.util.concurrent
 			return Static.CallMethod<CompletableFuture<Void>>(typeof(CompletableFuture<>), "allOf", "([Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;", arg0);
 		}
 		
+		[JavaSignature("(Z)Z")]
+		public bool cancel(bool arg0)
+		{
+			return Instance.CallMethod<bool>("cancel", "(Z)Z", arg0);
+		}
+		
+		[JavaSignature("()Z")]
+		public bool isDone()
+		{
+			return Instance.CallMethod<bool>("isDone", "()Z");
+		}
+		
+		[JavaSignature("(Ljava/lang/Object;)Z")]
+		public bool complete(T arg0)
+		{
+			return Instance.CallMethod<bool>("complete", "(Ljava/lang/Object;)Z", arg0);
+		}
+		
+		[JavaSignature("(Ljava/lang/Throwable;)Z")]
+		public bool completeExceptionally(Throwable arg0)
+		{
+			return Instance.CallMethod<bool>("completeExceptionally", "(Ljava/lang/Throwable;)Z", arg0);
+		}
+		
+		[JavaSignature("()Z")]
+		public bool isCancelled()
+		{
+			return Instance.CallMethod<bool>("isCancelled", "()Z");
+		}
+		
 		[JavaSignature("(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;")]
 		public CompletableFuture<Void> acceptEither(CompletionStage<T> arg0, Consumer<IJavaObject> arg1)
 		{
 			return Instance.CallMethod<CompletableFuture<Void>>("acceptEither", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;", arg0, arg1);
 		}
 		
-		[JavaSignature("(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Consumer;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;")]
-		public CompletableFuture<Void> acceptEitherAsync(CompletionStage<T> arg0, Consumer<IJavaObject> arg1, Executor arg2)
-		{
-			return Instance.CallMethod<CompletableFuture<Void>>("acceptEitherAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Consumer;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", arg0, arg1, arg2);
-		}
-		
 		[JavaSignature("(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;")]
 		public CompletableFuture<Void> acceptEitherAsync(CompletionStage<T> arg0, Consumer<IJavaObject> arg1)
 		{
 			return Instance.CallMethod<CompletableFuture<Void>>("acceptEitherAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;", arg0, arg1);
+		}
+		
+		[JavaSignature("(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Consumer;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;")]
+		public CompletableFuture<Void> acceptEitherAsync(CompletionStage<T> arg0, Consumer<IJavaObject> arg1, Executor arg2)
+		{
+			return Instance.CallMethod<CompletableFuture<Void>>("acceptEitherAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Consumer;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", arg0, arg1, arg2);
 		}
 		
 		[JavaSignature("([Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;")]
@@ -88,18 +118,18 @@ namespace jvm4csharp.java.util.concurrent
 			return Instance.CallMethod<CompletableFuture<U>>("applyToEither", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", arg0, arg1);
 		}
 		
-		[JavaSignature("(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Function;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;")]
-		public CompletableFuture<U> applyToEitherAsync<U>(CompletionStage<T> arg0, Function<IJavaObject, U> arg1, Executor arg2)
-			where U : IJavaObject
-		{
-			return Instance.CallMethod<CompletableFuture<U>>("applyToEitherAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Function;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", arg0, arg1, arg2);
-		}
-		
 		[JavaSignature("(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;")]
 		public CompletableFuture<U> applyToEitherAsync<U>(CompletionStage<T> arg0, Function<IJavaObject, U> arg1)
 			where U : IJavaObject
 		{
 			return Instance.CallMethod<CompletableFuture<U>>("applyToEitherAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", arg0, arg1);
+		}
+		
+		[JavaSignature("(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Function;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;")]
+		public CompletableFuture<U> applyToEitherAsync<U>(CompletionStage<T> arg0, Function<IJavaObject, U> arg1, Executor arg2)
+			where U : IJavaObject
+		{
+			return Instance.CallMethod<CompletableFuture<U>>("applyToEitherAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/Function;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", arg0, arg1, arg2);
 		}
 		
 		[JavaSignature("(Ljava/lang/Object;)Ljava/util/concurrent/CompletableFuture;")]
@@ -183,16 +213,16 @@ namespace jvm4csharp.java.util.concurrent
 			return Instance.CallMethod<CompletableFuture<Void>>("runAfterEither", "(Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", arg0, arg1);
 		}
 		
-		[JavaSignature("(Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;")]
-		public CompletableFuture<Void> runAfterEitherAsync(CompletionStage<IJavaObject> arg0, Runnable arg1, Executor arg2)
-		{
-			return Instance.CallMethod<CompletableFuture<Void>>("runAfterEitherAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", arg0, arg1, arg2);
-		}
-		
 		[JavaSignature("(Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;")]
 		public CompletableFuture<Void> runAfterEitherAsync(CompletionStage<IJavaObject> arg0, Runnable arg1)
 		{
 			return Instance.CallMethod<CompletableFuture<Void>>("runAfterEitherAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;", arg0, arg1);
+		}
+		
+		[JavaSignature("(Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;")]
+		public CompletableFuture<Void> runAfterEitherAsync(CompletionStage<IJavaObject> arg0, Runnable arg1, Executor arg2)
+		{
+			return Instance.CallMethod<CompletableFuture<Void>>("runAfterEitherAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", arg0, arg1, arg2);
 		}
 		
 		[JavaSignature("(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;")]
@@ -246,18 +276,18 @@ namespace jvm4csharp.java.util.concurrent
 			return Instance.CallMethod<CompletableFuture<Void>>("thenAcceptBoth", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", arg0, arg1);
 		}
 		
-		[JavaSignature("(Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;")]
-		public CompletableFuture<Void> thenAcceptBothAsync<U>(CompletionStage<U> arg0, BiConsumer<IJavaObject, IJavaObject> arg1)
-			where U : IJavaObject
-		{
-			return Instance.CallMethod<CompletableFuture<Void>>("thenAcceptBothAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", arg0, arg1);
-		}
-		
 		[JavaSignature("(Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiConsumer;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;")]
 		public CompletableFuture<Void> thenAcceptBothAsync<U>(CompletionStage<U> arg0, BiConsumer<IJavaObject, IJavaObject> arg1, Executor arg2)
 			where U : IJavaObject
 		{
 			return Instance.CallMethod<CompletableFuture<Void>>("thenAcceptBothAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiConsumer;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", arg0, arg1, arg2);
+		}
+		
+		[JavaSignature("(Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;")]
+		public CompletableFuture<Void> thenAcceptBothAsync<U>(CompletionStage<U> arg0, BiConsumer<IJavaObject, IJavaObject> arg1)
+			where U : IJavaObject
+		{
+			return Instance.CallMethod<CompletableFuture<Void>>("thenAcceptBothAsync", "(Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", arg0, arg1);
 		}
 		
 		[JavaSignature("(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;")]
@@ -267,18 +297,18 @@ namespace jvm4csharp.java.util.concurrent
 			return Instance.CallMethod<CompletableFuture<U>>("thenApply", "(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", arg0);
 		}
 		
-		[JavaSignature("(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;")]
-		public CompletableFuture<U> thenApplyAsync<U>(Function<IJavaObject, U> arg0)
-			where U : IJavaObject
-		{
-			return Instance.CallMethod<CompletableFuture<U>>("thenApplyAsync", "(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", arg0);
-		}
-		
 		[JavaSignature("(Ljava/util/function/Function;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;")]
 		public CompletableFuture<U> thenApplyAsync<U>(Function<IJavaObject, U> arg0, Executor arg1)
 			where U : IJavaObject
 		{
 			return Instance.CallMethod<CompletableFuture<U>>("thenApplyAsync", "(Ljava/util/function/Function;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", arg0, arg1);
+		}
+		
+		[JavaSignature("(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;")]
+		public CompletableFuture<U> thenApplyAsync<U>(Function<IJavaObject, U> arg0)
+			where U : IJavaObject
+		{
+			return Instance.CallMethod<CompletableFuture<U>>("thenApplyAsync", "(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", arg0);
 		}
 		
 		[JavaSignature("(Ljava/util/concurrent/CompletionStage;Ljava/util/function/BiFunction;)Ljava/util/concurrent/CompletableFuture;")]
@@ -312,18 +342,18 @@ namespace jvm4csharp.java.util.concurrent
 			return Instance.CallMethod<CompletableFuture<U>>("thenCompose", "(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", arg0);
 		}
 		
-		[JavaSignature("(Ljava/util/function/Function;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;")]
-		public CompletableFuture<U> thenComposeAsync<U>(Function<IJavaObject, CompletionStage<U>> arg0, Executor arg1)
-			where U : IJavaObject
-		{
-			return Instance.CallMethod<CompletableFuture<U>>("thenComposeAsync", "(Ljava/util/function/Function;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", arg0, arg1);
-		}
-		
 		[JavaSignature("(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;")]
 		public CompletableFuture<U> thenComposeAsync<U>(Function<IJavaObject, CompletionStage<U>> arg0)
 			where U : IJavaObject
 		{
 			return Instance.CallMethod<CompletableFuture<U>>("thenComposeAsync", "(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;", arg0);
+		}
+		
+		[JavaSignature("(Ljava/util/function/Function;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;")]
+		public CompletableFuture<U> thenComposeAsync<U>(Function<IJavaObject, CompletionStage<U>> arg0, Executor arg1)
+			where U : IJavaObject
+		{
+			return Instance.CallMethod<CompletableFuture<U>>("thenComposeAsync", "(Ljava/util/function/Function;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", arg0, arg1);
 		}
 		
 		[JavaSignature("(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;")]
@@ -356,46 +386,16 @@ namespace jvm4csharp.java.util.concurrent
 			return Instance.CallMethod<CompletableFuture<T>>("whenComplete", "(Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", arg0);
 		}
 		
-		[JavaSignature("(Ljava/util/function/BiConsumer;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;")]
-		public CompletableFuture<T> whenCompleteAsync(BiConsumer<IJavaObject, IJavaObject> arg0, Executor arg1)
-		{
-			return Instance.CallMethod<CompletableFuture<T>>("whenCompleteAsync", "(Ljava/util/function/BiConsumer;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", arg0, arg1);
-		}
-		
 		[JavaSignature("(Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;")]
 		public CompletableFuture<T> whenCompleteAsync(BiConsumer<IJavaObject, IJavaObject> arg0)
 		{
 			return Instance.CallMethod<CompletableFuture<T>>("whenCompleteAsync", "(Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", arg0);
 		}
 		
-		[JavaSignature("(Z)Z")]
-		public bool cancel(bool arg0)
+		[JavaSignature("(Ljava/util/function/BiConsumer;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;")]
+		public CompletableFuture<T> whenCompleteAsync(BiConsumer<IJavaObject, IJavaObject> arg0, Executor arg1)
 		{
-			return Instance.CallMethod<bool>("cancel", "(Z)Z", arg0);
-		}
-		
-		[JavaSignature("()Z")]
-		public bool isDone()
-		{
-			return Instance.CallMethod<bool>("isDone", "()Z");
-		}
-		
-		[JavaSignature("(Ljava/lang/Object;)Z")]
-		public bool complete(T arg0)
-		{
-			return Instance.CallMethod<bool>("complete", "(Ljava/lang/Object;)Z", arg0);
-		}
-		
-		[JavaSignature("(Ljava/lang/Throwable;)Z")]
-		public bool completeExceptionally(Throwable arg0)
-		{
-			return Instance.CallMethod<bool>("completeExceptionally", "(Ljava/lang/Throwable;)Z", arg0);
-		}
-		
-		[JavaSignature("()Z")]
-		public bool isCancelled()
-		{
-			return Instance.CallMethod<bool>("isCancelled", "()Z");
+			return Instance.CallMethod<CompletableFuture<T>>("whenCompleteAsync", "(Ljava/util/function/BiConsumer;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", arg0, arg1);
 		}
 		
 		[JavaSignature("(Ljava/util/function/BiFunction;)Ljava/util/concurrent/CompletionStage;")]
@@ -624,7 +624,7 @@ namespace jvm4csharp.java.util.concurrent
 	public class CompletableFuture
 	{
 		[JavaProxy("java/util/concurrent/CompletableFuture/AsynchronousCompletionTask")]
-		public interface AsynchronousCompletionTask : IJavaObject
+		public partial interface AsynchronousCompletionTask : IJavaObject
 		{
 		}
 	}

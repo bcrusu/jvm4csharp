@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/EmptyStackException")]
-	public class EmptyStackException : RuntimeException
+	public partial class EmptyStackException : RuntimeException
 	{
 		protected EmptyStackException(ProxyCtor p) : base(p) {}
 		

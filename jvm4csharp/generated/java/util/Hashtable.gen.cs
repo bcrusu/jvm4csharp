@@ -16,7 +16,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Hashtable")]
-	public class Hashtable<K, V> : Dictionary<K, V>, Map<K, V>, Cloneable, Serializable
+	public partial class Hashtable<K, V> : Dictionary<K, V>, Map<K, V>, Cloneable, Serializable
 		where K : IJavaObject
 		where V : IJavaObject
 	{

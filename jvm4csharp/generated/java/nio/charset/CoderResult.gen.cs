@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.charset
 {
 	[JavaProxy("java/nio/charset/CoderResult")]
-	public class CoderResult : Object
+	public partial class CoderResult : Object
 	{
 		protected CoderResult(ProxyCtor p) : base(p) {}
 	

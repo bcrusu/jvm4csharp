@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/Field")]
-	public class Field : AccessibleObject, Member
+	public partial class Field : AccessibleObject, Member
 	{
 		protected Field(ProxyCtor p) : base(p) {}
 	

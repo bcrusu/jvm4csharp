@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/ToDoubleFunction")]
-	public interface ToDoubleFunction<T> : IJavaObject
+	public partial interface ToDoubleFunction<T> : IJavaObject
 		where T : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/Object;)D")]

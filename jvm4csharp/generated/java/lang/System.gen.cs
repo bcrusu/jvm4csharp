@@ -16,7 +16,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/System")]
-	public class System : Object
+	public partial class System : Object
 	{
 		protected System(ProxyCtor p) : base(p) {}
 	

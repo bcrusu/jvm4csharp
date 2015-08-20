@@ -15,7 +15,7 @@ using jvm4csharp.java.util.concurrent;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/AsynchronousByteChannel")]
-	public interface AsynchronousByteChannel : AsynchronousChannel
+	public partial interface AsynchronousByteChannel : AsynchronousChannel
 	{
 		[JavaSignature("(Ljava/nio/ByteBuffer;)Ljava/util/concurrent/Future;")]
 		Future<Integer> write(ByteBuffer arg0);

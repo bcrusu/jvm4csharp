@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/RecursiveAction")]
-	public abstract class RecursiveAction : ForkJoinTask<Void>
+	public abstract partial class RecursiveAction : ForkJoinTask<Void>
 	{
 		protected RecursiveAction(ProxyCtor p) : base(p) {}
 	

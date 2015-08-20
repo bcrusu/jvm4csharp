@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.zip
 {
 	[JavaProxy("java/util/zip/DataFormatException")]
-	public class DataFormatException : Exception
+	public partial class DataFormatException : Exception
 	{
 		protected DataFormatException(ProxyCtor p) : base(p) {}
 		

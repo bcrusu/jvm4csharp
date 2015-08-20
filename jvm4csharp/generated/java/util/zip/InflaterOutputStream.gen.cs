@@ -14,7 +14,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.util.zip
 {
 	[JavaProxy("java/util/zip/InflaterOutputStream")]
-	public class InflaterOutputStream : FilterOutputStream
+	public partial class InflaterOutputStream : FilterOutputStream
 	{
 		protected InflaterOutputStream(ProxyCtor p) : base(p) {}
 		

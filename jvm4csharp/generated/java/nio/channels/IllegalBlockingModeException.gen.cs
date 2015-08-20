@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/IllegalBlockingModeException")]
-	public class IllegalBlockingModeException : IllegalStateException
+	public partial class IllegalBlockingModeException : IllegalStateException
 	{
 		protected IllegalBlockingModeException(ProxyCtor p) : base(p) {}
 		

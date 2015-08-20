@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio
 {
 	[JavaProxy("java/nio/ByteOrder")]
-	public class ByteOrder : Object
+	public partial class ByteOrder : Object
 	{
 		protected ByteOrder(ProxyCtor p) : base(p) {}
 	

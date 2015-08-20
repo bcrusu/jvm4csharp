@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/Executor")]
-	public interface Executor : IJavaObject
+	public partial interface Executor : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/Runnable;)V")]
 		void execute(Runnable arg0);

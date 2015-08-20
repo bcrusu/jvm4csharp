@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.concurrent.locks
 {
 	[JavaProxy("java/util/concurrent/locks/ReadWriteLock")]
-	public interface ReadWriteLock : IJavaObject
+	public partial interface ReadWriteLock : IJavaObject
 	{
 		[JavaSignature("()Ljava/util/concurrent/locks/Lock;")]
 		Lock readLock();

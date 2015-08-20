@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/ObjLongConsumer")]
-	public interface ObjLongConsumer<T> : IJavaObject
+	public partial interface ObjLongConsumer<T> : IJavaObject
 		where T : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/Object;J)V")]

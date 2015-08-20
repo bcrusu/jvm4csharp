@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio
 {
 	[JavaProxy("java/nio/InvalidMarkException")]
-	public class InvalidMarkException : IllegalStateException
+	public partial class InvalidMarkException : IllegalStateException
 	{
 		protected InvalidMarkException(ProxyCtor p) : base(p) {}
 		

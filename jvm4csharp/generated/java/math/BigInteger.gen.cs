@@ -16,7 +16,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.math
 {
 	[JavaProxy("java/math/BigInteger")]
-	public class BigInteger : Number, Comparable<BigInteger>
+	public partial class BigInteger : Number, Comparable<BigInteger>
 	{
 		protected BigInteger(ProxyCtor p) : base(p) {}
 		
@@ -188,12 +188,6 @@ namespace jvm4csharp.java.math
 			return Instance.CallMethod<BigInteger>("not", "()Ljava/math/BigInteger;");
 		}
 		
-		[JavaSignature("()Ljava/math/BigInteger;")]
-		public BigInteger negate()
-		{
-			return Instance.CallMethod<BigInteger>("negate", "()Ljava/math/BigInteger;");
-		}
-		
 		[JavaSignature("()I")]
 		public int bitLength()
 		{
@@ -312,6 +306,12 @@ namespace jvm4csharp.java.math
 		public BigInteger shiftRight(int arg0)
 		{
 			return Instance.CallMethod<BigInteger>("shiftRight", "(I)Ljava/math/BigInteger;", arg0);
+		}
+		
+		[JavaSignature("()Ljava/math/BigInteger;")]
+		public BigInteger negate()
+		{
+			return Instance.CallMethod<BigInteger>("negate", "()Ljava/math/BigInteger;");
 		}
 	}
 }

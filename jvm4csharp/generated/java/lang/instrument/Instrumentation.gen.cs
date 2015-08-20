@@ -15,7 +15,7 @@ using jvm4csharp.java.util.jar;
 namespace jvm4csharp.java.lang.instrument
 {
 	[JavaProxy("java/lang/instrument/Instrumentation")]
-	public interface Instrumentation : IJavaObject
+	public partial interface Instrumentation : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/instrument/ClassFileTransformer;Z)V")]
 		void addTransformer(ClassFileTransformer arg0, bool arg1);

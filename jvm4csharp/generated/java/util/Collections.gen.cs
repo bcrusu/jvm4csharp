@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Collections")]
-	public class Collections : Object
+	public partial class Collections : Object
 	{
 		protected Collections(ProxyCtor p) : base(p) {}
 	

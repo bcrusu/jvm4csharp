@@ -21,7 +21,7 @@ using jvm4csharp.java.util.concurrent;
 namespace jvm4csharp.java.nio.file.spi
 {
 	[JavaProxy("java/nio/file/spi/FileSystemProvider")]
-	public abstract class FileSystemProvider : Object
+	public abstract partial class FileSystemProvider : Object
 	{
 		protected FileSystemProvider(ProxyCtor p) : base(p) {}
 	

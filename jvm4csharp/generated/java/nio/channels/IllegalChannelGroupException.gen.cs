@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/IllegalChannelGroupException")]
-	public class IllegalChannelGroupException : IllegalArgumentException
+	public partial class IllegalChannelGroupException : IllegalArgumentException
 	{
 		protected IllegalChannelGroupException(ProxyCtor p) : base(p) {}
 		

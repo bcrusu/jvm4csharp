@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.@ref
 {
 	[JavaProxy("java/lang/ref/Reference")]
-	public abstract class Reference<T> : Object
+	public abstract partial class Reference<T> : Object
 		where T : IJavaObject
 	{
 		protected Reference(ProxyCtor p) : base(p) {}

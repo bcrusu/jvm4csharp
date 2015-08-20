@@ -14,13 +14,16 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file.attribute
 {
 	[JavaProxy("java/nio/file/attribute/DosFileAttributeView")]
-	public interface DosFileAttributeView : BasicFileAttributeView
+	public partial interface DosFileAttributeView : BasicFileAttributeView
 	{
 		[JavaSignature("()Ljava/lang/String;")]
 		new String name();
 		
 		[JavaSignature("(Z)V")]
 		void setReadOnly(bool arg0);
+		
+		[JavaSignature("()Ljava/nio/file/attribute/DosFileAttributes;")]
+		new DosFileAttributes readAttributes();
 		
 		[JavaSignature("(Z)V")]
 		void setArchive(bool arg0);
@@ -30,8 +33,5 @@ namespace jvm4csharp.java.nio.file.attribute
 		
 		[JavaSignature("(Z)V")]
 		void setSystem(bool arg0);
-		
-		[JavaSignature("()Ljava/nio/file/attribute/DosFileAttributes;")]
-		new DosFileAttributes readAttributes();
 	}
 }

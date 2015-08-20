@@ -15,7 +15,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.nio.charset
 {
 	[JavaProxy("java/nio/charset/Charset")]
-	public abstract class Charset : Object, Comparable<Charset>
+	public abstract partial class Charset : Object, Comparable<Charset>
 	{
 		protected Charset(ProxyCtor p) : base(p) {}
 	

@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/CompletionService")]
-	public interface CompletionService<V> : IJavaObject
+	public partial interface CompletionService<V> : IJavaObject
 		where V : IJavaObject
 	{
 		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/Future;")]

@@ -16,7 +16,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/MessageFormat")]
-	public class MessageFormat : Format
+	public partial class MessageFormat : Format
 	{
 		protected MessageFormat(ProxyCtor p) : base(p) {}
 		
@@ -60,6 +60,24 @@ namespace jvm4csharp.java.text
 			Instance.CallMethod("setLocale", "(Ljava/util/Locale;)V", arg0);
 		}
 		
+		[JavaSignature("()[Ljava/text/Format;")]
+		public ObjectArray<Format> getFormats()
+		{
+			return Instance.CallMethod<ObjectArray<Format>>("getFormats", "()[Ljava/text/Format;");
+		}
+		
+		[JavaSignature("()Ljava/util/Locale;")]
+		public Locale getLocale()
+		{
+			return Instance.CallMethod<Locale>("getLocale", "()Ljava/util/Locale;");
+		}
+		
+		[JavaSignature("(ILjava/text/Format;)V")]
+		public void setFormat(int arg0, Format arg1)
+		{
+			Instance.CallMethod("setFormat", "(ILjava/text/Format;)V", arg0, arg1);
+		}
+		
 		[JavaSignature("(Ljava/lang/String;)V")]
 		public void applyPattern(String arg0)
 		{
@@ -95,27 +113,9 @@ namespace jvm4csharp.java.text
 		{
 			return Instance.CallMethod<String>("toPattern", "()Ljava/lang/String;");
 		}
-		
-		[JavaSignature("()[Ljava/text/Format;")]
-		public ObjectArray<Format> getFormats()
-		{
-			return Instance.CallMethod<ObjectArray<Format>>("getFormats", "()[Ljava/text/Format;");
-		}
-		
-		[JavaSignature("()Ljava/util/Locale;")]
-		public Locale getLocale()
-		{
-			return Instance.CallMethod<Locale>("getLocale", "()Ljava/util/Locale;");
-		}
-		
-		[JavaSignature("(ILjava/text/Format;)V")]
-		public void setFormat(int arg0, Format arg1)
-		{
-			Instance.CallMethod("setFormat", "(ILjava/text/Format;)V", arg0, arg1);
-		}
 	
 		[JavaProxy("java/text/MessageFormat/Field")]
-		public class Field : Format.Field
+		public partial class Field : Format.Field
 		{
 			protected Field(ProxyCtor p) : base(p) {}
 		

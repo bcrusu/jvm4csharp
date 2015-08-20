@@ -12,20 +12,20 @@
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/ThreadLocalRandom")]
-	public class ThreadLocalRandom : Random
+	public partial class ThreadLocalRandom : Random
 	{
 		protected ThreadLocalRandom(ProxyCtor p) : base(p) {}
 	
-		[JavaSignature("(DD)D")]
-		public double nextDouble(double arg0, double arg1)
-		{
-			return Instance.CallMethod<double>("nextDouble", "(DD)D", arg0, arg1);
-		}
-		
 		[JavaSignature("(D)D")]
 		public double nextDouble(double arg0)
 		{
 			return Instance.CallMethod<double>("nextDouble", "(D)D", arg0);
+		}
+		
+		[JavaSignature("(DD)D")]
+		public double nextDouble(double arg0, double arg1)
+		{
+			return Instance.CallMethod<double>("nextDouble", "(DD)D", arg0, arg1);
 		}
 		
 		[JavaSignature("(II)I")]
@@ -40,16 +40,16 @@ namespace jvm4csharp.java.util.concurrent
 			return Static.CallMethod<ThreadLocalRandom>(typeof(ThreadLocalRandom), "current", "()Ljava/util/concurrent/ThreadLocalRandom;");
 		}
 		
-		[JavaSignature("(J)J")]
-		public long nextLong(long arg0)
-		{
-			return Instance.CallMethod<long>("nextLong", "(J)J", arg0);
-		}
-		
 		[JavaSignature("(JJ)J")]
 		public long nextLong(long arg0, long arg1)
 		{
 			return Instance.CallMethod<long>("nextLong", "(JJ)J", arg0, arg1);
+		}
+		
+		[JavaSignature("(J)J")]
+		public long nextLong(long arg0)
+		{
+			return Instance.CallMethod<long>("nextLong", "(J)J", arg0);
 		}
 	}
 }

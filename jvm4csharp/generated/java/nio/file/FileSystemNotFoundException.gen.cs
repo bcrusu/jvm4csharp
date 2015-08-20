@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/FileSystemNotFoundException")]
-	public class FileSystemNotFoundException : RuntimeException
+	public partial class FileSystemNotFoundException : RuntimeException
 	{
 		protected FileSystemNotFoundException(ProxyCtor p) : base(p) {}
 		

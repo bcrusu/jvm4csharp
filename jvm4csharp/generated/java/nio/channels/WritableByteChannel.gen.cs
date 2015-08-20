@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/WritableByteChannel")]
-	public interface WritableByteChannel : Channel
+	public partial interface WritableByteChannel : Channel
 	{
 		[JavaSignature("(Ljava/nio/ByteBuffer;)I")]
 		int write(ByteBuffer arg0);

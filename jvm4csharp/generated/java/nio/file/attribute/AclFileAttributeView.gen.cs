@@ -15,7 +15,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.nio.file.attribute
 {
 	[JavaProxy("java/nio/file/attribute/AclFileAttributeView")]
-	public interface AclFileAttributeView : FileOwnerAttributeView
+	public partial interface AclFileAttributeView : FileOwnerAttributeView
 	{
 		[JavaSignature("()Ljava/lang/String;")]
 		new String name();

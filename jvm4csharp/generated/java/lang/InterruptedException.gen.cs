@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/InterruptedException")]
-	public class InterruptedException : Exception
+	public partial class InterruptedException : Exception
 	{
 		protected InterruptedException(ProxyCtor p) : base(p) {}
 		

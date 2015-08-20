@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/FilterOutputStream")]
-	public class FilterOutputStream : OutputStream
+	public partial class FilterOutputStream : OutputStream
 	{
 		protected FilterOutputStream(ProxyCtor p) : base(p) {}
 		

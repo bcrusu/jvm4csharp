@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.zip
 {
 	[JavaProxy("java/util/zip/ZipException")]
-	public class ZipException : IOException
+	public partial class ZipException : IOException
 	{
 		protected ZipException(ProxyCtor p) : base(p) {}
 		

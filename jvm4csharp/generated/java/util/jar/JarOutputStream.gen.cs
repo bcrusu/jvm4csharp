@@ -15,7 +15,7 @@ using jvm4csharp.java.util.zip;
 namespace jvm4csharp.java.util.jar
 {
 	[JavaProxy("java/util/jar/JarOutputStream")]
-	public class JarOutputStream : ZipOutputStream
+	public partial class JarOutputStream : ZipOutputStream
 	{
 		protected JarOutputStream(ProxyCtor p) : base(p) {}
 		

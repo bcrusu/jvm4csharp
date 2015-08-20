@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/RuntimeException")]
-	public class RuntimeException : Exception
+	public partial class RuntimeException : Exception
 	{
 		protected RuntimeException(ProxyCtor p) : base(p) {}
 		

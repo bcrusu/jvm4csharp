@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio
 {
 	[JavaProxy("java/nio/ReadOnlyBufferException")]
-	public class ReadOnlyBufferException : UnsupportedOperationException
+	public partial class ReadOnlyBufferException : UnsupportedOperationException
 	{
 		protected ReadOnlyBufferException(ProxyCtor p) : base(p) {}
 		

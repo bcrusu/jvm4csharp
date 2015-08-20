@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/NoRouteToHostException")]
-	public class NoRouteToHostException : SocketException
+	public partial class NoRouteToHostException : SocketException
 	{
 		protected NoRouteToHostException(ProxyCtor p) : base(p) {}
 		

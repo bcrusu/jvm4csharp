@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/StackOverflowError")]
-	public class StackOverflowError : VirtualMachineError
+	public partial class StackOverflowError : VirtualMachineError
 	{
 		protected StackOverflowError(ProxyCtor p) : base(p) {}
 		

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.spi
 {
 	[JavaProxy("java/util/spi/CalendarDataProvider")]
-	public abstract class CalendarDataProvider : LocaleServiceProvider
+	public abstract partial class CalendarDataProvider : LocaleServiceProvider
 	{
 		protected CalendarDataProvider(ProxyCtor p) : base(p) {}
 	

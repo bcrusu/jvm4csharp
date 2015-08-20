@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/BiPredicate")]
-	public interface BiPredicate<T, U> : IJavaObject
+	public partial interface BiPredicate<T, U> : IJavaObject
 		where T : IJavaObject
 		where U : IJavaObject
 	{

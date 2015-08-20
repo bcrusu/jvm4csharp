@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/Format")]
-	public abstract class Format : Object, Serializable, Cloneable
+	public abstract partial class Format : Object, Serializable, Cloneable
 	{
 		protected Format(ProxyCtor p) : base(p) {}
 	
@@ -50,7 +50,7 @@ namespace jvm4csharp.java.text
 		}
 	
 		[JavaProxy("java/text/Format/Field")]
-		public class Field : AttributedCharacterIterator_.Attribute
+		public partial class Field : AttributedCharacterIterator_.Attribute
 		{
 			protected Field(ProxyCtor p) : base(p) {}
 		}

@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.jar
 {
 	[JavaProxy("java/util/jar/Pack200")]
-	public abstract class Pack200 : Object
+	public abstract partial class Pack200 : Object
 	{
 		protected Pack200(ProxyCtor p) : base(p) {}
 	
@@ -32,7 +32,7 @@ namespace jvm4csharp.java.util.jar
 		}
 	
 		[JavaProxy("java/util/jar/Pack200/Packer")]
-		public interface Packer : IJavaObject
+		public partial interface Packer : IJavaObject
 		{
 			[JavaSignature("()Ljava/util/SortedMap;")]
 			SortedMap<String, String> properties();
@@ -165,7 +165,7 @@ namespace jvm4csharp.java.util.jar
 		}
 		
 		[JavaProxy("java/util/jar/Pack200/Unpacker")]
-		public interface Unpacker : IJavaObject
+		public partial interface Unpacker : IJavaObject
 		{
 			[JavaSignature("()Ljava/util/SortedMap;")]
 			SortedMap<String, String> properties();

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/IllegalArgumentException")]
-	public class IllegalArgumentException : RuntimeException
+	public partial class IllegalArgumentException : RuntimeException
 	{
 		protected IllegalArgumentException(ProxyCtor p) : base(p) {}
 		

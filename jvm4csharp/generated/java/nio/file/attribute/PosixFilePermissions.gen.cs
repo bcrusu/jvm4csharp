@@ -15,7 +15,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.nio.file.attribute
 {
 	[JavaProxy("java/nio/file/attribute/PosixFilePermissions")]
-	public class PosixFilePermissions : Object
+	public partial class PosixFilePermissions : Object
 	{
 		protected PosixFilePermissions(ProxyCtor p) : base(p) {}
 	

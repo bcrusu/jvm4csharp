@@ -12,18 +12,18 @@
 namespace jvm4csharp.java.lang.management
 {
 	[JavaProxy("java/lang/management/BufferPoolMXBean")]
-	public interface BufferPoolMXBean : PlatformManagedObject
+	public partial interface BufferPoolMXBean : PlatformManagedObject
 	{
 		[JavaSignature("()Ljava/lang/String;")]
 		String getName();
+		
+		[JavaSignature("()J")]
+		long getCount();
 		
 		[JavaSignature("()J")]
 		long getMemoryUsed();
 		
 		[JavaSignature("()J")]
 		long getTotalCapacity();
-		
-		[JavaSignature("()J")]
-		long getCount();
 	}
 }

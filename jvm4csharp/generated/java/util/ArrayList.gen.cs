@@ -16,7 +16,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/ArrayList")]
-	public class ArrayList<E> : AbstractList<E>, List<E>, RandomAccess, Cloneable, Serializable
+	public partial class ArrayList<E> : AbstractList<E>, List<E>, RandomAccess, Cloneable, Serializable
 		where E : IJavaObject
 	{
 		protected ArrayList(ProxyCtor p) : base(p) {}

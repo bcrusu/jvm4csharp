@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/ScheduledExecutorService")]
-	public interface ScheduledExecutorService : ExecutorService
+	public partial interface ScheduledExecutorService : ExecutorService
 	{
 		[JavaSignature("(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;")]
 		ScheduledFuture<IJavaObject> schedule(Runnable arg0, long arg1, TimeUnit arg2);

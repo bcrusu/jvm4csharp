@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/ScheduledThreadPoolExecutor")]
-	public class ScheduledThreadPoolExecutor : ThreadPoolExecutor, ScheduledExecutorService
+	public partial class ScheduledThreadPoolExecutor : ThreadPoolExecutor, ScheduledExecutorService
 	{
 		protected ScheduledThreadPoolExecutor(ProxyCtor p) : base(p) {}
 		
@@ -74,17 +74,17 @@ namespace jvm4csharp.java.util.concurrent
 			Instance.CallMethod("setRemoveOnCancelPolicy", "(Z)V", arg0);
 		}
 		
+		[JavaSignature("(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;")]
+		public ScheduledFuture<IJavaObject> schedule(Runnable arg0, long arg1, TimeUnit arg2)
+		{
+			return Instance.CallMethod<ScheduledFuture<IJavaObject>>("schedule", "(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", arg0, arg1, arg2);
+		}
+		
 		[JavaSignature("(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;")]
 		public ScheduledFuture<V> schedule<V>(Callable<V> arg0, long arg1, TimeUnit arg2)
 			where V : IJavaObject
 		{
 			return Instance.CallMethod<ScheduledFuture<V>>("schedule", "(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", arg0, arg1, arg2);
-		}
-		
-		[JavaSignature("(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;")]
-		public ScheduledFuture<IJavaObject> schedule(Runnable arg0, long arg1, TimeUnit arg2)
-		{
-			return Instance.CallMethod<ScheduledFuture<IJavaObject>>("schedule", "(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", arg0, arg1, arg2);
 		}
 		
 		[JavaSignature("(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;")]

@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.charset
 {
 	[JavaProxy("java/nio/charset/CoderMalfunctionError")]
-	public class CoderMalfunctionError : Error
+	public partial class CoderMalfunctionError : Error
 	{
 		protected CoderMalfunctionError(ProxyCtor p) : base(p) {}
 		

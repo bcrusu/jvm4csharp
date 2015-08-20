@@ -16,7 +16,7 @@ using jvm4csharp.java.nio.charset;
 namespace jvm4csharp.java.util.zip
 {
 	[JavaProxy("java/util/zip/ZipOutputStream")]
-	public class ZipOutputStream : DeflaterOutputStream
+	public partial class ZipOutputStream : DeflaterOutputStream
 	{
 		protected ZipOutputStream(ProxyCtor p) : base(p) {}
 		
@@ -54,6 +54,12 @@ namespace jvm4csharp.java.util.zip
 			Instance.CallMethod("setMethod", "(I)V", arg0);
 		}
 		
+		[JavaSignature("(I)V")]
+		public void setLevel(int arg0)
+		{
+			Instance.CallMethod("setLevel", "(I)V", arg0);
+		}
+		
 		[JavaSignature("()V")]
 		public void closeEntry()
 		{
@@ -64,12 +70,6 @@ namespace jvm4csharp.java.util.zip
 		public void putNextEntry(ZipEntry arg0)
 		{
 			Instance.CallMethod("putNextEntry", "(Ljava/util/zip/ZipEntry;)V", arg0);
-		}
-		
-		[JavaSignature("(I)V")]
-		public void setLevel(int arg0)
-		{
-			Instance.CallMethod("setLevel", "(I)V", arg0);
 		}
 	}
 }

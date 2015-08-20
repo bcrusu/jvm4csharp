@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/InetSocketAddress")]
-	public class InetSocketAddress : SocketAddress
+	public partial class InetSocketAddress : SocketAddress
 	{
 		protected InetSocketAddress(ProxyCtor p) : base(p) {}
 		
@@ -57,16 +57,16 @@ namespace jvm4csharp.java.net
 			return Instance.CallMethod<bool>("isUnresolved", "()Z");
 		}
 		
-		[JavaSignature("(Ljava/lang/String;I)Ljava/net/InetSocketAddress;")]
-		public static InetSocketAddress createUnresolved(String arg0, int arg1)
-		{
-			return Static.CallMethod<InetSocketAddress>(typeof(InetSocketAddress), "createUnresolved", "(Ljava/lang/String;I)Ljava/net/InetSocketAddress;", arg0, arg1);
-		}
-		
 		[JavaSignature("()Ljava/lang/String;")]
 		public String getHostString()
 		{
 			return Instance.CallMethod<String>("getHostString", "()Ljava/lang/String;");
+		}
+		
+		[JavaSignature("(Ljava/lang/String;I)Ljava/net/InetSocketAddress;")]
+		public static InetSocketAddress createUnresolved(String arg0, int arg1)
+		{
+			return Static.CallMethod<InetSocketAddress>(typeof(InetSocketAddress), "createUnresolved", "(Ljava/lang/String;I)Ljava/net/InetSocketAddress;", arg0, arg1);
 		}
 	}
 }

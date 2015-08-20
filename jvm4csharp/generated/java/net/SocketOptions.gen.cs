@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/SocketOptions")]
-	public interface SocketOptions : IJavaObject
+	public partial interface SocketOptions : IJavaObject
 	{
 		[JavaSignature("(I)Ljava/lang/Object;")]
 		IJavaObject getOption(int arg0);

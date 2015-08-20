@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/UTFDataFormatException")]
-	public class UTFDataFormatException : IOException
+	public partial class UTFDataFormatException : IOException
 	{
 		protected UTFDataFormatException(ProxyCtor p) : base(p) {}
 		

@@ -16,7 +16,7 @@ using jvm4csharp.java.nio;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/Reader")]
-	public abstract class Reader : Object, Readable, Closeable
+	public abstract partial class Reader : Object, Readable, Closeable
 	{
 		protected Reader(ProxyCtor p) : base(p) {}
 	

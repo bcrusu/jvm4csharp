@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/AutoCloseable")]
-	public interface AutoCloseable : IJavaObject
+	public partial interface AutoCloseable : IJavaObject
 	{
 		[JavaSignature("()V")]
 		void close();

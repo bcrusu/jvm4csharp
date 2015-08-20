@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/SyncFailedException")]
-	public class SyncFailedException : IOException
+	public partial class SyncFailedException : IOException
 	{
 		protected SyncFailedException(ProxyCtor p) : base(p) {}
 		

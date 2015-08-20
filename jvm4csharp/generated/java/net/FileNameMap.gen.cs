@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/FileNameMap")]
-	public interface FileNameMap : IJavaObject
+	public partial interface FileNameMap : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/String;)Ljava/lang/String;")]
 		String getContentTypeFor(String arg0);

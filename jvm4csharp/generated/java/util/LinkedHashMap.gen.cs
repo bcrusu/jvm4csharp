@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/LinkedHashMap")]
-	public class LinkedHashMap<K, V> : HashMap<K, V>, Map<K, V>
+	public partial class LinkedHashMap<K, V> : HashMap<K, V>, Map<K, V>
 		where K : IJavaObject
 		where V : IJavaObject
 	{

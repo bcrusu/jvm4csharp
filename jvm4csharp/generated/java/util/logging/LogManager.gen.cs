@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.logging
 {
 	[JavaProxy("java/util/logging/LogManager")]
-	public class LogManager : Object
+	public partial class LogManager : Object
 	{
 		protected LogManager(ProxyCtor p) : base(p) {}
 	

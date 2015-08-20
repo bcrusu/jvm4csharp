@@ -16,7 +16,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/PrintWriter")]
-	public class PrintWriter : Writer
+	public partial class PrintWriter : Writer
 	{
 		protected PrintWriter(ProxyCtor p) : base(p) {}
 		

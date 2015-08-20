@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/ParameterizedType")]
-	public interface ParameterizedType : Type
+	public partial interface ParameterizedType : Type
 	{
 		[JavaSignature("()[Ljava/lang/reflect/Type;")]
 		ObjectArray<Type> getActualTypeArguments();

@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio
 {
 	[JavaProxy("java/nio/Buffer")]
-	public abstract class Buffer : Object
+	public abstract partial class Buffer : Object
 	{
 		protected Buffer(ProxyCtor p) : base(p) {}
 	

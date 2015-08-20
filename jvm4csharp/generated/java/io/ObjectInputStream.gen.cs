@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/ObjectInputStream")]
-	public class ObjectInputStream : InputStream, ObjectInput, ObjectStreamConstants
+	public partial class ObjectInputStream : InputStream, ObjectInput, ObjectStreamConstants
 	{
 		protected ObjectInputStream(ProxyCtor p) : base(p) {}
 		
@@ -145,7 +145,7 @@ namespace jvm4csharp.java.io
 		}
 	
 		[JavaProxy("java/io/ObjectInputStream/GetField")]
-		public abstract class GetField : Object
+		public abstract partial class GetField : Object
 		{
 			protected GetField(ProxyCtor p) : base(p) {}
 		
@@ -203,16 +203,16 @@ namespace jvm4csharp.java.io
 				return Instance.CallMethod<char>("get", "(Ljava/lang/String;C)C", arg0, arg1);
 			}
 			
-			[JavaSignature("()Ljava/io/ObjectStreamClass;")]
-			public ObjectStreamClass getObjectStreamClass()
-			{
-				return Instance.CallMethod<ObjectStreamClass>("getObjectStreamClass", "()Ljava/io/ObjectStreamClass;");
-			}
-			
 			[JavaSignature("(Ljava/lang/String;)Z")]
 			public bool defaulted(String arg0)
 			{
 				return Instance.CallMethod<bool>("defaulted", "(Ljava/lang/String;)Z", arg0);
+			}
+			
+			[JavaSignature("()Ljava/io/ObjectStreamClass;")]
+			public ObjectStreamClass getObjectStreamClass()
+			{
+				return Instance.CallMethod<ObjectStreamClass>("getObjectStreamClass", "()Ljava/io/ObjectStreamClass;");
 			}
 		}
 	}

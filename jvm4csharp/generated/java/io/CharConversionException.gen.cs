@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/CharConversionException")]
-	public class CharConversionException : IOException
+	public partial class CharConversionException : IOException
 	{
 		protected CharConversionException(ProxyCtor p) : base(p) {}
 		

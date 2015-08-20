@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang.annotation
 {
 	[JavaProxy("java/lang/annotation/RetentionPolicy")]
-	public class RetentionPolicy : Enum<RetentionPolicy>
+	public partial class RetentionPolicy : Enum<RetentionPolicy>
 	{
 		protected RetentionPolicy(ProxyCtor p) : base(p) {}
 	

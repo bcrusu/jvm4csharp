@@ -15,7 +15,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/DoubleSummaryStatistics")]
-	public class DoubleSummaryStatistics : Object, DoubleConsumer
+	public partial class DoubleSummaryStatistics : Object, DoubleConsumer
 	{
 		protected DoubleSummaryStatistics(ProxyCtor p) : base(p) {}
 		
@@ -34,12 +34,6 @@ namespace jvm4csharp.java.util
 		public void combine(DoubleSummaryStatistics arg0)
 		{
 			Instance.CallMethod("combine", "(Ljava/util/DoubleSummaryStatistics;)V", arg0);
-		}
-		
-		[JavaSignature("()J")]
-		public long getCount()
-		{
-			return Instance.CallMethod<long>("getCount", "()J");
 		}
 		
 		[JavaSignature("()D")]
@@ -64,6 +58,12 @@ namespace jvm4csharp.java.util
 		public double getMin()
 		{
 			return Instance.CallMethod<double>("getMin", "()D");
+		}
+		
+		[JavaSignature("()J")]
+		public long getCount()
+		{
+			return Instance.CallMethod<long>("getCount", "()J");
 		}
 		
 		[JavaSignature("(Ljava/util/function/DoubleConsumer;)Ljava/util/function/DoubleConsumer;")]

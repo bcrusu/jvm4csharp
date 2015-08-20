@@ -17,7 +17,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/DecimalFormatSymbols")]
-	public class DecimalFormatSymbols : Object, Cloneable, Serializable
+	public partial class DecimalFormatSymbols : Object, Cloneable, Serializable
 	{
 		protected DecimalFormatSymbols(ProxyCtor p) : base(p) {}
 		
@@ -65,18 +65,6 @@ namespace jvm4csharp.java.text
 		public char getGroupingSeparator()
 		{
 			return Instance.CallMethod<char>("getGroupingSeparator", "()C");
-		}
-		
-		[JavaSignature("()Ljava/lang/String;")]
-		public String getInfinity()
-		{
-			return Instance.CallMethod<String>("getInfinity", "()Ljava/lang/String;");
-		}
-		
-		[JavaSignature("()Ljava/lang/String;")]
-		public String getNaN()
-		{
-			return Instance.CallMethod<String>("getNaN", "()Ljava/lang/String;");
 		}
 		
 		[JavaSignature("()Ljava/util/Currency;")]
@@ -227,6 +215,18 @@ namespace jvm4csharp.java.text
 		public void setZeroDigit(char arg0)
 		{
 			Instance.CallMethod("setZeroDigit", "(C)V", arg0);
+		}
+		
+		[JavaSignature("()Ljava/lang/String;")]
+		public String getInfinity()
+		{
+			return Instance.CallMethod<String>("getInfinity", "()Ljava/lang/String;");
+		}
+		
+		[JavaSignature("()Ljava/lang/String;")]
+		public String getNaN()
+		{
+			return Instance.CallMethod<String>("getNaN", "()Ljava/lang/String;");
 		}
 	}
 }

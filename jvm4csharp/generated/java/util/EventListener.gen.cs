@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/EventListener")]
-	public interface EventListener : IJavaObject
+	public partial interface EventListener : IJavaObject
 	{
 	}
 }

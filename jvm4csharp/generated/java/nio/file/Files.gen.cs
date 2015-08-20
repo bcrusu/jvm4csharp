@@ -22,7 +22,7 @@ using jvm4csharp.java.util.stream;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/Files")]
-	public class Files : Object
+	public partial class Files : Object
 	{
 		protected Files(ProxyCtor p) : base(p) {}
 	
@@ -152,16 +152,16 @@ namespace jvm4csharp.java.nio.file
 			return Static.CallMethod<Path>(typeof(Files), "setLastModifiedTime", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/FileTime;)Ljava/nio/file/Path;", arg0, arg1);
 		}
 		
-		[JavaSignature("(Ljava/nio/file/Path;)Ljava/util/stream/Stream;")]
-		public static Stream<String> lines(Path arg0)
-		{
-			return Static.CallMethod<Stream<String>>(typeof(Files), "lines", "(Ljava/nio/file/Path;)Ljava/util/stream/Stream;", arg0);
-		}
-		
 		[JavaSignature("(Ljava/nio/file/Path;Ljava/nio/charset/Charset;)Ljava/util/stream/Stream;")]
 		public static Stream<String> lines(Path arg0, Charset arg1)
 		{
 			return Static.CallMethod<Stream<String>>(typeof(Files), "lines", "(Ljava/nio/file/Path;Ljava/nio/charset/Charset;)Ljava/util/stream/Stream;", arg0, arg1);
+		}
+		
+		[JavaSignature("(Ljava/nio/file/Path;)Ljava/util/stream/Stream;")]
+		public static Stream<String> lines(Path arg0)
+		{
+			return Static.CallMethod<Stream<String>>(typeof(Files), "lines", "(Ljava/nio/file/Path;)Ljava/util/stream/Stream;", arg0);
 		}
 		
 		[JavaSignature("(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/lang/Object;")]
@@ -170,52 +170,34 @@ namespace jvm4csharp.java.nio.file
 			return Static.CallMethod<IJavaObject>(typeof(Files), "getAttribute", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/lang/Object;", arg0, arg1, arg2);
 		}
 		
-		[JavaSignature("(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;")]
-		public static Path createDirectories(Path arg0, ObjectArray<FileAttribute<IJavaObject>> arg1)
+		[JavaSignature("(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)Ljava/nio/file/Path;")]
+		public static Path setAttribute(Path arg0, String arg1, IJavaObject arg2, ObjectArray<LinkOption> arg3)
 		{
-			return Static.CallMethod<Path>(typeof(Files), "createDirectories", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;", arg0, arg1);
+			return Static.CallMethod<Path>(typeof(Files), "setAttribute", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)Ljava/nio/file/Path;", arg0, arg1, arg2, arg3);
 		}
 		
-		[JavaSignature("(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;")]
-		public static Path createFile(Path arg0, ObjectArray<FileAttribute<IJavaObject>> arg1)
+		[JavaSignature("(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z")]
+		public static bool isRegularFile(Path arg0, ObjectArray<LinkOption> arg1)
 		{
-			return Static.CallMethod<Path>(typeof(Files), "createFile", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;", arg0, arg1);
-		}
-		
-		[JavaSignature("(Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;")]
-		public static Path createTempDirectory(String arg0, ObjectArray<FileAttribute<IJavaObject>> arg1)
-		{
-			return Static.CallMethod<Path>(typeof(Files), "createTempDirectory", "(Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;", arg0, arg1);
-		}
-		
-		[JavaSignature("(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;")]
-		public static Path createTempDirectory(Path arg0, String arg1, ObjectArray<FileAttribute<IJavaObject>> arg2)
-		{
-			return Static.CallMethod<Path>(typeof(Files), "createTempDirectory", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;", arg0, arg1, arg2);
-		}
-		
-		[JavaSignature("(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/util/Set;")]
-		public static Set<PosixFilePermission> getPosixFilePermissions(Path arg0, ObjectArray<LinkOption> arg1)
-		{
-			return Static.CallMethod<Set<PosixFilePermission>>(typeof(Files), "getPosixFilePermissions", "(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/util/Set;", arg0, arg1);
+			return Static.CallMethod<bool>(typeof(Files), "isRegularFile", "(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z", arg0, arg1);
 		}
 		
 		[JavaSignature("(Ljava/nio/file/Path;)Z")]
-		public static bool isExecutable(Path arg0)
+		public static bool isSymbolicLink(Path arg0)
 		{
-			return Static.CallMethod<bool>(typeof(Files), "isExecutable", "(Ljava/nio/file/Path;)Z", arg0);
-		}
-		
-		[JavaSignature("(Ljava/nio/file/Path;)Ljava/io/BufferedReader;")]
-		public static BufferedReader newBufferedReader(Path arg0)
-		{
-			return Static.CallMethod<BufferedReader>(typeof(Files), "newBufferedReader", "(Ljava/nio/file/Path;)Ljava/io/BufferedReader;", arg0);
+			return Static.CallMethod<bool>(typeof(Files), "isSymbolicLink", "(Ljava/nio/file/Path;)Z", arg0);
 		}
 		
 		[JavaSignature("(Ljava/nio/file/Path;Ljava/nio/charset/Charset;)Ljava/io/BufferedReader;")]
 		public static BufferedReader newBufferedReader(Path arg0, Charset arg1)
 		{
 			return Static.CallMethod<BufferedReader>(typeof(Files), "newBufferedReader", "(Ljava/nio/file/Path;Ljava/nio/charset/Charset;)Ljava/io/BufferedReader;", arg0, arg1);
+		}
+		
+		[JavaSignature("(Ljava/nio/file/Path;)Ljava/io/BufferedReader;")]
+		public static BufferedReader newBufferedReader(Path arg0)
+		{
+			return Static.CallMethod<BufferedReader>(typeof(Files), "newBufferedReader", "(Ljava/nio/file/Path;)Ljava/io/BufferedReader;", arg0);
 		}
 		
 		[JavaSignature("(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/BufferedWriter;")]
@@ -278,10 +260,16 @@ namespace jvm4csharp.java.nio.file
 			return Static.CallMethod<Path>(typeof(Files), "walkFileTree", "(Ljava/nio/file/Path;Ljava/util/Set;ILjava/nio/file/FileVisitor;)Ljava/nio/file/Path;", arg0, arg1, arg2, arg3);
 		}
 		
-		[JavaSignature("(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)Ljava/nio/file/Path;")]
-		public static Path setAttribute(Path arg0, String arg1, IJavaObject arg2, ObjectArray<LinkOption> arg3)
+		[JavaSignature("(Ljava/nio/file/Path;)Z")]
+		public static bool isReadable(Path arg0)
 		{
-			return Static.CallMethod<Path>(typeof(Files), "setAttribute", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)Ljava/nio/file/Path;", arg0, arg1, arg2, arg3);
+			return Static.CallMethod<bool>(typeof(Files), "isReadable", "(Ljava/nio/file/Path;)Z", arg0);
+		}
+		
+		[JavaSignature("(Ljava/nio/file/Path;)Z")]
+		public static bool isWritable(Path arg0)
+		{
+			return Static.CallMethod<bool>(typeof(Files), "isWritable", "(Ljava/nio/file/Path;)Z", arg0);
 		}
 		
 		[JavaSignature("(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/nio/file/Path;")]
@@ -333,17 +321,17 @@ namespace jvm4csharp.java.nio.file
 			return Static.CallMethod<SeekableByteChannel>(typeof(Files), "newByteChannel", "(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/nio/channels/SeekableByteChannel;", arg0, arg1);
 		}
 		
-		[JavaSignature("(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;")]
-		public static Map<String, IJavaObject> readAttributes(Path arg0, String arg1, ObjectArray<LinkOption> arg2)
-		{
-			return Static.CallMethod<Map<String, IJavaObject>>(typeof(Files), "readAttributes", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;", arg0, arg1, arg2);
-		}
-		
 		[JavaSignature("(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/BasicFileAttributes;")]
 		public static A readAttributes<A>(Path arg0, Class<A> arg1, ObjectArray<LinkOption> arg2)
 			where A : BasicFileAttributes
 		{
 			return Static.CallMethod<A>(typeof(Files), "readAttributes", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/BasicFileAttributes;", arg0, arg1, arg2);
+		}
+		
+		[JavaSignature("(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;")]
+		public static Map<String, IJavaObject> readAttributes(Path arg0, String arg1, ObjectArray<LinkOption> arg2)
+		{
+			return Static.CallMethod<Map<String, IJavaObject>>(typeof(Files), "readAttributes", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;", arg0, arg1, arg2);
 		}
 		
 		[JavaSignature("(Ljava/nio/file/Path;)Ljava/nio/file/Path;")]
@@ -370,18 +358,6 @@ namespace jvm4csharp.java.nio.file
 			return Static.CallMethod<OutputStream>(typeof(Files), "newOutputStream", "(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/OutputStream;", arg0, arg1);
 		}
 		
-		[JavaSignature("(Ljava/nio/file/Path;)Z")]
-		public static bool isReadable(Path arg0)
-		{
-			return Static.CallMethod<bool>(typeof(Files), "isReadable", "(Ljava/nio/file/Path;)Z", arg0);
-		}
-		
-		[JavaSignature("(Ljava/nio/file/Path;)Z")]
-		public static bool isWritable(Path arg0)
-		{
-			return Static.CallMethod<bool>(typeof(Files), "isWritable", "(Ljava/nio/file/Path;)Z", arg0);
-		}
-		
 		[JavaSignature("(Ljava/nio/file/Path;[Ljava/nio/file/FileVisitOption;)Ljava/util/stream/Stream;")]
 		public static Stream<Path> walk(Path arg0, ObjectArray<FileVisitOption> arg1)
 		{
@@ -394,16 +370,40 @@ namespace jvm4csharp.java.nio.file
 			return Static.CallMethod<Stream<Path>>(typeof(Files), "walk", "(Ljava/nio/file/Path;I[Ljava/nio/file/FileVisitOption;)Ljava/util/stream/Stream;", arg0, arg1, arg2);
 		}
 		
-		[JavaSignature("(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z")]
-		public static bool isRegularFile(Path arg0, ObjectArray<LinkOption> arg1)
+		[JavaSignature("(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;")]
+		public static Path createDirectories(Path arg0, ObjectArray<FileAttribute<IJavaObject>> arg1)
 		{
-			return Static.CallMethod<bool>(typeof(Files), "isRegularFile", "(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z", arg0, arg1);
+			return Static.CallMethod<Path>(typeof(Files), "createDirectories", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;", arg0, arg1);
+		}
+		
+		[JavaSignature("(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;")]
+		public static Path createFile(Path arg0, ObjectArray<FileAttribute<IJavaObject>> arg1)
+		{
+			return Static.CallMethod<Path>(typeof(Files), "createFile", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;", arg0, arg1);
+		}
+		
+		[JavaSignature("(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;")]
+		public static Path createTempDirectory(Path arg0, String arg1, ObjectArray<FileAttribute<IJavaObject>> arg2)
+		{
+			return Static.CallMethod<Path>(typeof(Files), "createTempDirectory", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;", arg0, arg1, arg2);
+		}
+		
+		[JavaSignature("(Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;")]
+		public static Path createTempDirectory(String arg0, ObjectArray<FileAttribute<IJavaObject>> arg1)
+		{
+			return Static.CallMethod<Path>(typeof(Files), "createTempDirectory", "(Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;", arg0, arg1);
+		}
+		
+		[JavaSignature("(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/util/Set;")]
+		public static Set<PosixFilePermission> getPosixFilePermissions(Path arg0, ObjectArray<LinkOption> arg1)
+		{
+			return Static.CallMethod<Set<PosixFilePermission>>(typeof(Files), "getPosixFilePermissions", "(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/util/Set;", arg0, arg1);
 		}
 		
 		[JavaSignature("(Ljava/nio/file/Path;)Z")]
-		public static bool isSymbolicLink(Path arg0)
+		public static bool isExecutable(Path arg0)
 		{
-			return Static.CallMethod<bool>(typeof(Files), "isSymbolicLink", "(Ljava/nio/file/Path;)Z", arg0);
+			return Static.CallMethod<bool>(typeof(Files), "isExecutable", "(Ljava/nio/file/Path;)Z", arg0);
 		}
 	}
 }

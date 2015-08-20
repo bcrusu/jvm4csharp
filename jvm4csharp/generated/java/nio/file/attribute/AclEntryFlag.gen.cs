@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file.attribute
 {
 	[JavaProxy("java/nio/file/attribute/AclEntryFlag")]
-	public class AclEntryFlag : Enum<AclEntryFlag>
+	public partial class AclEntryFlag : Enum<AclEntryFlag>
 	{
 		protected AclEntryFlag(ProxyCtor p) : base(p) {}
 	

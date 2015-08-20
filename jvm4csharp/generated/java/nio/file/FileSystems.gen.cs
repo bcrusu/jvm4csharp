@@ -16,7 +16,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/FileSystems")]
-	public class FileSystems : Object
+	public partial class FileSystems : Object
 	{
 		protected FileSystems(ProxyCtor p) : base(p) {}
 	

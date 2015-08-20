@@ -15,7 +15,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Character")]
-	public class Character : Object, Serializable, Comparable<Character>
+	public partial class Character : Object, Serializable, Comparable<Character>
 	{
 		protected Character(ProxyCtor p) : base(p) {}
 		
@@ -919,13 +919,13 @@ namespace jvm4csharp.java.lang
 		}
 	
 		[JavaProxy("java/lang/Character/Subset")]
-		public class Subset : Object
+		public partial class Subset : Object
 		{
 			protected Subset(ProxyCtor p) : base(p) {}
 		}
 		
 		[JavaProxy("java/lang/Character/UnicodeBlock")]
-		public class UnicodeBlock : Character.Subset
+		public partial class UnicodeBlock : Character.Subset
 		{
 			protected UnicodeBlock(ProxyCtor p) : base(p) {}
 		
@@ -2275,7 +2275,7 @@ namespace jvm4csharp.java.lang
 		}
 		
 		[JavaProxy("java/lang/Character/UnicodeScript")]
-		public class UnicodeScript : Enum<Character.UnicodeScript>
+		public partial class UnicodeScript : Enum<Character.UnicodeScript>
 		{
 			protected UnicodeScript(ProxyCtor p) : base(p) {}
 		

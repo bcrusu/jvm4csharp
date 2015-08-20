@@ -14,7 +14,7 @@ using jvm4csharp.java.lang.annotation;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Override")]
-	public interface Override : Annotation
+	public partial interface Override : Annotation
 	{
 	}
 }

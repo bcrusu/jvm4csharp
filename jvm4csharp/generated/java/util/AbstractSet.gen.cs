@@ -15,7 +15,7 @@ using jvm4csharp.java.util.stream;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/AbstractSet")]
-	public abstract class AbstractSet<E> : AbstractCollection<E>, Set<E>
+	public abstract partial class AbstractSet<E> : AbstractCollection<E>, Set<E>
 		where E : IJavaObject
 	{
 		protected AbstractSet(ProxyCtor p) : base(p) {}

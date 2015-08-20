@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/Inet6Address")]
-	public class Inet6Address : InetAddress
+	public partial class Inet6Address : InetAddress
 	{
 		protected Inet6Address(ProxyCtor p) : base(p) {}
 	

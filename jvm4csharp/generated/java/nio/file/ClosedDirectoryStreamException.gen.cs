@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/ClosedDirectoryStreamException")]
-	public class ClosedDirectoryStreamException : IllegalStateException
+	public partial class ClosedDirectoryStreamException : IllegalStateException
 	{
 		protected ClosedDirectoryStreamException(ProxyCtor p) : base(p) {}
 		

@@ -17,7 +17,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/DateFormatSymbols")]
-	public class DateFormatSymbols : Object, Serializable, Cloneable
+	public partial class DateFormatSymbols : Object, Serializable, Cloneable
 	{
 		protected DateFormatSymbols(ProxyCtor p) : base(p) {}
 		
@@ -49,58 +49,16 @@ namespace jvm4csharp.java.text
 			return Static.CallMethod<ObjectArray<Locale>>(typeof(DateFormatSymbols), "getAvailableLocales", "()[Ljava/util/Locale;");
 		}
 		
-		[JavaSignature("()[Ljava/lang/String;")]
-		public ObjectArray<String> getEras()
+		[JavaSignature("()Ljava/lang/String;")]
+		public String getLocalPatternChars()
 		{
-			return Instance.CallMethod<ObjectArray<String>>("getEras", "()[Ljava/lang/String;");
-		}
-		
-		[JavaSignature("([Ljava/lang/String;)V")]
-		public void setEras(ObjectArray<String> arg0)
-		{
-			Instance.CallMethod("setEras", "([Ljava/lang/String;)V", arg0);
-		}
-		
-		[JavaSignature("()[Ljava/lang/String;")]
-		public ObjectArray<String> getAmPmStrings()
-		{
-			return Instance.CallMethod<ObjectArray<String>>("getAmPmStrings", "()[Ljava/lang/String;");
-		}
-		
-		[JavaSignature("()[Ljava/lang/String;")]
-		public ObjectArray<String> getMonths()
-		{
-			return Instance.CallMethod<ObjectArray<String>>("getMonths", "()[Ljava/lang/String;");
-		}
-		
-		[JavaSignature("()[Ljava/lang/String;")]
-		public ObjectArray<String> getShortMonths()
-		{
-			return Instance.CallMethod<ObjectArray<String>>("getShortMonths", "()[Ljava/lang/String;");
-		}
-		
-		[JavaSignature("()[Ljava/lang/String;")]
-		public ObjectArray<String> getShortWeekdays()
-		{
-			return Instance.CallMethod<ObjectArray<String>>("getShortWeekdays", "()[Ljava/lang/String;");
-		}
-		
-		[JavaSignature("()[Ljava/lang/String;")]
-		public ObjectArray<String> getWeekdays()
-		{
-			return Instance.CallMethod<ObjectArray<String>>("getWeekdays", "()[Ljava/lang/String;");
+			return Instance.CallMethod<String>("getLocalPatternChars", "()Ljava/lang/String;");
 		}
 		
 		[JavaSignature("()[Ljava/lang/String[];")]
 		public ObjectArray<ObjectArray<String>> getZoneStrings()
 		{
 			return Instance.CallMethod<ObjectArray<ObjectArray<String>>>("getZoneStrings", "()[Ljava/lang/String[];");
-		}
-		
-		[JavaSignature("()Ljava/lang/String;")]
-		public String getLocalPatternChars()
-		{
-			return Instance.CallMethod<String>("getLocalPatternChars", "()Ljava/lang/String;");
 		}
 		
 		[JavaSignature("([Ljava/lang/String;)V")]
@@ -143,6 +101,48 @@ namespace jvm4csharp.java.text
 		public void setZoneStrings(ObjectArray<ObjectArray<String>> arg0)
 		{
 			Instance.CallMethod("setZoneStrings", "([Ljava/lang/String[];)V", arg0);
+		}
+		
+		[JavaSignature("()[Ljava/lang/String;")]
+		public ObjectArray<String> getEras()
+		{
+			return Instance.CallMethod<ObjectArray<String>>("getEras", "()[Ljava/lang/String;");
+		}
+		
+		[JavaSignature("([Ljava/lang/String;)V")]
+		public void setEras(ObjectArray<String> arg0)
+		{
+			Instance.CallMethod("setEras", "([Ljava/lang/String;)V", arg0);
+		}
+		
+		[JavaSignature("()[Ljava/lang/String;")]
+		public ObjectArray<String> getAmPmStrings()
+		{
+			return Instance.CallMethod<ObjectArray<String>>("getAmPmStrings", "()[Ljava/lang/String;");
+		}
+		
+		[JavaSignature("()[Ljava/lang/String;")]
+		public ObjectArray<String> getMonths()
+		{
+			return Instance.CallMethod<ObjectArray<String>>("getMonths", "()[Ljava/lang/String;");
+		}
+		
+		[JavaSignature("()[Ljava/lang/String;")]
+		public ObjectArray<String> getShortMonths()
+		{
+			return Instance.CallMethod<ObjectArray<String>>("getShortMonths", "()[Ljava/lang/String;");
+		}
+		
+		[JavaSignature("()[Ljava/lang/String;")]
+		public ObjectArray<String> getShortWeekdays()
+		{
+			return Instance.CallMethod<ObjectArray<String>>("getShortWeekdays", "()[Ljava/lang/String;");
+		}
+		
+		[JavaSignature("()[Ljava/lang/String;")]
+		public ObjectArray<String> getWeekdays()
+		{
+			return Instance.CallMethod<ObjectArray<String>>("getWeekdays", "()[Ljava/lang/String;");
 		}
 	}
 }

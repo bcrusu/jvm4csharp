@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/InstantiationException")]
-	public class InstantiationException : ReflectiveOperationException
+	public partial class InstantiationException : ReflectiveOperationException
 	{
 		protected InstantiationException(ProxyCtor p) : base(p) {}
 		

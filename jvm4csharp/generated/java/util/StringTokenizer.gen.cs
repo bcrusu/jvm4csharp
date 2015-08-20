@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/StringTokenizer")]
-	public class StringTokenizer : Object, Enumeration<IJavaObject>
+	public partial class StringTokenizer : Object, Enumeration<IJavaObject>
 	{
 		protected StringTokenizer(ProxyCtor p) : base(p) {}
 		

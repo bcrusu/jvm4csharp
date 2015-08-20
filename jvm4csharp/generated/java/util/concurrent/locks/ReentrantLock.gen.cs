@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent.locks
 {
 	[JavaProxy("java/util/concurrent/locks/ReentrantLock")]
-	public class ReentrantLock : Object, Lock, Serializable
+	public partial class ReentrantLock : Object, Lock, Serializable
 	{
 		protected ReentrantLock(ProxyCtor p) : base(p) {}
 		

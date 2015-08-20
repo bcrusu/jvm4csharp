@@ -14,7 +14,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/ConcurrentLinkedQueue")]
-	public class ConcurrentLinkedQueue<E> : AbstractQueue<E>, Queue<E>, Serializable
+	public partial class ConcurrentLinkedQueue<E> : AbstractQueue<E>, Queue<E>, Serializable
 		where E : IJavaObject
 	{
 		protected ConcurrentLinkedQueue(ProxyCtor p) : base(p) {}

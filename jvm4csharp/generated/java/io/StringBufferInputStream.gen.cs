@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/StringBufferInputStream")]
-	public class StringBufferInputStream : InputStream
+	public partial class StringBufferInputStream : InputStream
 	{
 		protected StringBufferInputStream(ProxyCtor p) : base(p) {}
 		

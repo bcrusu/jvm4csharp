@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/IllegalStateException")]
-	public class IllegalStateException : RuntimeException
+	public partial class IllegalStateException : RuntimeException
 	{
 		protected IllegalStateException(ProxyCtor p) : base(p) {}
 		

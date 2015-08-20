@@ -15,7 +15,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util.stream
 {
 	[JavaProxy("java/util/stream/Stream")]
-	public interface Stream<T> : BaseStream<T, Stream<T>>
+	public partial interface Stream<T> : BaseStream<T, Stream<T>>
 		where T : IJavaObject
 	{
 		[JavaSignature("(J)Ljava/util/stream/Stream;")]
@@ -79,10 +79,10 @@ namespace jvm4csharp.java.util.stream
 		Stream<T> sorted();
 		
 		[JavaSignature("(Ljava/util/function/Predicate;)Z")]
-		bool anyMatch(Predicate<IJavaObject> arg0);
+		bool allMatch(Predicate<IJavaObject> arg0);
 		
 		[JavaSignature("(Ljava/util/function/Predicate;)Z")]
-		bool allMatch(Predicate<IJavaObject> arg0);
+		bool anyMatch(Predicate<IJavaObject> arg0);
 		
 		[JavaSignature("(Ljava/util/function/Consumer;)V")]
 		void forEachOrdered(Consumer<IJavaObject> arg0);
@@ -176,7 +176,7 @@ namespace jvm4csharp.java.util.stream
 		}
 	
 		[JavaProxy("java/util/stream/Stream/Builder")]
-		public interface Builder<T> : Consumer<T>
+		public partial interface Builder<T> : Consumer<T>
 			where T : IJavaObject
 		{
 			[JavaSignature("(Ljava/lang/Object;)Ljava/util/stream/Stream/Builder;")]

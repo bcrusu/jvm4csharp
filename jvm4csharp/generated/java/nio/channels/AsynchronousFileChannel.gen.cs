@@ -19,7 +19,7 @@ using jvm4csharp.java.util.concurrent;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/AsynchronousFileChannel")]
-	public abstract class AsynchronousFileChannel : Object, AsynchronousChannel
+	public abstract partial class AsynchronousFileChannel : Object, AsynchronousChannel
 	{
 		protected AsynchronousFileChannel(ProxyCtor p) : base(p) {}
 	

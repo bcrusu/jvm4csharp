@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.nio.charset
 {
 	[JavaProxy("java/nio/charset/UnmappableCharacterException")]
-	public class UnmappableCharacterException : CharacterCodingException
+	public partial class UnmappableCharacterException : CharacterCodingException
 	{
 		protected UnmappableCharacterException(ProxyCtor p) : base(p) {}
 		

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Compiler")]
-	public class Compiler : Object
+	public partial class Compiler : Object
 	{
 		protected Compiler(ProxyCtor p) : base(p) {}
 	

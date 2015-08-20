@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/IllegalThreadStateException")]
-	public class IllegalThreadStateException : IllegalArgumentException
+	public partial class IllegalThreadStateException : IllegalArgumentException
 	{
 		protected IllegalThreadStateException(ProxyCtor p) : base(p) {}
 		

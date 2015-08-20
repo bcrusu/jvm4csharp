@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/LongPredicate")]
-	public interface LongPredicate : IJavaObject
+	public partial interface LongPredicate : IJavaObject
 	{
 		[JavaSignature("(Ljava/util/function/LongPredicate;)Ljava/util/function/LongPredicate;")]
 		LongPredicate and(LongPredicate arg0);

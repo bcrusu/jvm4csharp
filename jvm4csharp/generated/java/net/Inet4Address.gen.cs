@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/Inet4Address")]
-	public class Inet4Address : InetAddress
+	public partial class Inet4Address : InetAddress
 	{
 		protected Inet4Address(ProxyCtor p) : base(p) {}
 	}

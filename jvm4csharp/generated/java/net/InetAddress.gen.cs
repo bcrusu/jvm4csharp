@@ -16,7 +16,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/InetAddress")]
-	public class InetAddress : Object, Serializable
+	public partial class InetAddress : Object, Serializable
 	{
 		protected InetAddress(ProxyCtor p) : base(p) {}
 	
@@ -44,22 +44,40 @@ namespace jvm4csharp.java.net
 			return Instance.CallMethod<String>("getHostName", "()Ljava/lang/String;");
 		}
 		
+		[JavaSignature("()Ljava/net/InetAddress;")]
+		public static InetAddress getLoopbackAddress()
+		{
+			return Static.CallMethod<InetAddress>(typeof(InetAddress), "getLoopbackAddress", "()Ljava/net/InetAddress;");
+		}
+		
+		[JavaSignature("()Z")]
+		public bool isAnyLocalAddress()
+		{
+			return Instance.CallMethod<bool>("isAnyLocalAddress", "()Z");
+		}
+		
+		[JavaSignature("()Ljava/net/InetAddress;")]
+		public static InetAddress getLocalHost()
+		{
+			return Static.CallMethod<InetAddress>(typeof(InetAddress), "getLocalHost", "()Ljava/net/InetAddress;");
+		}
+		
 		[JavaSignature("(Ljava/lang/String;)[Ljava/net/InetAddress;")]
 		public static ObjectArray<InetAddress> getAllByName(String arg0)
 		{
 			return Static.CallMethod<ObjectArray<InetAddress>>(typeof(InetAddress), "getAllByName", "(Ljava/lang/String;)[Ljava/net/InetAddress;", arg0);
 		}
 		
-		[JavaSignature("(Ljava/lang/String;[B)Ljava/net/InetAddress;")]
-		public static InetAddress getByAddress(String arg0, ByteArray arg1)
-		{
-			return Static.CallMethod<InetAddress>(typeof(InetAddress), "getByAddress", "(Ljava/lang/String;[B)Ljava/net/InetAddress;", arg0, arg1);
-		}
-		
 		[JavaSignature("([B)Ljava/net/InetAddress;")]
 		public static InetAddress getByAddress(ByteArray arg0)
 		{
 			return Static.CallMethod<InetAddress>(typeof(InetAddress), "getByAddress", "([B)Ljava/net/InetAddress;", arg0);
+		}
+		
+		[JavaSignature("(Ljava/lang/String;[B)Ljava/net/InetAddress;")]
+		public static InetAddress getByAddress(String arg0, ByteArray arg1)
+		{
+			return Static.CallMethod<InetAddress>(typeof(InetAddress), "getByAddress", "(Ljava/lang/String;[B)Ljava/net/InetAddress;", arg0, arg1);
 		}
 		
 		[JavaSignature("()Ljava/lang/String;")]
@@ -116,40 +134,22 @@ namespace jvm4csharp.java.net
 			return Instance.CallMethod<bool>("isMulticastAddress", "()Z");
 		}
 		
-		[JavaSignature("(Ljava/net/NetworkInterface;II)Z")]
-		public bool isReachable(NetworkInterface arg0, int arg1, int arg2)
-		{
-			return Instance.CallMethod<bool>("isReachable", "(Ljava/net/NetworkInterface;II)Z", arg0, arg1, arg2);
-		}
-		
 		[JavaSignature("(I)Z")]
 		public bool isReachable(int arg0)
 		{
 			return Instance.CallMethod<bool>("isReachable", "(I)Z", arg0);
 		}
 		
+		[JavaSignature("(Ljava/net/NetworkInterface;II)Z")]
+		public bool isReachable(NetworkInterface arg0, int arg1, int arg2)
+		{
+			return Instance.CallMethod<bool>("isReachable", "(Ljava/net/NetworkInterface;II)Z", arg0, arg1, arg2);
+		}
+		
 		[JavaSignature("()Z")]
 		public bool isSiteLocalAddress()
 		{
 			return Instance.CallMethod<bool>("isSiteLocalAddress", "()Z");
-		}
-		
-		[JavaSignature("()Ljava/net/InetAddress;")]
-		public static InetAddress getLoopbackAddress()
-		{
-			return Static.CallMethod<InetAddress>(typeof(InetAddress), "getLoopbackAddress", "()Ljava/net/InetAddress;");
-		}
-		
-		[JavaSignature("()Z")]
-		public bool isAnyLocalAddress()
-		{
-			return Instance.CallMethod<bool>("isAnyLocalAddress", "()Z");
-		}
-		
-		[JavaSignature("()Ljava/net/InetAddress;")]
-		public static InetAddress getLocalHost()
-		{
-			return Static.CallMethod<InetAddress>(typeof(InetAddress), "getLocalHost", "()Ljava/net/InetAddress;");
 		}
 	}
 }

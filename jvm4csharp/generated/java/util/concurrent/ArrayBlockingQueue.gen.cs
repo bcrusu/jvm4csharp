@@ -14,7 +14,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/ArrayBlockingQueue")]
-	public class ArrayBlockingQueue<E> : AbstractQueue<E>, BlockingQueue<E>, Serializable
+	public partial class ArrayBlockingQueue<E> : AbstractQueue<E>, BlockingQueue<E>, Serializable
 		where E : IJavaObject
 	{
 		protected ArrayBlockingQueue(ProxyCtor p) : base(p) {}

@@ -15,7 +15,7 @@ using jvm4csharp.java.util.spi;
 namespace jvm4csharp.java.text.spi
 {
 	[JavaProxy("java/text/spi/BreakIteratorProvider")]
-	public abstract class BreakIteratorProvider : LocaleServiceProvider
+	public abstract partial class BreakIteratorProvider : LocaleServiceProvider
 	{
 		protected BreakIteratorProvider(ProxyCtor p) : base(p) {}
 	

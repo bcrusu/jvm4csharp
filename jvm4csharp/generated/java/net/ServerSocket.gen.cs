@@ -16,7 +16,7 @@ using jvm4csharp.java.nio.channels;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/ServerSocket")]
-	public class ServerSocket : Object, Closeable
+	public partial class ServerSocket : Object, Closeable
 	{
 		protected ServerSocket(ProxyCtor p) : base(p) {}
 		

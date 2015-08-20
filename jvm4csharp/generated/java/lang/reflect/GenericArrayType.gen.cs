@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/GenericArrayType")]
-	public interface GenericArrayType : Type
+	public partial interface GenericArrayType : Type
 	{
 		[JavaSignature("()Ljava/lang/reflect/Type;")]
 		Type getGenericComponentType();

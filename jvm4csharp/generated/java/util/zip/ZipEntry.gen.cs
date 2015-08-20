@@ -16,7 +16,7 @@ using jvm4csharp.java.nio.file.attribute;
 namespace jvm4csharp.java.util.zip
 {
 	[JavaProxy("java/util/zip/ZipEntry")]
-	public class ZipEntry : Object, Cloneable
+	public partial class ZipEntry : Object, Cloneable
 	{
 		protected ZipEntry(ProxyCtor p) : base(p) {}
 		

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/ObjectStreamException")]
-	public abstract class ObjectStreamException : IOException
+	public abstract partial class ObjectStreamException : IOException
 	{
 		protected ObjectStreamException(ProxyCtor p) : base(p) {}
 	}

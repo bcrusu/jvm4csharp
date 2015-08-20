@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/SecureCacheResponse")]
-	public abstract class SecureCacheResponse : CacheResponse
+	public abstract partial class SecureCacheResponse : CacheResponse
 	{
 		protected SecureCacheResponse(ProxyCtor p) : base(p) {}
 	

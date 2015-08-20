@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/ProviderNotFoundException")]
-	public class ProviderNotFoundException : RuntimeException
+	public partial class ProviderNotFoundException : RuntimeException
 	{
 		protected ProviderNotFoundException(ProxyCtor p) : base(p) {}
 		

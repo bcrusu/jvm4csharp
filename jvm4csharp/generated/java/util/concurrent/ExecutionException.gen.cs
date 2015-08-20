@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/ExecutionException")]
-	public class ExecutionException : Exception
+	public partial class ExecutionException : Exception
 	{
 		protected ExecutionException(ProxyCtor p) : base(p) {}
 		

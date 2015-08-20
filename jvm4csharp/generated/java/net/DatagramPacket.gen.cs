@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/DatagramPacket")]
-	public class DatagramPacket : Object
+	public partial class DatagramPacket : Object
 	{
 		protected DatagramPacket(ProxyCtor p) : base(p) {}
 		

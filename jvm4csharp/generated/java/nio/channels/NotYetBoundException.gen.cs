@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/NotYetBoundException")]
-	public class NotYetBoundException : IllegalStateException
+	public partial class NotYetBoundException : IllegalStateException
 	{
 		protected NotYetBoundException(ProxyCtor p) : base(p) {}
 		

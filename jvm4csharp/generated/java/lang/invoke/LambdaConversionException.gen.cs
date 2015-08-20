@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.invoke
 {
 	[JavaProxy("java/lang/invoke/LambdaConversionException")]
-	public class LambdaConversionException : Exception
+	public partial class LambdaConversionException : Exception
 	{
 		protected LambdaConversionException(ProxyCtor p) : base(p) {}
 		

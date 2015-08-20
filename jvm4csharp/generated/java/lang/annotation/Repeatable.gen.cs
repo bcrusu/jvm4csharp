@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.annotation
 {
 	[JavaProxy("java/lang/annotation/Repeatable")]
-	public interface Repeatable : Annotation
+	public partial interface Repeatable : Annotation
 	{
 		[JavaSignature("()Ljava/lang/Class;")]
 		Class<Annotation> @value();

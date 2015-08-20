@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Byte")]
-	public class Byte : Number, Comparable<Byte>
+	public partial class Byte : Number, Comparable<Byte>
 	{
 		protected Byte(ProxyCtor p) : base(p) {}
 		

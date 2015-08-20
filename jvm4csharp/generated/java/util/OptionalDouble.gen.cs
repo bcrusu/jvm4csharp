@@ -15,7 +15,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/OptionalDouble")]
-	public class OptionalDouble : Object
+	public partial class OptionalDouble : Object
 	{
 		protected OptionalDouble(ProxyCtor p) : base(p) {}
 	

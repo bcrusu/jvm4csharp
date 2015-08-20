@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/FormatterClosedException")]
-	public class FormatterClosedException : IllegalStateException
+	public partial class FormatterClosedException : IllegalStateException
 	{
 		protected FormatterClosedException(ProxyCtor p) : base(p) {}
 		

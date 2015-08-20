@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/Writer")]
-	public abstract class Writer : Object, Appendable, Closeable, Flushable
+	public abstract partial class Writer : Object, Appendable, Closeable, Flushable
 	{
 		protected Writer(ProxyCtor p) : base(p) {}
 	

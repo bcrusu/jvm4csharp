@@ -16,7 +16,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/URL")]
-	public class URL : Object, Serializable
+	public partial class URL : Object, Serializable
 	{
 		protected URL(ProxyCtor p) : base(p) {}
 		

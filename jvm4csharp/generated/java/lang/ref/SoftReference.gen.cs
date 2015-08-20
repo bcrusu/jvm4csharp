@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.@ref
 {
 	[JavaProxy("java/lang/ref/SoftReference")]
-	public class SoftReference<T> : Reference<T>
+	public partial class SoftReference<T> : Reference<T>
 		where T : IJavaObject
 	{
 		protected SoftReference(ProxyCtor p) : base(p) {}

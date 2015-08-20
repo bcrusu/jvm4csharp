@@ -19,7 +19,7 @@ using jvm4csharp.java.util.concurrent;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/AsynchronousSocketChannel")]
-	public abstract class AsynchronousSocketChannel : Object, AsynchronousByteChannel, NetworkChannel
+	public abstract partial class AsynchronousSocketChannel : Object, AsynchronousByteChannel, NetworkChannel
 	{
 		protected AsynchronousSocketChannel(ProxyCtor p) : base(p) {}
 	
@@ -96,22 +96,16 @@ namespace jvm4csharp.java.nio.channels
 			Instance.CallMethod("read", "([Ljava/nio/ByteBuffer;IIJLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", arg0, arg1, arg2, arg3, arg4, arg5, arg6);
 		}
 		
-		[JavaSignature("(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousSocketChannel;")]
-		public static AsynchronousSocketChannel open(AsynchronousChannelGroup arg0)
-		{
-			return Static.CallMethod<AsynchronousSocketChannel>(typeof(AsynchronousSocketChannel), "open", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousSocketChannel;", arg0);
-		}
-		
 		[JavaSignature("()Ljava/nio/channels/AsynchronousSocketChannel;")]
 		public static AsynchronousSocketChannel open()
 		{
 			return Static.CallMethod<AsynchronousSocketChannel>(typeof(AsynchronousSocketChannel), "open", "()Ljava/nio/channels/AsynchronousSocketChannel;");
 		}
 		
-		[JavaSignature("()Ljava/net/SocketAddress;")]
-		public SocketAddress getLocalAddress()
+		[JavaSignature("(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousSocketChannel;")]
+		public static AsynchronousSocketChannel open(AsynchronousChannelGroup arg0)
 		{
-			return Instance.CallMethod<SocketAddress>("getLocalAddress", "()Ljava/net/SocketAddress;");
+			return Static.CallMethod<AsynchronousSocketChannel>(typeof(AsynchronousSocketChannel), "open", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousSocketChannel;", arg0);
 		}
 		
 		[JavaSignature("(Ljava/net/SocketAddress;)Ljava/nio/channels/AsynchronousSocketChannel;")]
@@ -137,6 +131,12 @@ namespace jvm4csharp.java.nio.channels
 		public AsynchronousSocketChannel shutdownOutput()
 		{
 			return Instance.CallMethod<AsynchronousSocketChannel>("shutdownOutput", "()Ljava/nio/channels/AsynchronousSocketChannel;");
+		}
+		
+		[JavaSignature("()Ljava/net/SocketAddress;")]
+		public SocketAddress getLocalAddress()
+		{
+			return Instance.CallMethod<SocketAddress>("getLocalAddress", "()Ljava/net/SocketAddress;");
 		}
 		
 		[JavaSignature("()Ljava/net/SocketAddress;")]

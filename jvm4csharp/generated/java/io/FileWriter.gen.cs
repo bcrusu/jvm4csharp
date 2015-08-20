@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/FileWriter")]
-	public class FileWriter : OutputStreamWriter
+	public partial class FileWriter : OutputStreamWriter
 	{
 		protected FileWriter(ProxyCtor p) : base(p) {}
 		

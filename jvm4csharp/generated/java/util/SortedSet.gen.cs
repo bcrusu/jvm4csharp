@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/SortedSet")]
-	public interface SortedSet<E> : Set<E>
+	public partial interface SortedSet<E> : Set<E>
 		where E : IJavaObject
 	{
 		[JavaSignature("()Ljava/util/Spliterator;")]

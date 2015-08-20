@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/AnnotatedWildcardType")]
-	public interface AnnotatedWildcardType : AnnotatedType
+	public partial interface AnnotatedWildcardType : AnnotatedType
 	{
 		[JavaSignature("()[Ljava/lang/reflect/AnnotatedType;")]
 		ObjectArray<AnnotatedType> getAnnotatedLowerBounds();

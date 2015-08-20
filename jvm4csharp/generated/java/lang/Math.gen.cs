@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Math")]
-	public class Math : Object
+	public partial class Math : Object
 	{
 		protected Math(ProxyCtor p) : base(p) {}
 	

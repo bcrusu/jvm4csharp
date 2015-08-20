@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/BufferedWriter")]
-	public class BufferedWriter : Writer
+	public partial class BufferedWriter : Writer
 	{
 		protected BufferedWriter(ProxyCtor p) : base(p) {}
 		

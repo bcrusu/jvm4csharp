@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/BlockingDeque")]
-	public interface BlockingDeque<E> : BlockingQueue<E>, Deque<E>
+	public partial interface BlockingDeque<E> : BlockingQueue<E>, Deque<E>
 		where E : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/Object;)Z")]
@@ -63,17 +63,17 @@ namespace jvm4csharp.java.util.concurrent
 		[JavaSignature("(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z")]
 		new bool offer(E arg0, long arg1, TimeUnit arg2);
 		
-		[JavaSignature("(Ljava/lang/Object;)Z")]
-		new bool offerFirst(E arg0);
-		
 		[JavaSignature("(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z")]
 		bool offerFirst(E arg0, long arg1, TimeUnit arg2);
 		
-		[JavaSignature("(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z")]
-		bool offerLast(E arg0, long arg1, TimeUnit arg2);
+		[JavaSignature("(Ljava/lang/Object;)Z")]
+		new bool offerFirst(E arg0);
 		
 		[JavaSignature("(Ljava/lang/Object;)Z")]
 		new bool offerLast(E arg0);
+		
+		[JavaSignature("(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z")]
+		bool offerLast(E arg0, long arg1, TimeUnit arg2);
 		
 		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;")]
 		E pollFirst(long arg0, TimeUnit arg1);
@@ -87,6 +87,9 @@ namespace jvm4csharp.java.util.concurrent
 		[JavaSignature("(Ljava/lang/Object;)Z")]
 		new bool removeLastOccurrence(IJavaObject arg0);
 		
+		[JavaSignature("()Ljava/lang/Object;")]
+		new E take();
+		
 		[JavaSignature("(Ljava/lang/Object;)V")]
 		void putFirst(E arg0);
 		
@@ -98,8 +101,5 @@ namespace jvm4csharp.java.util.concurrent
 		
 		[JavaSignature("()Ljava/lang/Object;")]
 		E takeLast();
-		
-		[JavaSignature("()Ljava/lang/Object;")]
-		new E take();
 	}
 }

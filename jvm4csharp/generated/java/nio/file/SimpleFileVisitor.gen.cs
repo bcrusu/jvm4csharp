@@ -16,7 +16,7 @@ using jvm4csharp.java.nio.file.attribute;
 namespace jvm4csharp.java.nio.file
 {
 	[JavaProxy("java/nio/file/SimpleFileVisitor")]
-	public class SimpleFileVisitor<T> : Object, FileVisitor<T>
+	public partial class SimpleFileVisitor<T> : Object, FileVisitor<T>
 		where T : IJavaObject
 	{
 		protected SimpleFileVisitor(ProxyCtor p) : base(p) {}

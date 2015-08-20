@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.util.zip
 {
 	[JavaProxy("java/util/zip/Checksum")]
-	public interface Checksum : IJavaObject
+	public partial interface Checksum : IJavaObject
 	{
 		[JavaSignature("(I)V")]
 		void update(int arg0);

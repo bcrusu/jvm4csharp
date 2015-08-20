@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/ProtocolFamily")]
-	public interface ProtocolFamily : IJavaObject
+	public partial interface ProtocolFamily : IJavaObject
 	{
 		[JavaSignature("()Ljava/lang/String;")]
 		String name();

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/Modifier")]
-	public class Modifier : Object
+	public partial class Modifier : Object
 	{
 		protected Modifier(ProxyCtor p) : base(p) {}
 		

@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/RuleBasedCollator")]
-	public class RuleBasedCollator : Collator
+	public partial class RuleBasedCollator : Collator
 	{
 		protected RuleBasedCollator(ProxyCtor p) : base(p) {}
 		

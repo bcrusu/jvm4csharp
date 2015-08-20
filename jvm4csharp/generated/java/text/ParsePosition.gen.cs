@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/ParsePosition")]
-	public class ParsePosition : Object
+	public partial class ParsePosition : Object
 	{
 		protected ParsePosition(ProxyCtor p) : base(p) {}
 		
@@ -35,16 +35,16 @@ namespace jvm4csharp.java.text
 			Instance.CallMethod("setErrorIndex", "(I)V", arg0);
 		}
 		
-		[JavaSignature("()I")]
-		public int getErrorIndex()
-		{
-			return Instance.CallMethod<int>("getErrorIndex", "()I");
-		}
-		
 		[JavaSignature("(I)V")]
 		public void setIndex(int arg0)
 		{
 			Instance.CallMethod("setIndex", "(I)V", arg0);
+		}
+		
+		[JavaSignature("()I")]
+		public int getErrorIndex()
+		{
+			return Instance.CallMethod<int>("getErrorIndex", "()I");
 		}
 	}
 }

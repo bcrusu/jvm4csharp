@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.function
 {
 	[JavaProxy("java/util/function/BinaryOperator")]
-	public interface BinaryOperator<T> : BiFunction<T, T, T>
+	public partial interface BinaryOperator<T> : BiFunction<T, T, T>
 		where T : IJavaObject
 	{
 	}

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/RecursiveTask")]
-	public abstract class RecursiveTask<V> : ForkJoinTask<V>
+	public abstract partial class RecursiveTask<V> : ForkJoinTask<V>
 		where V : IJavaObject
 	{
 		protected RecursiveTask(ProxyCtor p) : base(p) {}

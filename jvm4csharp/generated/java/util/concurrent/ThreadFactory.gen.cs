@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/ThreadFactory")]
-	public interface ThreadFactory : IJavaObject
+	public partial interface ThreadFactory : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/Runnable;)Ljava/lang/Thread;")]
 		Thread newThread(Runnable arg0);

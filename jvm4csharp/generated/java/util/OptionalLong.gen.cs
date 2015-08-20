@@ -15,7 +15,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/OptionalLong")]
-	public class OptionalLong : Object
+	public partial class OptionalLong : Object
 	{
 		protected OptionalLong(ProxyCtor p) : base(p) {}
 	

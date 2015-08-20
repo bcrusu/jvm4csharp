@@ -15,7 +15,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.net
 {
 	[JavaProxy("java/net/StandardProtocolFamily")]
-	public class StandardProtocolFamily : Enum<StandardProtocolFamily>, ProtocolFamily
+	public partial class StandardProtocolFamily : Enum<StandardProtocolFamily>, ProtocolFamily
 	{
 		protected StandardProtocolFamily(ProxyCtor p) : base(p) {}
 	

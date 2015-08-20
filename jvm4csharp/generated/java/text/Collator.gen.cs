@@ -17,7 +17,7 @@ using jvm4csharp.java.util.function;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/Collator")]
-	public abstract class Collator : Object, Comparator<IJavaObject>, Cloneable
+	public abstract partial class Collator : Object, Comparator<IJavaObject>, Cloneable
 	{
 		protected Collator(ProxyCtor p) : base(p) {}
 	

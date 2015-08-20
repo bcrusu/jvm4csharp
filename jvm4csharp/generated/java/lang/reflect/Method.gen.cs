@@ -14,7 +14,7 @@ using jvm4csharp.ArrayUtils;
 namespace jvm4csharp.java.lang.reflect
 {
 	[JavaProxy("java/lang/reflect/Method")]
-	public class Method : Executable
+	public partial class Method : Executable
 	{
 		protected Method(ProxyCtor p) : base(p) {}
 	

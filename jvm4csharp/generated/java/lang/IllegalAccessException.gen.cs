@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/IllegalAccessException")]
-	public class IllegalAccessException : ReflectiveOperationException
+	public partial class IllegalAccessException : ReflectiveOperationException
 	{
 		protected IllegalAccessException(ProxyCtor p) : base(p) {}
 		

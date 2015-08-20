@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/FilterReader")]
-	public abstract class FilterReader : Reader
+	public abstract partial class FilterReader : Reader
 	{
 		protected FilterReader(ProxyCtor p) : base(p) {}
 	}

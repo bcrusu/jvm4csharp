@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.channels
 {
 	[JavaProxy("java/nio/channels/FileLock")]
-	public abstract class FileLock : Object, AutoCloseable
+	public abstract partial class FileLock : Object, AutoCloseable
 	{
 		protected FileLock(ProxyCtor p) : base(p) {}
 	

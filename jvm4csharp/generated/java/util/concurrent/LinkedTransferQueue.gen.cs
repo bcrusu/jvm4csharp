@@ -14,7 +14,7 @@ using jvm4csharp.java.io;
 namespace jvm4csharp.java.util.concurrent
 {
 	[JavaProxy("java/util/concurrent/LinkedTransferQueue")]
-	public class LinkedTransferQueue<E> : AbstractQueue<E>, TransferQueue<E>, Serializable
+	public partial class LinkedTransferQueue<E> : AbstractQueue<E>, TransferQueue<E>, Serializable
 		where E : IJavaObject
 	{
 		protected LinkedTransferQueue(ProxyCtor p) : base(p) {}
@@ -35,16 +35,16 @@ namespace jvm4csharp.java.util.concurrent
 			Instance.CallMethod("put", "(Ljava/lang/Object;)V", arg0);
 		}
 		
-		[JavaSignature("()Ljava/lang/Object;")]
-		public E poll()
-		{
-			return Instance.CallMethod<E>("poll", "()Ljava/lang/Object;");
-		}
-		
 		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;")]
 		public E poll(long arg0, TimeUnit arg1)
 		{
 			return Instance.CallMethod<E>("poll", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", arg0, arg1);
+		}
+		
+		[JavaSignature("()Ljava/lang/Object;")]
+		public E poll()
+		{
+			return Instance.CallMethod<E>("poll", "()Ljava/lang/Object;");
 		}
 		
 		[JavaSignature("()Ljava/lang/Object;")]
@@ -57,18 +57,6 @@ namespace jvm4csharp.java.util.concurrent
 		public void transfer(E arg0)
 		{
 			Instance.CallMethod("transfer", "(Ljava/lang/Object;)V", arg0);
-		}
-		
-		[JavaSignature("(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z")]
-		public bool offer(E arg0, long arg1, TimeUnit arg2)
-		{
-			return Instance.CallMethod<bool>("offer", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1, arg2);
-		}
-		
-		[JavaSignature("(Ljava/lang/Object;)Z")]
-		public bool offer(E arg0)
-		{
-			return Instance.CallMethod<bool>("offer", "(Ljava/lang/Object;)Z", arg0);
 		}
 		
 		[JavaSignature("()I")]
@@ -93,6 +81,18 @@ namespace jvm4csharp.java.util.concurrent
 		public bool tryTransfer(E arg0, long arg1, TimeUnit arg2)
 		{
 			return Instance.CallMethod<bool>("tryTransfer", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1, arg2);
+		}
+		
+		[JavaSignature("(Ljava/lang/Object;)Z")]
+		public bool offer(E arg0)
+		{
+			return Instance.CallMethod<bool>("offer", "(Ljava/lang/Object;)Z", arg0);
+		}
+		
+		[JavaSignature("(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z")]
+		public bool offer(E arg0, long arg1, TimeUnit arg2)
+		{
+			return Instance.CallMethod<bool>("offer", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1, arg2);
 		}
 		
 		[JavaSignature("()Ljava/lang/Object;")]

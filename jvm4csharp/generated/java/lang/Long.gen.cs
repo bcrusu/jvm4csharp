@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Long")]
-	public class Long : Number, Comparable<Long>
+	public partial class Long : Number, Comparable<Long>
 	{
 		protected Long(ProxyCtor p) : base(p) {}
 		

@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.lang.annotation
 {
 	[JavaProxy("java/lang/annotation/Retention")]
-	public interface Retention : Annotation
+	public partial interface Retention : Annotation
 	{
 		[JavaSignature("()Ljava/lang/annotation/RetentionPolicy;")]
 		RetentionPolicy @value();

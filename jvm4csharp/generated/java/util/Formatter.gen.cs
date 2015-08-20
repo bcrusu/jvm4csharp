@@ -16,7 +16,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.util
 {
 	[JavaProxy("java/util/Formatter")]
-	public class Formatter : Object, Closeable, Flushable
+	public partial class Formatter : Object, Closeable, Flushable
 	{
 		protected Formatter(ProxyCtor p) : base(p) {}
 		
@@ -133,7 +133,7 @@ namespace jvm4csharp.java.util
 		}
 	
 		[JavaProxy("java/util/Formatter/BigDecimalLayoutForm")]
-		public class BigDecimalLayoutForm : Enum<Formatter.BigDecimalLayoutForm>
+		public partial class BigDecimalLayoutForm : Enum<Formatter.BigDecimalLayoutForm>
 		{
 			protected BigDecimalLayoutForm(ProxyCtor p) : base(p) {}
 		

@@ -14,7 +14,7 @@ using jvm4csharp.java.lang;
 namespace jvm4csharp.java.nio.charset
 {
 	[JavaProxy("java/nio/charset/StandardCharsets")]
-	public class StandardCharsets : Object
+	public partial class StandardCharsets : Object
 	{
 		protected StandardCharsets(ProxyCtor p) : base(p) {}
 	

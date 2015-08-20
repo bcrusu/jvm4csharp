@@ -15,7 +15,7 @@ using jvm4csharp.java.nio.charset;
 namespace jvm4csharp.java.io
 {
 	[JavaProxy("java/io/InputStreamReader")]
-	public class InputStreamReader : Reader
+	public partial class InputStreamReader : Reader
 	{
 		protected InputStreamReader(ProxyCtor p) : base(p) {}
 		

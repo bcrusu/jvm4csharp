@@ -12,7 +12,7 @@
 namespace jvm4csharp.java.util.prefs
 {
 	[JavaProxy("java/util/prefs/NodeChangeListener")]
-	public interface NodeChangeListener : EventListener
+	public partial interface NodeChangeListener : EventListener
 	{
 		[JavaSignature("(Ljava/util/prefs/NodeChangeEvent;)V")]
 		void childAdded(NodeChangeEvent arg0);

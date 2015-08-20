@@ -15,7 +15,7 @@ using jvm4csharp.java.util;
 namespace jvm4csharp.java.text
 {
 	[JavaProxy("java/text/SimpleDateFormat")]
-	public class SimpleDateFormat : DateFormat
+	public partial class SimpleDateFormat : DateFormat
 	{
 		protected SimpleDateFormat(ProxyCtor p) : base(p) {}
 		

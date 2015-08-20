@@ -15,7 +15,7 @@ using jvm4csharp.java.util.concurrent;
 namespace jvm4csharp.java.lang
 {
 	[JavaProxy("java/lang/Process")]
-	public abstract class Process : Object
+	public abstract partial class Process : Object
 	{
 		protected Process(ProxyCtor p) : base(p) {}
 	
@@ -43,6 +43,12 @@ namespace jvm4csharp.java.lang
 			return Instance.CallMethod<OutputStream>("getOutputStream", "()Ljava/io/OutputStream;");
 		}
 		
+		[JavaSignature("()Ljava/io/InputStream;")]
+		public InputStream getErrorStream()
+		{
+			return Instance.CallMethod<InputStream>("getErrorStream", "()Ljava/io/InputStream;");
+		}
+		
 		[JavaSignature("()Ljava/lang/Process;")]
 		public Process destroyForcibly()
 		{
@@ -55,22 +61,16 @@ namespace jvm4csharp.java.lang
 			return Instance.CallMethod<int>("exitValue", "()I");
 		}
 		
-		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
-		public bool waitFor(long arg0, TimeUnit arg1)
-		{
-			return Instance.CallMethod<bool>("waitFor", "(JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1);
-		}
-		
 		[JavaSignature("()I")]
 		public int waitFor()
 		{
 			return Instance.CallMethod<int>("waitFor", "()I");
 		}
 		
-		[JavaSignature("()Ljava/io/InputStream;")]
-		public InputStream getErrorStream()
+		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
+		public bool waitFor(long arg0, TimeUnit arg1)
 		{
-			return Instance.CallMethod<InputStream>("getErrorStream", "()Ljava/io/InputStream;");
+			return Instance.CallMethod<bool>("waitFor", "(JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1);
 		}
 	}
 }
