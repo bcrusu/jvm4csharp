@@ -50,7 +50,6 @@
     <Compile Include="java\lang\StringTests.cs" />
     <Compile Include="java\util\ListTests.cs" />
     <Compile Include="java\util\ArraysTests.cs" />
-    <Compile Include="JniApiWrappers\JniWrapperTests.cs" />
     <Compile Include="JniApiWrappers\ProxyActivation\RemotingProxyActivatorTests.cs" />
     <Compile Include="JniApiWrappers\ProxyActivation\NonAbstractProxyActivatorTests.cs" />
     <Compile Include="IntegrationTestBase.cs" />

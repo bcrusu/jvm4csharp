@@ -46,20 +46,23 @@ namespace jvm4csharp
 
         public async Task<T> Run<T>(Func<T> func)
         {
-            CheckDisposed();
+            CheckIsAlive();
             return await JvmThread.Run(func);
         }
 
         public async Task Run(Action action)
         {
-            CheckDisposed();
+            CheckIsAlive();
             await JvmThread.Run(action);
         }
 
-        private void CheckDisposed()
+        private void CheckIsAlive()
         {
             if (_disposed == 1)
                 throw new ObjectDisposedException("The JVM session was disposed.");
+
+            if (!IsAttached)
+                throw new InvalidOperationException("The JVM session is not attached.");
         }
 
         private void Dispose(bool disposing)

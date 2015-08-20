@@ -12,7 +12,6 @@ namespace jvm4csharp.Session
         private readonly SemaphoreSlim _lock = new SemaphoreSlim(1);
         private int _nativeThreadId;
         private JavaVmWrapper _javaVm;
-        private JvmSession _session;
 
         public CurrentThread(IJvmThreadProvider jvmThreadProvider)
         {
@@ -42,10 +41,10 @@ namespace jvm4csharp.Session
 
                 var jniEnvWrapper = javaVm.AttachCurrentThread();
 
-                _session = new JvmSession(jniEnvWrapper, this);
-                JvmContext.SetCurrentContext(_session.JvmContext);
+                var session = new JvmSession(jniEnvWrapper, this);
+                JvmContext.SetCurrentContext(session.JvmContext);
                 IsAttached = true;
-                return Task.FromResult(_session);
+                return Task.FromResult(session);
             }
             finally
             {
@@ -65,7 +64,7 @@ namespace jvm4csharp.Session
                 Thread.BeginThreadAffinity();
 
                 if (!IsAttached)
-                    throw new InvalidOperationException("Thread not attached.");
+                    return Task.CompletedTask;
 
                 var nativeThreadId = Win32Api.GetCurrentThreadId();
                 if (nativeThreadId != _nativeThreadId)

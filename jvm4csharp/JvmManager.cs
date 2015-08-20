@@ -32,7 +32,7 @@ namespace jvm4csharp
         private readonly IJvmThreadProvider _pooledThreadProvider;
         private readonly JvmManagerOptions _options;
         private int _disposed;
-        
+
         private JvmManager(JvmManagerOptions options)
         {
             Debug.Assert(options != null);
@@ -170,7 +170,6 @@ namespace jvm4csharp
                 return;
 
             _pooledThreadProvider.Dispose();
-            _currentThreadProvider.Dispose();
             _javaVm.DestroyJavaVm();
 
             if (disposing)

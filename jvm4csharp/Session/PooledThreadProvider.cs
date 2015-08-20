@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace jvm4csharp.Session
 {
@@ -87,7 +89,13 @@ namespace jvm4csharp.Session
 
         public void Dispose()
         {
-            //TODO: destroy active threads + dispose pending threads
+            var tasks = new List<Task>();
+            tasks.AddRange(_activeThreads.Select(thread => thread.Detach()));
+
+            Task.WaitAll(tasks.ToArray());
+
+            foreach (var thread in _pendingThreads)
+                thread.Dispose();
         }
     }
 }

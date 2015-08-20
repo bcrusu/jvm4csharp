@@ -74,13 +74,14 @@ namespace jvm4csharp.Session
                 _lock.Wait();
 
                 if (!IsAttached)
-                    throw new InvalidOperationException("Thread not attached.");
+                    return Task.CompletedTask;
 
                 var tsc = new TaskCompletionSource<int>();
                 Action action = () =>
                 {
                     try
                     {
+                        IsAttached = false;
                         DetachActionBody();
                         tsc.SetResult(0);
                     }
@@ -131,7 +132,6 @@ namespace jvm4csharp.Session
 
             _javaVm.DetachCurrentThread();
             _javaVm = null;
-            IsAttached = false;
 
             _jvmThreadProvider.ReturnThread(this);
         }
@@ -221,9 +221,7 @@ namespace jvm4csharp.Session
 
         public void Dispose()
         {
-            if (IsAttached)
-                throw new InvalidOperationException("Cannot dispose attached thread.");
-
+            Debug.Assert(!IsAttached);
             _threadCancellationTokenSource.Cancel();
         }
     }
