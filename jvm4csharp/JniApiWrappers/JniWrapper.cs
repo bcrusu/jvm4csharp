@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Runtime.InteropServices;
 using jvm4csharp.JniApi;
 
@@ -9,32 +11,20 @@ namespace jvm4csharp.JniApiWrappers
     {
         public const JniVersion PreferredJniVersion = JniVersion.v1_6;
 
-        public static void VerifyJniResult(JniResult result)
-        {
-            if (result == JniResult.Ok)
-                return;
-
-            throw new JvmException($"JNI invocation API error. Code '{result}'.");
-        }
-
-        public unsafe static JavaVmWrapper CreateJavaVm(string[] jvmOptions)
+        public unsafe static IntPtr CreateJavaVm(IEnumerable<string> jvmOptions)
         {
             Debug.Assert(jvmOptions != null);
 
-            var initArgs = GetJavaVmInitArgs(jvmOptions);
+            var initArgs = GetJavaVmInitArgs(jvmOptions.EmptyIfNull().ToArray());
             try
             {
                 IntPtr jvmPtr;
                 IntPtr envPtr;
 
-                var jniResult = JniApiImport.JNI_CreateJavaVM(out jvmPtr, out envPtr, &initArgs);
-                VerifyJniResult(jniResult);
+                var result = JniApiImport.JNI_CreateJavaVM(out jvmPtr, out envPtr, &initArgs);
+                WrapperHelpers.VerifyJniResult(result);
 
-                var result = new JavaVmWrapper(jvmPtr);
-
-                result.DetachCurrentThread();
-
-                return result;
+                return jvmPtr;
             }
             finally
             {
@@ -51,17 +41,17 @@ namespace jvm4csharp.JniApiWrappers
             var nativeJvmOptions = new JavaVmOption[jvmOptions.Length + 3];
 
             //exit
-            JniHooksSig.Exit exitHook = ExitHook;
+            JniHooksSig.Exit exitHook = DefaultExitHook;
             nativeJvmOptions[0].optionString = Marshal.StringToHGlobalAnsi("exit");
             nativeJvmOptions[0].extraInfo = Marshal.GetFunctionPointerForDelegate(exitHook);
 
             //abort
-            JniHooksSig.Abort abortHook = AbortHook;
+            JniHooksSig.Abort abortHook = DefaultAbortHook;
             nativeJvmOptions[1].optionString = Marshal.StringToHGlobalAnsi("abort");
             nativeJvmOptions[1].extraInfo = Marshal.GetFunctionPointerForDelegate(abortHook);
 
             //vfprintf
-            JniHooksSig.Vfprintf vfprintfHook = VfprintfHook;
+            JniHooksSig.Vfprintf vfprintfHook = DefaultVfprintfHook;
             nativeJvmOptions[2].optionString = Marshal.StringToHGlobalAnsi("vfprintf");
             nativeJvmOptions[2].extraInfo = Marshal.GetFunctionPointerForDelegate(vfprintfHook);
 
@@ -92,17 +82,17 @@ namespace jvm4csharp.JniApiWrappers
             }
         }
 
-        private static void AbortHook()
+        private static void DefaultAbortHook()
         {
             Debug.WriteLine("Abort hook was called.");
         }
 
-        private static void ExitHook(int code)
+        private static void DefaultExitHook(int code)
         {
             Debug.WriteLine("Exit hook was called.");
         }
 
-        private static unsafe int VfprintfHook(IntPtr fp, char* format, IntPtr args)
+        private static unsafe int DefaultVfprintfHook(IntPtr fp, char* format, IntPtr args)
         {
             Debug.WriteLine("Vfprintf hook was called.");
             return 0;

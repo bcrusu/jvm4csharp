@@ -5,20 +5,22 @@ namespace jvm4csharp.Tests
     [SetUpFixture]
     public class GlobalSetUp
     {
+        public static JvmManager JvmManager { get; set; }
+
         [SetUp]
         public void RunBeforeAnyTests()
         {
             var options = new JvmManagerOptions();
-            options.CreateJvmAtStartup = false;
-            options.MinThreadPoolSize = 8;
-            options.JavaHome = @"C:\Program Files\Java\jre1.8.0_51";
+            options.JavaHome = Configuration.JavaHome;
 
-            JvmManager.Configure(options);
+            JvmManager = JvmManager.Create(options);
         }
 
         [TearDown]
         public void RunAfterAnyTests()
         {
+            if (JvmManager != null)
+                JvmManager.DestroyJavaVm();
         }
     }
 }

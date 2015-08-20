@@ -53,10 +53,10 @@ namespace jvm4csharp.JniApiWrappers
             return result;
         }
 
-        private static bool TryActivateProxy(Class clazz, Type expectedProxyType, out IJavaProxy proxy)
+        private bool TryActivateProxy(Class clazz, Type expectedProxyType, out IJavaProxy proxy)
         {
             Type proxyType;
-            if (ProxyRegistry.Current.TryGetProxyType(clazz.InternalClassName, out proxyType))
+            if (_jniEnvWrapper.JavaVm.JvmManager.ProxyRegistry.TryGetProxyType(clazz.InternalClassName, out proxyType))
             {
                 if (proxyType.IsGenericTypeDefinition)
                     proxyType = proxyType.MakeGenericType(expectedProxyType.GenericTypeArguments);

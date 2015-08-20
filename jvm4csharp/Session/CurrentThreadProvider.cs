@@ -7,6 +7,7 @@ namespace jvm4csharp.Session
     {
         public IJvmThread GetThread()
         {
+            //TODO: track instances to be disposed
             return new CurrentThread(this);
         }
 

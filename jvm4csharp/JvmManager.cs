@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Threading;
 using jvm4csharp.JniApi;
 using jvm4csharp.JniApiWrappers;
@@ -9,11 +9,8 @@ using jvm4csharp.Session;
 
 namespace jvm4csharp
 {
-    //TODO: unload JVM functionality
-    public class JvmManager
+    public class JvmManager : IDisposable
     {
-        public static JvmManager Current { get; private set; }
-
         private const string JavaHomeEnvVariableName = "JAVA_HOME";
         private const string PathEnvVariableName = "PATH";
 
@@ -27,40 +24,53 @@ namespace jvm4csharp
             @"jre\bin\classic\"
         };
 
+        internal ProxyRegistry ProxyRegistry { get; private set; }
+
         private JavaVmWrapper _javaVm;
         private readonly SemaphoreSlim _javaVmSemaphore;
-        private string _javaHome;
-        private readonly string[] _jvmOptions;
         private readonly IJvmThreadProvider _currentThreadProvider;
         private readonly IJvmThreadProvider _pooledThreadProvider;
-
-        private JvmManager(string javaHome, IEnumerable<string> jvmOptions, int minThreadPoolSize)
+        private readonly JvmManagerOptions _options;
+        private int _disposed;
+        
+        private JvmManager(JvmManagerOptions options)
         {
-            _javaVmSemaphore = new SemaphoreSlim(1);
-            _javaHome = javaHome;
-            _jvmOptions = (jvmOptions ?? Enumerable.Empty<string>()).ToArray();
+            Debug.Assert(options != null);
 
+            _options = options;
+            _javaVmSemaphore = new SemaphoreSlim(1);
             _currentThreadProvider = new CurrentThreadProvider();
-            _pooledThreadProvider = new PooledThreadProvider(minThreadPoolSize);
+            _pooledThreadProvider = new PooledThreadProvider(options.MinThreadPoolSize);
+
+            ProxyRegistry = new ProxyRegistry(options.GetProxyTypes());
         }
 
-        public static void Configure(JvmManagerOptions options)
+        ~JvmManager()
+        {
+            Dispose(false);
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+        }
+
+        public static JvmManager Create(JvmManagerOptions options)
         {
             if (options == null) throw new ArgumentNullException(nameof(options));
 
-            if (Current != null)
-                throw new InvalidOperationException("Configure was already called.");
+            var result = new JvmManager(options);
 
-            ProxyRegistry.Configure(options.GetProxyTypes());
+            // start the JVM
+            result.GetJavaVm();
 
-            Current = new JvmManager(options.JavaHome, options.GetJvmOptions(), options.MinThreadPoolSize);
-
-            if (options.CreateJvmAtStartup)
-                Current.GetJavaVm();
+            return result;
         }
 
         public JvmSession OpenSession(bool attachCurrentThread)
         {
+            CheckDisposed();
+
             var threadProvider = _pooledThreadProvider;
             if (attachCurrentThread)
                 threadProvider = _currentThreadProvider;
@@ -75,10 +85,12 @@ namespace jvm4csharp
         public void CloseSession(JvmSession session)
         {
             if (session == null) throw new ArgumentNullException(nameof(session));
+
+            CheckDisposed();
             session.Close();
         }
 
-        internal JavaVmWrapper GetJavaVm()
+        private JavaVmWrapper GetJavaVm()
         {
             try
             {
@@ -89,7 +101,11 @@ namespace jvm4csharp
                     var jvmDllDirectory = GetJvmDllDirectory();
                     AddToEnvironmentPath(jvmDllDirectory);
 
-                    _javaVm = JniWrapper.CreateJavaVm(_jvmOptions);
+                    var jvmPtr = JniWrapper.CreateJavaVm(_options.GetJvmOptions());
+                    _javaVm = new JavaVmWrapper(this, jvmPtr);
+
+                    //detach the current thread (is automatically attached during JVM startup)
+                    _javaVm.DetachCurrentThread();
                 }
 
                 return _javaVm;
@@ -100,31 +116,18 @@ namespace jvm4csharp
             }
         }
 
-        internal void DestroyJavaVm()
-        {
-            //TODO
-            try
-            {
-                _javaVmSemaphore.Wait();
-
-                _javaVm.DestroyJavaVm();
-            }
-            finally
-            {
-                _javaVmSemaphore.Release();
-            }
-        }
-
         private string GetJvmDllDirectory()
         {
-            if (string.IsNullOrWhiteSpace(_javaHome))
+            var javaHome = _options.JavaHome;
+
+            if (string.IsNullOrWhiteSpace(javaHome))
             {
                 var envVariableValue = Environment.GetEnvironmentVariable(JavaHomeEnvVariableName);
 
                 if (!string.IsNullOrWhiteSpace(envVariableValue))
                     try
                     {
-                        _javaHome = Path.GetFullPath(envVariableValue.Replace("\"", ""));
+                        javaHome = Path.GetFullPath(envVariableValue.Replace("\"", ""));
                     }
                     catch (Exception e)
                     {
@@ -133,12 +136,12 @@ namespace jvm4csharp
                     }
             }
 
-            if (string.IsNullOrWhiteSpace(_javaHome))
+            if (string.IsNullOrWhiteSpace(javaHome))
                 throw new JvmException($"Error resolving the {JavaHomeEnvVariableName} environment variable.");
 
             foreach (var searchLocation in JvmDllSearchLocations)
             {
-                var jvmDllDirectory = Path.Combine(_javaHome, searchLocation);
+                var jvmDllDirectory = Path.Combine(javaHome, searchLocation);
                 if (!Directory.Exists(jvmDllDirectory))
                     continue;
 
@@ -158,6 +161,26 @@ namespace jvm4csharp
                 value = path + Path.PathSeparator + value;
                 Environment.SetEnvironmentVariable(PathEnvVariableName, value);
             }
+        }
+
+        private void Dispose(bool disposing)
+        {
+            var disposed = Interlocked.CompareExchange(ref _disposed, 1, 0);
+            if (disposed == 1)
+                return;
+
+            _pooledThreadProvider.Dispose();
+            _currentThreadProvider.Dispose();
+            _javaVm.DestroyJavaVm();
+
+            if (disposing)
+                GC.SuppressFinalize(this);
+        }
+
+        private void CheckDisposed()
+        {
+            if (_disposed == 1)
+                throw new ObjectDisposedException("The JVM manager was disposed.");
         }
     }
 }

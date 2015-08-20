@@ -9,12 +9,10 @@ namespace jvm4csharp.JniApiWrappers
 {
     internal sealed class ProxyRegistry
     {
-        public static ProxyRegistry Current { get; private set; }
-
         private readonly IDictionary<string, Type> _classNameToProxyType = new Dictionary<string, Type>();
         private readonly IDictionary<Type, string> _proxyTypeToClassNameMap = new Dictionary<Type, string>();
 
-        private ProxyRegistry(IEnumerable<Type> proxyTypes)
+        public ProxyRegistry(IEnumerable<Type> proxyTypes)
         {
             Debug.Assert(proxyTypes != null);
 
@@ -24,11 +22,6 @@ namespace jvm4csharp.JniApiWrappers
 
             foreach (var type in proxyTypes)
                 RegisterProxy(type, null);
-        }
-
-        public static void Configure(IEnumerable<Type> proxyTypes)
-        {
-            Current = new ProxyRegistry(proxyTypes);
         }
 
         public string GetClassName(Type javaProxyType)

@@ -9,7 +9,7 @@ namespace jvm4csharp.Tests
         [TestFixtureSetUp]
         public void TestSetUp()
         {
-            Session = JvmManager.Current.OpenSession(true);
+            Session = GlobalSetUp.JvmManager.OpenSession(true);
         }
 
         [TestFixtureTearDown]

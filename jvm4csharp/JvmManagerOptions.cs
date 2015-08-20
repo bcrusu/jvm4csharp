@@ -19,8 +19,6 @@ namespace jvm4csharp
 
         public string JavaHome { get; set; }
 
-        public bool CreateJvmAtStartup { get; set; }
-
         public int MinThreadPoolSize { get; set; }
 
         public void AddClassPath(string classPath)

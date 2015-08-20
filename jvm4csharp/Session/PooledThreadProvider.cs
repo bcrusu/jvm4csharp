@@ -87,7 +87,7 @@ namespace jvm4csharp.Session
 
         public void Dispose()
         {
-            //TODO:
+            //TODO: destroy active threads + dispose pending threads
         }
     }
 }

@@ -191,7 +191,7 @@ namespace jvm4csharp.JniApiWrappers
         {
             Debug.Assert(javaProxyType != null);
 
-            var className = ProxyRegistry.Current.GetClassName(javaProxyType);
+            var className = _jniEnvWrapper.JavaVm.JvmManager.ProxyRegistry.GetClassName(javaProxyType);
             return FindClass(className);
         }
 

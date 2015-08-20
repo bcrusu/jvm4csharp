@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="ArrayUtils\ObjectArrayTests.cs" />
     <Compile Include="AssertEx.cs" />
+    <Compile Include="Configuration.cs" />
     <Compile Include="java\lang\StringTests.cs" />
     <Compile Include="java\util\ListTests.cs" />
     <Compile Include="java\util\ArraysTests.cs" />

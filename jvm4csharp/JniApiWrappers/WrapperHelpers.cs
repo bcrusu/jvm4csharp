@@ -20,6 +20,7 @@ namespace jvm4csharp.JniApiWrappers
         {
             return *((JavaVm*)javaVmPtr.ToPointer())->functions;
         }
+
         public static TResult GetDelegateForPointer<TResult>(IntPtr ptr)
         {
             return (TResult)((object)Marshal.GetDelegateForFunctionPointer(ptr, typeof(TResult)));
@@ -67,6 +68,14 @@ namespace jvm4csharp.JniApiWrappers
             }
 
             return result;
+        }
+
+        public static void VerifyJniResult(JniResult result)
+        {
+            if (result == JniResult.Ok)
+                return;
+
+            throw new JvmException($"JNI invocation API error. Code '{result}'.");
         }
     }
 }

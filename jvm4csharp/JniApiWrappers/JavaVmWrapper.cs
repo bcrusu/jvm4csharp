@@ -10,6 +10,7 @@ namespace jvm4csharp.JniApiWrappers
     {
         private readonly IntPtr _javaVmPtr;
         internal GlobalReferencesManager GlobalReferences { get; private set; }
+        internal JvmManager JvmManager { get; private set; }
 
         private JniInvokeInterfaceSig.AttachCurrentThread _attachCurrentThread;
         private JniInvokeInterfaceSig.AttachCurrentThread _attachCurrentThreadAsDaemon;
@@ -17,11 +18,13 @@ namespace jvm4csharp.JniApiWrappers
         private JniInvokeInterfaceSig.DetachCurrentThread _detachCurrentThread;
         private JniInvokeInterfaceSig.GetEnv _getEnv;
 
-        internal JavaVmWrapper(IntPtr javaVmPtr)
+        internal JavaVmWrapper(JvmManager jvmManager, IntPtr javaVmPtr)
         {
             Debug.Assert(javaVmPtr != IntPtr.Zero);
+            Debug.Assert(jvmManager != null);
 
             _javaVmPtr = javaVmPtr;
+            JvmManager = jvmManager;
             InitFunctions();
 
             GlobalReferences = new GlobalReferencesManager();
@@ -38,9 +41,10 @@ namespace jvm4csharp.JniApiWrappers
             _getEnv = WrapperHelpers.GetDelegateForPointer<JniInvokeInterfaceSig.GetEnv>(jvm.GetEnv);
         }
 
-        public JniResult DestroyJavaVm()
+        public void DestroyJavaVm()
         {
-            return _destroyJavaVm(_javaVmPtr);
+            var result = _destroyJavaVm(_javaVmPtr);
+            WrapperHelpers.VerifyJniResult(result);
         }
 
         public unsafe JniEnvWrapper AttachCurrentThread()
@@ -56,7 +60,7 @@ namespace jvm4csharp.JniApiWrappers
         public void DetachCurrentThread()
         {
             var result = _detachCurrentThread(_javaVmPtr);
-            JniWrapper.VerifyJniResult(result);
+            WrapperHelpers.VerifyJniResult(result);
         }
 
         public JniEnvWrapper GetCurrentEnv()
@@ -66,7 +70,7 @@ namespace jvm4csharp.JniApiWrappers
             if (jniResult == JniResult.ErrDetached)
                 return null;
 
-            JniWrapper.VerifyJniResult(jniResult);
+            WrapperHelpers.VerifyJniResult(jniResult);
 
             return new JniEnvWrapper(this, envPtr);
         }
@@ -88,7 +92,7 @@ namespace jvm4csharp.JniApiWrappers
 
                 IntPtr envPtr;
                 var jniResult = attachFunction(_javaVmPtr, out envPtr, &attachArgs);
-                JniWrapper.VerifyJniResult(jniResult);
+                WrapperHelpers.VerifyJniResult(jniResult);
 
                 return new JniEnvWrapper(this, envPtr);
             }
