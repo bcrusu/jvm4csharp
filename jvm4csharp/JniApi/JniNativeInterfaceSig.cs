@@ -186,7 +186,7 @@ namespace jvm4csharp.JniApi
 
                 [UnmanagedFunctionPointer(CallingConvention.StdCall)]
                 [SuppressUnmanagedCodeSecurity]
-                public delegate ushort /*jchar*/ CallCharMethodA(IntPtr env, IntPtr /*jobject*/ obj, IntPtr /*jmethodId*/ methodId, params JniValue[] args);
+                public delegate char /*jchar*/ CallCharMethodA(IntPtr env, IntPtr /*jobject*/ obj, IntPtr /*jmethodId*/ methodId, params JniValue[] args);
 
                 [UnmanagedFunctionPointer(CallingConvention.StdCall)]
                 [SuppressUnmanagedCodeSecurity]
@@ -226,7 +226,7 @@ namespace jvm4csharp.JniApi
 
                 [UnmanagedFunctionPointer(CallingConvention.StdCall)]
                 [SuppressUnmanagedCodeSecurity]
-                public delegate ushort /*jchar*/ CallNonvirtualCharMethodA(IntPtr env, IntPtr /*jobject*/ obj, IntPtr /*jclass*/ clazz, IntPtr /*jmethodId*/ methodId, params JniValue[] args);
+                public delegate char /*jchar*/ CallNonvirtualCharMethodA(IntPtr env, IntPtr /*jobject*/ obj, IntPtr /*jclass*/ clazz, IntPtr /*jmethodId*/ methodId, params JniValue[] args);
 
                 [UnmanagedFunctionPointer(CallingConvention.StdCall)]
                 [SuppressUnmanagedCodeSecurity]
@@ -269,7 +269,7 @@ namespace jvm4csharp.JniApi
 
                 [UnmanagedFunctionPointer(CallingConvention.StdCall)]
                 [SuppressUnmanagedCodeSecurity]
-                public delegate ushort /*jchar*/ CallStaticCharMethodA(IntPtr env, IntPtr /*jclass*/ clazz, IntPtr /*jmethodId*/ methodId, params JniValue[] args);
+                public delegate char /*jchar*/ CallStaticCharMethodA(IntPtr env, IntPtr /*jclass*/ clazz, IntPtr /*jmethodId*/ methodId, params JniValue[] args);
 
                 [UnmanagedFunctionPointer(CallingConvention.StdCall)]
                 [SuppressUnmanagedCodeSecurity]
@@ -323,7 +323,7 @@ namespace jvm4csharp.JniApi
 
                 [UnmanagedFunctionPointer(CallingConvention.StdCall)]
                 [SuppressUnmanagedCodeSecurity]
-                public delegate ushort /*jchar*/ GetCharField(IntPtr env, IntPtr /*jobject*/ obj, IntPtr /*jfieldId*/ fieldId);
+                public delegate char /*jchar*/ GetCharField(IntPtr env, IntPtr /*jobject*/ obj, IntPtr /*jfieldId*/ fieldId);
 
                 [UnmanagedFunctionPointer(CallingConvention.StdCall)]
                 [SuppressUnmanagedCodeSecurity]
@@ -362,7 +362,7 @@ namespace jvm4csharp.JniApi
 
                 [UnmanagedFunctionPointer(CallingConvention.StdCall)]
                 [SuppressUnmanagedCodeSecurity]
-                public delegate void SetCharField(IntPtr env, IntPtr /*jobject*/ obj, IntPtr /*jfieldId*/ fieldId, ushort /*jchar*/ val);
+                public delegate void SetCharField(IntPtr env, IntPtr /*jobject*/ obj, IntPtr /*jfieldId*/ fieldId, char /*jchar*/ val);
 
                 [UnmanagedFunctionPointer(CallingConvention.StdCall)]
                 [SuppressUnmanagedCodeSecurity]
@@ -401,7 +401,7 @@ namespace jvm4csharp.JniApi
 
                 [UnmanagedFunctionPointer(CallingConvention.StdCall)]
                 [SuppressUnmanagedCodeSecurity]
-                public delegate ushort /*jchar*/ GetStaticCharField(IntPtr env, IntPtr /*jclass*/ clazz, IntPtr /*jfieldId*/ fieldId);
+                public delegate char /*jchar*/ GetStaticCharField(IntPtr env, IntPtr /*jclass*/ clazz, IntPtr /*jfieldId*/ fieldId);
 
                 [UnmanagedFunctionPointer(CallingConvention.StdCall)]
                 [SuppressUnmanagedCodeSecurity]
@@ -440,7 +440,7 @@ namespace jvm4csharp.JniApi
 
                 [UnmanagedFunctionPointer(CallingConvention.StdCall)]
                 [SuppressUnmanagedCodeSecurity]
-                public delegate void SetStaticCharField(IntPtr env, IntPtr /*jclass*/ clazz, IntPtr /*jfieldId*/ fieldId, ushort /*jchar*/ value);
+                public delegate void SetStaticCharField(IntPtr env, IntPtr /*jclass*/ clazz, IntPtr /*jfieldId*/ fieldId, char /*jchar*/ value);
 
                 [UnmanagedFunctionPointer(CallingConvention.StdCall)]
                 [SuppressUnmanagedCodeSecurity]
@@ -547,11 +547,11 @@ namespace jvm4csharp.JniApi
 
                 [UnmanagedFunctionPointer(CallingConvention.StdCall)]
                 [SuppressUnmanagedCodeSecurity]
-                public unsafe delegate ushort* /*jchar*/ GetCharArrayElements(IntPtr env, IntPtr /*jcharArray*/ array, byte* /*jboolean*/ isCopy);
+                public unsafe delegate char* /*jchar*/ GetCharArrayElements(IntPtr env, IntPtr /*jcharArray*/ array, byte* /*jboolean*/ isCopy);
 
                 [UnmanagedFunctionPointer(CallingConvention.StdCall)]
                 [SuppressUnmanagedCodeSecurity]
-                public unsafe delegate void ReleaseCharArrayElements(IntPtr env, IntPtr /*jcharArray*/ array, ushort* /*jchar*/ elems, int mode);
+                public unsafe delegate void ReleaseCharArrayElements(IntPtr env, IntPtr /*jcharArray*/ array, char* /*jchar*/ elems, int mode);
 
                 [UnmanagedFunctionPointer(CallingConvention.StdCall)]
                 [SuppressUnmanagedCodeSecurity]
@@ -714,7 +714,7 @@ namespace jvm4csharp.JniApi
 
             [UnmanagedFunctionPointer(CallingConvention.StdCall)]
             [SuppressUnmanagedCodeSecurity]
-            public unsafe delegate void GetStringRegion(IntPtr env, IntPtr /*jstring*/ str, int /*jsize*/ start, int /*jsize*/ len, ushort* /*jchar*/ buf);
+            public unsafe delegate void GetStringRegion(IntPtr env, IntPtr /*jstring*/ str, int /*jsize*/ start, int /*jsize*/ len, char* /*jchar*/ buf);
 
             [UnmanagedFunctionPointer(CallingConvention.StdCall)]
             [SuppressUnmanagedCodeSecurity]
@@ -722,11 +722,11 @@ namespace jvm4csharp.JniApi
 
             [UnmanagedFunctionPointer(CallingConvention.StdCall)]
             [SuppressUnmanagedCodeSecurity]
-            public unsafe delegate ushort* /*jchar*/ GetStringCritical(IntPtr env, IntPtr /*jstring*/ str, byte* /*jboolean*/ isCopy);
+            public unsafe delegate char* /*jchar*/ GetStringCritical(IntPtr env, IntPtr /*jstring*/ str, byte* /*jboolean*/ isCopy);
 
             [UnmanagedFunctionPointer(CallingConvention.StdCall)]
             [SuppressUnmanagedCodeSecurity]
-            public unsafe delegate void ReleaseStringCritical(IntPtr env, IntPtr /*jstring*/ str, ushort* /*jchar*/ cstring);
+            public unsafe delegate void ReleaseStringCritical(IntPtr env, IntPtr /*jstring*/ str, char* /*jchar*/ cstring);
         }
 
         public static class Nio

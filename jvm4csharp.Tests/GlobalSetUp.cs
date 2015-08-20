@@ -19,7 +19,6 @@ namespace jvm4csharp.Tests
         [TearDown]
         public void RunAfterAnyTests()
         {
-            
         }
     }
 }

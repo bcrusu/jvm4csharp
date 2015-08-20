@@ -100,6 +100,21 @@ namespace jvm4csharp
             }
         }
 
+        internal void DestroyJavaVm()
+        {
+            //TODO
+            try
+            {
+                _javaVmSemaphore.Wait();
+
+                _javaVm.DestroyJavaVm();
+            }
+            finally
+            {
+                _javaVmSemaphore.Release();
+            }
+        }
+
         private string GetJvmDllDirectory()
         {
             if (string.IsNullOrWhiteSpace(_javaHome))

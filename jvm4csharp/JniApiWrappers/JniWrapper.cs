@@ -42,17 +42,33 @@ namespace jvm4csharp.JniApiWrappers
             }
         }
 
-        private unsafe static JavaVmInitArgs GetJavaVmInitArgs(string[] jvmOptions)
+        private static unsafe JavaVmInitArgs GetJavaVmInitArgs(string[] jvmOptions)
         {
             var initArgs = default(JavaVmInitArgs);
             initArgs.version = (int)PreferredJniVersion;
             initArgs.ignoreUnrecognized = JniBooleanValue.True;
 
-            var nativeJvmOptions = new JavaVmOption[jvmOptions.Length];
+            var nativeJvmOptions = new JavaVmOption[jvmOptions.Length + 3];
+
+            //exit
+            JniHooksSig.Exit exitHook = ExitHook;
+            nativeJvmOptions[0].optionString = Marshal.StringToHGlobalAnsi("exit");
+            nativeJvmOptions[0].extraInfo = Marshal.GetFunctionPointerForDelegate(exitHook);
+
+            //abort
+            JniHooksSig.Abort abortHook = AbortHook;
+            nativeJvmOptions[1].optionString = Marshal.StringToHGlobalAnsi("abort");
+            nativeJvmOptions[1].extraInfo = Marshal.GetFunctionPointerForDelegate(abortHook);
+
+            //vfprintf
+            JniHooksSig.Vfprintf vfprintfHook = VfprintfHook;
+            nativeJvmOptions[2].optionString = Marshal.StringToHGlobalAnsi("vfprintf");
+            nativeJvmOptions[2].extraInfo = Marshal.GetFunctionPointerForDelegate(vfprintfHook);
+
             if (jvmOptions.Length > 0)
             {
                 for (var i = 0; i < jvmOptions.Length; i++)
-                    nativeJvmOptions[i].optionString = Marshal.StringToHGlobalAnsi(jvmOptions[i]);
+                    nativeJvmOptions[i + 3].optionString = Marshal.StringToHGlobalAnsi(jvmOptions[i]);
 
                 fixed (JavaVmOption* ptr = &nativeJvmOptions[0])
                 {
@@ -74,6 +90,22 @@ namespace jvm4csharp.JniApiWrappers
                 var option = initArgs.options[i];
                 Marshal.FreeHGlobal(option.optionString);
             }
+        }
+
+        private static void AbortHook()
+        {
+            Debug.WriteLine("Abort hook was called.");
+        }
+
+        private static void ExitHook(int code)
+        {
+            Debug.WriteLine("Exit hook was called.");
+        }
+
+        private static unsafe int VfprintfHook(IntPtr fp, char* format, IntPtr args)
+        {
+            Debug.WriteLine("Vfprintf hook was called.");
+            return 0;
         }
     }
 }

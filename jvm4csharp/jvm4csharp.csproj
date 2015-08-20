@@ -865,6 +865,7 @@
     <Compile Include="JniApiWrappers\ProxyActivation\RemotingProxyActivator.cs" />
     <Compile Include="JniApiWrappers\ProxyActivation\NonAbstractProxyActivator.cs" />
     <Compile Include="JniApiWrappers\ProxyActivation\IProxyActivator.cs" />
+    <Compile Include="JniApi\JniHooksSig.cs" />
     <Compile Include="JvmContext.cs" />
     <Compile Include="JniApiWrappers\JniWrapper.cs" />
     <Compile Include="JavaProxyOperations.cs" />
@@ -890,7 +891,7 @@
     <Compile Include="JniApiWrappers\IJavaProxy.cs" />
     <Compile Include="JvmLocalFrame.cs" />
     <Compile Include="JniApiWrappers\ModifiedUtfString.cs" />
-    <Compile Include="JniApiWrappers\GlobalReferencesMap.cs" />
+    <Compile Include="JniApiWrappers\GlobalReferencesManager.cs" />
     <Compile Include="JniApiWrappers\JniEnvClassesWrapper.cs" />
     <Compile Include="JvmConfigurator.cs" />
     <Compile Include="JniApiWrappers\WrapperHelpers.cs" />

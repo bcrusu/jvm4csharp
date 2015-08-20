@@ -10,6 +10,6 @@ namespace jvm4csharp.JniApi
         public IntPtr optionString;
 
         // void*
-        public IntPtr extraInfo; //TODO: add exit/abort/vfprintf hooks
+        public IntPtr extraInfo;
     }
 }
