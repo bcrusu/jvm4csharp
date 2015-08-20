@@ -6,14 +6,9 @@ using System.Runtime.Remoting.Proxies;
 
 namespace jvm4csharp.JniApiWrappers.ProxyActivation
 {
-    //TODO: cache JavaSignatureAttribute
     internal class RemotingProxyActivator : IProxyActivator
     {
         public static readonly RemotingProxyActivator Instance = new RemotingProxyActivator();
-
-        private RemotingProxyActivator()
-        {
-        }
 
         public IJavaProxy CreateInstance(Type proxyType)
         {
@@ -177,12 +172,8 @@ namespace jvm4csharp.JniApiWrappers.ProxyActivation
 
             private IMessage HandleProxyMembers(IMethodCallMessage mcm, MethodBase method)
             {
-                var javaSignatureAttribute = WrapperHelpers.GetJavaSignatureAttribute(method);
-                if (javaSignatureAttribute == null)
-                    throw new ArgumentException($"Invalid proxy member definition '{method}'. Could not find 'JavaSignatureAttribute'.");
-
+                var signature = WrapperHelpers.GetJavaSignature(method);
                 var methodInfo = (MethodInfo)method;
-                var signature = javaSignatureAttribute.Signature;
                 var returnType = methodInfo.ReturnType;
 
                 switch (method.MemberType)
@@ -197,7 +188,7 @@ namespace jvm4csharp.JniApiWrappers.ProxyActivation
                         JvmContext.Current.JniEnv.Classes.CallMethod(_proxy, method.Name, signature, mcm.Args);
                         return CreateEmptyReturnMessage(mcm);
                     case MemberTypes.Property:
-                        if (returnType != typeof (void))
+                        if (returnType != typeof(void))
                         {
                             var result = JvmContext.Current.JniEnv.Classes.GetField(_proxy, method.Name, signature, returnType);
                             return CreateReturnMessage(result, mcm);

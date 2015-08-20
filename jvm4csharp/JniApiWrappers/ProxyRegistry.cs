@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
-using jvm4csharp.ArrayUtils;
 using jvm4csharp.java.lang;
 
 namespace jvm4csharp.JniApiWrappers
@@ -61,20 +60,23 @@ namespace jvm4csharp.JniApiWrappers
             {
                 javaProxyAttribute = WrapperHelpers.GetJavaProxyAttribute(proxyType);
                 if (javaProxyAttribute == null)
-                    throw new ArgumentException($"Invalid proxy definition '{proxyType}'. Could not find 'JavaProxyAttribute'.");
+                    throw new InvalidJavaProxyException(proxyType, "Could not find 'JavaProxyAttribute'.");
             }
 
             var internalClassName = javaProxyAttribute.ClassName;
             if (_classNameToProxyType.ContainsKey(internalClassName))
-                throw new ArgumentException($"Duplicate proxy type '{proxyType}' detected. Java class name '{internalClassName}'.");
+                throw new InvalidJavaProxyException(proxyType, $"Found duplicate proxy for Java class '{internalClassName}'.");
 
             if (string.IsNullOrWhiteSpace(internalClassName))
-                throw new ArgumentException($"Invalid proxy definition '{proxyType}'. Missing 'JavaProxyAttribute.ClassName' property.");
+                throw new InvalidJavaProxyException(proxyType, "Missing 'JavaProxyAttribute.ClassName' property.");
+
+            if (!typeof(IJavaObject).IsAssignableFrom(proxyType))
+                throw new InvalidJavaProxyException(proxyType, "Proxy types must implement 'IJavaObject'.");
 
             if (!proxyType.IsInterface)
             {
                 if (!typeof(java.lang.Object).IsAssignableFrom(proxyType) && !typeof(Throwable).IsAssignableFrom(proxyType))
-                    throw new ArgumentException($"Invalid proxy definition '{proxyType}'. Proxy types must inherit from 'java.lang.Object' or 'java.lang.Throwable'.");
+                    throw new InvalidJavaProxyException(proxyType, "Proxy types must inherit from 'java.lang.Object' or 'java.lang.Throwable'.");
             }
 
             ValidateGenericTypeParameters(proxyType);
@@ -83,24 +85,19 @@ namespace jvm4csharp.JniApiWrappers
             _proxyTypeToClassNameMap[proxyType] = internalClassName;
         }
 
-        private static void ValidateGenericTypeParameters(Type type)
+        private static void ValidateGenericTypeParameters(Type proxyType)
         {
-            if (!type.IsGenericTypeDefinition)
+            if (!proxyType.IsGenericTypeDefinition)
                 return;
 
-            var genericTypeDefinition = type.GetGenericTypeDefinition().GetTypeInfo();
+            var genericTypeDefinition = proxyType.GetGenericTypeDefinition().GetTypeInfo();
             var genericTypeParameters = genericTypeDefinition.GenericTypeParameters;
 
             foreach (var typeParameter in genericTypeParameters)
             {
                 var constraints = typeParameter.GetGenericParameterConstraints();
-
-                if (constraints.Length == 0)
-                    throw new ArgumentException(""); //TODO
-
-                foreach (var constraint in constraints)
-                    if (!(typeof(IJavaObject).IsAssignableFrom(constraint)))
-                        throw new ArgumentException(""); //TODO
+                if (!constraints.Any(constraint => (typeof(IJavaObject).IsAssignableFrom(constraint))))
+                    throw new InvalidJavaProxyException(proxyType, $"Generic type parameter '{typeParameter.Name}' does not implement 'IJavaObject'.");
             }
         }
 

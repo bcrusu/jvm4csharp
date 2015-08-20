@@ -20,7 +20,7 @@ namespace jvm4csharp.Tests.java.util
         }
 
         [Test]
-        public void Methods_get()
+        public void Method_get()
         {
             var expectedString = ExpectedStringPrefix + 2;
 
@@ -32,7 +32,7 @@ namespace jvm4csharp.Tests.java.util
 
 
         [Test]
-        public void Methods_add()
+        public void Method_add()
         {
             var expectedString = ExpectedStringPrefix + 2;
 

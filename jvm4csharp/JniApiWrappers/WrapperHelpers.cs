@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -8,6 +9,8 @@ namespace jvm4csharp.JniApiWrappers
 {
     internal static class WrapperHelpers
     {
+        private static readonly IDictionary<MemberInfo, string> JavaSignatureCache = new Dictionary<MemberInfo, string>();
+
         public unsafe static JniNativeInterface GetJniNativeInterface(IntPtr jniEnvPtr)
         {
             return *((JniEnv*)jniEnvPtr.ToPointer())->functions;
@@ -50,9 +53,20 @@ namespace jvm4csharp.JniApiWrappers
             return (JavaProxyAttribute)type.GetCustomAttributes(typeof(JavaProxyAttribute), false).FirstOrDefault();
         }
 
-        public static JavaSignatureAttribute GetJavaSignatureAttribute(MethodBase method)
+        public static string GetJavaSignature(MemberInfo member)
         {
-            return (JavaSignatureAttribute)method.GetCustomAttributes(typeof(JavaSignatureAttribute), false).FirstOrDefault();
+            string result;
+            if (!JavaSignatureCache.TryGetValue(member, out result))
+            {
+                var javaSignatureAttribute = (JavaSignatureAttribute)member.GetCustomAttributes(typeof(JavaSignatureAttribute), false).FirstOrDefault();
+                if (javaSignatureAttribute == null)
+                    throw new InvalidJavaProxyException(member.DeclaringType, $"Could not find 'JavaSignatureAttribute' for member '{member}'.");
+
+                result = javaSignatureAttribute.Signature;
+                JavaSignatureCache[member] = result;
+            }
+
+            return result;
         }
     }
 }

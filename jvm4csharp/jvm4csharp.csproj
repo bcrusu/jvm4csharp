@@ -868,6 +868,7 @@
     <Compile Include="JvmContext.cs" />
     <Compile Include="JniApiWrappers\JniWrapper.cs" />
     <Compile Include="JavaProxyOperations.cs" />
+    <Compile Include="InvalidJavaProxyException.cs" />
     <Compile Include="Session\Win32Api.cs" />
     <Compile Include="Session\CurrentThreadProvider.cs" />
     <Compile Include="Session\IJvmThreadProvider.cs" />
