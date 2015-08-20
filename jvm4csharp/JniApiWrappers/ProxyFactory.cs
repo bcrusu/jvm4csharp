@@ -45,7 +45,7 @@ namespace jvm4csharp.JniApiWrappers
                 {
                     var expectedClazz = _jniEnvWrapper.Classes.FindClass(expectedProxyType);
                     if (!TryActivateProxy(expectedClazz, expectedProxyType, out result))
-                        throw new ArgumentException("TODO"); //TODO
+                        throw new InvalidJavaProxyException(expectedProxyType);
                 }
             }
 

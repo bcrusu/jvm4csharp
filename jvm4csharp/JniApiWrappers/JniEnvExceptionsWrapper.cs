@@ -5,7 +5,6 @@ using jvm4csharp.JniApi;
 
 namespace jvm4csharp.JniApiWrappers
 {
-    //TODO: ExceptionClear & handle fatal error
     internal class JniEnvExceptionsWrapper
     {
         private readonly JniEnvWrapper _jniEnvWrapper;

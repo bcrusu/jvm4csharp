@@ -9,7 +9,7 @@ namespace jvm4csharp.JniApiWrappers
     internal class JavaVmWrapper
     {
         private readonly IntPtr _javaVmPtr;
-        internal GlobalReferencesMap GlobalReferences { get; private set; }
+        internal GlobalReferencesManager GlobalReferences { get; private set; }
 
         private JniInvokeInterfaceSig.AttachCurrentThread _attachCurrentThread;
         private JniInvokeInterfaceSig.AttachCurrentThread _attachCurrentThreadAsDaemon;
@@ -24,7 +24,7 @@ namespace jvm4csharp.JniApiWrappers
             _javaVmPtr = javaVmPtr;
             InitFunctions();
 
-            GlobalReferences = new GlobalReferencesMap();
+            GlobalReferences = new GlobalReferencesManager();
         }
 
         private unsafe void InitFunctions()

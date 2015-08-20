@@ -31,7 +31,6 @@ namespace jvm4csharp.JniApiWrappers
             Current = new ProxyRegistry(proxyTypes);
         }
 
-        //TODO: handle arrays
         public string GetClassName(Type javaProxyType)
         {
             Debug.Assert(javaProxyType != null);
