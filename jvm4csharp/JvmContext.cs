@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using jvm4csharp.java.lang;
 using jvm4csharp.JniApiWrappers;
 
 namespace jvm4csharp
@@ -18,10 +19,7 @@ namespace jvm4csharp
             JniEnv = jniEnv;
         }
 
-        public static JvmContext Current
-        {
-            get { return GetCurrentContext(true); }
-        }
+        public static JvmContext Current => GetCurrentContext(true);
 
         public JvmLocalFrame PushLocalFrame(int minCapacity = 16)
         {
@@ -52,6 +50,25 @@ namespace jvm4csharp
         public void MonitorExit(IJavaObject obj)
         {
             JniEnv.MonitorExit(obj);
+        }
+
+        public void Throw(Throwable throwable)
+        {
+            if (throwable == null) throw new ArgumentNullException(nameof(throwable));
+            JniEnv.Exceptions.Throw(throwable);
+        }
+
+        public void ThrowNew(Class exceptionClass, string message)
+        {
+            if (exceptionClass == null) throw new ArgumentNullException(nameof(exceptionClass));
+            if (message == null) throw new ArgumentNullException(nameof(message));
+            JniEnv.Exceptions.ThrowNew(exceptionClass, message);
+        }
+
+        public void FatalError(string message)
+        {
+            if (message == null) throw new ArgumentNullException(nameof(message));
+            JniEnv.Exceptions.FatalError(message);
         }
 
         internal static JvmContext GetCurrentContext(bool throwIfNotFound)
