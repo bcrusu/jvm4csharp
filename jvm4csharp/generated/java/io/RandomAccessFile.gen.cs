@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 using jvm4csharp.java.nio.channels;
 
@@ -30,28 +30,10 @@ namespace jvm4csharp.java.io
 			Instance.CallConstructor("(Ljava/io/File;Ljava/lang/String;)V", arg0, arg1);
 		}
 	
-		[JavaSignature("()F")]
-		public float readFloat()
-		{
-			return Instance.CallMethod<float>("readFloat", "()F");
-		}
-		
-		[JavaSignature("(F)V")]
-		public void writeFloat(float arg0)
-		{
-			Instance.CallMethod("writeFloat", "(F)V", arg0);
-		}
-		
 		[JavaSignature("()J")]
 		public long length()
 		{
 			return Instance.CallMethod<long>("length", "()J");
-		}
-		
-		[JavaSignature("([BII)V")]
-		public void write(ByteArray arg0, int arg1, int arg2)
-		{
-			Instance.CallMethod("write", "([BII)V", arg0, arg1, arg2);
 		}
 		
 		[JavaSignature("([B)V")]
@@ -66,16 +48,22 @@ namespace jvm4csharp.java.io
 			Instance.CallMethod("write", "(I)V", arg0);
 		}
 		
-		[JavaSignature("([B)I")]
-		public int read(ByteArray arg0)
+		[JavaSignature("([BII)V")]
+		public void write(ByteArray arg0, int arg1, int arg2)
 		{
-			return Instance.CallMethod<int>("read", "([B)I", arg0);
+			Instance.CallMethod("write", "([BII)V", arg0, arg1, arg2);
 		}
 		
 		[JavaSignature("()I")]
 		public int read()
 		{
 			return Instance.CallMethod<int>("read", "()I");
+		}
+		
+		[JavaSignature("([B)I")]
+		public int read(ByteArray arg0)
+		{
+			return Instance.CallMethod<int>("read", "([B)I", arg0);
 		}
 		
 		[JavaSignature("([BII)I")]
@@ -132,16 +120,16 @@ namespace jvm4csharp.java.io
 			Instance.CallMethod("writeBytes", "(Ljava/lang/String;)V", arg0);
 		}
 		
-		[JavaSignature("([BII)V")]
-		public void readFully(ByteArray arg0, int arg1, int arg2)
-		{
-			Instance.CallMethod("readFully", "([BII)V", arg0, arg1, arg2);
-		}
-		
 		[JavaSignature("([B)V")]
 		public void readFully(ByteArray arg0)
 		{
 			Instance.CallMethod("readFully", "([B)V", arg0);
+		}
+		
+		[JavaSignature("([BII)V")]
+		public void readFully(ByteArray arg0, int arg1, int arg2)
+		{
+			Instance.CallMethod("readFully", "([BII)V", arg0, arg1, arg2);
 		}
 		
 		[JavaSignature("()Ljava/lang/String;")]
@@ -166,6 +154,18 @@ namespace jvm4csharp.java.io
 		public FileDescriptor getFD()
 		{
 			return Instance.CallMethod<FileDescriptor>("getFD", "()Ljava/io/FileDescriptor;");
+		}
+		
+		[JavaSignature("()F")]
+		public float readFloat()
+		{
+			return Instance.CallMethod<float>("readFloat", "()F");
+		}
+		
+		[JavaSignature("(F)V")]
+		public void writeFloat(float arg0)
+		{
+			Instance.CallMethod("writeFloat", "(F)V", arg0);
 		}
 		
 		[JavaSignature("()J")]
@@ -222,18 +222,6 @@ namespace jvm4csharp.java.io
 			return Instance.CallMethod<int>("skipBytes", "(I)I", arg0);
 		}
 		
-		[JavaSignature("(Z)V")]
-		public void writeBoolean(bool arg0)
-		{
-			Instance.CallMethod("writeBoolean", "(Z)V", arg0);
-		}
-		
-		[JavaSignature("(Ljava/lang/String;)V")]
-		public void writeChars(String arg0)
-		{
-			Instance.CallMethod("writeChars", "(Ljava/lang/String;)V", arg0);
-		}
-		
 		[JavaSignature("(I)V")]
 		public void writeShort(int arg0)
 		{
@@ -262,6 +250,18 @@ namespace jvm4csharp.java.io
 		public void seek(long arg0)
 		{
 			Instance.CallMethod("seek", "(J)V", arg0);
+		}
+		
+		[JavaSignature("(Z)V")]
+		public void writeBoolean(bool arg0)
+		{
+			Instance.CallMethod("writeBoolean", "(Z)V", arg0);
+		}
+		
+		[JavaSignature("(Ljava/lang/String;)V")]
+		public void writeChars(String arg0)
+		{
+			Instance.CallMethod("writeChars", "(Ljava/lang/String;)V", arg0);
 		}
 	}
 }

@@ -54,34 +54,28 @@ namespace jvm4csharp.java.nio.channels
 			return Instance.CallMethod<SelectableChannel>("channel", "()Ljava/nio/channels/SelectableChannel;");
 		}
 		
-		[JavaSignature("()Z")]
-		public bool isValid()
-		{
-			return Instance.CallMethod<bool>("isValid", "()Z");
-		}
-		
 		[JavaSignature("()Ljava/lang/Object;")]
 		public IJavaObject attachment()
 		{
 			return Instance.CallMethod<IJavaObject>("attachment", "()Ljava/lang/Object;");
 		}
 		
-		[JavaSignature("()V")]
-		public void cancel()
+		[JavaSignature("()Z")]
+		public bool isValid()
 		{
-			Instance.CallMethod("cancel", "()V");
-		}
-		
-		[JavaSignature("(I)Ljava/nio/channels/SelectionKey;")]
-		public SelectionKey interestOps(int arg0)
-		{
-			return Instance.CallMethod<SelectionKey>("interestOps", "(I)Ljava/nio/channels/SelectionKey;", arg0);
+			return Instance.CallMethod<bool>("isValid", "()Z");
 		}
 		
 		[JavaSignature("()I")]
 		public int interestOps()
 		{
 			return Instance.CallMethod<int>("interestOps", "()I");
+		}
+		
+		[JavaSignature("(I)Ljava/nio/channels/SelectionKey;")]
+		public SelectionKey interestOps(int arg0)
+		{
+			return Instance.CallMethod<SelectionKey>("interestOps", "(I)Ljava/nio/channels/SelectionKey;", arg0);
 		}
 		
 		[JavaSignature("()Z")]
@@ -118,6 +112,12 @@ namespace jvm4csharp.java.nio.channels
 		public Selector selector()
 		{
 			return Instance.CallMethod<Selector>("selector", "()Ljava/nio/channels/Selector;");
+		}
+		
+		[JavaSignature("()V")]
+		public void cancel()
+		{
+			Instance.CallMethod("cancel", "()V");
 		}
 	}
 }

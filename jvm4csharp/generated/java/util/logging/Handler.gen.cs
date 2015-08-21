@@ -36,12 +36,6 @@ namespace jvm4csharp.java.util.logging
 			return Instance.CallMethod<String>("getEncoding", "()Ljava/lang/String;");
 		}
 		
-		[JavaSignature("(Ljava/util/logging/Level;)V")]
-		public void setLevel(Level arg0)
-		{
-			Instance.CallMethod("setLevel", "(Ljava/util/logging/Level;)V", arg0);
-		}
-		
 		[JavaSignature("(Ljava/util/logging/LogRecord;)V")]
 		public void publish(LogRecord arg0)
 		{
@@ -94,6 +88,12 @@ namespace jvm4csharp.java.util.logging
 		public void setErrorManager(ErrorManager arg0)
 		{
 			Instance.CallMethod("setErrorManager", "(Ljava/util/logging/ErrorManager;)V", arg0);
+		}
+		
+		[JavaSignature("(Ljava/util/logging/Level;)V")]
+		public void setLevel(Level arg0)
+		{
+			Instance.CallMethod("setLevel", "(Ljava/util/logging/Level;)V", arg0);
 		}
 		
 		[JavaSignature("(Ljava/util/logging/LogRecord;)Z")]

@@ -14,14 +14,14 @@ namespace jvm4csharp.java.util.function
 	[JavaProxy("java/util/function/LongPredicate")]
 	public partial interface LongPredicate : IJavaObject
 	{
+		[JavaSignature("(J)Z")]
+		bool test(long arg0);
+		
 		[JavaSignature("(Ljava/util/function/LongPredicate;)Ljava/util/function/LongPredicate;")]
 		LongPredicate and(LongPredicate arg0);
 		
 		[JavaSignature("(Ljava/util/function/LongPredicate;)Ljava/util/function/LongPredicate;")]
 		LongPredicate or(LongPredicate arg0);
-		
-		[JavaSignature("(J)Z")]
-		bool test(long arg0);
 		
 		[JavaSignature("()Ljava/util/function/LongPredicate;")]
 		LongPredicate negate();

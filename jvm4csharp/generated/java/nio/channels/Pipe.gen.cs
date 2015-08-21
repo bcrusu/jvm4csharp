@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 using jvm4csharp.java.nio.channels.spi;
 
@@ -27,17 +27,20 @@ namespace jvm4csharp.java.nio.channels
 		}
 		
 		[JavaSignature("()Ljava/nio/channels/Pipe/SourceChannel;")]
-		public Pipe.SourceChannel source()
+		public Pipe_.SourceChannel source()
 		{
-			return Instance.CallMethod<Pipe.SourceChannel>("source", "()Ljava/nio/channels/Pipe/SourceChannel;");
+			return Instance.CallMethod<Pipe_.SourceChannel>("source", "()Ljava/nio/channels/Pipe/SourceChannel;");
 		}
 		
 		[JavaSignature("()Ljava/nio/channels/Pipe/SinkChannel;")]
-		public Pipe.SinkChannel sink()
+		public Pipe_.SinkChannel sink()
 		{
-			return Instance.CallMethod<Pipe.SinkChannel>("sink", "()Ljava/nio/channels/Pipe/SinkChannel;");
+			return Instance.CallMethod<Pipe_.SinkChannel>("sink", "()Ljava/nio/channels/Pipe/SinkChannel;");
 		}
+	}
 	
+	public static partial class Pipe_
+	{
 		[JavaProxy("java/nio/channels/Pipe/SinkChannel")]
 		public abstract partial class SinkChannel : AbstractSelectableChannel, WritableByteChannel, GatheringByteChannel
 		{

@@ -24,22 +24,28 @@ namespace jvm4csharp.java.util
 			Instance.CallConstructor("()V");
 		}
 	
-		[JavaSignature("(J)V")]
-		public void accept(long arg0)
-		{
-			Instance.CallMethod("accept", "(J)V", arg0);
-		}
-		
 		[JavaSignature("(I)V")]
 		public void accept(int arg0)
 		{
 			Instance.CallMethod("accept", "(I)V", arg0);
 		}
 		
+		[JavaSignature("(J)V")]
+		public void accept(long arg0)
+		{
+			Instance.CallMethod("accept", "(J)V", arg0);
+		}
+		
 		[JavaSignature("(Ljava/util/LongSummaryStatistics;)V")]
 		public void combine(LongSummaryStatistics arg0)
 		{
 			Instance.CallMethod("combine", "(Ljava/util/LongSummaryStatistics;)V", arg0);
+		}
+		
+		[JavaSignature("()J")]
+		public long getCount()
+		{
+			return Instance.CallMethod<long>("getCount", "()J");
 		}
 		
 		[JavaSignature("()D")]
@@ -64,12 +70,6 @@ namespace jvm4csharp.java.util
 		public long getMin()
 		{
 			return Instance.CallMethod<long>("getMin", "()J");
-		}
-		
-		[JavaSignature("()J")]
-		public long getCount()
-		{
-			return Instance.CallMethod<long>("getCount", "()J");
 		}
 		
 		[JavaSignature("(Ljava/util/function/LongConsumer;)Ljava/util/function/LongConsumer;")]

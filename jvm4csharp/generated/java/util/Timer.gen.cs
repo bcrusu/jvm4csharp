@@ -38,28 +38,16 @@ namespace jvm4csharp.java.util
 			Instance.CallConstructor("(Ljava/lang/String;Z)V", arg0, arg1);
 		}
 	
-		[JavaSignature("()V")]
-		public void cancel()
+		[JavaSignature("(Ljava/util/TimerTask;Ljava/util/Date;J)V")]
+		public void schedule(TimerTask arg0, Date arg1, long arg2)
 		{
-			Instance.CallMethod("cancel", "()V");
+			Instance.CallMethod("schedule", "(Ljava/util/TimerTask;Ljava/util/Date;J)V", arg0, arg1, arg2);
 		}
 		
 		[JavaSignature("(Ljava/util/TimerTask;Ljava/util/Date;)V")]
 		public void schedule(TimerTask arg0, Date arg1)
 		{
 			Instance.CallMethod("schedule", "(Ljava/util/TimerTask;Ljava/util/Date;)V", arg0, arg1);
-		}
-		
-		[JavaSignature("(Ljava/util/TimerTask;JJ)V")]
-		public void schedule(TimerTask arg0, long arg1, long arg2)
-		{
-			Instance.CallMethod("schedule", "(Ljava/util/TimerTask;JJ)V", arg0, arg1, arg2);
-		}
-		
-		[JavaSignature("(Ljava/util/TimerTask;Ljava/util/Date;J)V")]
-		public void schedule(TimerTask arg0, Date arg1, long arg2)
-		{
-			Instance.CallMethod("schedule", "(Ljava/util/TimerTask;Ljava/util/Date;J)V", arg0, arg1, arg2);
 		}
 		
 		[JavaSignature("(Ljava/util/TimerTask;J)V")]
@@ -69,9 +57,9 @@ namespace jvm4csharp.java.util
 		}
 		
 		[JavaSignature("(Ljava/util/TimerTask;JJ)V")]
-		public void scheduleAtFixedRate(TimerTask arg0, long arg1, long arg2)
+		public void schedule(TimerTask arg0, long arg1, long arg2)
 		{
-			Instance.CallMethod("scheduleAtFixedRate", "(Ljava/util/TimerTask;JJ)V", arg0, arg1, arg2);
+			Instance.CallMethod("schedule", "(Ljava/util/TimerTask;JJ)V", arg0, arg1, arg2);
 		}
 		
 		[JavaSignature("(Ljava/util/TimerTask;Ljava/util/Date;J)V")]
@@ -80,10 +68,22 @@ namespace jvm4csharp.java.util
 			Instance.CallMethod("scheduleAtFixedRate", "(Ljava/util/TimerTask;Ljava/util/Date;J)V", arg0, arg1, arg2);
 		}
 		
+		[JavaSignature("(Ljava/util/TimerTask;JJ)V")]
+		public void scheduleAtFixedRate(TimerTask arg0, long arg1, long arg2)
+		{
+			Instance.CallMethod("scheduleAtFixedRate", "(Ljava/util/TimerTask;JJ)V", arg0, arg1, arg2);
+		}
+		
 		[JavaSignature("()I")]
 		public int purge()
 		{
 			return Instance.CallMethod<int>("purge", "()I");
+		}
+		
+		[JavaSignature("()V")]
+		public void cancel()
+		{
+			Instance.CallMethod("cancel", "()V");
 		}
 	}
 }

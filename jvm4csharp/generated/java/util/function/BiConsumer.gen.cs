@@ -16,10 +16,10 @@ namespace jvm4csharp.java.util.function
 		where T : IJavaObject
 		where U : IJavaObject
 	{
-		[JavaSignature("(Ljava/util/function/BiConsumer;)Ljava/util/function/BiConsumer;")]
-		BiConsumer<T, U> andThen(BiConsumer<IJavaObject, IJavaObject> arg0);
-		
 		[JavaSignature("(Ljava/lang/Object;Ljava/lang/Object;)V")]
 		void accept(T arg0, U arg1);
+		
+		[JavaSignature("(Ljava/util/function/BiConsumer;)Ljava/util/function/BiConsumer;")]
+		BiConsumer<T, U> andThen(BiConsumer<IJavaObject, IJavaObject> arg0);
 	}
 }

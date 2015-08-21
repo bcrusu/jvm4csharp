@@ -49,6 +49,12 @@ namespace jvm4csharp.java.nio.file
 			return Instance.CallMethod<bool>("isReadOnly", "()Z");
 		}
 		
+		[JavaSignature("(Ljava/lang/String;)Ljava/lang/Object;")]
+		public IJavaObject getAttribute(String arg0)
+		{
+			return Instance.CallMethod<IJavaObject>("getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", arg0);
+		}
+		
 		[JavaSignature("(Ljava/lang/Class;)Ljava/nio/file/attribute/FileStoreAttributeView;")]
 		public V getFileStoreAttributeView<V>(Class<V> arg0)
 			where V : FileStoreAttributeView
@@ -72,12 +78,6 @@ namespace jvm4csharp.java.nio.file
 		public bool supportsFileAttributeView(Class<FileAttributeView> arg0)
 		{
 			return Instance.CallMethod<bool>("supportsFileAttributeView", "(Ljava/lang/Class;)Z", arg0);
-		}
-		
-		[JavaSignature("(Ljava/lang/String;)Ljava/lang/Object;")]
-		public IJavaObject getAttribute(String arg0)
-		{
-			return Instance.CallMethod<IJavaObject>("getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", arg0);
 		}
 	}
 }

@@ -17,11 +17,11 @@ namespace jvm4csharp.java.util.function
 		where U : IJavaObject
 		where R : IJavaObject
 	{
+		[JavaSignature("(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;")]
+		R apply(T arg0, U arg1);
+		
 		[JavaSignature("(Ljava/util/function/Function;)Ljava/util/function/BiFunction;")]
 		BiFunction<T, U, V> andThen<V>(Function<IJavaObject, V> arg0)
 			where V : IJavaObject;
-		
-		[JavaSignature("(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;")]
-		R apply(T arg0, U arg1);
 	}
 }

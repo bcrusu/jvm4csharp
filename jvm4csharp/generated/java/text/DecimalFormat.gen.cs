@@ -39,30 +39,6 @@ namespace jvm4csharp.java.text
 			return Instance.CallMethod<int>("getGroupingSize", "()I");
 		}
 		
-		[JavaSignature("()Ljava/lang/String;")]
-		public String getNegativePrefix()
-		{
-			return Instance.CallMethod<String>("getNegativePrefix", "()Ljava/lang/String;");
-		}
-		
-		[JavaSignature("()Ljava/lang/String;")]
-		public String getNegativeSuffix()
-		{
-			return Instance.CallMethod<String>("getNegativeSuffix", "()Ljava/lang/String;");
-		}
-		
-		[JavaSignature("()Ljava/lang/String;")]
-		public String getPositivePrefix()
-		{
-			return Instance.CallMethod<String>("getPositivePrefix", "()Ljava/lang/String;");
-		}
-		
-		[JavaSignature("()Ljava/lang/String;")]
-		public String getPositiveSuffix()
-		{
-			return Instance.CallMethod<String>("getPositiveSuffix", "()Ljava/lang/String;");
-		}
-		
 		[JavaSignature("(Ljava/lang/String;)V")]
 		public void applyPattern(String arg0)
 		{
@@ -73,24 +49,6 @@ namespace jvm4csharp.java.text
 		public String toPattern()
 		{
 			return Instance.CallMethod<String>("toPattern", "()Ljava/lang/String;");
-		}
-		
-		[JavaSignature("(Ljava/lang/String;)V")]
-		public void applyLocalizedPattern(String arg0)
-		{
-			Instance.CallMethod("applyLocalizedPattern", "(Ljava/lang/String;)V", arg0);
-		}
-		
-		[JavaSignature("()Ljava/text/DecimalFormatSymbols;")]
-		public DecimalFormatSymbols getDecimalFormatSymbols()
-		{
-			return Instance.CallMethod<DecimalFormatSymbols>("getDecimalFormatSymbols", "()Ljava/text/DecimalFormatSymbols;");
-		}
-		
-		[JavaSignature("()Ljava/lang/String;")]
-		public String toLocalizedPattern()
-		{
-			return Instance.CallMethod<String>("toLocalizedPattern", "()Ljava/lang/String;");
 		}
 		
 		[JavaSignature("()I")]
@@ -163,6 +121,48 @@ namespace jvm4csharp.java.text
 		public void setPositiveSuffix(String arg0)
 		{
 			Instance.CallMethod("setPositiveSuffix", "(Ljava/lang/String;)V", arg0);
+		}
+		
+		[JavaSignature("()Ljava/lang/String;")]
+		public String getNegativePrefix()
+		{
+			return Instance.CallMethod<String>("getNegativePrefix", "()Ljava/lang/String;");
+		}
+		
+		[JavaSignature("()Ljava/lang/String;")]
+		public String getNegativeSuffix()
+		{
+			return Instance.CallMethod<String>("getNegativeSuffix", "()Ljava/lang/String;");
+		}
+		
+		[JavaSignature("()Ljava/lang/String;")]
+		public String getPositivePrefix()
+		{
+			return Instance.CallMethod<String>("getPositivePrefix", "()Ljava/lang/String;");
+		}
+		
+		[JavaSignature("()Ljava/lang/String;")]
+		public String getPositiveSuffix()
+		{
+			return Instance.CallMethod<String>("getPositiveSuffix", "()Ljava/lang/String;");
+		}
+		
+		[JavaSignature("(Ljava/lang/String;)V")]
+		public void applyLocalizedPattern(String arg0)
+		{
+			Instance.CallMethod("applyLocalizedPattern", "(Ljava/lang/String;)V", arg0);
+		}
+		
+		[JavaSignature("()Ljava/text/DecimalFormatSymbols;")]
+		public DecimalFormatSymbols getDecimalFormatSymbols()
+		{
+			return Instance.CallMethod<DecimalFormatSymbols>("getDecimalFormatSymbols", "()Ljava/text/DecimalFormatSymbols;");
+		}
+		
+		[JavaSignature("()Ljava/lang/String;")]
+		public String toLocalizedPattern()
+		{
+			return Instance.CallMethod<String>("toLocalizedPattern", "()Ljava/lang/String;");
 		}
 	}
 }

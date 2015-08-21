@@ -16,7 +16,7 @@ namespace jvm4csharp.java.io
 	{
 	}
 	
-	public static class ObjectStreamConstants_
+	public static partial class ObjectStreamConstants_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 		

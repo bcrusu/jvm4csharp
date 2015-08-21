@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.io;
 using jvm4csharp.java.lang;
 using jvm4csharp.java.nio;
@@ -22,47 +22,50 @@ namespace jvm4csharp.java.util
 		protected Base64(ProxyCtor p) : base(p) {}
 	
 		[JavaSignature("()Ljava/util/Base64/Decoder;")]
-		public static Base64.Decoder getMimeDecoder()
+		public static Base64_.Decoder getMimeDecoder()
 		{
-			return Static.CallMethod<Base64.Decoder>(typeof(Base64), "getMimeDecoder", "()Ljava/util/Base64/Decoder;");
+			return Static.CallMethod<Base64_.Decoder>(typeof(Base64), "getMimeDecoder", "()Ljava/util/Base64/Decoder;");
 		}
 		
 		[JavaSignature("()Ljava/util/Base64/Decoder;")]
-		public static Base64.Decoder getDecoder()
+		public static Base64_.Decoder getDecoder()
 		{
-			return Static.CallMethod<Base64.Decoder>(typeof(Base64), "getDecoder", "()Ljava/util/Base64/Decoder;");
+			return Static.CallMethod<Base64_.Decoder>(typeof(Base64), "getDecoder", "()Ljava/util/Base64/Decoder;");
 		}
 		
 		[JavaSignature("()Ljava/util/Base64/Encoder;")]
-		public static Base64.Encoder getEncoder()
+		public static Base64_.Encoder getEncoder()
 		{
-			return Static.CallMethod<Base64.Encoder>(typeof(Base64), "getEncoder", "()Ljava/util/Base64/Encoder;");
+			return Static.CallMethod<Base64_.Encoder>(typeof(Base64), "getEncoder", "()Ljava/util/Base64/Encoder;");
 		}
 		
 		[JavaSignature("(I[B)Ljava/util/Base64/Encoder;")]
-		public static Base64.Encoder getMimeEncoder(int arg0, ByteArray arg1)
+		public static Base64_.Encoder getMimeEncoder(int arg0, ByteArray arg1)
 		{
-			return Static.CallMethod<Base64.Encoder>(typeof(Base64), "getMimeEncoder", "(I[B)Ljava/util/Base64/Encoder;", arg0, arg1);
+			return Static.CallMethod<Base64_.Encoder>(typeof(Base64), "getMimeEncoder", "(I[B)Ljava/util/Base64/Encoder;", arg0, arg1);
 		}
 		
 		[JavaSignature("()Ljava/util/Base64/Encoder;")]
-		public static Base64.Encoder getMimeEncoder()
+		public static Base64_.Encoder getMimeEncoder()
 		{
-			return Static.CallMethod<Base64.Encoder>(typeof(Base64), "getMimeEncoder", "()Ljava/util/Base64/Encoder;");
+			return Static.CallMethod<Base64_.Encoder>(typeof(Base64), "getMimeEncoder", "()Ljava/util/Base64/Encoder;");
 		}
 		
 		[JavaSignature("()Ljava/util/Base64/Decoder;")]
-		public static Base64.Decoder getUrlDecoder()
+		public static Base64_.Decoder getUrlDecoder()
 		{
-			return Static.CallMethod<Base64.Decoder>(typeof(Base64), "getUrlDecoder", "()Ljava/util/Base64/Decoder;");
+			return Static.CallMethod<Base64_.Decoder>(typeof(Base64), "getUrlDecoder", "()Ljava/util/Base64/Decoder;");
 		}
 		
 		[JavaSignature("()Ljava/util/Base64/Encoder;")]
-		public static Base64.Encoder getUrlEncoder()
+		public static Base64_.Encoder getUrlEncoder()
 		{
-			return Static.CallMethod<Base64.Encoder>(typeof(Base64), "getUrlEncoder", "()Ljava/util/Base64/Encoder;");
+			return Static.CallMethod<Base64_.Encoder>(typeof(Base64), "getUrlEncoder", "()Ljava/util/Base64/Encoder;");
 		}
+	}
 	
+	public static partial class Base64_
+	{
 		[JavaProxy("java/util/Base64/Decoder")]
 		public partial class Decoder : Object
 		{
@@ -135,9 +138,9 @@ namespace jvm4csharp.java.util
 			}
 			
 			[JavaSignature("()Ljava/util/Base64/Encoder;")]
-			public Base64.Encoder withoutPadding()
+			public Base64_.Encoder withoutPadding()
 			{
-				return Instance.CallMethod<Base64.Encoder>("withoutPadding", "()Ljava/util/Base64/Encoder;");
+				return Instance.CallMethod<Base64_.Encoder>("withoutPadding", "()Ljava/util/Base64/Encoder;");
 			}
 		}
 	}

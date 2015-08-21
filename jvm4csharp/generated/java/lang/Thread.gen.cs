@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.util;
 
 // ReSharper disable InconsistentNaming
@@ -204,9 +204,9 @@ namespace jvm4csharp.java.lang
 		}
 		
 		[JavaSignature("()Ljava/lang/Thread/UncaughtExceptionHandler;")]
-		public static Thread.UncaughtExceptionHandler getDefaultUncaughtExceptionHandler()
+		public static Thread_.UncaughtExceptionHandler getDefaultUncaughtExceptionHandler()
 		{
-			return Static.CallMethod<Thread.UncaughtExceptionHandler>(typeof(Thread), "getDefaultUncaughtExceptionHandler", "()Ljava/lang/Thread/UncaughtExceptionHandler;");
+			return Static.CallMethod<Thread_.UncaughtExceptionHandler>(typeof(Thread), "getDefaultUncaughtExceptionHandler", "()Ljava/lang/Thread/UncaughtExceptionHandler;");
 		}
 		
 		[JavaSignature("()J")]
@@ -222,15 +222,15 @@ namespace jvm4csharp.java.lang
 		}
 		
 		[JavaSignature("()Ljava/lang/Thread/State;")]
-		public Thread.State getState()
+		public Thread_.State getState()
 		{
-			return Instance.CallMethod<Thread.State>("getState", "()Ljava/lang/Thread/State;");
+			return Instance.CallMethod<Thread_.State>("getState", "()Ljava/lang/Thread/State;");
 		}
 		
 		[JavaSignature("()Ljava/lang/Thread/UncaughtExceptionHandler;")]
-		public Thread.UncaughtExceptionHandler getUncaughtExceptionHandler()
+		public Thread_.UncaughtExceptionHandler getUncaughtExceptionHandler()
 		{
-			return Instance.CallMethod<Thread.UncaughtExceptionHandler>("getUncaughtExceptionHandler", "()Ljava/lang/Thread/UncaughtExceptionHandler;");
+			return Instance.CallMethod<Thread_.UncaughtExceptionHandler>("getUncaughtExceptionHandler", "()Ljava/lang/Thread/UncaughtExceptionHandler;");
 		}
 		
 		[JavaSignature("()V")]
@@ -270,7 +270,7 @@ namespace jvm4csharp.java.lang
 		}
 		
 		[JavaSignature("(Ljava/lang/Thread/UncaughtExceptionHandler;)V")]
-		public static void setDefaultUncaughtExceptionHandler(Thread.UncaughtExceptionHandler arg0)
+		public static void setDefaultUncaughtExceptionHandler(Thread_.UncaughtExceptionHandler arg0)
 		{
 			Static.CallMethod(typeof(Thread), "setDefaultUncaughtExceptionHandler", "(Ljava/lang/Thread/UncaughtExceptionHandler;)V", arg0);
 		}
@@ -282,7 +282,7 @@ namespace jvm4csharp.java.lang
 		}
 		
 		[JavaSignature("(Ljava/lang/Thread/UncaughtExceptionHandler;)V")]
-		public void setUncaughtExceptionHandler(Thread.UncaughtExceptionHandler arg0)
+		public void setUncaughtExceptionHandler(Thread_.UncaughtExceptionHandler arg0)
 		{
 			Instance.CallMethod("setUncaughtExceptionHandler", "(Ljava/lang/Thread/UncaughtExceptionHandler;)V", arg0);
 		}
@@ -322,58 +322,61 @@ namespace jvm4csharp.java.lang
 		{
 			Static.CallMethod(typeof(Thread), "yield", "()V");
 		}
+	}
 	
+	public static partial class Thread_
+	{
 		[JavaProxy("java/lang/Thread/State")]
-		public partial class State : Enum<Thread.State>
+		public partial class State : Enum<Thread_.State>
 		{
 			protected State(ProxyCtor p) : base(p) {}
 		
 			[JavaSignature("Ljava/lang/Thread/State;")]
-			public static Thread.State NEW
+			public static Thread_.State NEW
 			{
-				get { return Static.GetField<Thread.State>(typeof(State), "NEW", "Ljava/lang/Thread/State;"); }
+				get { return Static.GetField<Thread_.State>(typeof(State), "NEW", "Ljava/lang/Thread/State;"); }
 			}
 			
 			[JavaSignature("Ljava/lang/Thread/State;")]
-			public static Thread.State RUNNABLE
+			public static Thread_.State RUNNABLE
 			{
-				get { return Static.GetField<Thread.State>(typeof(State), "RUNNABLE", "Ljava/lang/Thread/State;"); }
+				get { return Static.GetField<Thread_.State>(typeof(State), "RUNNABLE", "Ljava/lang/Thread/State;"); }
 			}
 			
 			[JavaSignature("Ljava/lang/Thread/State;")]
-			public static Thread.State BLOCKED
+			public static Thread_.State BLOCKED
 			{
-				get { return Static.GetField<Thread.State>(typeof(State), "BLOCKED", "Ljava/lang/Thread/State;"); }
+				get { return Static.GetField<Thread_.State>(typeof(State), "BLOCKED", "Ljava/lang/Thread/State;"); }
 			}
 			
 			[JavaSignature("Ljava/lang/Thread/State;")]
-			public static Thread.State WAITING
+			public static Thread_.State WAITING
 			{
-				get { return Static.GetField<Thread.State>(typeof(State), "WAITING", "Ljava/lang/Thread/State;"); }
+				get { return Static.GetField<Thread_.State>(typeof(State), "WAITING", "Ljava/lang/Thread/State;"); }
 			}
 			
 			[JavaSignature("Ljava/lang/Thread/State;")]
-			public static Thread.State TIMED_WAITING
+			public static Thread_.State TIMED_WAITING
 			{
-				get { return Static.GetField<Thread.State>(typeof(State), "TIMED_WAITING", "Ljava/lang/Thread/State;"); }
+				get { return Static.GetField<Thread_.State>(typeof(State), "TIMED_WAITING", "Ljava/lang/Thread/State;"); }
 			}
 			
 			[JavaSignature("Ljava/lang/Thread/State;")]
-			public static Thread.State TERMINATED
+			public static Thread_.State TERMINATED
 			{
-				get { return Static.GetField<Thread.State>(typeof(State), "TERMINATED", "Ljava/lang/Thread/State;"); }
+				get { return Static.GetField<Thread_.State>(typeof(State), "TERMINATED", "Ljava/lang/Thread/State;"); }
 			}
 		
 			[JavaSignature("()[Ljava/lang/Thread/State;")]
-			public static ObjectArray<Thread.State> values()
+			public static ObjectArray<Thread_.State> values()
 			{
-				return Static.CallMethod<ObjectArray<Thread.State>>(typeof(State), "values", "()[Ljava/lang/Thread/State;");
+				return Static.CallMethod<ObjectArray<Thread_.State>>(typeof(State), "values", "()[Ljava/lang/Thread/State;");
 			}
 			
 			[JavaSignature("(Ljava/lang/String;)Ljava/lang/Thread/State;")]
-			public static Thread.State valueOf(String arg0)
+			public static Thread_.State valueOf(String arg0)
 			{
-				return Static.CallMethod<Thread.State>(typeof(State), "valueOf", "(Ljava/lang/String;)Ljava/lang/Thread/State;", arg0);
+				return Static.CallMethod<Thread_.State>(typeof(State), "valueOf", "(Ljava/lang/String;)Ljava/lang/Thread/State;", arg0);
 			}
 		}
 		

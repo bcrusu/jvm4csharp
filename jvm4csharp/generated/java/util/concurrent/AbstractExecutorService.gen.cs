@@ -72,6 +72,12 @@ namespace jvm4csharp.java.util.concurrent
 			Instance.CallMethod("shutdown", "()V");
 		}
 		
+		[JavaSignature("()Ljava/util/List;")]
+		public List<Runnable> shutdownNow()
+		{
+			return Instance.CallMethod<List<Runnable>>("shutdownNow", "()Ljava/util/List;");
+		}
+		
 		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
 		public bool awaitTermination(long arg0, TimeUnit arg1)
 		{
@@ -88,12 +94,6 @@ namespace jvm4csharp.java.util.concurrent
 		public bool isTerminated()
 		{
 			return Instance.CallMethod<bool>("isTerminated", "()Z");
-		}
-		
-		[JavaSignature("()Ljava/util/List;")]
-		public List<Runnable> shutdownNow()
-		{
-			return Instance.CallMethod<List<Runnable>>("shutdownNow", "()Ljava/util/List;");
 		}
 		
 		[JavaSignature("(Ljava/lang/Runnable;)V")]

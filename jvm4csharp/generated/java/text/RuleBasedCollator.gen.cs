@@ -29,16 +29,16 @@ namespace jvm4csharp.java.text
 			return Instance.CallMethod<String>("getRules", "()Ljava/lang/String;");
 		}
 		
-		[JavaSignature("(Ljava/text/CharacterIterator;)Ljava/text/CollationElementIterator;")]
-		public CollationElementIterator getCollationElementIterator(CharacterIterator arg0)
-		{
-			return Instance.CallMethod<CollationElementIterator>("getCollationElementIterator", "(Ljava/text/CharacterIterator;)Ljava/text/CollationElementIterator;", arg0);
-		}
-		
 		[JavaSignature("(Ljava/lang/String;)Ljava/text/CollationElementIterator;")]
 		public CollationElementIterator getCollationElementIterator(String arg0)
 		{
 			return Instance.CallMethod<CollationElementIterator>("getCollationElementIterator", "(Ljava/lang/String;)Ljava/text/CollationElementIterator;", arg0);
+		}
+		
+		[JavaSignature("(Ljava/text/CharacterIterator;)Ljava/text/CollationElementIterator;")]
+		public CollationElementIterator getCollationElementIterator(CharacterIterator arg0)
+		{
+			return Instance.CallMethod<CollationElementIterator>("getCollationElementIterator", "(Ljava/text/CharacterIterator;)Ljava/text/CollationElementIterator;", arg0);
 		}
 	}
 }

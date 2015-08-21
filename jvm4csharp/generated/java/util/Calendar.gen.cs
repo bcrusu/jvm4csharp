@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.io;
 using jvm4csharp.java.lang;
 
@@ -392,16 +392,16 @@ namespace jvm4csharp.java.util
 			Instance.CallMethod("set", "(IIIII)V", arg0, arg1, arg2, arg3, arg4);
 		}
 		
-		[JavaSignature("(III)V")]
-		public void @set(int arg0, int arg1, int arg2)
-		{
-			Instance.CallMethod("set", "(III)V", arg0, arg1, arg2);
-		}
-		
 		[JavaSignature("(IIIIII)V")]
 		public void @set(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5)
 		{
 			Instance.CallMethod("set", "(IIIIII)V", arg0, arg1, arg2, arg3, arg4, arg5);
+		}
+		
+		[JavaSignature("(III)V")]
+		public void @set(int arg0, int arg1, int arg2)
+		{
+			Instance.CallMethod("set", "(III)V", arg0, arg1, arg2);
 		}
 		
 		[JavaSignature("(Ljava/lang/Object;)Z")]
@@ -428,24 +428,6 @@ namespace jvm4csharp.java.util
 			return Instance.CallMethod<String>("getDisplayName", "(IILjava/util/Locale;)Ljava/lang/String;", arg0, arg1, arg2);
 		}
 		
-		[JavaSignature("()J")]
-		public long getTimeInMillis()
-		{
-			return Instance.CallMethod<long>("getTimeInMillis", "()J");
-		}
-		
-		[JavaSignature("()Ljava/util/TimeZone;")]
-		public TimeZone getTimeZone()
-		{
-			return Instance.CallMethod<TimeZone>("getTimeZone", "()Ljava/util/TimeZone;");
-		}
-		
-		[JavaSignature("(IILjava/util/Locale;)Ljava/util/Map;")]
-		public Map<String, Integer> getDisplayNames(int arg0, int arg1, Locale arg2)
-		{
-			return Instance.CallMethod<Map<String, Integer>>("getDisplayNames", "(IILjava/util/Locale;)Ljava/util/Map;", arg0, arg1, arg2);
-		}
-		
 		[JavaSignature("(Ljava/util/TimeZone;)V")]
 		public void setTimeZone(TimeZone arg0)
 		{
@@ -464,6 +446,24 @@ namespace jvm4csharp.java.util
 			Instance.CallMethod("setTime", "(Ljava/util/Date;)V", arg0);
 		}
 		
+		[JavaSignature("()J")]
+		public long getTimeInMillis()
+		{
+			return Instance.CallMethod<long>("getTimeInMillis", "()J");
+		}
+		
+		[JavaSignature("()Ljava/util/TimeZone;")]
+		public TimeZone getTimeZone()
+		{
+			return Instance.CallMethod<TimeZone>("getTimeZone", "()Ljava/util/TimeZone;");
+		}
+		
+		[JavaSignature("(IILjava/util/Locale;)Ljava/util/Map;")]
+		public Map<String, Integer> getDisplayNames(int arg0, int arg1, Locale arg2)
+		{
+			return Instance.CallMethod<Map<String, Integer>>("getDisplayNames", "(IILjava/util/Locale;)Ljava/util/Map;", arg0, arg1, arg2);
+		}
+		
 		[JavaSignature("(Z)V")]
 		public void setLenient(bool arg0)
 		{
@@ -474,42 +474,6 @@ namespace jvm4csharp.java.util
 		public void setTimeInMillis(long arg0)
 		{
 			Instance.CallMethod("setTimeInMillis", "(J)V", arg0);
-		}
-		
-		[JavaSignature("()Ljava/util/Set;")]
-		public static Set<String> getAvailableCalendarTypes()
-		{
-			return Static.CallMethod<Set<String>>(typeof(Calendar), "getAvailableCalendarTypes", "()Ljava/util/Set;");
-		}
-		
-		[JavaSignature("()I")]
-		public int getFirstDayOfWeek()
-		{
-			return Instance.CallMethod<int>("getFirstDayOfWeek", "()I");
-		}
-		
-		[JavaSignature("()Z")]
-		public bool isWeekDateSupported()
-		{
-			return Instance.CallMethod<bool>("isWeekDateSupported", "()Z");
-		}
-		
-		[JavaSignature("(I)V")]
-		public void setFirstDayOfWeek(int arg0)
-		{
-			Instance.CallMethod("setFirstDayOfWeek", "(I)V", arg0);
-		}
-		
-		[JavaSignature("(I)V")]
-		public void setMinimalDaysInFirstWeek(int arg0)
-		{
-			Instance.CallMethod("setMinimalDaysInFirstWeek", "(I)V", arg0);
-		}
-		
-		[JavaSignature("(III)V")]
-		public void setWeekDate(int arg0, int arg1, int arg2)
-		{
-			Instance.CallMethod("setWeekDate", "(III)V", arg0, arg1, arg2);
 		}
 		
 		[JavaSignature("(I)I")]
@@ -578,18 +542,57 @@ namespace jvm4csharp.java.util
 			return Instance.CallMethod<bool>("isLenient", "()Z");
 		}
 		
+		[JavaSignature("(IZ)V")]
+		public void roll(int arg0, bool arg1)
+		{
+			Instance.CallMethod("roll", "(IZ)V", arg0, arg1);
+		}
+		
 		[JavaSignature("(II)V")]
 		public void roll(int arg0, int arg1)
 		{
 			Instance.CallMethod("roll", "(II)V", arg0, arg1);
 		}
 		
-		[JavaSignature("(IZ)V")]
-		public void roll(int arg0, bool arg1)
+		[JavaSignature("()Ljava/util/Set;")]
+		public static Set<String> getAvailableCalendarTypes()
 		{
-			Instance.CallMethod("roll", "(IZ)V", arg0, arg1);
+			return Static.CallMethod<Set<String>>(typeof(Calendar), "getAvailableCalendarTypes", "()Ljava/util/Set;");
 		}
+		
+		[JavaSignature("()I")]
+		public int getFirstDayOfWeek()
+		{
+			return Instance.CallMethod<int>("getFirstDayOfWeek", "()I");
+		}
+		
+		[JavaSignature("()Z")]
+		public bool isWeekDateSupported()
+		{
+			return Instance.CallMethod<bool>("isWeekDateSupported", "()Z");
+		}
+		
+		[JavaSignature("(I)V")]
+		public void setFirstDayOfWeek(int arg0)
+		{
+			Instance.CallMethod("setFirstDayOfWeek", "(I)V", arg0);
+		}
+		
+		[JavaSignature("(I)V")]
+		public void setMinimalDaysInFirstWeek(int arg0)
+		{
+			Instance.CallMethod("setMinimalDaysInFirstWeek", "(I)V", arg0);
+		}
+		
+		[JavaSignature("(III)V")]
+		public void setWeekDate(int arg0, int arg1, int arg2)
+		{
+			Instance.CallMethod("setWeekDate", "(III)V", arg0, arg1, arg2);
+		}
+	}
 	
+	public static partial class Calendar_
+	{
 		[JavaProxy("java/util/Calendar/Builder")]
 		public partial class Builder : Object
 		{
@@ -601,45 +604,45 @@ namespace jvm4csharp.java.util
 			}
 		
 			[JavaSignature("(II)Ljava/util/Calendar/Builder;")]
-			public Calendar.Builder @set(int arg0, int arg1)
+			public Calendar_.Builder @set(int arg0, int arg1)
 			{
-				return Instance.CallMethod<Calendar.Builder>("set", "(II)Ljava/util/Calendar/Builder;", arg0, arg1);
-			}
-			
-			[JavaSignature("(III)Ljava/util/Calendar/Builder;")]
-			public Calendar.Builder setDate(int arg0, int arg1, int arg2)
-			{
-				return Instance.CallMethod<Calendar.Builder>("setDate", "(III)Ljava/util/Calendar/Builder;", arg0, arg1, arg2);
-			}
-			
-			[JavaSignature("(III)Ljava/util/Calendar/Builder;")]
-			public Calendar.Builder setTimeOfDay(int arg0, int arg1, int arg2)
-			{
-				return Instance.CallMethod<Calendar.Builder>("setTimeOfDay", "(III)Ljava/util/Calendar/Builder;", arg0, arg1, arg2);
-			}
-			
-			[JavaSignature("(IIII)Ljava/util/Calendar/Builder;")]
-			public Calendar.Builder setTimeOfDay(int arg0, int arg1, int arg2, int arg3)
-			{
-				return Instance.CallMethod<Calendar.Builder>("setTimeOfDay", "(IIII)Ljava/util/Calendar/Builder;", arg0, arg1, arg2, arg3);
-			}
-			
-			[JavaSignature("(Ljava/util/Locale;)Ljava/util/Calendar/Builder;")]
-			public Calendar.Builder setLocale(Locale arg0)
-			{
-				return Instance.CallMethod<Calendar.Builder>("setLocale", "(Ljava/util/Locale;)Ljava/util/Calendar/Builder;", arg0);
+				return Instance.CallMethod<Calendar_.Builder>("set", "(II)Ljava/util/Calendar/Builder;", arg0, arg1);
 			}
 			
 			[JavaSignature("(Ljava/util/TimeZone;)Ljava/util/Calendar/Builder;")]
-			public Calendar.Builder setTimeZone(TimeZone arg0)
+			public Calendar_.Builder setTimeZone(TimeZone arg0)
 			{
-				return Instance.CallMethod<Calendar.Builder>("setTimeZone", "(Ljava/util/TimeZone;)Ljava/util/Calendar/Builder;", arg0);
+				return Instance.CallMethod<Calendar_.Builder>("setTimeZone", "(Ljava/util/TimeZone;)Ljava/util/Calendar/Builder;", arg0);
+			}
+			
+			[JavaSignature("(III)Ljava/util/Calendar/Builder;")]
+			public Calendar_.Builder setDate(int arg0, int arg1, int arg2)
+			{
+				return Instance.CallMethod<Calendar_.Builder>("setDate", "(III)Ljava/util/Calendar/Builder;", arg0, arg1, arg2);
+			}
+			
+			[JavaSignature("(III)Ljava/util/Calendar/Builder;")]
+			public Calendar_.Builder setTimeOfDay(int arg0, int arg1, int arg2)
+			{
+				return Instance.CallMethod<Calendar_.Builder>("setTimeOfDay", "(III)Ljava/util/Calendar/Builder;", arg0, arg1, arg2);
+			}
+			
+			[JavaSignature("(IIII)Ljava/util/Calendar/Builder;")]
+			public Calendar_.Builder setTimeOfDay(int arg0, int arg1, int arg2, int arg3)
+			{
+				return Instance.CallMethod<Calendar_.Builder>("setTimeOfDay", "(IIII)Ljava/util/Calendar/Builder;", arg0, arg1, arg2, arg3);
+			}
+			
+			[JavaSignature("(Ljava/util/Locale;)Ljava/util/Calendar/Builder;")]
+			public Calendar_.Builder setLocale(Locale arg0)
+			{
+				return Instance.CallMethod<Calendar_.Builder>("setLocale", "(Ljava/util/Locale;)Ljava/util/Calendar/Builder;", arg0);
 			}
 			
 			[JavaSignature("(Z)Ljava/util/Calendar/Builder;")]
-			public Calendar.Builder setLenient(bool arg0)
+			public Calendar_.Builder setLenient(bool arg0)
 			{
-				return Instance.CallMethod<Calendar.Builder>("setLenient", "(Z)Ljava/util/Calendar/Builder;", arg0);
+				return Instance.CallMethod<Calendar_.Builder>("setLenient", "(Z)Ljava/util/Calendar/Builder;", arg0);
 			}
 			
 			[JavaSignature("()Ljava/util/Calendar;")]
@@ -649,39 +652,39 @@ namespace jvm4csharp.java.util
 			}
 			
 			[JavaSignature("(Ljava/lang/String;)Ljava/util/Calendar/Builder;")]
-			public Calendar.Builder setCalendarType(String arg0)
+			public Calendar_.Builder setCalendarType(String arg0)
 			{
-				return Instance.CallMethod<Calendar.Builder>("setCalendarType", "(Ljava/lang/String;)Ljava/util/Calendar/Builder;", arg0);
+				return Instance.CallMethod<Calendar_.Builder>("setCalendarType", "(Ljava/lang/String;)Ljava/util/Calendar/Builder;", arg0);
 			}
 			
 			[JavaSignature("([I)Ljava/util/Calendar/Builder;")]
-			public Calendar.Builder setFields(IntArray arg0)
+			public Calendar_.Builder setFields(IntArray arg0)
 			{
-				return Instance.CallMethod<Calendar.Builder>("setFields", "([I)Ljava/util/Calendar/Builder;", arg0);
+				return Instance.CallMethod<Calendar_.Builder>("setFields", "([I)Ljava/util/Calendar/Builder;", arg0);
 			}
 			
 			[JavaSignature("(Ljava/util/Date;)Ljava/util/Calendar/Builder;")]
-			public Calendar.Builder setInstant(Date arg0)
+			public Calendar_.Builder setInstant(Date arg0)
 			{
-				return Instance.CallMethod<Calendar.Builder>("setInstant", "(Ljava/util/Date;)Ljava/util/Calendar/Builder;", arg0);
+				return Instance.CallMethod<Calendar_.Builder>("setInstant", "(Ljava/util/Date;)Ljava/util/Calendar/Builder;", arg0);
 			}
 			
 			[JavaSignature("(J)Ljava/util/Calendar/Builder;")]
-			public Calendar.Builder setInstant(long arg0)
+			public Calendar_.Builder setInstant(long arg0)
 			{
-				return Instance.CallMethod<Calendar.Builder>("setInstant", "(J)Ljava/util/Calendar/Builder;", arg0);
+				return Instance.CallMethod<Calendar_.Builder>("setInstant", "(J)Ljava/util/Calendar/Builder;", arg0);
 			}
 			
 			[JavaSignature("(III)Ljava/util/Calendar/Builder;")]
-			public Calendar.Builder setWeekDate(int arg0, int arg1, int arg2)
+			public Calendar_.Builder setWeekDate(int arg0, int arg1, int arg2)
 			{
-				return Instance.CallMethod<Calendar.Builder>("setWeekDate", "(III)Ljava/util/Calendar/Builder;", arg0, arg1, arg2);
+				return Instance.CallMethod<Calendar_.Builder>("setWeekDate", "(III)Ljava/util/Calendar/Builder;", arg0, arg1, arg2);
 			}
 			
 			[JavaSignature("(II)Ljava/util/Calendar/Builder;")]
-			public Calendar.Builder setWeekDefinition(int arg0, int arg1)
+			public Calendar_.Builder setWeekDefinition(int arg0, int arg1)
 			{
-				return Instance.CallMethod<Calendar.Builder>("setWeekDefinition", "(II)Ljava/util/Calendar/Builder;", arg0, arg1);
+				return Instance.CallMethod<Calendar_.Builder>("setWeekDefinition", "(II)Ljava/util/Calendar/Builder;", arg0, arg1);
 			}
 		}
 	}

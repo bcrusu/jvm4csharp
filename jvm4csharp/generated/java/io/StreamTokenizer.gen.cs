@@ -79,6 +79,12 @@ namespace jvm4csharp.java.io
 			return Instance.CallMethod<int>("nextToken", "()I");
 		}
 		
+		[JavaSignature("()V")]
+		public void pushBack()
+		{
+			Instance.CallMethod("pushBack", "()V");
+		}
+		
 		[JavaSignature("(I)V")]
 		public void commentChar(int arg0)
 		{
@@ -155,12 +161,6 @@ namespace jvm4csharp.java.io
 		public void wordChars(int arg0, int arg1)
 		{
 			Instance.CallMethod("wordChars", "(II)V", arg0, arg1);
-		}
-		
-		[JavaSignature("()V")]
-		public void pushBack()
-		{
-			Instance.CallMethod("pushBack", "()V");
 		}
 	}
 }

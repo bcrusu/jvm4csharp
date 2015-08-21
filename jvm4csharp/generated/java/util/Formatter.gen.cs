@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.io;
 using jvm4csharp.java.lang;
 
@@ -131,34 +131,37 @@ namespace jvm4csharp.java.util
 		{
 			return Instance.CallMethod<IOException>("ioException", "()Ljava/io/IOException;");
 		}
+	}
 	
+	public static partial class Formatter_
+	{
 		[JavaProxy("java/util/Formatter/BigDecimalLayoutForm")]
-		public partial class BigDecimalLayoutForm : Enum<Formatter.BigDecimalLayoutForm>
+		public partial class BigDecimalLayoutForm : Enum<Formatter_.BigDecimalLayoutForm>
 		{
 			protected BigDecimalLayoutForm(ProxyCtor p) : base(p) {}
 		
 			[JavaSignature("Ljava/util/Formatter/BigDecimalLayoutForm;")]
-			public static Formatter.BigDecimalLayoutForm SCIENTIFIC
+			public static Formatter_.BigDecimalLayoutForm SCIENTIFIC
 			{
-				get { return Static.GetField<Formatter.BigDecimalLayoutForm>(typeof(BigDecimalLayoutForm), "SCIENTIFIC", "Ljava/util/Formatter/BigDecimalLayoutForm;"); }
+				get { return Static.GetField<Formatter_.BigDecimalLayoutForm>(typeof(BigDecimalLayoutForm), "SCIENTIFIC", "Ljava/util/Formatter/BigDecimalLayoutForm;"); }
 			}
 			
 			[JavaSignature("Ljava/util/Formatter/BigDecimalLayoutForm;")]
-			public static Formatter.BigDecimalLayoutForm DECIMAL_FLOAT
+			public static Formatter_.BigDecimalLayoutForm DECIMAL_FLOAT
 			{
-				get { return Static.GetField<Formatter.BigDecimalLayoutForm>(typeof(BigDecimalLayoutForm), "DECIMAL_FLOAT", "Ljava/util/Formatter/BigDecimalLayoutForm;"); }
+				get { return Static.GetField<Formatter_.BigDecimalLayoutForm>(typeof(BigDecimalLayoutForm), "DECIMAL_FLOAT", "Ljava/util/Formatter/BigDecimalLayoutForm;"); }
 			}
 		
 			[JavaSignature("()[Ljava/util/Formatter/BigDecimalLayoutForm;")]
-			public static ObjectArray<Formatter.BigDecimalLayoutForm> values()
+			public static ObjectArray<Formatter_.BigDecimalLayoutForm> values()
 			{
-				return Static.CallMethod<ObjectArray<Formatter.BigDecimalLayoutForm>>(typeof(BigDecimalLayoutForm), "values", "()[Ljava/util/Formatter/BigDecimalLayoutForm;");
+				return Static.CallMethod<ObjectArray<Formatter_.BigDecimalLayoutForm>>(typeof(BigDecimalLayoutForm), "values", "()[Ljava/util/Formatter/BigDecimalLayoutForm;");
 			}
 			
 			[JavaSignature("(Ljava/lang/String;)Ljava/util/Formatter/BigDecimalLayoutForm;")]
-			public static Formatter.BigDecimalLayoutForm valueOf(String arg0)
+			public static Formatter_.BigDecimalLayoutForm valueOf(String arg0)
 			{
-				return Static.CallMethod<Formatter.BigDecimalLayoutForm>(typeof(BigDecimalLayoutForm), "valueOf", "(Ljava/lang/String;)Ljava/util/Formatter/BigDecimalLayoutForm;", arg0);
+				return Static.CallMethod<Formatter_.BigDecimalLayoutForm>(typeof(BigDecimalLayoutForm), "valueOf", "(Ljava/lang/String;)Ljava/util/Formatter/BigDecimalLayoutForm;", arg0);
 			}
 		}
 	}

@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.io;
 using jvm4csharp.java.lang;
 using jvm4csharp.java.util.function;
@@ -76,12 +76,6 @@ namespace jvm4csharp.java.util.regex
 			get { return Static.GetField<int>(typeof(Pattern), "UNICODE_CHARACTER_CLASS", "I"); }
 		}
 	
-		[JavaSignature("(Ljava/lang/String;)Ljava/lang/String;")]
-		public static String quote(String arg0)
-		{
-			return Static.CallMethod<String>(typeof(Pattern), "quote", "(Ljava/lang/String;)Ljava/lang/String;", arg0);
-		}
-		
 		[JavaSignature("()I")]
 		public int flags()
 		{
@@ -112,16 +106,22 @@ namespace jvm4csharp.java.util.regex
 			return Static.CallMethod<bool>(typeof(Pattern), "matches", "(Ljava/lang/String;Ljava/lang/CharSequence;)Z", arg0, arg1);
 		}
 		
+		[JavaSignature("(Ljava/lang/CharSequence;I)[Ljava/lang/String;")]
+		public ObjectArray<String> split(CharSequence arg0, int arg1)
+		{
+			return Instance.CallMethod<ObjectArray<String>>("split", "(Ljava/lang/CharSequence;I)[Ljava/lang/String;", arg0, arg1);
+		}
+		
 		[JavaSignature("(Ljava/lang/CharSequence;)[Ljava/lang/String;")]
 		public ObjectArray<String> split(CharSequence arg0)
 		{
 			return Instance.CallMethod<ObjectArray<String>>("split", "(Ljava/lang/CharSequence;)[Ljava/lang/String;", arg0);
 		}
 		
-		[JavaSignature("(Ljava/lang/CharSequence;I)[Ljava/lang/String;")]
-		public ObjectArray<String> split(CharSequence arg0, int arg1)
+		[JavaSignature("(Ljava/lang/String;)Ljava/lang/String;")]
+		public static String quote(String arg0)
 		{
-			return Instance.CallMethod<ObjectArray<String>>("split", "(Ljava/lang/CharSequence;I)[Ljava/lang/String;", arg0, arg1);
+			return Static.CallMethod<String>(typeof(Pattern), "quote", "(Ljava/lang/String;)Ljava/lang/String;", arg0);
 		}
 		
 		[JavaSignature("()Ljava/util/function/Predicate;")]

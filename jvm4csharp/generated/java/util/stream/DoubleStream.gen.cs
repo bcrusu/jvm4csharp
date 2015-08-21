@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 using jvm4csharp.java.util.function;
 
@@ -73,19 +73,6 @@ namespace jvm4csharp.java.util.stream
 		[JavaSignature("()Ljava/util/stream/DoubleStream;")]
 		DoubleStream sorted();
 		
-		[JavaSignature("()Ljava/util/OptionalDouble;")]
-		OptionalDouble average();
-		
-		[JavaSignature("()Ljava/util/stream/Stream;")]
-		Stream<Double> boxed();
-		
-		[JavaSignature("(Ljava/util/function/DoubleFunction;)Ljava/util/stream/Stream;")]
-		Stream<U> mapToObj<U>(DoubleFunction<U> arg0)
-			where U : IJavaObject;
-		
-		[JavaSignature("()Ljava/util/DoubleSummaryStatistics;")]
-		DoubleSummaryStatistics summaryStatistics();
-		
 		[JavaSignature("(Ljava/util/function/DoublePredicate;)Z")]
 		bool allMatch(DoublePredicate arg0);
 		
@@ -118,9 +105,22 @@ namespace jvm4csharp.java.util.stream
 		
 		[JavaSignature("()Ljava/util/stream/DoubleStream;")]
 		new DoubleStream sequential();
+		
+		[JavaSignature("()Ljava/util/OptionalDouble;")]
+		OptionalDouble average();
+		
+		[JavaSignature("()Ljava/util/stream/Stream;")]
+		Stream<Double> boxed();
+		
+		[JavaSignature("(Ljava/util/function/DoubleFunction;)Ljava/util/stream/Stream;")]
+		Stream<U> mapToObj<U>(DoubleFunction<U> arg0)
+			where U : IJavaObject;
+		
+		[JavaSignature("()Ljava/util/DoubleSummaryStatistics;")]
+		DoubleSummaryStatistics summaryStatistics();
 	}
 	
-	public static class DoubleStream_
+	public static partial class DoubleStream_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 		

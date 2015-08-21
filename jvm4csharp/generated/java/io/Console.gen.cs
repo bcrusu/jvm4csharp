@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 
 // ReSharper disable InconsistentNaming
@@ -31,16 +31,16 @@ namespace jvm4csharp.java.io
 			Instance.CallMethod("flush", "()V");
 		}
 		
-		[JavaSignature("(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;")]
-		public String readLine(String arg0, ObjectArray<IJavaObject> arg1)
-		{
-			return Instance.CallMethod<String>("readLine", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", arg0, arg1);
-		}
-		
 		[JavaSignature("()Ljava/lang/String;")]
 		public String readLine()
 		{
 			return Instance.CallMethod<String>("readLine", "()Ljava/lang/String;");
+		}
+		
+		[JavaSignature("(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;")]
+		public String readLine(String arg0, ObjectArray<IJavaObject> arg1)
+		{
+			return Instance.CallMethod<String>("readLine", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", arg0, arg1);
 		}
 		
 		[JavaSignature("(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/Console;")]

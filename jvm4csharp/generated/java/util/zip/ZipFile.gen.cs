@@ -21,19 +21,14 @@ namespace jvm4csharp.java.util.zip
 	{
 		protected ZipFile(ProxyCtor p) : base(p) {}
 		
-		public ZipFile(File arg0, int arg1, Charset arg2) : base(ProxyCtor.I)
-		{
-			Instance.CallConstructor("(Ljava/io/File;ILjava/nio/charset/Charset;)V", arg0, arg1, arg2);
-		}
-		
 		public ZipFile(String arg0, Charset arg1) : base(ProxyCtor.I)
 		{
 			Instance.CallConstructor("(Ljava/lang/String;Ljava/nio/charset/Charset;)V", arg0, arg1);
 		}
 		
-		public ZipFile(File arg0, Charset arg1) : base(ProxyCtor.I)
+		public ZipFile(File arg0, int arg1, Charset arg2) : base(ProxyCtor.I)
 		{
-			Instance.CallConstructor("(Ljava/io/File;Ljava/nio/charset/Charset;)V", arg0, arg1);
+			Instance.CallConstructor("(Ljava/io/File;ILjava/nio/charset/Charset;)V", arg0, arg1, arg2);
 		}
 		
 		public ZipFile(File arg0) : base(ProxyCtor.I)
@@ -41,14 +36,19 @@ namespace jvm4csharp.java.util.zip
 			Instance.CallConstructor("(Ljava/io/File;)V", arg0);
 		}
 		
-		public ZipFile(File arg0, int arg1) : base(ProxyCtor.I)
+		public ZipFile(File arg0, Charset arg1) : base(ProxyCtor.I)
 		{
-			Instance.CallConstructor("(Ljava/io/File;I)V", arg0, arg1);
+			Instance.CallConstructor("(Ljava/io/File;Ljava/nio/charset/Charset;)V", arg0, arg1);
 		}
 		
 		public ZipFile(String arg0) : base(ProxyCtor.I)
 		{
 			Instance.CallConstructor("(Ljava/lang/String;)V", arg0);
+		}
+		
+		public ZipFile(File arg0, int arg1) : base(ProxyCtor.I)
+		{
+			Instance.CallConstructor("(Ljava/io/File;I)V", arg0, arg1);
 		}
 	
 		[JavaSignature("I")]

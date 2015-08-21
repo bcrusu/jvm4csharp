@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 
 // ReSharper disable InconsistentNaming
@@ -61,12 +61,6 @@ namespace jvm4csharp.java.util.concurrent
 			get { return Static.GetField<TimeUnit>(typeof(TimeUnit), "DAYS", "Ljava/util/concurrent/TimeUnit;"); }
 		}
 	
-		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)J")]
-		public long convert(long arg0, TimeUnit arg1)
-		{
-			return Instance.CallMethod<long>("convert", "(JLjava/util/concurrent/TimeUnit;)J", arg0, arg1);
-		}
-		
 		[JavaSignature("()[Ljava/util/concurrent/TimeUnit;")]
 		public static ObjectArray<TimeUnit> values()
 		{
@@ -91,22 +85,10 @@ namespace jvm4csharp.java.util.concurrent
 			return Instance.CallMethod<long>("toNanos", "(J)J", arg0);
 		}
 		
-		[JavaSignature("(J)J")]
-		public long toDays(long arg0)
+		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)J")]
+		public long convert(long arg0, TimeUnit arg1)
 		{
-			return Instance.CallMethod<long>("toDays", "(J)J", arg0);
-		}
-		
-		[JavaSignature("(J)J")]
-		public long toMillis(long arg0)
-		{
-			return Instance.CallMethod<long>("toMillis", "(J)J", arg0);
-		}
-		
-		[JavaSignature("(J)J")]
-		public long toSeconds(long arg0)
-		{
-			return Instance.CallMethod<long>("toSeconds", "(J)J", arg0);
+			return Instance.CallMethod<long>("convert", "(JLjava/util/concurrent/TimeUnit;)J", arg0, arg1);
 		}
 		
 		[JavaSignature("(Ljava/lang/Thread;J)V")]
@@ -137,6 +119,24 @@ namespace jvm4csharp.java.util.concurrent
 		public long toMinutes(long arg0)
 		{
 			return Instance.CallMethod<long>("toMinutes", "(J)J", arg0);
+		}
+		
+		[JavaSignature("(J)J")]
+		public long toDays(long arg0)
+		{
+			return Instance.CallMethod<long>("toDays", "(J)J", arg0);
+		}
+		
+		[JavaSignature("(J)J")]
+		public long toMillis(long arg0)
+		{
+			return Instance.CallMethod<long>("toMillis", "(J)J", arg0);
+		}
+		
+		[JavaSignature("(J)J")]
+		public long toSeconds(long arg0)
+		{
+			return Instance.CallMethod<long>("toSeconds", "(J)J", arg0);
 		}
 	}
 }

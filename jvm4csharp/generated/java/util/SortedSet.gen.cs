@@ -21,9 +21,6 @@ namespace jvm4csharp.java.util
 		[JavaSignature("()Ljava/lang/Object;")]
 		E first();
 		
-		[JavaSignature("()Ljava/lang/Object;")]
-		E last();
-		
 		[JavaSignature("(Ljava/lang/Object;)Ljava/util/SortedSet;")]
 		SortedSet<E> headSet(E arg0);
 		
@@ -32,6 +29,9 @@ namespace jvm4csharp.java.util
 		
 		[JavaSignature("(Ljava/lang/Object;)Ljava/util/SortedSet;")]
 		SortedSet<E> tailSet(E arg0);
+		
+		[JavaSignature("()Ljava/lang/Object;")]
+		E last();
 		
 		[JavaSignature("()Ljava/util/Comparator;")]
 		Comparator<IJavaObject> comparator();

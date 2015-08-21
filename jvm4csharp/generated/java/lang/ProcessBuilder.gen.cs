@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.io;
 using jvm4csharp.java.util;
 
@@ -85,13 +85,13 @@ namespace jvm4csharp.java.lang
 		}
 		
 		[JavaSignature("()Ljava/lang/ProcessBuilder/Redirect;")]
-		public ProcessBuilder.Redirect redirectError()
+		public ProcessBuilder_.Redirect redirectError()
 		{
-			return Instance.CallMethod<ProcessBuilder.Redirect>("redirectError", "()Ljava/lang/ProcessBuilder/Redirect;");
+			return Instance.CallMethod<ProcessBuilder_.Redirect>("redirectError", "()Ljava/lang/ProcessBuilder/Redirect;");
 		}
 		
 		[JavaSignature("(Ljava/lang/ProcessBuilder/Redirect;)Ljava/lang/ProcessBuilder;")]
-		public ProcessBuilder redirectError(ProcessBuilder.Redirect arg0)
+		public ProcessBuilder redirectError(ProcessBuilder_.Redirect arg0)
 		{
 			return Instance.CallMethod<ProcessBuilder>("redirectError", "(Ljava/lang/ProcessBuilder/Redirect;)Ljava/lang/ProcessBuilder;", arg0);
 		}
@@ -115,13 +115,13 @@ namespace jvm4csharp.java.lang
 		}
 		
 		[JavaSignature("()Ljava/lang/ProcessBuilder/Redirect;")]
-		public ProcessBuilder.Redirect redirectInput()
+		public ProcessBuilder_.Redirect redirectInput()
 		{
-			return Instance.CallMethod<ProcessBuilder.Redirect>("redirectInput", "()Ljava/lang/ProcessBuilder/Redirect;");
+			return Instance.CallMethod<ProcessBuilder_.Redirect>("redirectInput", "()Ljava/lang/ProcessBuilder/Redirect;");
 		}
 		
 		[JavaSignature("(Ljava/lang/ProcessBuilder/Redirect;)Ljava/lang/ProcessBuilder;")]
-		public ProcessBuilder redirectInput(ProcessBuilder.Redirect arg0)
+		public ProcessBuilder redirectInput(ProcessBuilder_.Redirect arg0)
 		{
 			return Instance.CallMethod<ProcessBuilder>("redirectInput", "(Ljava/lang/ProcessBuilder/Redirect;)Ljava/lang/ProcessBuilder;", arg0);
 		}
@@ -133,44 +133,47 @@ namespace jvm4csharp.java.lang
 		}
 		
 		[JavaSignature("(Ljava/lang/ProcessBuilder/Redirect;)Ljava/lang/ProcessBuilder;")]
-		public ProcessBuilder redirectOutput(ProcessBuilder.Redirect arg0)
+		public ProcessBuilder redirectOutput(ProcessBuilder_.Redirect arg0)
 		{
 			return Instance.CallMethod<ProcessBuilder>("redirectOutput", "(Ljava/lang/ProcessBuilder/Redirect;)Ljava/lang/ProcessBuilder;", arg0);
 		}
 		
 		[JavaSignature("()Ljava/lang/ProcessBuilder/Redirect;")]
-		public ProcessBuilder.Redirect redirectOutput()
+		public ProcessBuilder_.Redirect redirectOutput()
 		{
-			return Instance.CallMethod<ProcessBuilder.Redirect>("redirectOutput", "()Ljava/lang/ProcessBuilder/Redirect;");
+			return Instance.CallMethod<ProcessBuilder_.Redirect>("redirectOutput", "()Ljava/lang/ProcessBuilder/Redirect;");
 		}
+	}
 	
+	public static partial class ProcessBuilder_
+	{
 		[JavaProxy("java/lang/ProcessBuilder/Redirect")]
 		public abstract partial class Redirect : Object
 		{
 			protected Redirect(ProxyCtor p) : base(p) {}
 		
 			[JavaSignature("Ljava/lang/ProcessBuilder/Redirect;")]
-			public static ProcessBuilder.Redirect PIPE
+			public static ProcessBuilder_.Redirect PIPE
 			{
-				get { return Static.GetField<ProcessBuilder.Redirect>(typeof(Redirect), "PIPE", "Ljava/lang/ProcessBuilder/Redirect;"); }
+				get { return Static.GetField<ProcessBuilder_.Redirect>(typeof(Redirect), "PIPE", "Ljava/lang/ProcessBuilder/Redirect;"); }
 			}
 			
 			[JavaSignature("Ljava/lang/ProcessBuilder/Redirect;")]
-			public static ProcessBuilder.Redirect INHERIT
+			public static ProcessBuilder_.Redirect INHERIT
 			{
-				get { return Static.GetField<ProcessBuilder.Redirect>(typeof(Redirect), "INHERIT", "Ljava/lang/ProcessBuilder/Redirect;"); }
+				get { return Static.GetField<ProcessBuilder_.Redirect>(typeof(Redirect), "INHERIT", "Ljava/lang/ProcessBuilder/Redirect;"); }
 			}
 		
 			[JavaSignature("()Ljava/lang/ProcessBuilder/Redirect/Type;")]
-			public ProcessBuilder.Redirect.Type type()
+			public ProcessBuilder_.Redirect_.Type type()
 			{
-				return Instance.CallMethod<ProcessBuilder.Redirect.Type>("type", "()Ljava/lang/ProcessBuilder/Redirect/Type;");
+				return Instance.CallMethod<ProcessBuilder_.Redirect_.Type>("type", "()Ljava/lang/ProcessBuilder/Redirect/Type;");
 			}
 			
 			[JavaSignature("(Ljava/io/File;)Ljava/lang/ProcessBuilder/Redirect;")]
-			public static ProcessBuilder.Redirect appendTo(File arg0)
+			public static ProcessBuilder_.Redirect appendTo(File arg0)
 			{
-				return Static.CallMethod<ProcessBuilder.Redirect>(typeof(Redirect), "appendTo", "(Ljava/io/File;)Ljava/lang/ProcessBuilder/Redirect;", arg0);
+				return Static.CallMethod<ProcessBuilder_.Redirect>(typeof(Redirect), "appendTo", "(Ljava/io/File;)Ljava/lang/ProcessBuilder/Redirect;", arg0);
 			}
 			
 			[JavaSignature("()Ljava/io/File;")]
@@ -180,62 +183,65 @@ namespace jvm4csharp.java.lang
 			}
 			
 			[JavaSignature("(Ljava/io/File;)Ljava/lang/ProcessBuilder/Redirect;")]
-			public static ProcessBuilder.Redirect @from(File arg0)
+			public static ProcessBuilder_.Redirect @from(File arg0)
 			{
-				return Static.CallMethod<ProcessBuilder.Redirect>(typeof(Redirect), "from", "(Ljava/io/File;)Ljava/lang/ProcessBuilder/Redirect;", arg0);
+				return Static.CallMethod<ProcessBuilder_.Redirect>(typeof(Redirect), "from", "(Ljava/io/File;)Ljava/lang/ProcessBuilder/Redirect;", arg0);
 			}
 			
 			[JavaSignature("(Ljava/io/File;)Ljava/lang/ProcessBuilder/Redirect;")]
-			public static ProcessBuilder.Redirect to(File arg0)
+			public static ProcessBuilder_.Redirect to(File arg0)
 			{
-				return Static.CallMethod<ProcessBuilder.Redirect>(typeof(Redirect), "to", "(Ljava/io/File;)Ljava/lang/ProcessBuilder/Redirect;", arg0);
+				return Static.CallMethod<ProcessBuilder_.Redirect>(typeof(Redirect), "to", "(Ljava/io/File;)Ljava/lang/ProcessBuilder/Redirect;", arg0);
 			}
+		}
 		
+		public static partial class Redirect_
+		{
 			[JavaProxy("java/lang/ProcessBuilder/Redirect/Type")]
-			public partial class Type : Enum<ProcessBuilder.Redirect.Type>
+			public partial class Type : Enum<ProcessBuilder_.Redirect_.Type>
 			{
 				protected Type(ProxyCtor p) : base(p) {}
 			
 				[JavaSignature("Ljava/lang/ProcessBuilder/Redirect/Type;")]
-				public static ProcessBuilder.Redirect.Type PIPE
+				public static ProcessBuilder_.Redirect_.Type PIPE
 				{
-					get { return Static.GetField<ProcessBuilder.Redirect.Type>(typeof(Type), "PIPE", "Ljava/lang/ProcessBuilder/Redirect/Type;"); }
+					get { return Static.GetField<ProcessBuilder_.Redirect_.Type>(typeof(Type), "PIPE", "Ljava/lang/ProcessBuilder/Redirect/Type;"); }
 				}
 				
 				[JavaSignature("Ljava/lang/ProcessBuilder/Redirect/Type;")]
-				public static ProcessBuilder.Redirect.Type INHERIT
+				public static ProcessBuilder_.Redirect_.Type INHERIT
 				{
-					get { return Static.GetField<ProcessBuilder.Redirect.Type>(typeof(Type), "INHERIT", "Ljava/lang/ProcessBuilder/Redirect/Type;"); }
+					get { return Static.GetField<ProcessBuilder_.Redirect_.Type>(typeof(Type), "INHERIT", "Ljava/lang/ProcessBuilder/Redirect/Type;"); }
 				}
 				
 				[JavaSignature("Ljava/lang/ProcessBuilder/Redirect/Type;")]
-				public static ProcessBuilder.Redirect.Type READ
+				public static ProcessBuilder_.Redirect_.Type READ
 				{
-					get { return Static.GetField<ProcessBuilder.Redirect.Type>(typeof(Type), "READ", "Ljava/lang/ProcessBuilder/Redirect/Type;"); }
+					get { return Static.GetField<ProcessBuilder_.Redirect_.Type>(typeof(Type), "READ", "Ljava/lang/ProcessBuilder/Redirect/Type;"); }
 				}
 				
 				[JavaSignature("Ljava/lang/ProcessBuilder/Redirect/Type;")]
-				public static ProcessBuilder.Redirect.Type WRITE
+				public static ProcessBuilder_.Redirect_.Type WRITE
 				{
-					get { return Static.GetField<ProcessBuilder.Redirect.Type>(typeof(Type), "WRITE", "Ljava/lang/ProcessBuilder/Redirect/Type;"); }
+					get { return Static.GetField<ProcessBuilder_.Redirect_.Type>(typeof(Type), "WRITE", "Ljava/lang/ProcessBuilder/Redirect/Type;"); }
 				}
 				
 				[JavaSignature("Ljava/lang/ProcessBuilder/Redirect/Type;")]
-				public static ProcessBuilder.Redirect.Type APPEND
+				public static ProcessBuilder_.Redirect_.Type APPEND
 				{
-					get { return Static.GetField<ProcessBuilder.Redirect.Type>(typeof(Type), "APPEND", "Ljava/lang/ProcessBuilder/Redirect/Type;"); }
+					get { return Static.GetField<ProcessBuilder_.Redirect_.Type>(typeof(Type), "APPEND", "Ljava/lang/ProcessBuilder/Redirect/Type;"); }
 				}
 			
 				[JavaSignature("()[Ljava/lang/ProcessBuilder/Redirect/Type;")]
-				public static ObjectArray<ProcessBuilder.Redirect.Type> values()
+				public static ObjectArray<ProcessBuilder_.Redirect_.Type> values()
 				{
-					return Static.CallMethod<ObjectArray<ProcessBuilder.Redirect.Type>>(typeof(Type), "values", "()[Ljava/lang/ProcessBuilder/Redirect/Type;");
+					return Static.CallMethod<ObjectArray<ProcessBuilder_.Redirect_.Type>>(typeof(Type), "values", "()[Ljava/lang/ProcessBuilder/Redirect/Type;");
 				}
 				
 				[JavaSignature("(Ljava/lang/String;)Ljava/lang/ProcessBuilder/Redirect/Type;")]
-				public static ProcessBuilder.Redirect.Type valueOf(String arg0)
+				public static ProcessBuilder_.Redirect_.Type valueOf(String arg0)
 				{
-					return Static.CallMethod<ProcessBuilder.Redirect.Type>(typeof(Type), "valueOf", "(Ljava/lang/String;)Ljava/lang/ProcessBuilder/Redirect/Type;", arg0);
+					return Static.CallMethod<ProcessBuilder_.Redirect_.Type>(typeof(Type), "valueOf", "(Ljava/lang/String;)Ljava/lang/ProcessBuilder/Redirect/Type;", arg0);
 				}
 			}
 		}

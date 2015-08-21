@@ -21,14 +21,14 @@ namespace jvm4csharp.java.util.concurrent
 	{
 		protected ConcurrentLinkedDeque(ProxyCtor p) : base(p) {}
 		
-		public ConcurrentLinkedDeque(Collection<E> arg0) : base(ProxyCtor.I)
-		{
-			Instance.CallConstructor("(Ljava/util/Collection;)V", arg0);
-		}
-		
 		public ConcurrentLinkedDeque() : base(ProxyCtor.I)
 		{
 			Instance.CallConstructor("()V");
+		}
+		
+		public ConcurrentLinkedDeque(Collection<E> arg0) : base(ProxyCtor.I)
+		{
+			Instance.CallConstructor("(Ljava/util/Collection;)V", arg0);
 		}
 	
 		[JavaSignature("()Ljava/lang/Object;")]

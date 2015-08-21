@@ -49,16 +49,16 @@ namespace jvm4csharp.java.net
 			return Instance.CallMethod<Manifest>("getManifest", "()Ljava/util/jar/Manifest;");
 		}
 		
-		[JavaSignature("()Ljava/util/jar/JarEntry;")]
-		public JarEntry getJarEntry()
-		{
-			return Instance.CallMethod<JarEntry>("getJarEntry", "()Ljava/util/jar/JarEntry;");
-		}
-		
 		[JavaSignature("()Ljava/lang/String;")]
 		public String getEntryName()
 		{
 			return Instance.CallMethod<String>("getEntryName", "()Ljava/lang/String;");
+		}
+		
+		[JavaSignature("()Ljava/util/jar/JarEntry;")]
+		public JarEntry getJarEntry()
+		{
+			return Instance.CallMethod<JarEntry>("getJarEntry", "()Ljava/util/jar/JarEntry;");
 		}
 	}
 }

@@ -45,7 +45,7 @@ namespace jvm4csharp.java.util
 		Comparator<T> thenComparingLong(ToLongFunction<IJavaObject> arg0);
 	}
 	
-	public static class Comparator_
+	public static partial class Comparator_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 		

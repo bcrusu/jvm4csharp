@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.io;
 using jvm4csharp.java.lang;
 using jvm4csharp.java.util;
@@ -47,60 +47,6 @@ namespace jvm4csharp.java.text
 		public static ObjectArray<Locale> getAvailableLocales()
 		{
 			return Static.CallMethod<ObjectArray<Locale>>(typeof(DateFormatSymbols), "getAvailableLocales", "()[Ljava/util/Locale;");
-		}
-		
-		[JavaSignature("()Ljava/lang/String;")]
-		public String getLocalPatternChars()
-		{
-			return Instance.CallMethod<String>("getLocalPatternChars", "()Ljava/lang/String;");
-		}
-		
-		[JavaSignature("()[Ljava/lang/String[];")]
-		public ObjectArray<ObjectArray<String>> getZoneStrings()
-		{
-			return Instance.CallMethod<ObjectArray<ObjectArray<String>>>("getZoneStrings", "()[Ljava/lang/String[];");
-		}
-		
-		[JavaSignature("([Ljava/lang/String;)V")]
-		public void setAmPmStrings(ObjectArray<String> arg0)
-		{
-			Instance.CallMethod("setAmPmStrings", "([Ljava/lang/String;)V", arg0);
-		}
-		
-		[JavaSignature("(Ljava/lang/String;)V")]
-		public void setLocalPatternChars(String arg0)
-		{
-			Instance.CallMethod("setLocalPatternChars", "(Ljava/lang/String;)V", arg0);
-		}
-		
-		[JavaSignature("([Ljava/lang/String;)V")]
-		public void setMonths(ObjectArray<String> arg0)
-		{
-			Instance.CallMethod("setMonths", "([Ljava/lang/String;)V", arg0);
-		}
-		
-		[JavaSignature("([Ljava/lang/String;)V")]
-		public void setShortMonths(ObjectArray<String> arg0)
-		{
-			Instance.CallMethod("setShortMonths", "([Ljava/lang/String;)V", arg0);
-		}
-		
-		[JavaSignature("([Ljava/lang/String;)V")]
-		public void setShortWeekdays(ObjectArray<String> arg0)
-		{
-			Instance.CallMethod("setShortWeekdays", "([Ljava/lang/String;)V", arg0);
-		}
-		
-		[JavaSignature("([Ljava/lang/String;)V")]
-		public void setWeekdays(ObjectArray<String> arg0)
-		{
-			Instance.CallMethod("setWeekdays", "([Ljava/lang/String;)V", arg0);
-		}
-		
-		[JavaSignature("([Ljava/lang/String[];)V")]
-		public void setZoneStrings(ObjectArray<ObjectArray<String>> arg0)
-		{
-			Instance.CallMethod("setZoneStrings", "([Ljava/lang/String[];)V", arg0);
 		}
 		
 		[JavaSignature("()[Ljava/lang/String;")]
@@ -143,6 +89,60 @@ namespace jvm4csharp.java.text
 		public ObjectArray<String> getWeekdays()
 		{
 			return Instance.CallMethod<ObjectArray<String>>("getWeekdays", "()[Ljava/lang/String;");
+		}
+		
+		[JavaSignature("()[Ljava/lang/String[];")]
+		public ObjectArray<ObjectArray<String>> getZoneStrings()
+		{
+			return Instance.CallMethod<ObjectArray<ObjectArray<String>>>("getZoneStrings", "()[Ljava/lang/String[];");
+		}
+		
+		[JavaSignature("()Ljava/lang/String;")]
+		public String getLocalPatternChars()
+		{
+			return Instance.CallMethod<String>("getLocalPatternChars", "()Ljava/lang/String;");
+		}
+		
+		[JavaSignature("([Ljava/lang/String;)V")]
+		public void setAmPmStrings(ObjectArray<String> arg0)
+		{
+			Instance.CallMethod("setAmPmStrings", "([Ljava/lang/String;)V", arg0);
+		}
+		
+		[JavaSignature("(Ljava/lang/String;)V")]
+		public void setLocalPatternChars(String arg0)
+		{
+			Instance.CallMethod("setLocalPatternChars", "(Ljava/lang/String;)V", arg0);
+		}
+		
+		[JavaSignature("([Ljava/lang/String;)V")]
+		public void setMonths(ObjectArray<String> arg0)
+		{
+			Instance.CallMethod("setMonths", "([Ljava/lang/String;)V", arg0);
+		}
+		
+		[JavaSignature("([Ljava/lang/String;)V")]
+		public void setShortMonths(ObjectArray<String> arg0)
+		{
+			Instance.CallMethod("setShortMonths", "([Ljava/lang/String;)V", arg0);
+		}
+		
+		[JavaSignature("([Ljava/lang/String;)V")]
+		public void setShortWeekdays(ObjectArray<String> arg0)
+		{
+			Instance.CallMethod("setShortWeekdays", "([Ljava/lang/String;)V", arg0);
+		}
+		
+		[JavaSignature("([Ljava/lang/String;)V")]
+		public void setWeekdays(ObjectArray<String> arg0)
+		{
+			Instance.CallMethod("setWeekdays", "([Ljava/lang/String;)V", arg0);
+		}
+		
+		[JavaSignature("([Ljava/lang/String[];)V")]
+		public void setZoneStrings(ObjectArray<ObjectArray<String>> arg0)
+		{
+			Instance.CallMethod("setZoneStrings", "([Ljava/lang/String[];)V", arg0);
 		}
 	}
 }

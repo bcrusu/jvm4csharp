@@ -24,16 +24,16 @@ namespace jvm4csharp.java.net
 			return Instance.CallMethod<InetAddress>("getAddress", "()Ljava/net/InetAddress;");
 		}
 		
-		[JavaSignature("()Ljava/net/InetAddress;")]
-		public InetAddress getBroadcast()
-		{
-			return Instance.CallMethod<InetAddress>("getBroadcast", "()Ljava/net/InetAddress;");
-		}
-		
 		[JavaSignature("()S")]
 		public short getNetworkPrefixLength()
 		{
 			return Instance.CallMethod<short>("getNetworkPrefixLength", "()S");
+		}
+		
+		[JavaSignature("()Ljava/net/InetAddress;")]
+		public InetAddress getBroadcast()
+		{
+			return Instance.CallMethod<InetAddress>("getBroadcast", "()Ljava/net/InetAddress;");
 		}
 	}
 }

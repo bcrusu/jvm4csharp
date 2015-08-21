@@ -16,14 +16,14 @@ namespace jvm4csharp.java.util.function
 		where T : IJavaObject
 		where U : IJavaObject
 	{
+		[JavaSignature("(Ljava/lang/Object;Ljava/lang/Object;)Z")]
+		bool test(T arg0, U arg1);
+		
 		[JavaSignature("(Ljava/util/function/BiPredicate;)Ljava/util/function/BiPredicate;")]
 		BiPredicate<T, U> and(BiPredicate<IJavaObject, IJavaObject> arg0);
 		
 		[JavaSignature("(Ljava/util/function/BiPredicate;)Ljava/util/function/BiPredicate;")]
 		BiPredicate<T, U> or(BiPredicate<IJavaObject, IJavaObject> arg0);
-		
-		[JavaSignature("(Ljava/lang/Object;Ljava/lang/Object;)Z")]
-		bool test(T arg0, U arg1);
 		
 		[JavaSignature("()Ljava/util/function/BiPredicate;")]
 		BiPredicate<T, U> negate();

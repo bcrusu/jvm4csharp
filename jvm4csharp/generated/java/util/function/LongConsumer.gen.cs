@@ -14,10 +14,10 @@ namespace jvm4csharp.java.util.function
 	[JavaProxy("java/util/function/LongConsumer")]
 	public partial interface LongConsumer : IJavaObject
 	{
-		[JavaSignature("(Ljava/util/function/LongConsumer;)Ljava/util/function/LongConsumer;")]
-		LongConsumer andThen(LongConsumer arg0);
-		
 		[JavaSignature("(J)V")]
 		void accept(long arg0);
+		
+		[JavaSignature("(Ljava/util/function/LongConsumer;)Ljava/util/function/LongConsumer;")]
+		LongConsumer andThen(LongConsumer arg0);
 	}
 }

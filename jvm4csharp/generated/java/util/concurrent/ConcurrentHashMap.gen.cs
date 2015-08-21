@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.io;
 using jvm4csharp.java.lang;
 using jvm4csharp.java.util.function;
@@ -92,15 +92,15 @@ namespace jvm4csharp.java.util.concurrent
 		}
 		
 		[JavaSignature("(Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap/KeySetView;")]
-		public ConcurrentHashMap.KeySetView<K, V> keySet(V arg0)
+		public ConcurrentHashMap_.KeySetView<K, V> keySet(V arg0)
 		{
-			return Instance.CallMethod<ConcurrentHashMap.KeySetView<K, V>>("keySet", "(Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap/KeySetView;", arg0);
+			return Instance.CallMethod<ConcurrentHashMap_.KeySetView<K, V>>("keySet", "(Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap/KeySetView;", arg0);
 		}
 		
 		[JavaSignature("()Ljava/util/concurrent/ConcurrentHashMap/KeySetView;")]
-		public new ConcurrentHashMap.KeySetView<K, V> keySet()
+		public new ConcurrentHashMap_.KeySetView<K, V> keySet()
 		{
-			return Instance.CallMethod<ConcurrentHashMap.KeySetView<K, V>>("keySet", "()Ljava/util/concurrent/ConcurrentHashMap/KeySetView;");
+			return Instance.CallMethod<ConcurrentHashMap_.KeySetView<K, V>>("keySet", "()Ljava/util/concurrent/ConcurrentHashMap/KeySetView;");
 		}
 		
 		[JavaSignature("()Ljava/util/Enumeration;")]
@@ -211,17 +211,17 @@ namespace jvm4csharp.java.util.concurrent
 		}
 		
 		[JavaSignature("()Ljava/util/concurrent/ConcurrentHashMap/KeySetView;")]
-		public static ConcurrentHashMap.KeySetView<K1, Boolean> newKeySet<K1>()
+		public static ConcurrentHashMap_.KeySetView<K1, Boolean> newKeySet<K1>()
 			where K1 : IJavaObject
 		{
-			return Static.CallMethod<ConcurrentHashMap.KeySetView<K1, Boolean>>(typeof(ConcurrentHashMap<,>), "newKeySet", "()Ljava/util/concurrent/ConcurrentHashMap/KeySetView;");
+			return Static.CallMethod<ConcurrentHashMap_.KeySetView<K1, Boolean>>(typeof(ConcurrentHashMap<,>), "newKeySet", "()Ljava/util/concurrent/ConcurrentHashMap/KeySetView;");
 		}
 		
 		[JavaSignature("(I)Ljava/util/concurrent/ConcurrentHashMap/KeySetView;")]
-		public static ConcurrentHashMap.KeySetView<K1, Boolean> newKeySet<K1>(int arg0)
+		public static ConcurrentHashMap_.KeySetView<K1, Boolean> newKeySet<K1>(int arg0)
 			where K1 : IJavaObject
 		{
-			return Static.CallMethod<ConcurrentHashMap.KeySetView<K1, Boolean>>(typeof(ConcurrentHashMap<,>), "newKeySet", "(I)Ljava/util/concurrent/ConcurrentHashMap/KeySetView;", arg0);
+			return Static.CallMethod<ConcurrentHashMap_.KeySetView<K1, Boolean>>(typeof(ConcurrentHashMap<,>), "newKeySet", "(I)Ljava/util/concurrent/ConcurrentHashMap/KeySetView;", arg0);
 		}
 		
 		[JavaSignature("(JLjava/util/function/BiFunction;Ljava/util/function/BiFunction;)Ljava/lang/Object;")]
@@ -364,7 +364,7 @@ namespace jvm4csharp.java.util.concurrent
 		}
 	}
 	
-	public class ConcurrentHashMap
+	public static partial class ConcurrentHashMap_
 	{
 		[JavaProxy("java/util/concurrent/ConcurrentHashMap/KeySetView")]
 		public partial class KeySetView<K, V> : Object, Set<K>, Serializable, Collection<K>

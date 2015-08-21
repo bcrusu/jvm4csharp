@@ -14,10 +14,10 @@ namespace jvm4csharp.java.util.function
 	[JavaProxy("java/util/function/DoubleConsumer")]
 	public partial interface DoubleConsumer : IJavaObject
 	{
-		[JavaSignature("(Ljava/util/function/DoubleConsumer;)Ljava/util/function/DoubleConsumer;")]
-		DoubleConsumer andThen(DoubleConsumer arg0);
-		
 		[JavaSignature("(D)V")]
 		void accept(double arg0);
+		
+		[JavaSignature("(Ljava/util/function/DoubleConsumer;)Ljava/util/function/DoubleConsumer;")]
+		DoubleConsumer andThen(DoubleConsumer arg0);
 	}
 }

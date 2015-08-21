@@ -14,10 +14,10 @@ namespace jvm4csharp.java.util.function
 	[JavaProxy("java/util/function/IntConsumer")]
 	public partial interface IntConsumer : IJavaObject
 	{
-		[JavaSignature("(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;")]
-		IntConsumer andThen(IntConsumer arg0);
-		
 		[JavaSignature("(I)V")]
 		void accept(int arg0);
+		
+		[JavaSignature("(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;")]
+		IntConsumer andThen(IntConsumer arg0);
 	}
 }

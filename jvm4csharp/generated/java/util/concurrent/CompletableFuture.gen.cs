@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 using jvm4csharp.java.util.function;
 
@@ -621,7 +621,7 @@ namespace jvm4csharp.java.util.concurrent
 		}
 	}
 	
-	public class CompletableFuture
+	public static partial class CompletableFuture_
 	{
 		[JavaProxy("java/util/concurrent/CompletableFuture/AsynchronousCompletionTask")]
 		public partial interface AsynchronousCompletionTask : IJavaObject

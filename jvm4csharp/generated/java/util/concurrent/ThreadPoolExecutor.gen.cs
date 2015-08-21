@@ -56,24 +56,6 @@ namespace jvm4csharp.java.util.concurrent
 			return Instance.CallMethod<int>("getMaximumPoolSize", "()I");
 		}
 		
-		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
-		public bool awaitTermination(long arg0, TimeUnit arg1)
-		{
-			return Instance.CallMethod<bool>("awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1);
-		}
-		
-		[JavaSignature("()Z")]
-		public bool isShutdown()
-		{
-			return Instance.CallMethod<bool>("isShutdown", "()Z");
-		}
-		
-		[JavaSignature("()Z")]
-		public bool isTerminated()
-		{
-			return Instance.CallMethod<bool>("isTerminated", "()Z");
-		}
-		
 		[JavaSignature("()I")]
 		public int getPoolSize()
 		{
@@ -84,12 +66,6 @@ namespace jvm4csharp.java.util.concurrent
 		public bool isTerminating()
 		{
 			return Instance.CallMethod<bool>("isTerminating", "()Z");
-		}
-		
-		[JavaSignature("()Ljava/util/List;")]
-		public List<Runnable> shutdownNow()
-		{
-			return Instance.CallMethod<List<Runnable>>("shutdownNow", "()Ljava/util/List;");
 		}
 		
 		[JavaSignature("(Z)V")]
@@ -205,7 +181,34 @@ namespace jvm4csharp.java.util.concurrent
 		{
 			Instance.CallMethod("setThreadFactory", "(Ljava/util/concurrent/ThreadFactory;)V", arg0);
 		}
+		
+		[JavaSignature("()Ljava/util/List;")]
+		public List<Runnable> shutdownNow()
+		{
+			return Instance.CallMethod<List<Runnable>>("shutdownNow", "()Ljava/util/List;");
+		}
+		
+		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
+		public bool awaitTermination(long arg0, TimeUnit arg1)
+		{
+			return Instance.CallMethod<bool>("awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1);
+		}
+		
+		[JavaSignature("()Z")]
+		public bool isShutdown()
+		{
+			return Instance.CallMethod<bool>("isShutdown", "()Z");
+		}
+		
+		[JavaSignature("()Z")]
+		public bool isTerminated()
+		{
+			return Instance.CallMethod<bool>("isTerminated", "()Z");
+		}
+	}
 	
+	public static partial class ThreadPoolExecutor_
+	{
 		[JavaProxy("java/util/concurrent/ThreadPoolExecutor/AbortPolicy")]
 		public partial class AbortPolicy : Object, RejectedExecutionHandler
 		{

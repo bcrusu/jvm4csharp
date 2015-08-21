@@ -35,11 +35,11 @@ namespace jvm4csharp.java.lang.invoke
 		int getReferenceKind();
 		
 		[JavaSignature("(Ljava/lang/Class;Ljava/lang/invoke/MethodHandles/Lookup;)Ljava/lang/reflect/Member;")]
-		T reflectAs<T>(Class<T> arg0, MethodHandles.Lookup arg1)
+		T reflectAs<T>(Class<T> arg0, MethodHandles_.Lookup arg1)
 			where T : Member;
 	}
 	
-	public static class MethodHandleInfo_
+	public static partial class MethodHandleInfo_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 		

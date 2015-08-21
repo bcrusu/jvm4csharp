@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.io;
 using jvm4csharp.java.lang;
 
@@ -180,7 +180,7 @@ namespace jvm4csharp.java.util
 		}
 	
 		[JavaSignature("(Ljava/util/Locale/Category;)Ljava/util/Locale;")]
-		public static Locale getDefault(Locale.Category arg0)
+		public static Locale getDefault(Locale_.Category arg0)
 		{
 			return Static.CallMethod<Locale>(typeof(Locale), "getDefault", "(Ljava/util/Locale/Category;)Ljava/util/Locale;", arg0);
 		}
@@ -198,31 +198,31 @@ namespace jvm4csharp.java.util
 		}
 		
 		[JavaSignature("(Ljava/util/List;Ljava/util/Collection;)Ljava/util/List;")]
-		public static List<Locale> filter(List<Locale.LanguageRange> arg0, Collection<Locale> arg1)
+		public static List<Locale> filter(List<Locale_.LanguageRange> arg0, Collection<Locale> arg1)
 		{
 			return Static.CallMethod<List<Locale>>(typeof(Locale), "filter", "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/List;", arg0, arg1);
 		}
 		
 		[JavaSignature("(Ljava/util/List;Ljava/util/Collection;Ljava/util/Locale/FilteringMode;)Ljava/util/List;")]
-		public static List<Locale> filter(List<Locale.LanguageRange> arg0, Collection<Locale> arg1, Locale.FilteringMode arg2)
+		public static List<Locale> filter(List<Locale_.LanguageRange> arg0, Collection<Locale> arg1, Locale_.FilteringMode arg2)
 		{
 			return Static.CallMethod<List<Locale>>(typeof(Locale), "filter", "(Ljava/util/List;Ljava/util/Collection;Ljava/util/Locale/FilteringMode;)Ljava/util/List;", arg0, arg1, arg2);
 		}
 		
 		[JavaSignature("(Ljava/util/List;Ljava/util/Collection;)Ljava/util/Locale;")]
-		public static Locale lookup(List<Locale.LanguageRange> arg0, Collection<Locale> arg1)
+		public static Locale lookup(List<Locale_.LanguageRange> arg0, Collection<Locale> arg1)
 		{
 			return Static.CallMethod<Locale>(typeof(Locale), "lookup", "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/Locale;", arg0, arg1);
 		}
 		
 		[JavaSignature("(Ljava/util/List;Ljava/util/Collection;)Ljava/util/List;")]
-		public static List<String> filterTags(List<Locale.LanguageRange> arg0, Collection<String> arg1)
+		public static List<String> filterTags(List<Locale_.LanguageRange> arg0, Collection<String> arg1)
 		{
 			return Static.CallMethod<List<String>>(typeof(Locale), "filterTags", "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/List;", arg0, arg1);
 		}
 		
 		[JavaSignature("(Ljava/util/List;Ljava/util/Collection;Ljava/util/Locale/FilteringMode;)Ljava/util/List;")]
-		public static List<String> filterTags(List<Locale.LanguageRange> arg0, Collection<String> arg1, Locale.FilteringMode arg2)
+		public static List<String> filterTags(List<Locale_.LanguageRange> arg0, Collection<String> arg1, Locale_.FilteringMode arg2)
 		{
 			return Static.CallMethod<List<String>>(typeof(Locale), "filterTags", "(Ljava/util/List;Ljava/util/Collection;Ljava/util/Locale/FilteringMode;)Ljava/util/List;", arg0, arg1, arg2);
 		}
@@ -378,7 +378,7 @@ namespace jvm4csharp.java.util
 		}
 		
 		[JavaSignature("(Ljava/util/List;Ljava/util/Collection;)Ljava/lang/String;")]
-		public static String lookupTag(List<Locale.LanguageRange> arg0, Collection<String> arg1)
+		public static String lookupTag(List<Locale_.LanguageRange> arg0, Collection<String> arg1)
 		{
 			return Static.CallMethod<String>(typeof(Locale), "lookupTag", "(Ljava/util/List;Ljava/util/Collection;)Ljava/lang/String;", arg0, arg1);
 		}
@@ -390,7 +390,7 @@ namespace jvm4csharp.java.util
 		}
 		
 		[JavaSignature("(Ljava/util/Locale/Category;Ljava/util/Locale;)V")]
-		public static void setDefault(Locale.Category arg0, Locale arg1)
+		public static void setDefault(Locale_.Category arg0, Locale arg1)
 		{
 			Static.CallMethod(typeof(Locale), "setDefault", "(Ljava/util/Locale/Category;Ljava/util/Locale;)V", arg0, arg1);
 		}
@@ -406,7 +406,10 @@ namespace jvm4csharp.java.util
 		{
 			return Instance.CallMethod<String>("toLanguageTag", "()Ljava/lang/String;");
 		}
+	}
 	
+	public static partial class Locale_
+	{
 		[JavaProxy("java/util/Locale/Builder")]
 		public partial class Builder : Object
 		{
@@ -418,21 +421,21 @@ namespace jvm4csharp.java.util
 			}
 		
 			[JavaSignature("()Ljava/util/Locale/Builder;")]
-			public Locale.Builder clear()
+			public Locale_.Builder clear()
 			{
-				return Instance.CallMethod<Locale.Builder>("clear", "()Ljava/util/Locale/Builder;");
+				return Instance.CallMethod<Locale_.Builder>("clear", "()Ljava/util/Locale/Builder;");
 			}
 			
 			[JavaSignature("(Ljava/lang/String;)Ljava/util/Locale/Builder;")]
-			public Locale.Builder setLanguageTag(String arg0)
+			public Locale_.Builder setLanguageTag(String arg0)
 			{
-				return Instance.CallMethod<Locale.Builder>("setLanguageTag", "(Ljava/lang/String;)Ljava/util/Locale/Builder;", arg0);
+				return Instance.CallMethod<Locale_.Builder>("setLanguageTag", "(Ljava/lang/String;)Ljava/util/Locale/Builder;", arg0);
 			}
 			
 			[JavaSignature("(Ljava/util/Locale;)Ljava/util/Locale/Builder;")]
-			public Locale.Builder setLocale(Locale arg0)
+			public Locale_.Builder setLocale(Locale arg0)
 			{
-				return Instance.CallMethod<Locale.Builder>("setLocale", "(Ljava/util/Locale;)Ljava/util/Locale/Builder;", arg0);
+				return Instance.CallMethod<Locale_.Builder>("setLocale", "(Ljava/util/Locale;)Ljava/util/Locale/Builder;", arg0);
 			}
 			
 			[JavaSignature("()Ljava/util/Locale;")]
@@ -442,135 +445,135 @@ namespace jvm4csharp.java.util
 			}
 			
 			[JavaSignature("(Ljava/lang/String;)Ljava/util/Locale/Builder;")]
-			public Locale.Builder addUnicodeLocaleAttribute(String arg0)
+			public Locale_.Builder addUnicodeLocaleAttribute(String arg0)
 			{
-				return Instance.CallMethod<Locale.Builder>("addUnicodeLocaleAttribute", "(Ljava/lang/String;)Ljava/util/Locale/Builder;", arg0);
+				return Instance.CallMethod<Locale_.Builder>("addUnicodeLocaleAttribute", "(Ljava/lang/String;)Ljava/util/Locale/Builder;", arg0);
 			}
 			
 			[JavaSignature("()Ljava/util/Locale/Builder;")]
-			public Locale.Builder clearExtensions()
+			public Locale_.Builder clearExtensions()
 			{
-				return Instance.CallMethod<Locale.Builder>("clearExtensions", "()Ljava/util/Locale/Builder;");
+				return Instance.CallMethod<Locale_.Builder>("clearExtensions", "()Ljava/util/Locale/Builder;");
 			}
 			
 			[JavaSignature("(Ljava/lang/String;)Ljava/util/Locale/Builder;")]
-			public Locale.Builder removeUnicodeLocaleAttribute(String arg0)
+			public Locale_.Builder removeUnicodeLocaleAttribute(String arg0)
 			{
-				return Instance.CallMethod<Locale.Builder>("removeUnicodeLocaleAttribute", "(Ljava/lang/String;)Ljava/util/Locale/Builder;", arg0);
+				return Instance.CallMethod<Locale_.Builder>("removeUnicodeLocaleAttribute", "(Ljava/lang/String;)Ljava/util/Locale/Builder;", arg0);
 			}
 			
 			[JavaSignature("(CLjava/lang/String;)Ljava/util/Locale/Builder;")]
-			public Locale.Builder setExtension(char arg0, String arg1)
+			public Locale_.Builder setExtension(char arg0, String arg1)
 			{
-				return Instance.CallMethod<Locale.Builder>("setExtension", "(CLjava/lang/String;)Ljava/util/Locale/Builder;", arg0, arg1);
+				return Instance.CallMethod<Locale_.Builder>("setExtension", "(CLjava/lang/String;)Ljava/util/Locale/Builder;", arg0, arg1);
 			}
 			
 			[JavaSignature("(Ljava/lang/String;)Ljava/util/Locale/Builder;")]
-			public Locale.Builder setLanguage(String arg0)
+			public Locale_.Builder setLanguage(String arg0)
 			{
-				return Instance.CallMethod<Locale.Builder>("setLanguage", "(Ljava/lang/String;)Ljava/util/Locale/Builder;", arg0);
+				return Instance.CallMethod<Locale_.Builder>("setLanguage", "(Ljava/lang/String;)Ljava/util/Locale/Builder;", arg0);
 			}
 			
 			[JavaSignature("(Ljava/lang/String;)Ljava/util/Locale/Builder;")]
-			public Locale.Builder setRegion(String arg0)
+			public Locale_.Builder setRegion(String arg0)
 			{
-				return Instance.CallMethod<Locale.Builder>("setRegion", "(Ljava/lang/String;)Ljava/util/Locale/Builder;", arg0);
+				return Instance.CallMethod<Locale_.Builder>("setRegion", "(Ljava/lang/String;)Ljava/util/Locale/Builder;", arg0);
 			}
 			
 			[JavaSignature("(Ljava/lang/String;)Ljava/util/Locale/Builder;")]
-			public Locale.Builder setScript(String arg0)
+			public Locale_.Builder setScript(String arg0)
 			{
-				return Instance.CallMethod<Locale.Builder>("setScript", "(Ljava/lang/String;)Ljava/util/Locale/Builder;", arg0);
+				return Instance.CallMethod<Locale_.Builder>("setScript", "(Ljava/lang/String;)Ljava/util/Locale/Builder;", arg0);
 			}
 			
 			[JavaSignature("(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Locale/Builder;")]
-			public Locale.Builder setUnicodeLocaleKeyword(String arg0, String arg1)
+			public Locale_.Builder setUnicodeLocaleKeyword(String arg0, String arg1)
 			{
-				return Instance.CallMethod<Locale.Builder>("setUnicodeLocaleKeyword", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Locale/Builder;", arg0, arg1);
+				return Instance.CallMethod<Locale_.Builder>("setUnicodeLocaleKeyword", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Locale/Builder;", arg0, arg1);
 			}
 			
 			[JavaSignature("(Ljava/lang/String;)Ljava/util/Locale/Builder;")]
-			public Locale.Builder setVariant(String arg0)
+			public Locale_.Builder setVariant(String arg0)
 			{
-				return Instance.CallMethod<Locale.Builder>("setVariant", "(Ljava/lang/String;)Ljava/util/Locale/Builder;", arg0);
+				return Instance.CallMethod<Locale_.Builder>("setVariant", "(Ljava/lang/String;)Ljava/util/Locale/Builder;", arg0);
 			}
 		}
 		
 		[JavaProxy("java/util/Locale/Category")]
-		public partial class Category : Enum<Locale.Category>
+		public partial class Category : Enum<Locale_.Category>
 		{
 			protected Category(ProxyCtor p) : base(p) {}
 		
 			[JavaSignature("Ljava/util/Locale/Category;")]
-			public static Locale.Category DISPLAY
+			public static Locale_.Category DISPLAY
 			{
-				get { return Static.GetField<Locale.Category>(typeof(Category), "DISPLAY", "Ljava/util/Locale/Category;"); }
+				get { return Static.GetField<Locale_.Category>(typeof(Category), "DISPLAY", "Ljava/util/Locale/Category;"); }
 			}
 			
 			[JavaSignature("Ljava/util/Locale/Category;")]
-			public static Locale.Category FORMAT
+			public static Locale_.Category FORMAT
 			{
-				get { return Static.GetField<Locale.Category>(typeof(Category), "FORMAT", "Ljava/util/Locale/Category;"); }
+				get { return Static.GetField<Locale_.Category>(typeof(Category), "FORMAT", "Ljava/util/Locale/Category;"); }
 			}
 		
 			[JavaSignature("()[Ljava/util/Locale/Category;")]
-			public static ObjectArray<Locale.Category> values()
+			public static ObjectArray<Locale_.Category> values()
 			{
-				return Static.CallMethod<ObjectArray<Locale.Category>>(typeof(Category), "values", "()[Ljava/util/Locale/Category;");
+				return Static.CallMethod<ObjectArray<Locale_.Category>>(typeof(Category), "values", "()[Ljava/util/Locale/Category;");
 			}
 			
 			[JavaSignature("(Ljava/lang/String;)Ljava/util/Locale/Category;")]
-			public static Locale.Category valueOf(String arg0)
+			public static Locale_.Category valueOf(String arg0)
 			{
-				return Static.CallMethod<Locale.Category>(typeof(Category), "valueOf", "(Ljava/lang/String;)Ljava/util/Locale/Category;", arg0);
+				return Static.CallMethod<Locale_.Category>(typeof(Category), "valueOf", "(Ljava/lang/String;)Ljava/util/Locale/Category;", arg0);
 			}
 		}
 		
 		[JavaProxy("java/util/Locale/FilteringMode")]
-		public partial class FilteringMode : Enum<Locale.FilteringMode>
+		public partial class FilteringMode : Enum<Locale_.FilteringMode>
 		{
 			protected FilteringMode(ProxyCtor p) : base(p) {}
 		
 			[JavaSignature("Ljava/util/Locale/FilteringMode;")]
-			public static Locale.FilteringMode AUTOSELECT_FILTERING
+			public static Locale_.FilteringMode AUTOSELECT_FILTERING
 			{
-				get { return Static.GetField<Locale.FilteringMode>(typeof(FilteringMode), "AUTOSELECT_FILTERING", "Ljava/util/Locale/FilteringMode;"); }
+				get { return Static.GetField<Locale_.FilteringMode>(typeof(FilteringMode), "AUTOSELECT_FILTERING", "Ljava/util/Locale/FilteringMode;"); }
 			}
 			
 			[JavaSignature("Ljava/util/Locale/FilteringMode;")]
-			public static Locale.FilteringMode EXTENDED_FILTERING
+			public static Locale_.FilteringMode EXTENDED_FILTERING
 			{
-				get { return Static.GetField<Locale.FilteringMode>(typeof(FilteringMode), "EXTENDED_FILTERING", "Ljava/util/Locale/FilteringMode;"); }
+				get { return Static.GetField<Locale_.FilteringMode>(typeof(FilteringMode), "EXTENDED_FILTERING", "Ljava/util/Locale/FilteringMode;"); }
 			}
 			
 			[JavaSignature("Ljava/util/Locale/FilteringMode;")]
-			public static Locale.FilteringMode IGNORE_EXTENDED_RANGES
+			public static Locale_.FilteringMode IGNORE_EXTENDED_RANGES
 			{
-				get { return Static.GetField<Locale.FilteringMode>(typeof(FilteringMode), "IGNORE_EXTENDED_RANGES", "Ljava/util/Locale/FilteringMode;"); }
+				get { return Static.GetField<Locale_.FilteringMode>(typeof(FilteringMode), "IGNORE_EXTENDED_RANGES", "Ljava/util/Locale/FilteringMode;"); }
 			}
 			
 			[JavaSignature("Ljava/util/Locale/FilteringMode;")]
-			public static Locale.FilteringMode MAP_EXTENDED_RANGES
+			public static Locale_.FilteringMode MAP_EXTENDED_RANGES
 			{
-				get { return Static.GetField<Locale.FilteringMode>(typeof(FilteringMode), "MAP_EXTENDED_RANGES", "Ljava/util/Locale/FilteringMode;"); }
+				get { return Static.GetField<Locale_.FilteringMode>(typeof(FilteringMode), "MAP_EXTENDED_RANGES", "Ljava/util/Locale/FilteringMode;"); }
 			}
 			
 			[JavaSignature("Ljava/util/Locale/FilteringMode;")]
-			public static Locale.FilteringMode REJECT_EXTENDED_RANGES
+			public static Locale_.FilteringMode REJECT_EXTENDED_RANGES
 			{
-				get { return Static.GetField<Locale.FilteringMode>(typeof(FilteringMode), "REJECT_EXTENDED_RANGES", "Ljava/util/Locale/FilteringMode;"); }
+				get { return Static.GetField<Locale_.FilteringMode>(typeof(FilteringMode), "REJECT_EXTENDED_RANGES", "Ljava/util/Locale/FilteringMode;"); }
 			}
 		
 			[JavaSignature("()[Ljava/util/Locale/FilteringMode;")]
-			public static ObjectArray<Locale.FilteringMode> values()
+			public static ObjectArray<Locale_.FilteringMode> values()
 			{
-				return Static.CallMethod<ObjectArray<Locale.FilteringMode>>(typeof(FilteringMode), "values", "()[Ljava/util/Locale/FilteringMode;");
+				return Static.CallMethod<ObjectArray<Locale_.FilteringMode>>(typeof(FilteringMode), "values", "()[Ljava/util/Locale/FilteringMode;");
 			}
 			
 			[JavaSignature("(Ljava/lang/String;)Ljava/util/Locale/FilteringMode;")]
-			public static Locale.FilteringMode valueOf(String arg0)
+			public static Locale_.FilteringMode valueOf(String arg0)
 			{
-				return Static.CallMethod<Locale.FilteringMode>(typeof(FilteringMode), "valueOf", "(Ljava/lang/String;)Ljava/util/Locale/FilteringMode;", arg0);
+				return Static.CallMethod<Locale_.FilteringMode>(typeof(FilteringMode), "valueOf", "(Ljava/lang/String;)Ljava/util/Locale/FilteringMode;", arg0);
 			}
 		}
 		
@@ -602,15 +605,15 @@ namespace jvm4csharp.java.util
 			}
 		
 			[JavaSignature("(Ljava/lang/String;)Ljava/util/List;")]
-			public static List<Locale.LanguageRange> parse(String arg0)
+			public static List<Locale_.LanguageRange> parse(String arg0)
 			{
-				return Static.CallMethod<List<Locale.LanguageRange>>(typeof(LanguageRange), "parse", "(Ljava/lang/String;)Ljava/util/List;", arg0);
+				return Static.CallMethod<List<Locale_.LanguageRange>>(typeof(LanguageRange), "parse", "(Ljava/lang/String;)Ljava/util/List;", arg0);
 			}
 			
 			[JavaSignature("(Ljava/lang/String;Ljava/util/Map;)Ljava/util/List;")]
-			public static List<Locale.LanguageRange> parse(String arg0, Map<String, List<String>> arg1)
+			public static List<Locale_.LanguageRange> parse(String arg0, Map<String, List<String>> arg1)
 			{
-				return Static.CallMethod<List<Locale.LanguageRange>>(typeof(LanguageRange), "parse", "(Ljava/lang/String;Ljava/util/Map;)Ljava/util/List;", arg0, arg1);
+				return Static.CallMethod<List<Locale_.LanguageRange>>(typeof(LanguageRange), "parse", "(Ljava/lang/String;Ljava/util/Map;)Ljava/util/List;", arg0, arg1);
 			}
 			
 			[JavaSignature("()Ljava/lang/String;")]
@@ -626,9 +629,9 @@ namespace jvm4csharp.java.util
 			}
 			
 			[JavaSignature("(Ljava/util/List;Ljava/util/Map;)Ljava/util/List;")]
-			public static List<Locale.LanguageRange> mapEquivalents(List<Locale.LanguageRange> arg0, Map<String, List<String>> arg1)
+			public static List<Locale_.LanguageRange> mapEquivalents(List<Locale_.LanguageRange> arg0, Map<String, List<String>> arg1)
 			{
-				return Static.CallMethod<List<Locale.LanguageRange>>(typeof(LanguageRange), "mapEquivalents", "(Ljava/util/List;Ljava/util/Map;)Ljava/util/List;", arg0, arg1);
+				return Static.CallMethod<List<Locale_.LanguageRange>>(typeof(LanguageRange), "mapEquivalents", "(Ljava/util/List;Ljava/util/Map;)Ljava/util/List;", arg0, arg1);
 			}
 		}
 	}

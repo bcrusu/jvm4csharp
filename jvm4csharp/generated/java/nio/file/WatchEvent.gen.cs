@@ -27,7 +27,7 @@ namespace jvm4csharp.java.nio.file
 		WatchEvent_.Kind<T> kind();
 	}
 	
-	public static class WatchEvent_
+	public static partial class WatchEvent_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 	

@@ -60,16 +60,16 @@ namespace jvm4csharp.java.util.zip
 			Instance.CallMethod("setLevel", "(I)V", arg0);
 		}
 		
-		[JavaSignature("()V")]
-		public void closeEntry()
-		{
-			Instance.CallMethod("closeEntry", "()V");
-		}
-		
 		[JavaSignature("(Ljava/util/zip/ZipEntry;)V")]
 		public void putNextEntry(ZipEntry arg0)
 		{
 			Instance.CallMethod("putNextEntry", "(Ljava/util/zip/ZipEntry;)V", arg0);
+		}
+		
+		[JavaSignature("()V")]
+		public void closeEntry()
+		{
+			Instance.CallMethod("closeEntry", "()V");
 		}
 	}
 }

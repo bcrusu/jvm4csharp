@@ -22,9 +22,6 @@ namespace jvm4csharp.java.nio.file.attribute
 		[JavaSignature("(Z)V")]
 		void setReadOnly(bool arg0);
 		
-		[JavaSignature("()Ljava/nio/file/attribute/DosFileAttributes;")]
-		new DosFileAttributes readAttributes();
-		
 		[JavaSignature("(Z)V")]
 		void setArchive(bool arg0);
 		
@@ -33,5 +30,8 @@ namespace jvm4csharp.java.nio.file.attribute
 		
 		[JavaSignature("(Z)V")]
 		void setSystem(bool arg0);
+		
+		[JavaSignature("()Ljava/nio/file/attribute/DosFileAttributes;")]
+		new DosFileAttributes readAttributes();
 	}
 }

@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.util.function;
 
 // ReSharper disable InconsistentNaming
@@ -122,7 +122,7 @@ namespace jvm4csharp.java.util.stream
 		bool noneMatch(Predicate<IJavaObject> arg0);
 	}
 	
-	public static class Stream_
+	public static partial class Stream_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 		

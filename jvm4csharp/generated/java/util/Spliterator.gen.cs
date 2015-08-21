@@ -43,7 +43,7 @@ namespace jvm4csharp.java.util
 		bool hasCharacteristics(int arg0);
 	}
 	
-	public static class Spliterator_
+	public static partial class Spliterator_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 		

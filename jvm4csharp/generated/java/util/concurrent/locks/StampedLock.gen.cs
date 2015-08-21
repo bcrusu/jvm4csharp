@@ -37,9 +37,27 @@ namespace jvm4csharp.java.util.concurrent.locks
 		}
 		
 		[JavaSignature("()J")]
-		public long writeLockInterruptibly()
+		public long readLock()
 		{
-			return Instance.CallMethod<long>("writeLockInterruptibly", "()J");
+			return Instance.CallMethod<long>("readLock", "()J");
+		}
+		
+		[JavaSignature("()J")]
+		public long readLockInterruptibly()
+		{
+			return Instance.CallMethod<long>("readLockInterruptibly", "()J");
+		}
+		
+		[JavaSignature("()J")]
+		public long tryReadLock()
+		{
+			return Instance.CallMethod<long>("tryReadLock", "()J");
+		}
+		
+		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)J")]
+		public long tryReadLock(long arg0, TimeUnit arg1)
+		{
+			return Instance.CallMethod<long>("tryReadLock", "(JLjava/util/concurrent/TimeUnit;)J", arg0, arg1);
 		}
 		
 		[JavaSignature("()Ljava/util/concurrent/locks/ReadWriteLock;")]
@@ -102,54 +120,6 @@ namespace jvm4csharp.java.util.concurrent.locks
 			Instance.CallMethod("unlockWrite", "(J)V", arg0);
 		}
 		
-		[JavaSignature("()J")]
-		public long readLock()
-		{
-			return Instance.CallMethod<long>("readLock", "()J");
-		}
-		
-		[JavaSignature("()J")]
-		public long readLockInterruptibly()
-		{
-			return Instance.CallMethod<long>("readLockInterruptibly", "()J");
-		}
-		
-		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)J")]
-		public long tryReadLock(long arg0, TimeUnit arg1)
-		{
-			return Instance.CallMethod<long>("tryReadLock", "(JLjava/util/concurrent/TimeUnit;)J", arg0, arg1);
-		}
-		
-		[JavaSignature("()J")]
-		public long tryReadLock()
-		{
-			return Instance.CallMethod<long>("tryReadLock", "()J");
-		}
-		
-		[JavaSignature("()I")]
-		public int getReadLockCount()
-		{
-			return Instance.CallMethod<int>("getReadLockCount", "()I");
-		}
-		
-		[JavaSignature("()Z")]
-		public bool isWriteLocked()
-		{
-			return Instance.CallMethod<bool>("isWriteLocked", "()Z");
-		}
-		
-		[JavaSignature("()J")]
-		public long tryWriteLock()
-		{
-			return Instance.CallMethod<long>("tryWriteLock", "()J");
-		}
-		
-		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)J")]
-		public long tryWriteLock(long arg0, TimeUnit arg1)
-		{
-			return Instance.CallMethod<long>("tryWriteLock", "(JLjava/util/concurrent/TimeUnit;)J", arg0, arg1);
-		}
-		
 		[JavaSignature("()Ljava/util/concurrent/locks/Lock;")]
 		public Lock asReadLock()
 		{
@@ -166,6 +136,36 @@ namespace jvm4csharp.java.util.concurrent.locks
 		public long writeLock()
 		{
 			return Instance.CallMethod<long>("writeLock", "()J");
+		}
+		
+		[JavaSignature("()I")]
+		public int getReadLockCount()
+		{
+			return Instance.CallMethod<int>("getReadLockCount", "()I");
+		}
+		
+		[JavaSignature("()Z")]
+		public bool isWriteLocked()
+		{
+			return Instance.CallMethod<bool>("isWriteLocked", "()Z");
+		}
+		
+		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)J")]
+		public long tryWriteLock(long arg0, TimeUnit arg1)
+		{
+			return Instance.CallMethod<long>("tryWriteLock", "(JLjava/util/concurrent/TimeUnit;)J", arg0, arg1);
+		}
+		
+		[JavaSignature("()J")]
+		public long tryWriteLock()
+		{
+			return Instance.CallMethod<long>("tryWriteLock", "()J");
+		}
+		
+		[JavaSignature("()J")]
+		public long writeLockInterruptibly()
+		{
+			return Instance.CallMethod<long>("writeLockInterruptibly", "()J");
 		}
 	}
 }

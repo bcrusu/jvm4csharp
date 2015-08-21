@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang.annotation;
 using jvm4csharp.java.lang.reflect;
 using jvm4csharp.java.net;
@@ -97,6 +97,12 @@ namespace jvm4csharp.java.lang
 			return Instance.CallMethod<bool>("isSealed", "()Z");
 		}
 		
+		[JavaSignature("(Ljava/lang/String;)Z")]
+		public bool isCompatibleWith(String arg0)
+		{
+			return Instance.CallMethod<bool>("isCompatibleWith", "(Ljava/lang/String;)Z", arg0);
+		}
+		
 		[JavaSignature("()Ljava/lang/String;")]
 		public String getImplementationTitle()
 		{
@@ -131,12 +137,6 @@ namespace jvm4csharp.java.lang
 		public String getSpecificationVersion()
 		{
 			return Instance.CallMethod<String>("getSpecificationVersion", "()Ljava/lang/String;");
-		}
-		
-		[JavaSignature("(Ljava/lang/String;)Z")]
-		public bool isCompatibleWith(String arg0)
-		{
-			return Instance.CallMethod<bool>("isCompatibleWith", "(Ljava/lang/String;)Z", arg0);
 		}
 	}
 }

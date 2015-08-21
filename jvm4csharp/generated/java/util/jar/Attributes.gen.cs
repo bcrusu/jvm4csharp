@@ -65,7 +65,7 @@ namespace jvm4csharp.java.util.jar
 		}
 		
 		[JavaSignature("(Ljava/util/jar/Attributes/Name;)Ljava/lang/String;")]
-		public String getValue(Attributes.Name arg0)
+		public String getValue(Attributes_.Name arg0)
 		{
 			return Instance.CallMethod<String>("getValue", "(Ljava/util/jar/Attributes/Name;)Ljava/lang/String;", arg0);
 		}
@@ -189,7 +189,10 @@ namespace jvm4csharp.java.util.jar
 		{
 			return Instance.CallMethod<IJavaObject>("merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", arg0, arg1, arg2);
 		}
+	}
 	
+	public static partial class Attributes_
+	{
 		[JavaProxy("java/util/jar/Attributes/Name")]
 		public partial class Name : Object
 		{
@@ -201,105 +204,105 @@ namespace jvm4csharp.java.util.jar
 			}
 		
 			[JavaSignature("Ljava/util/jar/Attributes/Name;")]
-			public static Attributes.Name MANIFEST_VERSION
+			public static Attributes_.Name MANIFEST_VERSION
 			{
-				get { return Static.GetField<Attributes.Name>(typeof(Name), "MANIFEST_VERSION", "Ljava/util/jar/Attributes/Name;"); }
+				get { return Static.GetField<Attributes_.Name>(typeof(Name), "MANIFEST_VERSION", "Ljava/util/jar/Attributes/Name;"); }
 			}
 			
 			[JavaSignature("Ljava/util/jar/Attributes/Name;")]
-			public static Attributes.Name SIGNATURE_VERSION
+			public static Attributes_.Name SIGNATURE_VERSION
 			{
-				get { return Static.GetField<Attributes.Name>(typeof(Name), "SIGNATURE_VERSION", "Ljava/util/jar/Attributes/Name;"); }
+				get { return Static.GetField<Attributes_.Name>(typeof(Name), "SIGNATURE_VERSION", "Ljava/util/jar/Attributes/Name;"); }
 			}
 			
 			[JavaSignature("Ljava/util/jar/Attributes/Name;")]
-			public static Attributes.Name CONTENT_TYPE
+			public static Attributes_.Name CONTENT_TYPE
 			{
-				get { return Static.GetField<Attributes.Name>(typeof(Name), "CONTENT_TYPE", "Ljava/util/jar/Attributes/Name;"); }
+				get { return Static.GetField<Attributes_.Name>(typeof(Name), "CONTENT_TYPE", "Ljava/util/jar/Attributes/Name;"); }
 			}
 			
 			[JavaSignature("Ljava/util/jar/Attributes/Name;")]
-			public static Attributes.Name CLASS_PATH
+			public static Attributes_.Name CLASS_PATH
 			{
-				get { return Static.GetField<Attributes.Name>(typeof(Name), "CLASS_PATH", "Ljava/util/jar/Attributes/Name;"); }
+				get { return Static.GetField<Attributes_.Name>(typeof(Name), "CLASS_PATH", "Ljava/util/jar/Attributes/Name;"); }
 			}
 			
 			[JavaSignature("Ljava/util/jar/Attributes/Name;")]
-			public static Attributes.Name MAIN_CLASS
+			public static Attributes_.Name MAIN_CLASS
 			{
-				get { return Static.GetField<Attributes.Name>(typeof(Name), "MAIN_CLASS", "Ljava/util/jar/Attributes/Name;"); }
+				get { return Static.GetField<Attributes_.Name>(typeof(Name), "MAIN_CLASS", "Ljava/util/jar/Attributes/Name;"); }
 			}
 			
 			[JavaSignature("Ljava/util/jar/Attributes/Name;")]
-			public static Attributes.Name SEALED
+			public static Attributes_.Name SEALED
 			{
-				get { return Static.GetField<Attributes.Name>(typeof(Name), "SEALED", "Ljava/util/jar/Attributes/Name;"); }
+				get { return Static.GetField<Attributes_.Name>(typeof(Name), "SEALED", "Ljava/util/jar/Attributes/Name;"); }
 			}
 			
 			[JavaSignature("Ljava/util/jar/Attributes/Name;")]
-			public static Attributes.Name EXTENSION_LIST
+			public static Attributes_.Name EXTENSION_LIST
 			{
-				get { return Static.GetField<Attributes.Name>(typeof(Name), "EXTENSION_LIST", "Ljava/util/jar/Attributes/Name;"); }
+				get { return Static.GetField<Attributes_.Name>(typeof(Name), "EXTENSION_LIST", "Ljava/util/jar/Attributes/Name;"); }
 			}
 			
 			[JavaSignature("Ljava/util/jar/Attributes/Name;")]
-			public static Attributes.Name EXTENSION_NAME
+			public static Attributes_.Name EXTENSION_NAME
 			{
-				get { return Static.GetField<Attributes.Name>(typeof(Name), "EXTENSION_NAME", "Ljava/util/jar/Attributes/Name;"); }
+				get { return Static.GetField<Attributes_.Name>(typeof(Name), "EXTENSION_NAME", "Ljava/util/jar/Attributes/Name;"); }
 			}
 			
 			[JavaSignature("Ljava/util/jar/Attributes/Name;")]
-			public static Attributes.Name EXTENSION_INSTALLATION
+			public static Attributes_.Name EXTENSION_INSTALLATION
 			{
-				get { return Static.GetField<Attributes.Name>(typeof(Name), "EXTENSION_INSTALLATION", "Ljava/util/jar/Attributes/Name;"); }
+				get { return Static.GetField<Attributes_.Name>(typeof(Name), "EXTENSION_INSTALLATION", "Ljava/util/jar/Attributes/Name;"); }
 			}
 			
 			[JavaSignature("Ljava/util/jar/Attributes/Name;")]
-			public static Attributes.Name IMPLEMENTATION_TITLE
+			public static Attributes_.Name IMPLEMENTATION_TITLE
 			{
-				get { return Static.GetField<Attributes.Name>(typeof(Name), "IMPLEMENTATION_TITLE", "Ljava/util/jar/Attributes/Name;"); }
+				get { return Static.GetField<Attributes_.Name>(typeof(Name), "IMPLEMENTATION_TITLE", "Ljava/util/jar/Attributes/Name;"); }
 			}
 			
 			[JavaSignature("Ljava/util/jar/Attributes/Name;")]
-			public static Attributes.Name IMPLEMENTATION_VERSION
+			public static Attributes_.Name IMPLEMENTATION_VERSION
 			{
-				get { return Static.GetField<Attributes.Name>(typeof(Name), "IMPLEMENTATION_VERSION", "Ljava/util/jar/Attributes/Name;"); }
+				get { return Static.GetField<Attributes_.Name>(typeof(Name), "IMPLEMENTATION_VERSION", "Ljava/util/jar/Attributes/Name;"); }
 			}
 			
 			[JavaSignature("Ljava/util/jar/Attributes/Name;")]
-			public static Attributes.Name IMPLEMENTATION_VENDOR
+			public static Attributes_.Name IMPLEMENTATION_VENDOR
 			{
-				get { return Static.GetField<Attributes.Name>(typeof(Name), "IMPLEMENTATION_VENDOR", "Ljava/util/jar/Attributes/Name;"); }
+				get { return Static.GetField<Attributes_.Name>(typeof(Name), "IMPLEMENTATION_VENDOR", "Ljava/util/jar/Attributes/Name;"); }
 			}
 			
 			[JavaSignature("Ljava/util/jar/Attributes/Name;")]
-			public static Attributes.Name IMPLEMENTATION_VENDOR_ID
+			public static Attributes_.Name IMPLEMENTATION_VENDOR_ID
 			{
-				get { return Static.GetField<Attributes.Name>(typeof(Name), "IMPLEMENTATION_VENDOR_ID", "Ljava/util/jar/Attributes/Name;"); }
+				get { return Static.GetField<Attributes_.Name>(typeof(Name), "IMPLEMENTATION_VENDOR_ID", "Ljava/util/jar/Attributes/Name;"); }
 			}
 			
 			[JavaSignature("Ljava/util/jar/Attributes/Name;")]
-			public static Attributes.Name IMPLEMENTATION_URL
+			public static Attributes_.Name IMPLEMENTATION_URL
 			{
-				get { return Static.GetField<Attributes.Name>(typeof(Name), "IMPLEMENTATION_URL", "Ljava/util/jar/Attributes/Name;"); }
+				get { return Static.GetField<Attributes_.Name>(typeof(Name), "IMPLEMENTATION_URL", "Ljava/util/jar/Attributes/Name;"); }
 			}
 			
 			[JavaSignature("Ljava/util/jar/Attributes/Name;")]
-			public static Attributes.Name SPECIFICATION_TITLE
+			public static Attributes_.Name SPECIFICATION_TITLE
 			{
-				get { return Static.GetField<Attributes.Name>(typeof(Name), "SPECIFICATION_TITLE", "Ljava/util/jar/Attributes/Name;"); }
+				get { return Static.GetField<Attributes_.Name>(typeof(Name), "SPECIFICATION_TITLE", "Ljava/util/jar/Attributes/Name;"); }
 			}
 			
 			[JavaSignature("Ljava/util/jar/Attributes/Name;")]
-			public static Attributes.Name SPECIFICATION_VERSION
+			public static Attributes_.Name SPECIFICATION_VERSION
 			{
-				get { return Static.GetField<Attributes.Name>(typeof(Name), "SPECIFICATION_VERSION", "Ljava/util/jar/Attributes/Name;"); }
+				get { return Static.GetField<Attributes_.Name>(typeof(Name), "SPECIFICATION_VERSION", "Ljava/util/jar/Attributes/Name;"); }
 			}
 			
 			[JavaSignature("Ljava/util/jar/Attributes/Name;")]
-			public static Attributes.Name SPECIFICATION_VENDOR
+			public static Attributes_.Name SPECIFICATION_VENDOR
 			{
-				get { return Static.GetField<Attributes.Name>(typeof(Name), "SPECIFICATION_VENDOR", "Ljava/util/jar/Attributes/Name;"); }
+				get { return Static.GetField<Attributes_.Name>(typeof(Name), "SPECIFICATION_VENDOR", "Ljava/util/jar/Attributes/Name;"); }
 			}
 		}
 	}

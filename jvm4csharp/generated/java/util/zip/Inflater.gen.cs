@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 
 // ReSharper disable InconsistentNaming
@@ -33,6 +33,12 @@ namespace jvm4csharp.java.util.zip
 		public void reset()
 		{
 			Instance.CallMethod("reset", "()V");
+		}
+		
+		[JavaSignature("()V")]
+		public void end()
+		{
+			Instance.CallMethod("end", "()V");
 		}
 		
 		[JavaSignature("()Z")]
@@ -77,16 +83,16 @@ namespace jvm4csharp.java.util.zip
 			return Instance.CallMethod<int>("getTotalOut", "()I");
 		}
 		
-		[JavaSignature("([B)I")]
-		public int inflate(ByteArray arg0)
-		{
-			return Instance.CallMethod<int>("inflate", "([B)I", arg0);
-		}
-		
 		[JavaSignature("([BII)I")]
 		public int inflate(ByteArray arg0, int arg1, int arg2)
 		{
 			return Instance.CallMethod<int>("inflate", "([BII)I", arg0, arg1, arg2);
+		}
+		
+		[JavaSignature("([B)I")]
+		public int inflate(ByteArray arg0)
+		{
+			return Instance.CallMethod<int>("inflate", "([B)I", arg0);
 		}
 		
 		[JavaSignature("()Z")]
@@ -113,22 +119,16 @@ namespace jvm4csharp.java.util.zip
 			Instance.CallMethod("setDictionary", "([B)V", arg0);
 		}
 		
-		[JavaSignature("([B)V")]
-		public void setInput(ByteArray arg0)
-		{
-			Instance.CallMethod("setInput", "([B)V", arg0);
-		}
-		
 		[JavaSignature("([BII)V")]
 		public void setInput(ByteArray arg0, int arg1, int arg2)
 		{
 			Instance.CallMethod("setInput", "([BII)V", arg0, arg1, arg2);
 		}
 		
-		[JavaSignature("()V")]
-		public void end()
+		[JavaSignature("([B)V")]
+		public void setInput(ByteArray arg0)
 		{
-			Instance.CallMethod("end", "()V");
+			Instance.CallMethod("setInput", "([B)V", arg0);
 		}
 	}
 }

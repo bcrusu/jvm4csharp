@@ -72,26 +72,6 @@ namespace jvm4csharp.java.lang.management
 			get { return Static.GetField<String>(typeof(ManagementFactory), "MEMORY_POOL_MXBEAN_DOMAIN_TYPE", "Ljava/lang/String;"); }
 		}
 	
-		[JavaSignature("(Ljava/lang/Class;)Ljava/lang/management/PlatformManagedObject;")]
-		public static T getPlatformMXBean<T>(Class<T> arg0)
-			where T : PlatformManagedObject
-		{
-			return Static.CallMethod<T>(typeof(ManagementFactory), "getPlatformMXBean", "(Ljava/lang/Class;)Ljava/lang/management/PlatformManagedObject;", arg0);
-		}
-		
-		[JavaSignature("(Ljava/lang/Class;)Ljava/util/List;")]
-		public static List<T> getPlatformMXBeans<T>(Class<T> arg0)
-			where T : PlatformManagedObject
-		{
-			return Static.CallMethod<List<T>>(typeof(ManagementFactory), "getPlatformMXBeans", "(Ljava/lang/Class;)Ljava/util/List;", arg0);
-		}
-		
-		[JavaSignature("()Ljava/util/Set;")]
-		public static Set<Class<PlatformManagedObject>> getPlatformManagementInterfaces()
-		{
-			return Static.CallMethod<Set<Class<PlatformManagedObject>>>(typeof(ManagementFactory), "getPlatformManagementInterfaces", "()Ljava/util/Set;");
-		}
-		
 		[JavaSignature("()Ljava/util/List;")]
 		public static List<MemoryManagerMXBean> getMemoryManagerMXBeans()
 		{
@@ -144,6 +124,26 @@ namespace jvm4csharp.java.lang.management
 		public static ThreadMXBean getThreadMXBean()
 		{
 			return Static.CallMethod<ThreadMXBean>(typeof(ManagementFactory), "getThreadMXBean", "()Ljava/lang/management/ThreadMXBean;");
+		}
+		
+		[JavaSignature("(Ljava/lang/Class;)Ljava/lang/management/PlatformManagedObject;")]
+		public static T getPlatformMXBean<T>(Class<T> arg0)
+			where T : PlatformManagedObject
+		{
+			return Static.CallMethod<T>(typeof(ManagementFactory), "getPlatformMXBean", "(Ljava/lang/Class;)Ljava/lang/management/PlatformManagedObject;", arg0);
+		}
+		
+		[JavaSignature("(Ljava/lang/Class;)Ljava/util/List;")]
+		public static List<T> getPlatformMXBeans<T>(Class<T> arg0)
+			where T : PlatformManagedObject
+		{
+			return Static.CallMethod<List<T>>(typeof(ManagementFactory), "getPlatformMXBeans", "(Ljava/lang/Class;)Ljava/util/List;", arg0);
+		}
+		
+		[JavaSignature("()Ljava/util/Set;")]
+		public static Set<Class<PlatformManagedObject>> getPlatformManagementInterfaces()
+		{
+			return Static.CallMethod<Set<Class<PlatformManagedObject>>>(typeof(ManagementFactory), "getPlatformManagementInterfaces", "()Ljava/util/Set;");
 		}
 	}
 }

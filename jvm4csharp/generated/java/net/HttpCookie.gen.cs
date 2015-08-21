@@ -54,12 +54,6 @@ namespace jvm4csharp.java.net
 			return Static.CallMethod<List<HttpCookie>>(typeof(HttpCookie), "parse", "(Ljava/lang/String;)Ljava/util/List;", arg0);
 		}
 		
-		[JavaSignature("()I")]
-		public int getVersion()
-		{
-			return Instance.CallMethod<int>("getVersion", "()I");
-		}
-		
 		[JavaSignature("()Ljava/lang/String;")]
 		public String getComment()
 		{
@@ -72,40 +66,10 @@ namespace jvm4csharp.java.net
 			Instance.CallMethod("setComment", "(Ljava/lang/String;)V", arg0);
 		}
 		
-		[JavaSignature("(Ljava/lang/String;Ljava/lang/String;)Z")]
-		public static bool domainMatches(String arg0, String arg1)
+		[JavaSignature("()I")]
+		public int getVersion()
 		{
-			return Static.CallMethod<bool>(typeof(HttpCookie), "domainMatches", "(Ljava/lang/String;Ljava/lang/String;)Z", arg0, arg1);
-		}
-		
-		[JavaSignature("()Ljava/lang/String;")]
-		public String getDomain()
-		{
-			return Instance.CallMethod<String>("getDomain", "()Ljava/lang/String;");
-		}
-		
-		[JavaSignature("()J")]
-		public long getMaxAge()
-		{
-			return Instance.CallMethod<long>("getMaxAge", "()J");
-		}
-		
-		[JavaSignature("()Z")]
-		public bool getSecure()
-		{
-			return Instance.CallMethod<bool>("getSecure", "()Z");
-		}
-		
-		[JavaSignature("()Z")]
-		public bool hasExpired()
-		{
-			return Instance.CallMethod<bool>("hasExpired", "()Z");
-		}
-		
-		[JavaSignature("(I)V")]
-		public void setVersion(int arg0)
-		{
-			Instance.CallMethod("setVersion", "(I)V", arg0);
+			return Instance.CallMethod<int>("getVersion", "()I");
 		}
 		
 		[JavaSignature("()Ljava/lang/String;")]
@@ -178,6 +142,42 @@ namespace jvm4csharp.java.net
 		public void setSecure(bool arg0)
 		{
 			Instance.CallMethod("setSecure", "(Z)V", arg0);
+		}
+		
+		[JavaSignature("(I)V")]
+		public void setVersion(int arg0)
+		{
+			Instance.CallMethod("setVersion", "(I)V", arg0);
+		}
+		
+		[JavaSignature("(Ljava/lang/String;Ljava/lang/String;)Z")]
+		public static bool domainMatches(String arg0, String arg1)
+		{
+			return Static.CallMethod<bool>(typeof(HttpCookie), "domainMatches", "(Ljava/lang/String;Ljava/lang/String;)Z", arg0, arg1);
+		}
+		
+		[JavaSignature("()Ljava/lang/String;")]
+		public String getDomain()
+		{
+			return Instance.CallMethod<String>("getDomain", "()Ljava/lang/String;");
+		}
+		
+		[JavaSignature("()J")]
+		public long getMaxAge()
+		{
+			return Instance.CallMethod<long>("getMaxAge", "()J");
+		}
+		
+		[JavaSignature("()Z")]
+		public bool getSecure()
+		{
+			return Instance.CallMethod<bool>("getSecure", "()Z");
+		}
+		
+		[JavaSignature("()Z")]
+		public bool hasExpired()
+		{
+			return Instance.CallMethod<bool>("hasExpired", "()Z");
 		}
 	}
 }

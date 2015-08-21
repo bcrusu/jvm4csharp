@@ -100,16 +100,16 @@ namespace jvm4csharp.java.util.concurrent
 			return Instance.CallMethod<E>("getLast", "()Ljava/lang/Object;");
 		}
 		
-		[JavaSignature("(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z")]
-		public bool offer(E arg0, long arg1, TimeUnit arg2)
-		{
-			return Instance.CallMethod<bool>("offer", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1, arg2);
-		}
-		
 		[JavaSignature("(Ljava/lang/Object;)Z")]
 		public bool offer(E arg0)
 		{
 			return Instance.CallMethod<bool>("offer", "(Ljava/lang/Object;)Z", arg0);
+		}
+		
+		[JavaSignature("(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z")]
+		public bool offer(E arg0, long arg1, TimeUnit arg2)
+		{
+			return Instance.CallMethod<bool>("offer", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1, arg2);
 		}
 		
 		[JavaSignature("(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z")]
@@ -148,16 +148,16 @@ namespace jvm4csharp.java.util.concurrent
 			return Instance.CallMethod<E>("peekLast", "()Ljava/lang/Object;");
 		}
 		
-		[JavaSignature("()Ljava/lang/Object;")]
-		public E pollFirst()
-		{
-			return Instance.CallMethod<E>("pollFirst", "()Ljava/lang/Object;");
-		}
-		
 		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;")]
 		public E pollFirst(long arg0, TimeUnit arg1)
 		{
 			return Instance.CallMethod<E>("pollFirst", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", arg0, arg1);
+		}
+		
+		[JavaSignature("()Ljava/lang/Object;")]
+		public E pollFirst()
+		{
+			return Instance.CallMethod<E>("pollFirst", "()Ljava/lang/Object;");
 		}
 		
 		[JavaSignature("()Ljava/lang/Object;")]
@@ -196,30 +196,6 @@ namespace jvm4csharp.java.util.concurrent
 			return Instance.CallMethod<bool>("removeLastOccurrence", "(Ljava/lang/Object;)Z", arg0);
 		}
 		
-		[JavaSignature("()Ljava/lang/Object;")]
-		public E take()
-		{
-			return Instance.CallMethod<E>("take", "()Ljava/lang/Object;");
-		}
-		
-		[JavaSignature("(Ljava/util/Collection;I)I")]
-		public int drainTo(Collection<IJavaObject> arg0, int arg1)
-		{
-			return Instance.CallMethod<int>("drainTo", "(Ljava/util/Collection;I)I", arg0, arg1);
-		}
-		
-		[JavaSignature("(Ljava/util/Collection;)I")]
-		public int drainTo(Collection<IJavaObject> arg0)
-		{
-			return Instance.CallMethod<int>("drainTo", "(Ljava/util/Collection;)I", arg0);
-		}
-		
-		[JavaSignature("()I")]
-		public int remainingCapacity()
-		{
-			return Instance.CallMethod<int>("remainingCapacity", "()I");
-		}
-		
 		[JavaSignature("(Ljava/lang/Object;)V")]
 		public void putFirst(E arg0)
 		{
@@ -242,6 +218,30 @@ namespace jvm4csharp.java.util.concurrent
 		public E takeLast()
 		{
 			return Instance.CallMethod<E>("takeLast", "()Ljava/lang/Object;");
+		}
+		
+		[JavaSignature("()Ljava/lang/Object;")]
+		public E take()
+		{
+			return Instance.CallMethod<E>("take", "()Ljava/lang/Object;");
+		}
+		
+		[JavaSignature("(Ljava/util/Collection;I)I")]
+		public int drainTo(Collection<IJavaObject> arg0, int arg1)
+		{
+			return Instance.CallMethod<int>("drainTo", "(Ljava/util/Collection;I)I", arg0, arg1);
+		}
+		
+		[JavaSignature("(Ljava/util/Collection;)I")]
+		public int drainTo(Collection<IJavaObject> arg0)
+		{
+			return Instance.CallMethod<int>("drainTo", "(Ljava/util/Collection;)I", arg0);
+		}
+		
+		[JavaSignature("()I")]
+		public int remainingCapacity()
+		{
+			return Instance.CallMethod<int>("remainingCapacity", "()I");
 		}
 	}
 }

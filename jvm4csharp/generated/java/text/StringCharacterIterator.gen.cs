@@ -52,9 +52,9 @@ namespace jvm4csharp.java.text
 		}
 		
 		[JavaSignature("()C")]
-		public char last()
+		public char current()
 		{
-			return Instance.CallMethod<char>("last", "()C");
+			return Instance.CallMethod<char>("current", "()C");
 		}
 		
 		[JavaSignature("()I")]
@@ -64,21 +64,9 @@ namespace jvm4csharp.java.text
 		}
 		
 		[JavaSignature("()C")]
-		public char current()
+		public char last()
 		{
-			return Instance.CallMethod<char>("current", "()C");
-		}
-		
-		[JavaSignature("(I)C")]
-		public char setIndex(int arg0)
-		{
-			return Instance.CallMethod<char>("setIndex", "(I)C", arg0);
-		}
-		
-		[JavaSignature("(Ljava/lang/String;)V")]
-		public void setText(String arg0)
-		{
-			Instance.CallMethod("setText", "(Ljava/lang/String;)V", arg0);
+			return Instance.CallMethod<char>("last", "()C");
 		}
 		
 		[JavaSignature("()I")]
@@ -91,6 +79,18 @@ namespace jvm4csharp.java.text
 		public int getEndIndex()
 		{
 			return Instance.CallMethod<int>("getEndIndex", "()I");
+		}
+		
+		[JavaSignature("(I)C")]
+		public char setIndex(int arg0)
+		{
+			return Instance.CallMethod<char>("setIndex", "(I)C", arg0);
+		}
+		
+		[JavaSignature("(Ljava/lang/String;)V")]
+		public void setText(String arg0)
+		{
+			Instance.CallMethod("setText", "(Ljava/lang/String;)V", arg0);
 		}
 		
 		[JavaSignature("()Ljava/lang/Object;")]

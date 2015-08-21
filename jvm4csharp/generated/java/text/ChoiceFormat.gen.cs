@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 
 // ReSharper disable InconsistentNaming
@@ -19,44 +19,26 @@ namespace jvm4csharp.java.text
 	{
 		protected ChoiceFormat(ProxyCtor p) : base(p) {}
 		
-		public ChoiceFormat(DoubleArray arg0, ObjectArray<String> arg1) : base(ProxyCtor.I)
-		{
-			Instance.CallConstructor("([D[Ljava/lang/String;)V", arg0, arg1);
-		}
-		
 		public ChoiceFormat(String arg0) : base(ProxyCtor.I)
 		{
 			Instance.CallConstructor("(Ljava/lang/String;)V", arg0);
 		}
-	
-		[JavaSignature("(DZ)D")]
-		public static double nextDouble(double arg0, bool arg1)
-		{
-			return Static.CallMethod<double>(typeof(ChoiceFormat), "nextDouble", "(DZ)D", arg0, arg1);
-		}
 		
+		public ChoiceFormat(DoubleArray arg0, ObjectArray<String> arg1) : base(ProxyCtor.I)
+		{
+			Instance.CallConstructor("([D[Ljava/lang/String;)V", arg0, arg1);
+		}
+	
 		[JavaSignature("(D)D")]
 		public static double nextDouble(double arg0)
 		{
 			return Static.CallMethod<double>(typeof(ChoiceFormat), "nextDouble", "(D)D", arg0);
 		}
 		
-		[JavaSignature("()[Ljava/lang/Object;")]
-		public ObjectArray<IJavaObject> getFormats()
+		[JavaSignature("(DZ)D")]
+		public static double nextDouble(double arg0, bool arg1)
 		{
-			return Instance.CallMethod<ObjectArray<IJavaObject>>("getFormats", "()[Ljava/lang/Object;");
-		}
-		
-		[JavaSignature("(Ljava/lang/String;)V")]
-		public void applyPattern(String arg0)
-		{
-			Instance.CallMethod("applyPattern", "(Ljava/lang/String;)V", arg0);
-		}
-		
-		[JavaSignature("()Ljava/lang/String;")]
-		public String toPattern()
-		{
-			return Instance.CallMethod<String>("toPattern", "()Ljava/lang/String;");
+			return Static.CallMethod<double>(typeof(ChoiceFormat), "nextDouble", "(DZ)D", arg0, arg1);
 		}
 		
 		[JavaSignature("()[D")]
@@ -75,6 +57,24 @@ namespace jvm4csharp.java.text
 		public void setChoices(DoubleArray arg0, ObjectArray<String> arg1)
 		{
 			Instance.CallMethod("setChoices", "([D[Ljava/lang/String;)V", arg0, arg1);
+		}
+		
+		[JavaSignature("(Ljava/lang/String;)V")]
+		public void applyPattern(String arg0)
+		{
+			Instance.CallMethod("applyPattern", "(Ljava/lang/String;)V", arg0);
+		}
+		
+		[JavaSignature("()Ljava/lang/String;")]
+		public String toPattern()
+		{
+			return Instance.CallMethod<String>("toPattern", "()Ljava/lang/String;");
+		}
+		
+		[JavaSignature("()[Ljava/lang/Object;")]
+		public ObjectArray<IJavaObject> getFormats()
+		{
+			return Instance.CallMethod<ObjectArray<IJavaObject>>("getFormats", "()[Ljava/lang/Object;");
 		}
 	}
 }

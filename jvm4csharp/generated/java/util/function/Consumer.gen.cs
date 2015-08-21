@@ -15,10 +15,10 @@ namespace jvm4csharp.java.util.function
 	public partial interface Consumer<T> : IJavaObject
 		where T : IJavaObject
 	{
-		[JavaSignature("(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;")]
-		Consumer<T> andThen(Consumer<IJavaObject> arg0);
-		
 		[JavaSignature("(Ljava/lang/Object;)V")]
 		void accept(T arg0);
+		
+		[JavaSignature("(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;")]
+		Consumer<T> andThen(Consumer<IJavaObject> arg0);
 	}
 }

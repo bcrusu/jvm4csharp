@@ -26,12 +26,6 @@ namespace jvm4csharp.java.text.spi
 		}
 		
 		[JavaSignature("(Ljava/util/Locale;)Ljava/text/NumberFormat;")]
-		public NumberFormat getNumberInstance(Locale arg0)
-		{
-			return Instance.CallMethod<NumberFormat>("getNumberInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
-		}
-		
-		[JavaSignature("(Ljava/util/Locale;)Ljava/text/NumberFormat;")]
 		public NumberFormat getCurrencyInstance(Locale arg0)
 		{
 			return Instance.CallMethod<NumberFormat>("getCurrencyInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
@@ -41,6 +35,12 @@ namespace jvm4csharp.java.text.spi
 		public NumberFormat getPercentInstance(Locale arg0)
 		{
 			return Instance.CallMethod<NumberFormat>("getPercentInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
+		}
+		
+		[JavaSignature("(Ljava/util/Locale;)Ljava/text/NumberFormat;")]
+		public NumberFormat getNumberInstance(Locale arg0)
+		{
+			return Instance.CallMethod<NumberFormat>("getNumberInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
 		}
 	}
 }

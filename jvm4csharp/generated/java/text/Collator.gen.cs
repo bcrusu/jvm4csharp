@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 using jvm4csharp.java.util;
 using jvm4csharp.java.util.function;
@@ -99,12 +99,6 @@ namespace jvm4csharp.java.text
 			return Static.CallMethod<ObjectArray<Locale>>(typeof(Collator), "getAvailableLocales", "()[Ljava/util/Locale;");
 		}
 		
-		[JavaSignature("()I")]
-		public int getStrength()
-		{
-			return Instance.CallMethod<int>("getStrength", "()I");
-		}
-		
 		[JavaSignature("(Ljava/lang/String;)Ljava/text/CollationKey;")]
 		public CollationKey getCollationKey(String arg0)
 		{
@@ -127,6 +121,12 @@ namespace jvm4csharp.java.text
 		public void setStrength(int arg0)
 		{
 			Instance.CallMethod("setStrength", "(I)V", arg0);
+		}
+		
+		[JavaSignature("()I")]
+		public int getStrength()
+		{
+			return Instance.CallMethod<int>("getStrength", "()I");
 		}
 		
 		[JavaSignature("()Ljava/util/Comparator;")]

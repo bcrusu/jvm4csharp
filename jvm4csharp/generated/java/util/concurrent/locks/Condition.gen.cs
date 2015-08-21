@@ -14,6 +14,12 @@ namespace jvm4csharp.java.util.concurrent.locks
 	[JavaProxy("java/util/concurrent/locks/Condition")]
 	public partial interface Condition : IJavaObject
 	{
+		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
+		bool @await(long arg0, TimeUnit arg1);
+		
+		[JavaSignature("()V")]
+		void @await();
+		
 		[JavaSignature("(J)J")]
 		long awaitNanos(long arg0);
 		
@@ -28,11 +34,5 @@ namespace jvm4csharp.java.util.concurrent.locks
 		
 		[JavaSignature("()V")]
 		void signalAll();
-		
-		[JavaSignature("()V")]
-		void @await();
-		
-		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
-		bool @await(long arg0, TimeUnit arg1);
 	}
 }

@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 
 // ReSharper disable InconsistentNaming
@@ -79,12 +79,6 @@ namespace jvm4csharp.java.net
 			return Instance.CallMethod<int>("getOffset", "()I");
 		}
 		
-		[JavaSignature("()[B")]
-		public ByteArray getData()
-		{
-			return Instance.CallMethod<ByteArray>("getData", "()[B");
-		}
-		
 		[JavaSignature("(Ljava/net/InetAddress;)V")]
 		public void setAddress(InetAddress arg0)
 		{
@@ -95,6 +89,12 @@ namespace jvm4csharp.java.net
 		public void setPort(int arg0)
 		{
 			Instance.CallMethod("setPort", "(I)V", arg0);
+		}
+		
+		[JavaSignature("()[B")]
+		public ByteArray getData()
+		{
+			return Instance.CallMethod<ByteArray>("getData", "()[B");
 		}
 		
 		[JavaSignature("()Ljava/net/SocketAddress;")]

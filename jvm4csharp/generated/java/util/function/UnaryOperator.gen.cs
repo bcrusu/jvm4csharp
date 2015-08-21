@@ -17,7 +17,7 @@ namespace jvm4csharp.java.util.function
 	{
 	}
 	
-	public static class UnaryOperator_
+	public static partial class UnaryOperator_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 		

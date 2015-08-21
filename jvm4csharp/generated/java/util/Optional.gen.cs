@@ -84,18 +84,18 @@ namespace jvm4csharp.java.util
 			return Instance.CallMethod<T>("orElseThrow", "(Ljava/util/function/Supplier;)Ljava/lang/Object;", arg0);
 		}
 		
-		[JavaSignature("(Ljava/lang/Object;)Ljava/util/Optional;")]
-		public static Optional<T1> ofNullable<T1>(T1 arg0)
-			where T1 : IJavaObject
-		{
-			return Static.CallMethod<Optional<T1>>(typeof(Optional<>), "ofNullable", "(Ljava/lang/Object;)Ljava/util/Optional;", arg0);
-		}
-		
 		[JavaSignature("(Ljava/util/function/Function;)Ljava/util/Optional;")]
 		public Optional<U> flatMap<U>(Function<IJavaObject, Optional<U>> arg0)
 			where U : IJavaObject
 		{
 			return Instance.CallMethod<Optional<U>>("flatMap", "(Ljava/util/function/Function;)Ljava/util/Optional;", arg0);
+		}
+		
+		[JavaSignature("(Ljava/lang/Object;)Ljava/util/Optional;")]
+		public static Optional<T1> ofNullable<T1>(T1 arg0)
+			where T1 : IJavaObject
+		{
+			return Static.CallMethod<Optional<T1>>(typeof(Optional<>), "ofNullable", "(Ljava/lang/Object;)Ljava/util/Optional;", arg0);
 		}
 	}
 }

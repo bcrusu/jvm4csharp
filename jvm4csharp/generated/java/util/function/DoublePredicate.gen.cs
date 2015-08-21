@@ -14,14 +14,14 @@ namespace jvm4csharp.java.util.function
 	[JavaProxy("java/util/function/DoublePredicate")]
 	public partial interface DoublePredicate : IJavaObject
 	{
+		[JavaSignature("(D)Z")]
+		bool test(double arg0);
+		
 		[JavaSignature("(Ljava/util/function/DoublePredicate;)Ljava/util/function/DoublePredicate;")]
 		DoublePredicate and(DoublePredicate arg0);
 		
 		[JavaSignature("(Ljava/util/function/DoublePredicate;)Ljava/util/function/DoublePredicate;")]
 		DoublePredicate or(DoublePredicate arg0);
-		
-		[JavaSignature("(D)Z")]
-		bool test(double arg0);
 		
 		[JavaSignature("()Ljava/util/function/DoublePredicate;")]
 		DoublePredicate negate();

@@ -21,15 +21,6 @@ namespace jvm4csharp.java.util
 		[JavaSignature("(Ljava/lang/Object;)Ljava/lang/Object;")]
 		E floor(E arg0);
 		
-		[JavaSignature("()Ljava/util/Iterator;")]
-		Iterator<E> descendingIterator();
-		
-		[JavaSignature("()Ljava/lang/Object;")]
-		E pollFirst();
-		
-		[JavaSignature("()Ljava/lang/Object;")]
-		E pollLast();
-		
 		[JavaSignature("(Ljava/lang/Object;)Ljava/lang/Object;")]
 		E ceiling(E arg0);
 		
@@ -54,10 +45,19 @@ namespace jvm4csharp.java.util
 		[JavaSignature("(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;")]
 		NavigableSet<E> subSet(E arg0, bool arg1, E arg2, bool arg3);
 		
+		[JavaSignature("(Ljava/lang/Object;)Ljava/util/SortedSet;")]
+		new SortedSet<E> tailSet(E arg0);
+		
 		[JavaSignature("(Ljava/lang/Object;Z)Ljava/util/NavigableSet;")]
 		NavigableSet<E> tailSet(E arg0, bool arg1);
 		
-		[JavaSignature("(Ljava/lang/Object;)Ljava/util/SortedSet;")]
-		new SortedSet<E> tailSet(E arg0);
+		[JavaSignature("()Ljava/util/Iterator;")]
+		Iterator<E> descendingIterator();
+		
+		[JavaSignature("()Ljava/lang/Object;")]
+		E pollFirst();
+		
+		[JavaSignature("()Ljava/lang/Object;")]
+		E pollLast();
 	}
 }

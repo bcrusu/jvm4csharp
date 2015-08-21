@@ -234,16 +234,16 @@ namespace jvm4csharp.java.util.concurrent
 			return Instance.CallMethod<ConcurrentNavigableMap<K, V>>("subMap", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentNavigableMap;", arg0, arg1);
 		}
 		
-		[JavaSignature("(Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentNavigableMap;")]
-		public ConcurrentNavigableMap<K, V> tailMap(K arg0)
-		{
-			return Instance.CallMethod<ConcurrentNavigableMap<K, V>>("tailMap", "(Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentNavigableMap;", arg0);
-		}
-		
 		[JavaSignature("(Ljava/lang/Object;Z)Ljava/util/concurrent/ConcurrentNavigableMap;")]
 		public ConcurrentNavigableMap<K, V> tailMap(K arg0, bool arg1)
 		{
 			return Instance.CallMethod<ConcurrentNavigableMap<K, V>>("tailMap", "(Ljava/lang/Object;Z)Ljava/util/concurrent/ConcurrentNavigableMap;", arg0, arg1);
+		}
+		
+		[JavaSignature("(Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentNavigableMap;")]
+		public ConcurrentNavigableMap<K, V> tailMap(K arg0)
+		{
+			return Instance.CallMethod<ConcurrentNavigableMap<K, V>>("tailMap", "(Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentNavigableMap;", arg0);
 		}
 		
 		[JavaSignature("()Ljava/lang/Object;")]

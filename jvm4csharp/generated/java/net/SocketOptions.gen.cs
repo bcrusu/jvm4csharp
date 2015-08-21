@@ -21,7 +21,7 @@ namespace jvm4csharp.java.net
 		void setOption(int arg0, IJavaObject arg1);
 	}
 	
-	public static class SocketOptions_
+	public static partial class SocketOptions_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 		

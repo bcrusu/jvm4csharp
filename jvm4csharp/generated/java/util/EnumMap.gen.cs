@@ -21,11 +21,6 @@ namespace jvm4csharp.java.util
 	{
 		protected EnumMap(ProxyCtor p) : base(p) {}
 		
-		public EnumMap(EnumMap<K, V> arg0) : base(ProxyCtor.I)
-		{
-			Instance.CallConstructor("(Ljava/util/EnumMap;)V", arg0);
-		}
-		
 		public EnumMap(Class<K> arg0) : base(ProxyCtor.I)
 		{
 			Instance.CallConstructor("(Ljava/lang/Class;)V", arg0);
@@ -34,6 +29,11 @@ namespace jvm4csharp.java.util
 		public EnumMap(Map<K, V> arg0) : base(ProxyCtor.I)
 		{
 			Instance.CallConstructor("(Ljava/util/Map;)V", arg0);
+		}
+		
+		public EnumMap(EnumMap<K, V> arg0) : base(ProxyCtor.I)
+		{
+			Instance.CallConstructor("(Ljava/util/EnumMap;)V", arg0);
 		}
 	
 		[JavaSignature("(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;")]

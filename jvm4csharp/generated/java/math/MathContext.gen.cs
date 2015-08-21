@@ -58,16 +58,16 @@ namespace jvm4csharp.java.math
 			get { return Static.GetField<MathContext>(typeof(MathContext), "DECIMAL128", "Ljava/math/MathContext;"); }
 		}
 	
-		[JavaSignature("()Ljava/math/RoundingMode;")]
-		public RoundingMode getRoundingMode()
-		{
-			return Instance.CallMethod<RoundingMode>("getRoundingMode", "()Ljava/math/RoundingMode;");
-		}
-		
 		[JavaSignature("()I")]
 		public int getPrecision()
 		{
 			return Instance.CallMethod<int>("getPrecision", "()I");
+		}
+		
+		[JavaSignature("()Ljava/math/RoundingMode;")]
+		public RoundingMode getRoundingMode()
+		{
+			return Instance.CallMethod<RoundingMode>("getRoundingMode", "()Ljava/math/RoundingMode;");
 		}
 	}
 }

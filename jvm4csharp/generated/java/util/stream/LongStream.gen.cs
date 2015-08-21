@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 using jvm4csharp.java.util.function;
 
@@ -73,22 +73,6 @@ namespace jvm4csharp.java.util.stream
 		[JavaSignature("()Ljava/util/stream/LongStream;")]
 		LongStream sorted();
 		
-		[JavaSignature("()Ljava/util/stream/DoubleStream;")]
-		DoubleStream asDoubleStream();
-		
-		[JavaSignature("()Ljava/util/OptionalDouble;")]
-		OptionalDouble average();
-		
-		[JavaSignature("()Ljava/util/stream/Stream;")]
-		Stream<Long> boxed();
-		
-		[JavaSignature("(Ljava/util/function/LongFunction;)Ljava/util/stream/Stream;")]
-		Stream<U> mapToObj<U>(LongFunction<U> arg0)
-			where U : IJavaObject;
-		
-		[JavaSignature("()Ljava/util/LongSummaryStatistics;")]
-		LongSummaryStatistics summaryStatistics();
-		
 		[JavaSignature("(Ljava/util/function/LongPredicate;)Z")]
 		bool allMatch(LongPredicate arg0);
 		
@@ -121,9 +105,25 @@ namespace jvm4csharp.java.util.stream
 		
 		[JavaSignature("()Ljava/util/stream/LongStream;")]
 		new LongStream sequential();
+		
+		[JavaSignature("()Ljava/util/stream/DoubleStream;")]
+		DoubleStream asDoubleStream();
+		
+		[JavaSignature("()Ljava/util/OptionalDouble;")]
+		OptionalDouble average();
+		
+		[JavaSignature("()Ljava/util/stream/Stream;")]
+		Stream<Long> boxed();
+		
+		[JavaSignature("(Ljava/util/function/LongFunction;)Ljava/util/stream/Stream;")]
+		Stream<U> mapToObj<U>(LongFunction<U> arg0)
+			where U : IJavaObject;
+		
+		[JavaSignature("()Ljava/util/LongSummaryStatistics;")]
+		LongSummaryStatistics summaryStatistics();
 	}
 	
-	public static class LongStream_
+	public static partial class LongStream_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 		
@@ -169,16 +169,16 @@ namespace jvm4csharp.java.util.stream
 			return Static.CallMethod<LongStream_.Builder>(typeof(LongStream), "builder", "()Ljava/util/stream/LongStream/Builder;");
 		}
 		
-		[JavaSignature("(JJ)Ljava/util/stream/LongStream;")]
-		public static LongStream rangeClosed(long arg0, long arg1)
-		{
-			return Static.CallMethod<LongStream>(typeof(LongStream), "rangeClosed", "(JJ)Ljava/util/stream/LongStream;", arg0, arg1);
-		}
-		
 		[JavaSignature("(JLjava/util/function/LongUnaryOperator;)Ljava/util/stream/LongStream;")]
 		public static LongStream iterate(long arg0, LongUnaryOperator arg1)
 		{
 			return Static.CallMethod<LongStream>(typeof(LongStream), "iterate", "(JLjava/util/function/LongUnaryOperator;)Ljava/util/stream/LongStream;", arg0, arg1);
+		}
+		
+		[JavaSignature("(JJ)Ljava/util/stream/LongStream;")]
+		public static LongStream rangeClosed(long arg0, long arg1)
+		{
+			return Static.CallMethod<LongStream>(typeof(LongStream), "rangeClosed", "(JJ)Ljava/util/stream/LongStream;", arg0, arg1);
 		}
 	
 		[JavaProxy("java/util/stream/LongStream/Builder")]

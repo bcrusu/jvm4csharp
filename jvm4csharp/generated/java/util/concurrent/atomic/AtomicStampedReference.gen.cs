@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 
 // ReSharper disable InconsistentNaming
@@ -55,16 +55,16 @@ namespace jvm4csharp.java.util.concurrent.atomic
 			return Instance.CallMethod<bool>("attemptStamp", "(Ljava/lang/Object;I)Z", arg0, arg1);
 		}
 		
-		[JavaSignature("()Ljava/lang/Object;")]
-		public V getReference()
-		{
-			return Instance.CallMethod<V>("getReference", "()Ljava/lang/Object;");
-		}
-		
 		[JavaSignature("()I")]
 		public int getStamp()
 		{
 			return Instance.CallMethod<int>("getStamp", "()I");
+		}
+		
+		[JavaSignature("()Ljava/lang/Object;")]
+		public V getReference()
+		{
+			return Instance.CallMethod<V>("getReference", "()Ljava/lang/Object;");
 		}
 	}
 }

@@ -14,17 +14,17 @@ namespace jvm4csharp.java.util.function
 	[JavaProxy("java/util/function/LongUnaryOperator")]
 	public partial interface LongUnaryOperator : IJavaObject
 	{
+		[JavaSignature("(J)J")]
+		long applyAsLong(long arg0);
+		
 		[JavaSignature("(Ljava/util/function/LongUnaryOperator;)Ljava/util/function/LongUnaryOperator;")]
 		LongUnaryOperator andThen(LongUnaryOperator arg0);
 		
 		[JavaSignature("(Ljava/util/function/LongUnaryOperator;)Ljava/util/function/LongUnaryOperator;")]
 		LongUnaryOperator compose(LongUnaryOperator arg0);
-		
-		[JavaSignature("(J)J")]
-		long applyAsLong(long arg0);
 	}
 	
-	public static class LongUnaryOperator_
+	public static partial class LongUnaryOperator_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 		

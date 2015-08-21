@@ -29,25 +29,25 @@ namespace jvm4csharp.java.text
 		char previous();
 		
 		[JavaSignature("()C")]
-		char last();
+		char current();
 		
 		[JavaSignature("()I")]
 		int getIndex();
 		
 		[JavaSignature("()C")]
-		char current();
-		
-		[JavaSignature("(I)C")]
-		char setIndex(int arg0);
+		char last();
 		
 		[JavaSignature("()I")]
 		int getBeginIndex();
 		
 		[JavaSignature("()I")]
 		int getEndIndex();
+		
+		[JavaSignature("(I)C")]
+		char setIndex(int arg0);
 	}
 	
-	public static class CharacterIterator_
+	public static partial class CharacterIterator_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 		

@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 using jvm4csharp.java.util.function;
 
@@ -116,52 +116,16 @@ namespace jvm4csharp.java.util.logging
 			Instance.CallMethod("warning", "(Ljava/util/function/Supplier;)V", arg0);
 		}
 		
-		[JavaSignature("(Ljava/lang/String;)V")]
-		public void info(String arg0)
-		{
-			Instance.CallMethod("info", "(Ljava/lang/String;)V", arg0);
-		}
-		
 		[JavaSignature("(Ljava/util/function/Supplier;)V")]
 		public void info(Supplier<String> arg0)
 		{
 			Instance.CallMethod("info", "(Ljava/util/function/Supplier;)V", arg0);
 		}
 		
-		[JavaSignature("(Ljava/util/logging/Handler;)V")]
-		public void addHandler(Handler arg0)
-		{
-			Instance.CallMethod("addHandler", "(Ljava/util/logging/Handler;)V", arg0);
-		}
-		
-		[JavaSignature("(Ljava/util/logging/Level;)V")]
-		public void setLevel(Level arg0)
-		{
-			Instance.CallMethod("setLevel", "(Ljava/util/logging/Level;)V", arg0);
-		}
-		
-		[JavaSignature("(Ljava/util/function/Supplier;)V")]
-		public void config(Supplier<String> arg0)
-		{
-			Instance.CallMethod("config", "(Ljava/util/function/Supplier;)V", arg0);
-		}
-		
 		[JavaSignature("(Ljava/lang/String;)V")]
-		public void config(String arg0)
+		public void info(String arg0)
 		{
-			Instance.CallMethod("config", "(Ljava/lang/String;)V", arg0);
-		}
-		
-		[JavaSignature("()[Ljava/util/logging/Handler;")]
-		public ObjectArray<Handler> getHandlers()
-		{
-			return Instance.CallMethod<ObjectArray<Handler>>("getHandlers", "()[Ljava/util/logging/Handler;");
-		}
-		
-		[JavaSignature("(Ljava/util/logging/Handler;)V")]
-		public void removeHandler(Handler arg0)
-		{
-			Instance.CallMethod("removeHandler", "(Ljava/util/logging/Handler;)V", arg0);
+			Instance.CallMethod("info", "(Ljava/lang/String;)V", arg0);
 		}
 		
 		[JavaSignature("(Ljava/util/logging/Filter;)V")]
@@ -200,16 +164,52 @@ namespace jvm4csharp.java.util.logging
 			Instance.CallMethod("setResourceBundle", "(Ljava/util/ResourceBundle;)V", arg0);
 		}
 		
-		[JavaSignature("(Ljava/util/logging/Level;)Z")]
-		public bool isLoggable(Level arg0)
+		[JavaSignature("(Ljava/util/logging/Level;)V")]
+		public void setLevel(Level arg0)
 		{
-			return Instance.CallMethod<bool>("isLoggable", "(Ljava/util/logging/Level;)Z", arg0);
+			Instance.CallMethod("setLevel", "(Ljava/util/logging/Level;)V", arg0);
+		}
+		
+		[JavaSignature("(Ljava/lang/String;)V")]
+		public void config(String arg0)
+		{
+			Instance.CallMethod("config", "(Ljava/lang/String;)V", arg0);
+		}
+		
+		[JavaSignature("(Ljava/util/function/Supplier;)V")]
+		public void config(Supplier<String> arg0)
+		{
+			Instance.CallMethod("config", "(Ljava/util/function/Supplier;)V", arg0);
+		}
+		
+		[JavaSignature("()[Ljava/util/logging/Handler;")]
+		public ObjectArray<Handler> getHandlers()
+		{
+			return Instance.CallMethod<ObjectArray<Handler>>("getHandlers", "()[Ljava/util/logging/Handler;");
+		}
+		
+		[JavaSignature("(Ljava/util/logging/Handler;)V")]
+		public void removeHandler(Handler arg0)
+		{
+			Instance.CallMethod("removeHandler", "(Ljava/util/logging/Handler;)V", arg0);
 		}
 		
 		[JavaSignature("(Z)V")]
 		public void setUseParentHandlers(bool arg0)
 		{
 			Instance.CallMethod("setUseParentHandlers", "(Z)V", arg0);
+		}
+		
+		[JavaSignature("(Ljava/util/logging/Handler;)V")]
+		public void addHandler(Handler arg0)
+		{
+			Instance.CallMethod("addHandler", "(Ljava/util/logging/Handler;)V", arg0);
+		}
+		
+		[JavaSignature("(Ljava/util/logging/Level;)Z")]
+		public bool isLoggable(Level arg0)
+		{
+			return Instance.CallMethod<bool>("isLoggable", "(Ljava/util/logging/Level;)Z", arg0);
 		}
 		
 		[JavaSignature("(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V")]

@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 
 // ReSharper disable InconsistentNaming
 namespace jvm4csharp.java.lang.management
@@ -28,12 +28,6 @@ namespace jvm4csharp.java.lang.management
 		public long getThreadId()
 		{
 			return Instance.CallMethod<long>("getThreadId", "()J");
-		}
-		
-		[JavaSignature("()Ljava/lang/management/LockInfo;")]
-		public LockInfo getLockInfo()
-		{
-			return Instance.CallMethod<LockInfo>("getLockInfo", "()Ljava/lang/management/LockInfo;");
 		}
 		
 		[JavaSignature("()J")]
@@ -85,9 +79,9 @@ namespace jvm4csharp.java.lang.management
 		}
 		
 		[JavaSignature("()Ljava/lang/Thread/State;")]
-		public Thread.State getThreadState()
+		public Thread_.State getThreadState()
 		{
-			return Instance.CallMethod<Thread.State>("getThreadState", "()Ljava/lang/Thread/State;");
+			return Instance.CallMethod<Thread_.State>("getThreadState", "()Ljava/lang/Thread/State;");
 		}
 		
 		[JavaSignature("()J")]
@@ -112,6 +106,12 @@ namespace jvm4csharp.java.lang.management
 		public bool isSuspended()
 		{
 			return Instance.CallMethod<bool>("isSuspended", "()Z");
+		}
+		
+		[JavaSignature("()Ljava/lang/management/LockInfo;")]
+		public LockInfo getLockInfo()
+		{
+			return Instance.CallMethod<LockInfo>("getLockInfo", "()Ljava/lang/management/LockInfo;");
 		}
 	}
 }

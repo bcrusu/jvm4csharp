@@ -15,20 +15,20 @@ namespace jvm4csharp.java.util.function
 	public partial interface Predicate<T> : IJavaObject
 		where T : IJavaObject
 	{
+		[JavaSignature("(Ljava/lang/Object;)Z")]
+		bool test(T arg0);
+		
 		[JavaSignature("(Ljava/util/function/Predicate;)Ljava/util/function/Predicate;")]
 		Predicate<T> and(Predicate<IJavaObject> arg0);
 		
 		[JavaSignature("(Ljava/util/function/Predicate;)Ljava/util/function/Predicate;")]
 		Predicate<T> or(Predicate<IJavaObject> arg0);
 		
-		[JavaSignature("(Ljava/lang/Object;)Z")]
-		bool test(T arg0);
-		
 		[JavaSignature("()Ljava/util/function/Predicate;")]
 		Predicate<T> negate();
 	}
 	
-	public static class Predicate_
+	public static partial class Predicate_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 		

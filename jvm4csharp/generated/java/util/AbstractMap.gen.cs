@@ -161,7 +161,7 @@ namespace jvm4csharp.java.util
 		}
 	}
 	
-	public class AbstractMap
+	public static partial class AbstractMap_
 	{
 		[JavaProxy("java/util/AbstractMap/SimpleEntry")]
 		public partial class SimpleEntry<K, V> : Object, Map_.Entry<K, V>, Serializable

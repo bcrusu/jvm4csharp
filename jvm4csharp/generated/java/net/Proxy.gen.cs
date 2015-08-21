@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 
 // ReSharper disable InconsistentNaming
@@ -19,7 +19,7 @@ namespace jvm4csharp.java.net
 	{
 		protected Proxy(ProxyCtor p) : base(p) {}
 		
-		public Proxy(Proxy.Type arg0, SocketAddress arg1) : base(ProxyCtor.I)
+		public Proxy(Proxy_.Type arg0, SocketAddress arg1) : base(ProxyCtor.I)
 		{
 			Instance.CallConstructor("(Ljava/net/Proxy/Type;Ljava/net/SocketAddress;)V", arg0, arg1);
 		}
@@ -31,9 +31,9 @@ namespace jvm4csharp.java.net
 		}
 	
 		[JavaSignature("()Ljava/net/Proxy/Type;")]
-		public Proxy.Type type()
+		public Proxy_.Type type()
 		{
-			return Instance.CallMethod<Proxy.Type>("type", "()Ljava/net/Proxy/Type;");
+			return Instance.CallMethod<Proxy_.Type>("type", "()Ljava/net/Proxy/Type;");
 		}
 		
 		[JavaSignature("()Ljava/net/SocketAddress;")]
@@ -41,40 +41,43 @@ namespace jvm4csharp.java.net
 		{
 			return Instance.CallMethod<SocketAddress>("address", "()Ljava/net/SocketAddress;");
 		}
+	}
 	
+	public static partial class Proxy_
+	{
 		[JavaProxy("java/net/Proxy/Type")]
-		public partial class Type : Enum<Proxy.Type>
+		public partial class Type : Enum<Proxy_.Type>
 		{
 			protected Type(ProxyCtor p) : base(p) {}
 		
 			[JavaSignature("Ljava/net/Proxy/Type;")]
-			public static Proxy.Type DIRECT
+			public static Proxy_.Type DIRECT
 			{
-				get { return Static.GetField<Proxy.Type>(typeof(Type), "DIRECT", "Ljava/net/Proxy/Type;"); }
+				get { return Static.GetField<Proxy_.Type>(typeof(Type), "DIRECT", "Ljava/net/Proxy/Type;"); }
 			}
 			
 			[JavaSignature("Ljava/net/Proxy/Type;")]
-			public static Proxy.Type HTTP
+			public static Proxy_.Type HTTP
 			{
-				get { return Static.GetField<Proxy.Type>(typeof(Type), "HTTP", "Ljava/net/Proxy/Type;"); }
+				get { return Static.GetField<Proxy_.Type>(typeof(Type), "HTTP", "Ljava/net/Proxy/Type;"); }
 			}
 			
 			[JavaSignature("Ljava/net/Proxy/Type;")]
-			public static Proxy.Type SOCKS
+			public static Proxy_.Type SOCKS
 			{
-				get { return Static.GetField<Proxy.Type>(typeof(Type), "SOCKS", "Ljava/net/Proxy/Type;"); }
+				get { return Static.GetField<Proxy_.Type>(typeof(Type), "SOCKS", "Ljava/net/Proxy/Type;"); }
 			}
 		
 			[JavaSignature("()[Ljava/net/Proxy/Type;")]
-			public static ObjectArray<Proxy.Type> values()
+			public static ObjectArray<Proxy_.Type> values()
 			{
-				return Static.CallMethod<ObjectArray<Proxy.Type>>(typeof(Type), "values", "()[Ljava/net/Proxy/Type;");
+				return Static.CallMethod<ObjectArray<Proxy_.Type>>(typeof(Type), "values", "()[Ljava/net/Proxy/Type;");
 			}
 			
 			[JavaSignature("(Ljava/lang/String;)Ljava/net/Proxy/Type;")]
-			public static Proxy.Type valueOf(String arg0)
+			public static Proxy_.Type valueOf(String arg0)
 			{
-				return Static.CallMethod<Proxy.Type>(typeof(Type), "valueOf", "(Ljava/lang/String;)Ljava/net/Proxy/Type;", arg0);
+				return Static.CallMethod<Proxy_.Type>(typeof(Type), "valueOf", "(Ljava/lang/String;)Ljava/net/Proxy/Type;", arg0);
 			}
 		}
 	}

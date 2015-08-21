@@ -18,12 +18,12 @@ namespace jvm4csharp.java.text
 	{
 		protected FieldPosition(ProxyCtor p) : base(p) {}
 		
-		public FieldPosition(Format.Field arg0, int arg1) : base(ProxyCtor.I)
+		public FieldPosition(Format_.Field arg0, int arg1) : base(ProxyCtor.I)
 		{
 			Instance.CallConstructor("(Ljava/text/Format/Field;I)V", arg0, arg1);
 		}
 		
-		public FieldPosition(Format.Field arg0) : base(ProxyCtor.I)
+		public FieldPosition(Format_.Field arg0) : base(ProxyCtor.I)
 		{
 			Instance.CallConstructor("(Ljava/text/Format/Field;)V", arg0);
 		}
@@ -52,9 +52,9 @@ namespace jvm4csharp.java.text
 		}
 		
 		[JavaSignature("()Ljava/text/Format/Field;")]
-		public Format.Field getFieldAttribute()
+		public Format_.Field getFieldAttribute()
 		{
-			return Instance.CallMethod<Format.Field>("getFieldAttribute", "()Ljava/text/Format/Field;");
+			return Instance.CallMethod<Format_.Field>("getFieldAttribute", "()Ljava/text/Format/Field;");
 		}
 		
 		[JavaSignature("(I)V")]

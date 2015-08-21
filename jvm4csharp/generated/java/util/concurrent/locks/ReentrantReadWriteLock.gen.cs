@@ -66,9 +66,15 @@ namespace jvm4csharp.java.util.concurrent.locks
 		}
 		
 		[JavaSignature("()Ljava/util/concurrent/locks/ReentrantReadWriteLock/ReadLock;")]
-		public ReentrantReadWriteLock.ReadLock readLock()
+		public ReentrantReadWriteLock_.ReadLock readLock()
 		{
-			return Instance.CallMethod<ReentrantReadWriteLock.ReadLock>("readLock", "()Ljava/util/concurrent/locks/ReentrantReadWriteLock/ReadLock;");
+			return Instance.CallMethod<ReentrantReadWriteLock_.ReadLock>("readLock", "()Ljava/util/concurrent/locks/ReentrantReadWriteLock/ReadLock;");
+		}
+		
+		[JavaSignature("()Ljava/util/concurrent/locks/ReentrantReadWriteLock/WriteLock;")]
+		public ReentrantReadWriteLock_.WriteLock writeLock()
+		{
+			return Instance.CallMethod<ReentrantReadWriteLock_.WriteLock>("writeLock", "()Ljava/util/concurrent/locks/ReentrantReadWriteLock/WriteLock;");
 		}
 		
 		[JavaSignature("()Z")]
@@ -101,12 +107,6 @@ namespace jvm4csharp.java.util.concurrent.locks
 			return Instance.CallMethod<bool>("isWriteLocked", "()Z");
 		}
 		
-		[JavaSignature("()Ljava/util/concurrent/locks/ReentrantReadWriteLock/WriteLock;")]
-		public ReentrantReadWriteLock.WriteLock writeLock()
-		{
-			return Instance.CallMethod<ReentrantReadWriteLock.WriteLock>("writeLock", "()Ljava/util/concurrent/locks/ReentrantReadWriteLock/WriteLock;");
-		}
-		
 		[JavaSignature("()Ljava/util/concurrent/locks/Lock;")]
 		Lock ReadWriteLock.readLock()
 		{
@@ -118,7 +118,10 @@ namespace jvm4csharp.java.util.concurrent.locks
 		{
 			return Instance.CallMethod<Lock>("writeLock", "()Ljava/util/concurrent/locks/Lock;");
 		}
+	}
 	
+	public static partial class ReentrantReadWriteLock_
+	{
 		[JavaProxy("java/util/concurrent/locks/ReentrantReadWriteLock/ReadLock")]
 		public partial class ReadLock : Object, Lock, Serializable
 		{

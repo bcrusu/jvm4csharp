@@ -16,6 +16,9 @@ namespace jvm4csharp.java.util.function
 		where T : IJavaObject
 		where R : IJavaObject
 	{
+		[JavaSignature("(Ljava/lang/Object;)Ljava/lang/Object;")]
+		R apply(T arg0);
+		
 		[JavaSignature("(Ljava/util/function/Function;)Ljava/util/function/Function;")]
 		Function<T, V> andThen<V>(Function<IJavaObject, V> arg0)
 			where V : IJavaObject;
@@ -23,12 +26,9 @@ namespace jvm4csharp.java.util.function
 		[JavaSignature("(Ljava/util/function/Function;)Ljava/util/function/Function;")]
 		Function<V, R> compose<V>(Function<IJavaObject, T> arg0)
 			where V : IJavaObject;
-		
-		[JavaSignature("(Ljava/lang/Object;)Ljava/lang/Object;")]
-		R apply(T arg0);
 	}
 	
-	public static class Function_
+	public static partial class Function_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 		

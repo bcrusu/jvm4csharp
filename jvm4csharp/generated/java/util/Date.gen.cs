@@ -73,6 +73,30 @@ namespace jvm4csharp.java.util
 			return Instance.CallMethod<bool>("before", "(Ljava/util/Date;)Z", arg0);
 		}
 		
+		[JavaSignature("()J")]
+		public long getTime()
+		{
+			return Instance.CallMethod<long>("getTime", "()J");
+		}
+		
+		[JavaSignature("(J)V")]
+		public void setTime(long arg0)
+		{
+			Instance.CallMethod("setTime", "(J)V", arg0);
+		}
+		
+		[JavaSignature("()I")]
+		public int getDate()
+		{
+			return Instance.CallMethod<int>("getDate", "()I");
+		}
+		
+		[JavaSignature("()I")]
+		public int getHours()
+		{
+			return Instance.CallMethod<int>("getHours", "()I");
+		}
+		
 		[JavaSignature("()I")]
 		public int getMinutes()
 		{
@@ -161,30 +185,6 @@ namespace jvm4csharp.java.util
 		public String toLocaleString()
 		{
 			return Instance.CallMethod<String>("toLocaleString", "()Ljava/lang/String;");
-		}
-		
-		[JavaSignature("()J")]
-		public long getTime()
-		{
-			return Instance.CallMethod<long>("getTime", "()J");
-		}
-		
-		[JavaSignature("(J)V")]
-		public void setTime(long arg0)
-		{
-			Instance.CallMethod("setTime", "(J)V", arg0);
-		}
-		
-		[JavaSignature("()I")]
-		public int getDate()
-		{
-			return Instance.CallMethod<int>("getDate", "()I");
-		}
-		
-		[JavaSignature("()I")]
-		public int getHours()
-		{
-			return Instance.CallMethod<int>("getHours", "()I");
 		}
 	}
 }

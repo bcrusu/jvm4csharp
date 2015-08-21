@@ -14,17 +14,17 @@ namespace jvm4csharp.java.util.function
 	[JavaProxy("java/util/function/IntUnaryOperator")]
 	public partial interface IntUnaryOperator : IJavaObject
 	{
+		[JavaSignature("(I)I")]
+		int applyAsInt(int arg0);
+		
 		[JavaSignature("(Ljava/util/function/IntUnaryOperator;)Ljava/util/function/IntUnaryOperator;")]
 		IntUnaryOperator andThen(IntUnaryOperator arg0);
 		
 		[JavaSignature("(Ljava/util/function/IntUnaryOperator;)Ljava/util/function/IntUnaryOperator;")]
 		IntUnaryOperator compose(IntUnaryOperator arg0);
-		
-		[JavaSignature("(I)I")]
-		int applyAsInt(int arg0);
 	}
 	
-	public static class IntUnaryOperator_
+	public static partial class IntUnaryOperator_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 		

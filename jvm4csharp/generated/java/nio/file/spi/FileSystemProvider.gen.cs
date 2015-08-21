@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.io;
 using jvm4csharp.java.lang;
 using jvm4csharp.java.net;
@@ -25,12 +25,6 @@ namespace jvm4csharp.java.nio.file.spi
 	{
 		protected FileSystemProvider(ProxyCtor p) : base(p) {}
 	
-		[JavaSignature("(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream/Filter;)Ljava/nio/file/DirectoryStream;")]
-		public DirectoryStream<Path> newDirectoryStream(Path arg0, DirectoryStream_.Filter<IJavaObject> arg1)
-		{
-			return Instance.CallMethod<DirectoryStream<Path>>("newDirectoryStream", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream/Filter;)Ljava/nio/file/DirectoryStream;", arg0, arg1);
-		}
-		
 		[JavaSignature("(Ljava/nio/file/Path;[Ljava/nio/file/AccessMode;)V")]
 		public void checkAccess(Path arg0, ObjectArray<AccessMode> arg1)
 		{
@@ -79,10 +73,10 @@ namespace jvm4csharp.java.nio.file.spi
 			return Instance.CallMethod<bool>("isHidden", "(Ljava/nio/file/Path;)Z", arg0);
 		}
 		
-		[JavaSignature("(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)V")]
-		public void setAttribute(Path arg0, String arg1, IJavaObject arg2, ObjectArray<LinkOption> arg3)
+		[JavaSignature("(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream/Filter;)Ljava/nio/file/DirectoryStream;")]
+		public DirectoryStream<Path> newDirectoryStream(Path arg0, DirectoryStream_.Filter<IJavaObject> arg1)
 		{
-			Instance.CallMethod("setAttribute", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)V", arg0, arg1, arg2, arg3);
+			return Instance.CallMethod<DirectoryStream<Path>>("newDirectoryStream", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream/Filter;)Ljava/nio/file/DirectoryStream;", arg0, arg1);
 		}
 		
 		[JavaSignature("()Ljava/util/List;")]
@@ -193,6 +187,12 @@ namespace jvm4csharp.java.nio.file.spi
 		public OutputStream newOutputStream(Path arg0, ObjectArray<OpenOption> arg1)
 		{
 			return Instance.CallMethod<OutputStream>("newOutputStream", "(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/OutputStream;", arg0, arg1);
+		}
+		
+		[JavaSignature("(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)V")]
+		public void setAttribute(Path arg0, String arg1, IJavaObject arg2, ObjectArray<LinkOption> arg3)
+		{
+			Instance.CallMethod("setAttribute", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)V", arg0, arg1, arg2, arg3);
 		}
 	}
 }

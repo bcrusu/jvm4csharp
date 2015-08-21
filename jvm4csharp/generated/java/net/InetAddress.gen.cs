@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.io;
 using jvm4csharp.java.lang;
 
@@ -20,12 +20,6 @@ namespace jvm4csharp.java.net
 	{
 		protected InetAddress(ProxyCtor p) : base(p) {}
 	
-		[JavaSignature("(Ljava/lang/String;)Ljava/net/InetAddress;")]
-		public static InetAddress getByName(String arg0)
-		{
-			return Static.CallMethod<InetAddress>(typeof(InetAddress), "getByName", "(Ljava/lang/String;)Ljava/net/InetAddress;", arg0);
-		}
-		
 		[JavaSignature("()[B")]
 		public ByteArray getAddress()
 		{
@@ -42,6 +36,12 @@ namespace jvm4csharp.java.net
 		public String getHostName()
 		{
 			return Instance.CallMethod<String>("getHostName", "()Ljava/lang/String;");
+		}
+		
+		[JavaSignature("(Ljava/lang/String;)Ljava/net/InetAddress;")]
+		public static InetAddress getByName(String arg0)
+		{
+			return Static.CallMethod<InetAddress>(typeof(InetAddress), "getByName", "(Ljava/lang/String;)Ljava/net/InetAddress;", arg0);
 		}
 		
 		[JavaSignature("()Ljava/net/InetAddress;")]

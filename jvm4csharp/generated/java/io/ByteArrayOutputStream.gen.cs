@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 
 // ReSharper disable InconsistentNaming
@@ -29,12 +29,6 @@ namespace jvm4csharp.java.io
 			Instance.CallConstructor("(I)V", arg0);
 		}
 	
-		[JavaSignature("()[B")]
-		public ByteArray toByteArray()
-		{
-			return Instance.CallMethod<ByteArray>("toByteArray", "()[B");
-		}
-		
 		[JavaSignature("(Ljava/lang/String;)Ljava/lang/String;")]
 		public String toString(String arg0)
 		{
@@ -57,6 +51,12 @@ namespace jvm4csharp.java.io
 		public void reset()
 		{
 			Instance.CallMethod("reset", "()V");
+		}
+		
+		[JavaSignature("()[B")]
+		public ByteArray toByteArray()
+		{
+			return Instance.CallMethod<ByteArray>("toByteArray", "()[B");
 		}
 		
 		[JavaSignature("(Ljava/io/OutputStream;)V")]

@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 using jvm4csharp.java.util.function;
 
@@ -37,7 +37,7 @@ namespace jvm4csharp.java.util.stream
 		Supplier<A> supplier();
 	}
 	
-	public static class Collector_
+	public static partial class Collector_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 		

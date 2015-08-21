@@ -89,7 +89,7 @@ namespace jvm4csharp.java.util
 		V merge(K arg0, V arg1, BiFunction<IJavaObject, IJavaObject, V> arg2);
 	}
 	
-	public static class Map_
+	public static partial class Map_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 	
@@ -108,7 +108,7 @@ namespace jvm4csharp.java.util
 			V setValue(V arg0);
 		}
 		
-		public static class Entry_
+		public static partial class Entry_
 		{
 			private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 			

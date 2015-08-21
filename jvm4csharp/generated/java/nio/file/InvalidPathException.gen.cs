@@ -28,12 +28,6 @@ namespace jvm4csharp.java.nio.file
 			Instance.CallConstructor("(Ljava/lang/String;Ljava/lang/String;)V", arg0, arg1);
 		}
 	
-		[JavaSignature("()I")]
-		public int getIndex()
-		{
-			return Instance.CallMethod<int>("getIndex", "()I");
-		}
-		
 		[JavaSignature("()Ljava/lang/String;")]
 		public String getInput()
 		{
@@ -44,6 +38,12 @@ namespace jvm4csharp.java.nio.file
 		public String getReason()
 		{
 			return Instance.CallMethod<String>("getReason", "()Ljava/lang/String;");
+		}
+		
+		[JavaSignature("()I")]
+		public int getIndex()
+		{
+			return Instance.CallMethod<int>("getIndex", "()I");
 		}
 	}
 }

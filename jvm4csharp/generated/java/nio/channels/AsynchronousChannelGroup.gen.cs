@@ -50,6 +50,12 @@ namespace jvm4csharp.java.nio.channels
 			return Static.CallMethod<AsynchronousChannelGroup>(typeof(AsynchronousChannelGroup), "withThreadPool", "(Ljava/util/concurrent/ExecutorService;)Ljava/nio/channels/AsynchronousChannelGroup;", arg0);
 		}
 		
+		[JavaSignature("()V")]
+		public void shutdownNow()
+		{
+			Instance.CallMethod("shutdownNow", "()V");
+		}
+		
 		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
 		public bool awaitTermination(long arg0, TimeUnit arg1)
 		{
@@ -66,12 +72,6 @@ namespace jvm4csharp.java.nio.channels
 		public bool isTerminated()
 		{
 			return Instance.CallMethod<bool>("isTerminated", "()Z");
-		}
-		
-		[JavaSignature("()V")]
-		public void shutdownNow()
-		{
-			Instance.CallMethod("shutdownNow", "()V");
 		}
 	}
 }

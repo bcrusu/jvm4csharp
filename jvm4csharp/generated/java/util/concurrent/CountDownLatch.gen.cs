@@ -23,16 +23,16 @@ namespace jvm4csharp.java.util.concurrent
 			Instance.CallConstructor("(I)V", arg0);
 		}
 	
-		[JavaSignature("()V")]
-		public void countDown()
-		{
-			Instance.CallMethod("countDown", "()V");
-		}
-		
 		[JavaSignature("()J")]
 		public long getCount()
 		{
 			return Instance.CallMethod<long>("getCount", "()J");
+		}
+		
+		[JavaSignature("()V")]
+		public void countDown()
+		{
+			Instance.CallMethod("countDown", "()V");
 		}
 		
 		[JavaSignature("()V")]

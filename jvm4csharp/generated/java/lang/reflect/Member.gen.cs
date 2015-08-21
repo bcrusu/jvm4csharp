@@ -27,7 +27,7 @@ namespace jvm4csharp.java.lang.reflect
 		bool isSynthetic();
 	}
 	
-	public static class Member_
+	public static partial class Member_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 		

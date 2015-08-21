@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 using jvm4csharp.java.util.function;
 
@@ -176,7 +176,10 @@ namespace jvm4csharp.java.util
 		{
 			return Static.CallMethod<Spliterator_.OfLong>(typeof(Spliterators), "emptyLongSpliterator", "()Ljava/util/Spliterator/OfLong;");
 		}
+	}
 	
+	public static partial class Spliterators_
+	{
 		[JavaProxy("java/util/Spliterators/AbstractDoubleSpliterator")]
 		public abstract partial class AbstractDoubleSpliterator : Object, Spliterator_.OfDouble
 		{

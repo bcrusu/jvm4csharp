@@ -36,16 +36,10 @@ namespace jvm4csharp.java.util.concurrent.locks
 			Static.CallMethod(typeof(LockSupport), "unpark", "(Ljava/lang/Thread;)V", arg0);
 		}
 		
-		[JavaSignature("(Ljava/lang/Object;J)V")]
-		public static void parkNanos(IJavaObject arg0, long arg1)
+		[JavaSignature("(Ljava/lang/Thread;)Ljava/lang/Object;")]
+		public static IJavaObject getBlocker(Thread arg0)
 		{
-			Static.CallMethod(typeof(LockSupport), "parkNanos", "(Ljava/lang/Object;J)V", arg0, arg1);
-		}
-		
-		[JavaSignature("(J)V")]
-		public static void parkNanos(long arg0)
-		{
-			Static.CallMethod(typeof(LockSupport), "parkNanos", "(J)V", arg0);
+			return Static.CallMethod<IJavaObject>(typeof(LockSupport), "getBlocker", "(Ljava/lang/Thread;)Ljava/lang/Object;", arg0);
 		}
 		
 		[JavaSignature("(J)V")]
@@ -60,10 +54,16 @@ namespace jvm4csharp.java.util.concurrent.locks
 			Static.CallMethod(typeof(LockSupport), "parkUntil", "(Ljava/lang/Object;J)V", arg0, arg1);
 		}
 		
-		[JavaSignature("(Ljava/lang/Thread;)Ljava/lang/Object;")]
-		public static IJavaObject getBlocker(Thread arg0)
+		[JavaSignature("(Ljava/lang/Object;J)V")]
+		public static void parkNanos(IJavaObject arg0, long arg1)
 		{
-			return Static.CallMethod<IJavaObject>(typeof(LockSupport), "getBlocker", "(Ljava/lang/Thread;)Ljava/lang/Object;", arg0);
+			Static.CallMethod(typeof(LockSupport), "parkNanos", "(Ljava/lang/Object;J)V", arg0, arg1);
+		}
+		
+		[JavaSignature("(J)V")]
+		public static void parkNanos(long arg0)
+		{
+			Static.CallMethod(typeof(LockSupport), "parkNanos", "(J)V", arg0);
 		}
 	}
 }

@@ -48,7 +48,10 @@ namespace jvm4csharp.java.text
 		{
 			return Instance.CallMethod<IJavaObject>("parseObject", "(Ljava/lang/String;)Ljava/lang/Object;", arg0);
 		}
+	}
 	
+	public static partial class Format_
+	{
 		[JavaProxy("java/text/Format/Field")]
 		public partial class Field : AttributedCharacterIterator_.Attribute
 		{

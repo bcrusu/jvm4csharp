@@ -38,13 +38,13 @@ namespace jvm4csharp.java.util.concurrent.locks
 		}
 		
 		[JavaSignature("(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer/ConditionObject;)I")]
-		public int getWaitQueueLength(AbstractQueuedSynchronizer.ConditionObject arg0)
+		public int getWaitQueueLength(AbstractQueuedSynchronizer_.ConditionObject arg0)
 		{
 			return Instance.CallMethod<int>("getWaitQueueLength", "(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer/ConditionObject;)I", arg0);
 		}
 		
 		[JavaSignature("(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer/ConditionObject;)Ljava/util/Collection;")]
-		public Collection<Thread> getWaitingThreads(AbstractQueuedSynchronizer.ConditionObject arg0)
+		public Collection<Thread> getWaitingThreads(AbstractQueuedSynchronizer_.ConditionObject arg0)
 		{
 			return Instance.CallMethod<Collection<Thread>>("getWaitingThreads", "(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer/ConditionObject;)Ljava/util/Collection;", arg0);
 		}
@@ -56,7 +56,7 @@ namespace jvm4csharp.java.util.concurrent.locks
 		}
 		
 		[JavaSignature("(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer/ConditionObject;)Z")]
-		public bool hasWaiters(AbstractQueuedSynchronizer.ConditionObject arg0)
+		public bool hasWaiters(AbstractQueuedSynchronizer_.ConditionObject arg0)
 		{
 			return Instance.CallMethod<bool>("hasWaiters", "(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer/ConditionObject;)Z", arg0);
 		}
@@ -128,7 +128,7 @@ namespace jvm4csharp.java.util.concurrent.locks
 		}
 		
 		[JavaSignature("(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer/ConditionObject;)Z")]
-		public bool owns(AbstractQueuedSynchronizer.ConditionObject arg0)
+		public bool owns(AbstractQueuedSynchronizer_.ConditionObject arg0)
 		{
 			return Instance.CallMethod<bool>("owns", "(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer/ConditionObject;)Z", arg0);
 		}
@@ -144,7 +144,10 @@ namespace jvm4csharp.java.util.concurrent.locks
 		{
 			return Instance.CallMethod<bool>("tryAcquireSharedNanos", "(IJ)Z", arg0, arg1);
 		}
+	}
 	
+	public static partial class AbstractQueuedSynchronizer_
+	{
 		[JavaProxy("java/util/concurrent/locks/AbstractQueuedSynchronizer/ConditionObject")]
 		public partial class ConditionObject : Object, Condition, Serializable
 		{
@@ -155,6 +158,18 @@ namespace jvm4csharp.java.util.concurrent.locks
 				Instance.CallConstructor("(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer;)V", arg0);
 			}
 		
+			[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
+			public bool @await(long arg0, TimeUnit arg1)
+			{
+				return Instance.CallMethod<bool>("await", "(JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1);
+			}
+			
+			[JavaSignature("()V")]
+			public void @await()
+			{
+				Instance.CallMethod("await", "()V");
+			}
+			
 			[JavaSignature("(J)J")]
 			public long awaitNanos(long arg0)
 			{
@@ -183,18 +198,6 @@ namespace jvm4csharp.java.util.concurrent.locks
 			public void signalAll()
 			{
 				Instance.CallMethod("signalAll", "()V");
-			}
-			
-			[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
-			public bool @await(long arg0, TimeUnit arg1)
-			{
-				return Instance.CallMethod<bool>("await", "(JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1);
-			}
-			
-			[JavaSignature("()V")]
-			public void @await()
-			{
-				Instance.CallMethod("await", "()V");
 			}
 		}
 	}

@@ -14,14 +14,14 @@ namespace jvm4csharp.java.util.function
 	[JavaProxy("java/util/function/IntPredicate")]
 	public partial interface IntPredicate : IJavaObject
 	{
+		[JavaSignature("(I)Z")]
+		bool test(int arg0);
+		
 		[JavaSignature("(Ljava/util/function/IntPredicate;)Ljava/util/function/IntPredicate;")]
 		IntPredicate and(IntPredicate arg0);
 		
 		[JavaSignature("(Ljava/util/function/IntPredicate;)Ljava/util/function/IntPredicate;")]
 		IntPredicate or(IntPredicate arg0);
-		
-		[JavaSignature("(I)Z")]
-		bool test(int arg0);
 		
 		[JavaSignature("()Ljava/util/function/IntPredicate;")]
 		IntPredicate negate();

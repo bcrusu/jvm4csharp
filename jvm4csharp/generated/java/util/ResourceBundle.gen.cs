@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 
 // ReSharper disable InconsistentNaming
@@ -19,12 +19,6 @@ namespace jvm4csharp.java.util
 	{
 		protected ResourceBundle(ProxyCtor p) : base(p) {}
 	
-		[JavaSignature("(Ljava/lang/String;)Ljava/lang/String;")]
-		public String getString(String arg0)
-		{
-			return Instance.CallMethod<String>("getString", "(Ljava/lang/String;)Ljava/lang/String;", arg0);
-		}
-		
 		[JavaSignature("(Ljava/lang/String;)Ljava/lang/Object;")]
 		public IJavaObject getObject(String arg0)
 		{
@@ -49,16 +43,22 @@ namespace jvm4csharp.java.util
 			return Instance.CallMethod<Enumeration<String>>("getKeys", "()Ljava/util/Enumeration;");
 		}
 		
-		[JavaSignature("(Ljava/lang/ClassLoader;)V")]
-		public static void clearCache(ClassLoader arg0)
+		[JavaSignature("(Ljava/lang/String;)Ljava/lang/String;")]
+		public String getString(String arg0)
 		{
-			Static.CallMethod(typeof(ResourceBundle), "clearCache", "(Ljava/lang/ClassLoader;)V", arg0);
+			return Instance.CallMethod<String>("getString", "(Ljava/lang/String;)Ljava/lang/String;", arg0);
 		}
 		
 		[JavaSignature("()V")]
 		public static void clearCache()
 		{
 			Static.CallMethod(typeof(ResourceBundle), "clearCache", "()V");
+		}
+		
+		[JavaSignature("(Ljava/lang/ClassLoader;)V")]
+		public static void clearCache(ClassLoader arg0)
+		{
+			Static.CallMethod(typeof(ResourceBundle), "clearCache", "(Ljava/lang/ClassLoader;)V", arg0);
 		}
 		
 		[JavaSignature("()Ljava/lang/String;")]
@@ -74,19 +74,19 @@ namespace jvm4csharp.java.util
 		}
 		
 		[JavaSignature("(Ljava/lang/String;Ljava/util/ResourceBundle/Control;)Ljava/util/ResourceBundle;")]
-		public static ResourceBundle getBundle(String arg0, ResourceBundle.Control arg1)
+		public static ResourceBundle getBundle(String arg0, ResourceBundle_.Control arg1)
 		{
 			return Static.CallMethod<ResourceBundle>(typeof(ResourceBundle), "getBundle", "(Ljava/lang/String;Ljava/util/ResourceBundle/Control;)Ljava/util/ResourceBundle;", arg0, arg1);
 		}
 		
 		[JavaSignature("(Ljava/lang/String;Ljava/util/Locale;Ljava/util/ResourceBundle/Control;)Ljava/util/ResourceBundle;")]
-		public static ResourceBundle getBundle(String arg0, Locale arg1, ResourceBundle.Control arg2)
+		public static ResourceBundle getBundle(String arg0, Locale arg1, ResourceBundle_.Control arg2)
 		{
 			return Static.CallMethod<ResourceBundle>(typeof(ResourceBundle), "getBundle", "(Ljava/lang/String;Ljava/util/Locale;Ljava/util/ResourceBundle/Control;)Ljava/util/ResourceBundle;", arg0, arg1, arg2);
 		}
 		
 		[JavaSignature("(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/ClassLoader;Ljava/util/ResourceBundle/Control;)Ljava/util/ResourceBundle;")]
-		public static ResourceBundle getBundle(String arg0, Locale arg1, ClassLoader arg2, ResourceBundle.Control arg3)
+		public static ResourceBundle getBundle(String arg0, Locale arg1, ClassLoader arg2, ResourceBundle_.Control arg3)
 		{
 			return Static.CallMethod<ResourceBundle>(typeof(ResourceBundle), "getBundle", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/ClassLoader;Ljava/util/ResourceBundle/Control;)Ljava/util/ResourceBundle;", arg0, arg1, arg2, arg3);
 		}
@@ -114,7 +114,10 @@ namespace jvm4csharp.java.util
 		{
 			return Instance.CallMethod<ObjectArray<String>>("getStringArray", "(Ljava/lang/String;)[Ljava/lang/String;", arg0);
 		}
+	}
 	
+	public static partial class ResourceBundle_
+	{
 		[JavaProxy("java/util/ResourceBundle/Control")]
 		public partial class Control : Object
 		{
@@ -157,9 +160,9 @@ namespace jvm4csharp.java.util
 			}
 			
 			[JavaSignature("(Ljava/util/List;)Ljava/util/ResourceBundle/Control;")]
-			public static ResourceBundle.Control getControl(List<String> arg0)
+			public static ResourceBundle_.Control getControl(List<String> arg0)
 			{
-				return Static.CallMethod<ResourceBundle.Control>(typeof(Control), "getControl", "(Ljava/util/List;)Ljava/util/ResourceBundle/Control;", arg0);
+				return Static.CallMethod<ResourceBundle_.Control>(typeof(Control), "getControl", "(Ljava/util/List;)Ljava/util/ResourceBundle/Control;", arg0);
 			}
 			
 			[JavaSignature("(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/Locale;")]
@@ -193,9 +196,9 @@ namespace jvm4csharp.java.util
 			}
 			
 			[JavaSignature("(Ljava/util/List;)Ljava/util/ResourceBundle/Control;")]
-			public static ResourceBundle.Control getNoFallbackControl(List<String> arg0)
+			public static ResourceBundle_.Control getNoFallbackControl(List<String> arg0)
 			{
-				return Static.CallMethod<ResourceBundle.Control>(typeof(Control), "getNoFallbackControl", "(Ljava/util/List;)Ljava/util/ResourceBundle/Control;", arg0);
+				return Static.CallMethod<ResourceBundle_.Control>(typeof(Control), "getNoFallbackControl", "(Ljava/util/List;)Ljava/util/ResourceBundle/Control;", arg0);
 			}
 			
 			[JavaSignature("(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;")]

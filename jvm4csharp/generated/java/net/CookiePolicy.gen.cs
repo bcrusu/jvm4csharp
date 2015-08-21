@@ -18,7 +18,7 @@ namespace jvm4csharp.java.net
 		bool shouldAccept(URI arg0, HttpCookie arg1);
 	}
 	
-	public static class CookiePolicy_
+	public static partial class CookiePolicy_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 		

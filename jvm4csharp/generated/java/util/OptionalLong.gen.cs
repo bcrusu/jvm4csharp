@@ -31,6 +31,12 @@ namespace jvm4csharp.java.util
 			return Static.CallMethod<OptionalLong>(typeof(OptionalLong), "empty", "()Ljava/util/OptionalLong;");
 		}
 		
+		[JavaSignature("()J")]
+		public long getAsLong()
+		{
+			return Instance.CallMethod<long>("getAsLong", "()J");
+		}
+		
 		[JavaSignature("(Ljava/util/function/LongConsumer;)V")]
 		public void ifPresent(LongConsumer arg0)
 		{
@@ -60,12 +66,6 @@ namespace jvm4csharp.java.util
 			where X : Throwable
 		{
 			return Instance.CallMethod<long>("orElseThrow", "(Ljava/util/function/Supplier;)J", arg0);
-		}
-		
-		[JavaSignature("()J")]
-		public long getAsLong()
-		{
-			return Instance.CallMethod<long>("getAsLong", "()J");
 		}
 	}
 }

@@ -23,7 +23,7 @@ namespace jvm4csharp.java.nio.file
 		new Iterator<T> iterator();
 	}
 	
-	public static class DirectoryStream_
+	public static partial class DirectoryStream_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 	

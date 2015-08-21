@@ -17,6 +17,6 @@ namespace jvm4csharp.java.util.spi
 	public partial interface ResourceBundleControlProvider : IJavaObject
 	{
 		[JavaSignature("(Ljava/lang/String;)Ljava/util/ResourceBundle/Control;")]
-		ResourceBundle.Control getControl(String arg0);
+		ResourceBundle_.Control getControl(String arg0);
 	}
 }

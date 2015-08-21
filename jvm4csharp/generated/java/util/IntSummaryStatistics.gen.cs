@@ -36,6 +36,12 @@ namespace jvm4csharp.java.util
 			Instance.CallMethod("combine", "(Ljava/util/IntSummaryStatistics;)V", arg0);
 		}
 		
+		[JavaSignature("()J")]
+		public long getCount()
+		{
+			return Instance.CallMethod<long>("getCount", "()J");
+		}
+		
 		[JavaSignature("()D")]
 		public double getAverage()
 		{
@@ -58,12 +64,6 @@ namespace jvm4csharp.java.util
 		public int getMin()
 		{
 			return Instance.CallMethod<int>("getMin", "()I");
-		}
-		
-		[JavaSignature("()J")]
-		public long getCount()
-		{
-			return Instance.CallMethod<long>("getCount", "()J");
 		}
 		
 		[JavaSignature("(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;")]

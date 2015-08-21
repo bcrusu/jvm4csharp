@@ -23,7 +23,7 @@ namespace jvm4csharp.java.util
 		void forEachRemaining(T_CONS arg0);
 	}
 	
-	public static class PrimitiveIterator_
+	public static partial class PrimitiveIterator_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 	

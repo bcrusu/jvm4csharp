@@ -14,17 +14,17 @@ namespace jvm4csharp.java.util.function
 	[JavaProxy("java/util/function/DoubleUnaryOperator")]
 	public partial interface DoubleUnaryOperator : IJavaObject
 	{
+		[JavaSignature("(D)D")]
+		double applyAsDouble(double arg0);
+		
 		[JavaSignature("(Ljava/util/function/DoubleUnaryOperator;)Ljava/util/function/DoubleUnaryOperator;")]
 		DoubleUnaryOperator andThen(DoubleUnaryOperator arg0);
 		
 		[JavaSignature("(Ljava/util/function/DoubleUnaryOperator;)Ljava/util/function/DoubleUnaryOperator;")]
 		DoubleUnaryOperator compose(DoubleUnaryOperator arg0);
-		
-		[JavaSignature("(D)D")]
-		double applyAsDouble(double arg0);
 	}
 	
-	public static class DoubleUnaryOperator_
+	public static partial class DoubleUnaryOperator_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 		

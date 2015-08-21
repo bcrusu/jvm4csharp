@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 using jvm4csharp.java.util;
 
@@ -20,12 +20,6 @@ namespace jvm4csharp.java.net
 	{
 		protected NetworkInterface(ProxyCtor p) : base(p) {}
 	
-		[JavaSignature("(Ljava/lang/String;)Ljava/net/NetworkInterface;")]
-		public static NetworkInterface getByName(String arg0)
-		{
-			return Static.CallMethod<NetworkInterface>(typeof(NetworkInterface), "getByName", "(Ljava/lang/String;)Ljava/net/NetworkInterface;", arg0);
-		}
-		
 		[JavaSignature("()Ljava/lang/String;")]
 		public String getName()
 		{
@@ -42,6 +36,12 @@ namespace jvm4csharp.java.net
 		public String getDisplayName()
 		{
 			return Instance.CallMethod<String>("getDisplayName", "()Ljava/lang/String;");
+		}
+		
+		[JavaSignature("(Ljava/lang/String;)Ljava/net/NetworkInterface;")]
+		public static NetworkInterface getByName(String arg0)
+		{
+			return Static.CallMethod<NetworkInterface>(typeof(NetworkInterface), "getByName", "(Ljava/lang/String;)Ljava/net/NetworkInterface;", arg0);
 		}
 		
 		[JavaSignature("()I")]

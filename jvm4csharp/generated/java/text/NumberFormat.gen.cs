@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 using jvm4csharp.java.math;
 using jvm4csharp.java.util;
@@ -69,16 +69,16 @@ namespace jvm4csharp.java.text
 			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
 		}
 		
-		[JavaSignature("(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Number;")]
-		public Number parse(String arg0, ParsePosition arg1)
-		{
-			return Instance.CallMethod<Number>("parse", "(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Number;", arg0, arg1);
-		}
-		
 		[JavaSignature("(Ljava/lang/String;)Ljava/lang/Number;")]
 		public Number parse(String arg0)
 		{
 			return Instance.CallMethod<Number>("parse", "(Ljava/lang/String;)Ljava/lang/Number;", arg0);
+		}
+		
+		[JavaSignature("(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Number;")]
+		public Number parse(String arg0, ParsePosition arg1)
+		{
+			return Instance.CallMethod<Number>("parse", "(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Number;", arg0, arg1);
 		}
 		
 		[JavaSignature("()[Ljava/util/Locale;")]
@@ -99,16 +99,34 @@ namespace jvm4csharp.java.text
 			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getIntegerInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
 		}
 		
-		[JavaSignature("()Ljava/util/Currency;")]
-		public Currency getCurrency()
+		[JavaSignature("(Ljava/math/RoundingMode;)V")]
+		public void setRoundingMode(RoundingMode arg0)
 		{
-			return Instance.CallMethod<Currency>("getCurrency", "()Ljava/util/Currency;");
+			Instance.CallMethod("setRoundingMode", "(Ljava/math/RoundingMode;)V", arg0);
 		}
 		
-		[JavaSignature("(Ljava/util/Currency;)V")]
-		public void setCurrency(Currency arg0)
+		[JavaSignature("(Ljava/util/Locale;)Ljava/text/NumberFormat;")]
+		public static NumberFormat getCurrencyInstance(Locale arg0)
 		{
-			Instance.CallMethod("setCurrency", "(Ljava/util/Currency;)V", arg0);
+			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getCurrencyInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
+		}
+		
+		[JavaSignature("()Ljava/text/NumberFormat;")]
+		public static NumberFormat getCurrencyInstance()
+		{
+			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getCurrencyInstance", "()Ljava/text/NumberFormat;");
+		}
+		
+		[JavaSignature("(Ljava/util/Locale;)Ljava/text/NumberFormat;")]
+		public static NumberFormat getPercentInstance(Locale arg0)
+		{
+			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getPercentInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
+		}
+		
+		[JavaSignature("()Ljava/text/NumberFormat;")]
+		public static NumberFormat getPercentInstance()
+		{
+			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getPercentInstance", "()Ljava/text/NumberFormat;");
 		}
 		
 		[JavaSignature("()I")]
@@ -189,16 +207,16 @@ namespace jvm4csharp.java.text
 			Instance.CallMethod("setParseIntegerOnly", "(Z)V", arg0);
 		}
 		
-		[JavaSignature("(Ljava/math/RoundingMode;)V")]
-		public void setRoundingMode(RoundingMode arg0)
+		[JavaSignature("()Ljava/util/Currency;")]
+		public Currency getCurrency()
 		{
-			Instance.CallMethod("setRoundingMode", "(Ljava/math/RoundingMode;)V", arg0);
+			return Instance.CallMethod<Currency>("getCurrency", "()Ljava/util/Currency;");
 		}
 		
-		[JavaSignature("(Ljava/util/Locale;)Ljava/text/NumberFormat;")]
-		public static NumberFormat getNumberInstance(Locale arg0)
+		[JavaSignature("(Ljava/util/Currency;)V")]
+		public void setCurrency(Currency arg0)
 		{
-			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getNumberInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
+			Instance.CallMethod("setCurrency", "(Ljava/util/Currency;)V", arg0);
 		}
 		
 		[JavaSignature("()Ljava/text/NumberFormat;")]
@@ -207,99 +225,84 @@ namespace jvm4csharp.java.text
 			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getNumberInstance", "()Ljava/text/NumberFormat;");
 		}
 		
-		[JavaSignature("()Ljava/text/NumberFormat;")]
-		public static NumberFormat getCurrencyInstance()
-		{
-			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getCurrencyInstance", "()Ljava/text/NumberFormat;");
-		}
-		
 		[JavaSignature("(Ljava/util/Locale;)Ljava/text/NumberFormat;")]
-		public static NumberFormat getCurrencyInstance(Locale arg0)
+		public static NumberFormat getNumberInstance(Locale arg0)
 		{
-			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getCurrencyInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
+			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getNumberInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
 		}
-		
-		[JavaSignature("(Ljava/util/Locale;)Ljava/text/NumberFormat;")]
-		public static NumberFormat getPercentInstance(Locale arg0)
-		{
-			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getPercentInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", arg0);
-		}
-		
-		[JavaSignature("()Ljava/text/NumberFormat;")]
-		public static NumberFormat getPercentInstance()
-		{
-			return Static.CallMethod<NumberFormat>(typeof(NumberFormat), "getPercentInstance", "()Ljava/text/NumberFormat;");
-		}
+	}
 	
+	public static partial class NumberFormat_
+	{
 		[JavaProxy("java/text/NumberFormat/Field")]
-		public partial class Field : Format.Field
+		public partial class Field : Format_.Field
 		{
 			protected Field(ProxyCtor p) : base(p) {}
 		
 			[JavaSignature("Ljava/text/NumberFormat/Field;")]
-			public static NumberFormat.Field INTEGER
+			public static NumberFormat_.Field INTEGER
 			{
-				get { return Static.GetField<NumberFormat.Field>(typeof(Field), "INTEGER", "Ljava/text/NumberFormat/Field;"); }
+				get { return Static.GetField<NumberFormat_.Field>(typeof(Field), "INTEGER", "Ljava/text/NumberFormat/Field;"); }
 			}
 			
 			[JavaSignature("Ljava/text/NumberFormat/Field;")]
-			public static NumberFormat.Field FRACTION
+			public static NumberFormat_.Field FRACTION
 			{
-				get { return Static.GetField<NumberFormat.Field>(typeof(Field), "FRACTION", "Ljava/text/NumberFormat/Field;"); }
+				get { return Static.GetField<NumberFormat_.Field>(typeof(Field), "FRACTION", "Ljava/text/NumberFormat/Field;"); }
 			}
 			
 			[JavaSignature("Ljava/text/NumberFormat/Field;")]
-			public static NumberFormat.Field EXPONENT
+			public static NumberFormat_.Field EXPONENT
 			{
-				get { return Static.GetField<NumberFormat.Field>(typeof(Field), "EXPONENT", "Ljava/text/NumberFormat/Field;"); }
+				get { return Static.GetField<NumberFormat_.Field>(typeof(Field), "EXPONENT", "Ljava/text/NumberFormat/Field;"); }
 			}
 			
 			[JavaSignature("Ljava/text/NumberFormat/Field;")]
-			public static NumberFormat.Field DECIMAL_SEPARATOR
+			public static NumberFormat_.Field DECIMAL_SEPARATOR
 			{
-				get { return Static.GetField<NumberFormat.Field>(typeof(Field), "DECIMAL_SEPARATOR", "Ljava/text/NumberFormat/Field;"); }
+				get { return Static.GetField<NumberFormat_.Field>(typeof(Field), "DECIMAL_SEPARATOR", "Ljava/text/NumberFormat/Field;"); }
 			}
 			
 			[JavaSignature("Ljava/text/NumberFormat/Field;")]
-			public static NumberFormat.Field SIGN
+			public static NumberFormat_.Field SIGN
 			{
-				get { return Static.GetField<NumberFormat.Field>(typeof(Field), "SIGN", "Ljava/text/NumberFormat/Field;"); }
+				get { return Static.GetField<NumberFormat_.Field>(typeof(Field), "SIGN", "Ljava/text/NumberFormat/Field;"); }
 			}
 			
 			[JavaSignature("Ljava/text/NumberFormat/Field;")]
-			public static NumberFormat.Field GROUPING_SEPARATOR
+			public static NumberFormat_.Field GROUPING_SEPARATOR
 			{
-				get { return Static.GetField<NumberFormat.Field>(typeof(Field), "GROUPING_SEPARATOR", "Ljava/text/NumberFormat/Field;"); }
+				get { return Static.GetField<NumberFormat_.Field>(typeof(Field), "GROUPING_SEPARATOR", "Ljava/text/NumberFormat/Field;"); }
 			}
 			
 			[JavaSignature("Ljava/text/NumberFormat/Field;")]
-			public static NumberFormat.Field EXPONENT_SYMBOL
+			public static NumberFormat_.Field EXPONENT_SYMBOL
 			{
-				get { return Static.GetField<NumberFormat.Field>(typeof(Field), "EXPONENT_SYMBOL", "Ljava/text/NumberFormat/Field;"); }
+				get { return Static.GetField<NumberFormat_.Field>(typeof(Field), "EXPONENT_SYMBOL", "Ljava/text/NumberFormat/Field;"); }
 			}
 			
 			[JavaSignature("Ljava/text/NumberFormat/Field;")]
-			public static NumberFormat.Field PERCENT
+			public static NumberFormat_.Field PERCENT
 			{
-				get { return Static.GetField<NumberFormat.Field>(typeof(Field), "PERCENT", "Ljava/text/NumberFormat/Field;"); }
+				get { return Static.GetField<NumberFormat_.Field>(typeof(Field), "PERCENT", "Ljava/text/NumberFormat/Field;"); }
 			}
 			
 			[JavaSignature("Ljava/text/NumberFormat/Field;")]
-			public static NumberFormat.Field PERMILLE
+			public static NumberFormat_.Field PERMILLE
 			{
-				get { return Static.GetField<NumberFormat.Field>(typeof(Field), "PERMILLE", "Ljava/text/NumberFormat/Field;"); }
+				get { return Static.GetField<NumberFormat_.Field>(typeof(Field), "PERMILLE", "Ljava/text/NumberFormat/Field;"); }
 			}
 			
 			[JavaSignature("Ljava/text/NumberFormat/Field;")]
-			public static NumberFormat.Field CURRENCY
+			public static NumberFormat_.Field CURRENCY
 			{
-				get { return Static.GetField<NumberFormat.Field>(typeof(Field), "CURRENCY", "Ljava/text/NumberFormat/Field;"); }
+				get { return Static.GetField<NumberFormat_.Field>(typeof(Field), "CURRENCY", "Ljava/text/NumberFormat/Field;"); }
 			}
 			
 			[JavaSignature("Ljava/text/NumberFormat/Field;")]
-			public static NumberFormat.Field EXPONENT_SIGN
+			public static NumberFormat_.Field EXPONENT_SIGN
 			{
-				get { return Static.GetField<NumberFormat.Field>(typeof(Field), "EXPONENT_SIGN", "Ljava/text/NumberFormat/Field;"); }
+				get { return Static.GetField<NumberFormat_.Field>(typeof(Field), "EXPONENT_SIGN", "Ljava/text/NumberFormat/Field;"); }
 			}
 		}
 	}

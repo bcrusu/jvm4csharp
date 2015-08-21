@@ -20,28 +20,16 @@ namespace jvm4csharp.java.nio.channels
 	{
 		protected Channels(ProxyCtor p) : base(p) {}
 	
-		[JavaSignature("(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/charset/CharsetDecoder;I)Ljava/io/Reader;")]
-		public static Reader newReader(ReadableByteChannel arg0, CharsetDecoder arg1, int arg2)
+		[JavaSignature("(Ljava/nio/channels/ReadableByteChannel;)Ljava/io/InputStream;")]
+		public static InputStream newInputStream(ReadableByteChannel arg0)
 		{
-			return Static.CallMethod<Reader>(typeof(Channels), "newReader", "(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/charset/CharsetDecoder;I)Ljava/io/Reader;", arg0, arg1, arg2);
-		}
-		
-		[JavaSignature("(Ljava/nio/channels/ReadableByteChannel;Ljava/lang/String;)Ljava/io/Reader;")]
-		public static Reader newReader(ReadableByteChannel arg0, String arg1)
-		{
-			return Static.CallMethod<Reader>(typeof(Channels), "newReader", "(Ljava/nio/channels/ReadableByteChannel;Ljava/lang/String;)Ljava/io/Reader;", arg0, arg1);
+			return Static.CallMethod<InputStream>(typeof(Channels), "newInputStream", "(Ljava/nio/channels/ReadableByteChannel;)Ljava/io/InputStream;", arg0);
 		}
 		
 		[JavaSignature("(Ljava/nio/channels/AsynchronousByteChannel;)Ljava/io/InputStream;")]
 		public static InputStream newInputStream(AsynchronousByteChannel arg0)
 		{
 			return Static.CallMethod<InputStream>(typeof(Channels), "newInputStream", "(Ljava/nio/channels/AsynchronousByteChannel;)Ljava/io/InputStream;", arg0);
-		}
-		
-		[JavaSignature("(Ljava/nio/channels/ReadableByteChannel;)Ljava/io/InputStream;")]
-		public static InputStream newInputStream(ReadableByteChannel arg0)
-		{
-			return Static.CallMethod<InputStream>(typeof(Channels), "newInputStream", "(Ljava/nio/channels/ReadableByteChannel;)Ljava/io/InputStream;", arg0);
 		}
 		
 		[JavaSignature("(Ljava/nio/channels/AsynchronousByteChannel;)Ljava/io/OutputStream;")]
@@ -54,6 +42,18 @@ namespace jvm4csharp.java.nio.channels
 		public static OutputStream newOutputStream(WritableByteChannel arg0)
 		{
 			return Static.CallMethod<OutputStream>(typeof(Channels), "newOutputStream", "(Ljava/nio/channels/WritableByteChannel;)Ljava/io/OutputStream;", arg0);
+		}
+		
+		[JavaSignature("(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/charset/CharsetDecoder;I)Ljava/io/Reader;")]
+		public static Reader newReader(ReadableByteChannel arg0, CharsetDecoder arg1, int arg2)
+		{
+			return Static.CallMethod<Reader>(typeof(Channels), "newReader", "(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/charset/CharsetDecoder;I)Ljava/io/Reader;", arg0, arg1, arg2);
+		}
+		
+		[JavaSignature("(Ljava/nio/channels/ReadableByteChannel;Ljava/lang/String;)Ljava/io/Reader;")]
+		public static Reader newReader(ReadableByteChannel arg0, String arg1)
+		{
+			return Static.CallMethod<Reader>(typeof(Channels), "newReader", "(Ljava/nio/channels/ReadableByteChannel;Ljava/lang/String;)Ljava/io/Reader;", arg0, arg1);
 		}
 		
 		[JavaSignature("(Ljava/io/OutputStream;)Ljava/nio/channels/WritableByteChannel;")]

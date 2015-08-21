@@ -31,16 +31,16 @@ namespace jvm4csharp.java.net
 			Instance.CallConstructor("()V");
 		}
 	
-		[JavaSignature("()I")]
-		public int getTimeToLive()
-		{
-			return Instance.CallMethod<int>("getTimeToLive", "()I");
-		}
-		
 		[JavaSignature("(Ljava/net/DatagramPacket;B)V")]
 		public void send(DatagramPacket arg0, byte arg1)
 		{
 			Instance.CallMethod("send", "(Ljava/net/DatagramPacket;B)V", arg0, arg1);
+		}
+		
+		[JavaSignature("()I")]
+		public int getTimeToLive()
+		{
+			return Instance.CallMethod<int>("getTimeToLive", "()I");
 		}
 		
 		[JavaSignature("()Ljava/net/InetAddress;")]
@@ -67,16 +67,16 @@ namespace jvm4csharp.java.net
 			return Instance.CallMethod<byte>("getTTL", "()B");
 		}
 		
-		[JavaSignature("(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V")]
-		public void joinGroup(SocketAddress arg0, NetworkInterface arg1)
-		{
-			Instance.CallMethod("joinGroup", "(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V", arg0, arg1);
-		}
-		
 		[JavaSignature("(Ljava/net/InetAddress;)V")]
 		public void joinGroup(InetAddress arg0)
 		{
 			Instance.CallMethod("joinGroup", "(Ljava/net/InetAddress;)V", arg0);
+		}
+		
+		[JavaSignature("(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V")]
+		public void joinGroup(SocketAddress arg0, NetworkInterface arg1)
+		{
+			Instance.CallMethod("joinGroup", "(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V", arg0, arg1);
 		}
 		
 		[JavaSignature("(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V")]

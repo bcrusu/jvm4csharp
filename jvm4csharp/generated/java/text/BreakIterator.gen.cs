@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 using jvm4csharp.java.util;
 
@@ -57,27 +57,21 @@ namespace jvm4csharp.java.text
 		}
 		
 		[JavaSignature("()I")]
-		public int last()
-		{
-			return Instance.CallMethod<int>("last", "()I");
-		}
-		
-		[JavaSignature("()I")]
 		public int current()
 		{
 			return Instance.CallMethod<int>("current", "()I");
+		}
+		
+		[JavaSignature("()I")]
+		public int last()
+		{
+			return Instance.CallMethod<int>("last", "()I");
 		}
 		
 		[JavaSignature("(I)I")]
 		public int following(int arg0)
 		{
 			return Instance.CallMethod<int>("following", "(I)I", arg0);
-		}
-		
-		[JavaSignature("(Ljava/util/Locale;)Ljava/text/BreakIterator;")]
-		public static BreakIterator getCharacterInstance(Locale arg0)
-		{
-			return Static.CallMethod<BreakIterator>(typeof(BreakIterator), "getCharacterInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", arg0);
 		}
 		
 		[JavaSignature("()Ljava/text/BreakIterator;")]
@@ -87,15 +81,21 @@ namespace jvm4csharp.java.text
 		}
 		
 		[JavaSignature("(Ljava/util/Locale;)Ljava/text/BreakIterator;")]
-		public static BreakIterator getLineInstance(Locale arg0)
+		public static BreakIterator getCharacterInstance(Locale arg0)
 		{
-			return Static.CallMethod<BreakIterator>(typeof(BreakIterator), "getLineInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", arg0);
+			return Static.CallMethod<BreakIterator>(typeof(BreakIterator), "getCharacterInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", arg0);
 		}
 		
 		[JavaSignature("()Ljava/text/BreakIterator;")]
 		public static BreakIterator getLineInstance()
 		{
 			return Static.CallMethod<BreakIterator>(typeof(BreakIterator), "getLineInstance", "()Ljava/text/BreakIterator;");
+		}
+		
+		[JavaSignature("(Ljava/util/Locale;)Ljava/text/BreakIterator;")]
+		public static BreakIterator getLineInstance(Locale arg0)
+		{
+			return Static.CallMethod<BreakIterator>(typeof(BreakIterator), "getLineInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", arg0);
 		}
 		
 		[JavaSignature("(Ljava/util/Locale;)Ljava/text/BreakIterator;")]

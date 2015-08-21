@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 
 // ReSharper disable InconsistentNaming
@@ -24,12 +24,6 @@ namespace jvm4csharp.java.io
 			Instance.CallConstructor("(Ljava/io/InputStream;)V", arg0);
 		}
 	
-		[JavaSignature("()F")]
-		public float readFloat()
-		{
-			return Instance.CallMethod<float>("readFloat", "()F");
-		}
-		
 		[JavaSignature("()V")]
 		public void defaultReadObject()
 		{
@@ -55,9 +49,9 @@ namespace jvm4csharp.java.io
 		}
 		
 		[JavaSignature("()Ljava/io/ObjectInputStream/GetField;")]
-		public ObjectInputStream.GetField readFields()
+		public ObjectInputStream_.GetField readFields()
 		{
-			return Instance.CallMethod<ObjectInputStream.GetField>("readFields", "()Ljava/io/ObjectInputStream/GetField;");
+			return Instance.CallMethod<ObjectInputStream_.GetField>("readFields", "()Ljava/io/ObjectInputStream/GetField;");
 		}
 		
 		[JavaSignature("()C")]
@@ -66,22 +60,28 @@ namespace jvm4csharp.java.io
 			return Instance.CallMethod<char>("readChar", "()C");
 		}
 		
-		[JavaSignature("([BII)V")]
-		public void readFully(ByteArray arg0, int arg1, int arg2)
-		{
-			Instance.CallMethod("readFully", "([BII)V", arg0, arg1, arg2);
-		}
-		
 		[JavaSignature("([B)V")]
 		public void readFully(ByteArray arg0)
 		{
 			Instance.CallMethod("readFully", "([B)V", arg0);
 		}
 		
+		[JavaSignature("([BII)V")]
+		public void readFully(ByteArray arg0, int arg1, int arg2)
+		{
+			Instance.CallMethod("readFully", "([BII)V", arg0, arg1, arg2);
+		}
+		
 		[JavaSignature("()Ljava/lang/String;")]
 		public String readUTF()
 		{
 			return Instance.CallMethod<String>("readUTF", "()Ljava/lang/String;");
+		}
+		
+		[JavaSignature("()F")]
+		public float readFloat()
+		{
+			return Instance.CallMethod<float>("readFloat", "()F");
 		}
 		
 		[JavaSignature("()J")]
@@ -143,7 +143,10 @@ namespace jvm4csharp.java.io
 		{
 			Instance.CallMethod("registerValidation", "(Ljava/io/ObjectInputValidation;I)V", arg0, arg1);
 		}
+	}
 	
+	public static partial class ObjectInputStream_
+	{
 		[JavaProxy("java/io/ObjectInputStream/GetField")]
 		public abstract partial class GetField : Object
 		{

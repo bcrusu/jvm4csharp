@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.io;
 using jvm4csharp.java.lang;
 
@@ -63,25 +63,6 @@ namespace jvm4csharp.java.util.concurrent
 			return Static.CallMethod<ForkJoinPool>(typeof(ForkJoinTask<>), "getPool", "()Ljava/util/concurrent/ForkJoinPool;");
 		}
 		
-		[JavaSignature("(Ljava/util/Collection;)Ljava/util/Collection;")]
-		public static Collection<T> invokeAll<T>(Collection<T> arg0)
-			where T : ForkJoinTask<IJavaObject>
-		{
-			return Static.CallMethod<Collection<T>>(typeof(ForkJoinTask<>), "invokeAll", "(Ljava/util/Collection;)Ljava/util/Collection;", arg0);
-		}
-		
-		[JavaSignature("([Ljava/util/concurrent/ForkJoinTask;)V")]
-		public static void invokeAll(ObjectArray<ForkJoinTask<IJavaObject>> arg0)
-		{
-			Static.CallMethod(typeof(ForkJoinTask<>), "invokeAll", "([Ljava/util/concurrent/ForkJoinTask;)V", arg0);
-		}
-		
-		[JavaSignature("(Ljava/util/concurrent/ForkJoinTask;Ljava/util/concurrent/ForkJoinTask;)V")]
-		public static void invokeAll(ForkJoinTask<IJavaObject> arg0, ForkJoinTask<IJavaObject> arg1)
-		{
-			Static.CallMethod(typeof(ForkJoinTask<>), "invokeAll", "(Ljava/util/concurrent/ForkJoinTask;Ljava/util/concurrent/ForkJoinTask;)V", arg0, arg1);
-		}
-		
 		[JavaSignature("(Z)Z")]
 		public bool cancel(bool arg0)
 		{
@@ -118,6 +99,12 @@ namespace jvm4csharp.java.util.concurrent
 			Instance.CallMethod("quietlyComplete", "()V");
 		}
 		
+		[JavaSignature("(Ljava/lang/Runnable;)Ljava/util/concurrent/ForkJoinTask;")]
+		public static ForkJoinTask<IJavaObject> adapt(Runnable arg0)
+		{
+			return Static.CallMethod<ForkJoinTask<IJavaObject>>(typeof(ForkJoinTask<>), "adapt", "(Ljava/lang/Runnable;)Ljava/util/concurrent/ForkJoinTask;", arg0);
+		}
+		
 		[JavaSignature("(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/ForkJoinTask;")]
 		public static ForkJoinTask<T> adapt<T>(Callable<T> arg0)
 			where T : IJavaObject
@@ -130,12 +117,6 @@ namespace jvm4csharp.java.util.concurrent
 			where T : IJavaObject
 		{
 			return Static.CallMethod<ForkJoinTask<T>>(typeof(ForkJoinTask<>), "adapt", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/ForkJoinTask;", arg0, arg1);
-		}
-		
-		[JavaSignature("(Ljava/lang/Runnable;)Ljava/util/concurrent/ForkJoinTask;")]
-		public static ForkJoinTask<IJavaObject> adapt(Runnable arg0)
-		{
-			return Static.CallMethod<ForkJoinTask<IJavaObject>>(typeof(ForkJoinTask<>), "adapt", "(Ljava/lang/Runnable;)Ljava/util/concurrent/ForkJoinTask;", arg0);
 		}
 		
 		[JavaSignature("(SS)Z")]
@@ -220,6 +201,25 @@ namespace jvm4csharp.java.util.concurrent
 		public bool tryUnfork()
 		{
 			return Instance.CallMethod<bool>("tryUnfork", "()Z");
+		}
+		
+		[JavaSignature("([Ljava/util/concurrent/ForkJoinTask;)V")]
+		public static void invokeAll(ObjectArray<ForkJoinTask<IJavaObject>> arg0)
+		{
+			Static.CallMethod(typeof(ForkJoinTask<>), "invokeAll", "([Ljava/util/concurrent/ForkJoinTask;)V", arg0);
+		}
+		
+		[JavaSignature("(Ljava/util/concurrent/ForkJoinTask;Ljava/util/concurrent/ForkJoinTask;)V")]
+		public static void invokeAll(ForkJoinTask<IJavaObject> arg0, ForkJoinTask<IJavaObject> arg1)
+		{
+			Static.CallMethod(typeof(ForkJoinTask<>), "invokeAll", "(Ljava/util/concurrent/ForkJoinTask;Ljava/util/concurrent/ForkJoinTask;)V", arg0, arg1);
+		}
+		
+		[JavaSignature("(Ljava/util/Collection;)Ljava/util/Collection;")]
+		public static Collection<T> invokeAll<T>(Collection<T> arg0)
+			where T : ForkJoinTask<IJavaObject>
+		{
+			return Static.CallMethod<Collection<T>>(typeof(ForkJoinTask<>), "invokeAll", "(Ljava/util/Collection;)Ljava/util/Collection;", arg0);
 		}
 	}
 }

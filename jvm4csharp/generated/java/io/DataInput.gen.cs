@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 
 // ReSharper disable InconsistentNaming
@@ -17,9 +17,6 @@ namespace jvm4csharp.java.io
 	[JavaProxy("java/io/DataInput")]
 	public partial interface DataInput : IJavaObject
 	{
-		[JavaSignature("()F")]
-		float readFloat();
-		
 		[JavaSignature("()Ljava/lang/String;")]
 		String readLine();
 		
@@ -37,6 +34,9 @@ namespace jvm4csharp.java.io
 		
 		[JavaSignature("()Ljava/lang/String;")]
 		String readUTF();
+		
+		[JavaSignature("()F")]
+		float readFloat();
 		
 		[JavaSignature("()J")]
 		long readLong();

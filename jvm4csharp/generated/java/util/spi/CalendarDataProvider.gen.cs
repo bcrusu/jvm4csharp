@@ -17,15 +17,15 @@ namespace jvm4csharp.java.util.spi
 		protected CalendarDataProvider(ProxyCtor p) : base(p) {}
 	
 		[JavaSignature("(Ljava/util/Locale;)I")]
-		public int getFirstDayOfWeek(Locale arg0)
-		{
-			return Instance.CallMethod<int>("getFirstDayOfWeek", "(Ljava/util/Locale;)I", arg0);
-		}
-		
-		[JavaSignature("(Ljava/util/Locale;)I")]
 		public int getMinimalDaysInFirstWeek(Locale arg0)
 		{
 			return Instance.CallMethod<int>("getMinimalDaysInFirstWeek", "(Ljava/util/Locale;)I", arg0);
+		}
+		
+		[JavaSignature("(Ljava/util/Locale;)I")]
+		public int getFirstDayOfWeek(Locale arg0)
+		{
+			return Instance.CallMethod<int>("getFirstDayOfWeek", "(Ljava/util/Locale;)I", arg0);
 		}
 	}
 }

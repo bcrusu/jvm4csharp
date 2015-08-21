@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 
 // ReSharper disable InconsistentNaming
@@ -49,10 +49,10 @@ namespace jvm4csharp.java.util.concurrent.atomic
 			return Instance.CallMethod<bool>("weakCompareAndSet", "(Ljava/lang/Object;Ljava/lang/Object;ZZ)Z", arg0, arg1, arg2, arg3);
 		}
 		
-		[JavaSignature("(Ljava/lang/Object;Z)Z")]
-		public bool attemptMark(V arg0, bool arg1)
+		[JavaSignature("()Ljava/lang/Object;")]
+		public V getReference()
 		{
-			return Instance.CallMethod<bool>("attemptMark", "(Ljava/lang/Object;Z)Z", arg0, arg1);
+			return Instance.CallMethod<V>("getReference", "()Ljava/lang/Object;");
 		}
 		
 		[JavaSignature("()Z")]
@@ -61,10 +61,10 @@ namespace jvm4csharp.java.util.concurrent.atomic
 			return Instance.CallMethod<bool>("isMarked", "()Z");
 		}
 		
-		[JavaSignature("()Ljava/lang/Object;")]
-		public V getReference()
+		[JavaSignature("(Ljava/lang/Object;Z)Z")]
+		public bool attemptMark(V arg0, bool arg1)
 		{
-			return Instance.CallMethod<V>("getReference", "()Ljava/lang/Object;");
+			return Instance.CallMethod<bool>("attemptMark", "(Ljava/lang/Object;Z)Z", arg0, arg1);
 		}
 	}
 }

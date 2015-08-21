@@ -23,12 +23,6 @@ namespace jvm4csharp.java.io
 			Instance.CallConstructor("(Ljava/io/OutputStream;)V", arg0);
 		}
 	
-		[JavaSignature("(F)V")]
-		public void writeFloat(float arg0)
-		{
-			Instance.CallMethod("writeFloat", "(F)V", arg0);
-		}
-		
 		[JavaSignature("()I")]
 		public int size()
 		{
@@ -59,22 +53,16 @@ namespace jvm4csharp.java.io
 			Instance.CallMethod("writeUTF", "(Ljava/lang/String;)V", arg0);
 		}
 		
+		[JavaSignature("(F)V")]
+		public void writeFloat(float arg0)
+		{
+			Instance.CallMethod("writeFloat", "(F)V", arg0);
+		}
+		
 		[JavaSignature("(J)V")]
 		public void writeLong(long arg0)
 		{
 			Instance.CallMethod("writeLong", "(J)V", arg0);
-		}
-		
-		[JavaSignature("(Z)V")]
-		public void writeBoolean(bool arg0)
-		{
-			Instance.CallMethod("writeBoolean", "(Z)V", arg0);
-		}
-		
-		[JavaSignature("(Ljava/lang/String;)V")]
-		public void writeChars(String arg0)
-		{
-			Instance.CallMethod("writeChars", "(Ljava/lang/String;)V", arg0);
 		}
 		
 		[JavaSignature("(I)V")]
@@ -93,6 +81,18 @@ namespace jvm4csharp.java.io
 		public void writeDouble(double arg0)
 		{
 			Instance.CallMethod("writeDouble", "(D)V", arg0);
+		}
+		
+		[JavaSignature("(Z)V")]
+		public void writeBoolean(bool arg0)
+		{
+			Instance.CallMethod("writeBoolean", "(Z)V", arg0);
+		}
+		
+		[JavaSignature("(Ljava/lang/String;)V")]
+		public void writeChars(String arg0)
+		{
+			Instance.CallMethod("writeChars", "(Ljava/lang/String;)V", arg0);
 		}
 	}
 }

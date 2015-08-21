@@ -22,9 +22,9 @@ namespace jvm4csharp.java.util
 	{
 		protected IdentityHashMap(ProxyCtor p) : base(p) {}
 		
-		public IdentityHashMap(int arg0) : base(ProxyCtor.I)
+		public IdentityHashMap() : base(ProxyCtor.I)
 		{
-			Instance.CallConstructor("(I)V", arg0);
+			Instance.CallConstructor("()V");
 		}
 		
 		public IdentityHashMap(Map<K, V> arg0) : base(ProxyCtor.I)
@@ -32,9 +32,9 @@ namespace jvm4csharp.java.util
 			Instance.CallConstructor("(Ljava/util/Map;)V", arg0);
 		}
 		
-		public IdentityHashMap() : base(ProxyCtor.I)
+		public IdentityHashMap(int arg0) : base(ProxyCtor.I)
 		{
-			Instance.CallConstructor("()V");
+			Instance.CallConstructor("(I)V", arg0);
 		}
 	
 		[JavaSignature("(Ljava/util/function/BiFunction;)V")]

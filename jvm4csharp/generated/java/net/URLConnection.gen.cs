@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.io;
 using jvm4csharp.java.lang;
 using jvm4csharp.java.util;
@@ -51,12 +51,6 @@ namespace jvm4csharp.java.net
 			return Instance.CallMethod<IJavaObject>("getContent", "()Ljava/lang/Object;");
 		}
 		
-		[JavaSignature("()I")]
-		public int getContentLength()
-		{
-			return Instance.CallMethod<int>("getContentLength", "()I");
-		}
-		
 		[JavaSignature("()J")]
 		public long getContentLengthLong()
 		{
@@ -69,16 +63,16 @@ namespace jvm4csharp.java.net
 			return Static.CallMethod<FileNameMap>(typeof(URLConnection), "getFileNameMap", "()Ljava/net/FileNameMap;");
 		}
 		
-		[JavaSignature("(Ljava/lang/String;)Ljava/lang/String;")]
-		public String getHeaderField(String arg0)
-		{
-			return Instance.CallMethod<String>("getHeaderField", "(Ljava/lang/String;)Ljava/lang/String;", arg0);
-		}
-		
 		[JavaSignature("(I)Ljava/lang/String;")]
 		public String getHeaderField(int arg0)
 		{
 			return Instance.CallMethod<String>("getHeaderField", "(I)Ljava/lang/String;", arg0);
+		}
+		
+		[JavaSignature("(Ljava/lang/String;)Ljava/lang/String;")]
+		public String getHeaderField(String arg0)
+		{
+			return Instance.CallMethod<String>("getHeaderField", "(Ljava/lang/String;)Ljava/lang/String;", arg0);
 		}
 		
 		[JavaSignature("(I)Ljava/lang/String;")]
@@ -313,6 +307,12 @@ namespace jvm4csharp.java.net
 		public long getDate()
 		{
 			return Instance.CallMethod<long>("getDate", "()J");
+		}
+		
+		[JavaSignature("()I")]
+		public int getContentLength()
+		{
+			return Instance.CallMethod<int>("getContentLength", "()I");
 		}
 	}
 }

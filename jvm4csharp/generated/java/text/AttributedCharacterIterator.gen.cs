@@ -46,7 +46,7 @@ namespace jvm4csharp.java.text
 		int getRunStart(Set<AttributedCharacterIterator_.Attribute> arg0);
 	}
 	
-	public static class AttributedCharacterIterator_
+	public static partial class AttributedCharacterIterator_
 	{
 		private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 	

@@ -58,30 +58,6 @@ namespace jvm4csharp.java.util.concurrent
 			return Instance.CallMethod<E>("floor", "(Ljava/lang/Object;)Ljava/lang/Object;", arg0);
 		}
 		
-		[JavaSignature("()Ljava/lang/Object;")]
-		public E last()
-		{
-			return Instance.CallMethod<E>("last", "()Ljava/lang/Object;");
-		}
-		
-		[JavaSignature("()Ljava/util/Iterator;")]
-		public Iterator<E> descendingIterator()
-		{
-			return Instance.CallMethod<Iterator<E>>("descendingIterator", "()Ljava/util/Iterator;");
-		}
-		
-		[JavaSignature("()Ljava/lang/Object;")]
-		public E pollFirst()
-		{
-			return Instance.CallMethod<E>("pollFirst", "()Ljava/lang/Object;");
-		}
-		
-		[JavaSignature("()Ljava/lang/Object;")]
-		public E pollLast()
-		{
-			return Instance.CallMethod<E>("pollLast", "()Ljava/lang/Object;");
-		}
-		
 		[JavaSignature("(Ljava/lang/Object;)Ljava/lang/Object;")]
 		public E ceiling(E arg0)
 		{
@@ -130,16 +106,40 @@ namespace jvm4csharp.java.util.concurrent
 			return Instance.CallMethod<NavigableSet<E>>("subSet", "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;", arg0, arg1, arg2, arg3);
 		}
 		
+		[JavaSignature("(Ljava/lang/Object;Z)Ljava/util/NavigableSet;")]
+		public NavigableSet<E> tailSet(E arg0, bool arg1)
+		{
+			return Instance.CallMethod<NavigableSet<E>>("tailSet", "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", arg0, arg1);
+		}
+		
 		[JavaSignature("(Ljava/lang/Object;)Ljava/util/NavigableSet;")]
 		public NavigableSet<E> tailSet(E arg0)
 		{
 			return Instance.CallMethod<NavigableSet<E>>("tailSet", "(Ljava/lang/Object;)Ljava/util/NavigableSet;", arg0);
 		}
 		
-		[JavaSignature("(Ljava/lang/Object;Z)Ljava/util/NavigableSet;")]
-		public NavigableSet<E> tailSet(E arg0, bool arg1)
+		[JavaSignature("()Ljava/util/Iterator;")]
+		public Iterator<E> descendingIterator()
 		{
-			return Instance.CallMethod<NavigableSet<E>>("tailSet", "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", arg0, arg1);
+			return Instance.CallMethod<Iterator<E>>("descendingIterator", "()Ljava/util/Iterator;");
+		}
+		
+		[JavaSignature("()Ljava/lang/Object;")]
+		public E pollFirst()
+		{
+			return Instance.CallMethod<E>("pollFirst", "()Ljava/lang/Object;");
+		}
+		
+		[JavaSignature("()Ljava/lang/Object;")]
+		public E pollLast()
+		{
+			return Instance.CallMethod<E>("pollLast", "()Ljava/lang/Object;");
+		}
+		
+		[JavaSignature("()Ljava/lang/Object;")]
+		public E last()
+		{
+			return Instance.CallMethod<E>("last", "()Ljava/lang/Object;");
 		}
 		
 		[JavaSignature("()Ljava/util/Comparator;")]

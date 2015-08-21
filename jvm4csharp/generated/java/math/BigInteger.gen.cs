@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 using jvm4csharp.java.util;
 
@@ -19,6 +19,16 @@ namespace jvm4csharp.java.math
 	public partial class BigInteger : Number, Comparable<BigInteger>
 	{
 		protected BigInteger(ProxyCtor p) : base(p) {}
+		
+		public BigInteger(String arg0) : base(ProxyCtor.I)
+		{
+			Instance.CallConstructor("(Ljava/lang/String;)V", arg0);
+		}
+		
+		public BigInteger(int arg0, Random arg1) : base(ProxyCtor.I)
+		{
+			Instance.CallConstructor("(ILjava/util/Random;)V", arg0, arg1);
+		}
 		
 		public BigInteger(int arg0, int arg1, Random arg2) : base(ProxyCtor.I)
 		{
@@ -33,16 +43,6 @@ namespace jvm4csharp.java.math
 		public BigInteger(int arg0, ByteArray arg1) : base(ProxyCtor.I)
 		{
 			Instance.CallConstructor("(I[B)V", arg0, arg1);
-		}
-		
-		public BigInteger(int arg0, Random arg1) : base(ProxyCtor.I)
-		{
-			Instance.CallConstructor("(ILjava/util/Random;)V", arg0, arg1);
-		}
-		
-		public BigInteger(String arg0) : base(ProxyCtor.I)
-		{
-			Instance.CallConstructor("(Ljava/lang/String;)V", arg0);
 		}
 		
 		public BigInteger(String arg0, int arg1) : base(ProxyCtor.I)
@@ -68,36 +68,6 @@ namespace jvm4csharp.java.math
 			get { return Static.GetField<BigInteger>(typeof(BigInteger), "TEN", "Ljava/math/BigInteger;"); }
 		}
 	
-		[JavaSignature("(Ljava/math/BigInteger;)Ljava/math/BigInteger;")]
-		public BigInteger and(BigInteger arg0)
-		{
-			return Instance.CallMethod<BigInteger>("and", "(Ljava/math/BigInteger;)Ljava/math/BigInteger;", arg0);
-		}
-		
-		[JavaSignature("(Ljava/math/BigInteger;)Ljava/math/BigInteger;")]
-		public BigInteger andNot(BigInteger arg0)
-		{
-			return Instance.CallMethod<BigInteger>("andNot", "(Ljava/math/BigInteger;)Ljava/math/BigInteger;", arg0);
-		}
-		
-		[JavaSignature("(Ljava/math/BigInteger;)Ljava/math/BigInteger;")]
-		public BigInteger or(BigInteger arg0)
-		{
-			return Instance.CallMethod<BigInteger>("or", "(Ljava/math/BigInteger;)Ljava/math/BigInteger;", arg0);
-		}
-		
-		[JavaSignature("()[B")]
-		public ByteArray toByteArray()
-		{
-			return Instance.CallMethod<ByteArray>("toByteArray", "()[B");
-		}
-		
-		[JavaSignature("(Ljava/math/BigInteger;)Ljava/math/BigInteger;")]
-		public BigInteger xor(BigInteger arg0)
-		{
-			return Instance.CallMethod<BigInteger>("xor", "(Ljava/math/BigInteger;)Ljava/math/BigInteger;", arg0);
-		}
-		
 		[JavaSignature("(Ljava/math/BigInteger;)Ljava/math/BigInteger;")]
 		public BigInteger @add(BigInteger arg0)
 		{
@@ -174,6 +144,36 @@ namespace jvm4csharp.java.math
 		public BigInteger shiftLeft(int arg0)
 		{
 			return Instance.CallMethod<BigInteger>("shiftLeft", "(I)Ljava/math/BigInteger;", arg0);
+		}
+		
+		[JavaSignature("(Ljava/math/BigInteger;)Ljava/math/BigInteger;")]
+		public BigInteger and(BigInteger arg0)
+		{
+			return Instance.CallMethod<BigInteger>("and", "(Ljava/math/BigInteger;)Ljava/math/BigInteger;", arg0);
+		}
+		
+		[JavaSignature("(Ljava/math/BigInteger;)Ljava/math/BigInteger;")]
+		public BigInteger andNot(BigInteger arg0)
+		{
+			return Instance.CallMethod<BigInteger>("andNot", "(Ljava/math/BigInteger;)Ljava/math/BigInteger;", arg0);
+		}
+		
+		[JavaSignature("(Ljava/math/BigInteger;)Ljava/math/BigInteger;")]
+		public BigInteger or(BigInteger arg0)
+		{
+			return Instance.CallMethod<BigInteger>("or", "(Ljava/math/BigInteger;)Ljava/math/BigInteger;", arg0);
+		}
+		
+		[JavaSignature("()[B")]
+		public ByteArray toByteArray()
+		{
+			return Instance.CallMethod<ByteArray>("toByteArray", "()[B");
+		}
+		
+		[JavaSignature("(Ljava/math/BigInteger;)Ljava/math/BigInteger;")]
+		public BigInteger xor(BigInteger arg0)
+		{
+			return Instance.CallMethod<BigInteger>("xor", "(Ljava/math/BigInteger;)Ljava/math/BigInteger;", arg0);
 		}
 		
 		[JavaSignature("(Ljava/math/BigInteger;)Ljava/math/BigInteger;")]

@@ -30,6 +30,9 @@ namespace jvm4csharp.java.util.concurrent
 		[JavaSignature("(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;")]
 		Future<IJavaObject> submit(Runnable arg0);
 		
+		[JavaSignature("()Ljava/util/List;")]
+		List<Runnable> shutdownNow();
+		
 		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
 		bool awaitTermination(long arg0, TimeUnit arg1);
 		
@@ -54,8 +57,5 @@ namespace jvm4csharp.java.util.concurrent
 		
 		[JavaSignature("()Z")]
 		bool isTerminated();
-		
-		[JavaSignature("()Ljava/util/List;")]
-		List<Runnable> shutdownNow();
 	}
 }

@@ -23,7 +23,7 @@ namespace jvm4csharp.java.util.concurrent
 			Instance.CallConstructor("()V");
 		}
 		
-		public ForkJoinPool(int arg0, ForkJoinPool.ForkJoinWorkerThreadFactory arg1, Thread.UncaughtExceptionHandler arg2, bool arg3) : base(ProxyCtor.I)
+		public ForkJoinPool(int arg0, ForkJoinPool_.ForkJoinWorkerThreadFactory arg1, Thread_.UncaughtExceptionHandler arg2, bool arg3) : base(ProxyCtor.I)
 		{
 			Instance.CallConstructor("(ILjava/util/concurrent/ForkJoinPool/ForkJoinWorkerThreadFactory;Ljava/lang/Thread/UncaughtExceptionHandler;Z)V", arg0, arg1, arg2, arg3);
 		}
@@ -34,9 +34,9 @@ namespace jvm4csharp.java.util.concurrent
 		}
 	
 		[JavaSignature("Ljava/util/concurrent/ForkJoinPool/ForkJoinWorkerThreadFactory;")]
-		public static ForkJoinPool.ForkJoinWorkerThreadFactory defaultForkJoinWorkerThreadFactory
+		public static ForkJoinPool_.ForkJoinWorkerThreadFactory defaultForkJoinWorkerThreadFactory
 		{
-			get { return Static.GetField<ForkJoinPool.ForkJoinWorkerThreadFactory>(typeof(ForkJoinPool), "defaultForkJoinWorkerThreadFactory", "Ljava/util/concurrent/ForkJoinPool/ForkJoinWorkerThreadFactory;"); }
+			get { return Static.GetField<ForkJoinPool_.ForkJoinWorkerThreadFactory>(typeof(ForkJoinPool), "defaultForkJoinWorkerThreadFactory", "Ljava/util/concurrent/ForkJoinPool/ForkJoinWorkerThreadFactory;"); }
 		}
 	
 		[JavaSignature("(Ljava/util/concurrent/ForkJoinTask;)Ljava/lang/Object;")]
@@ -53,9 +53,9 @@ namespace jvm4csharp.java.util.concurrent
 		}
 		
 		[JavaSignature("()Ljava/util/concurrent/ForkJoinPool/ForkJoinWorkerThreadFactory;")]
-		public ForkJoinPool.ForkJoinWorkerThreadFactory getFactory()
+		public ForkJoinPool_.ForkJoinWorkerThreadFactory getFactory()
 		{
-			return Instance.CallMethod<ForkJoinPool.ForkJoinWorkerThreadFactory>("getFactory", "()Ljava/util/concurrent/ForkJoinPool/ForkJoinWorkerThreadFactory;");
+			return Instance.CallMethod<ForkJoinPool_.ForkJoinWorkerThreadFactory>("getFactory", "()Ljava/util/concurrent/ForkJoinPool/ForkJoinWorkerThreadFactory;");
 		}
 		
 		[JavaSignature("(Ljava/util/concurrent/ForkJoinTask;)V")]
@@ -65,9 +65,9 @@ namespace jvm4csharp.java.util.concurrent
 		}
 		
 		[JavaSignature("()Ljava/lang/Thread/UncaughtExceptionHandler;")]
-		public Thread.UncaughtExceptionHandler getUncaughtExceptionHandler()
+		public Thread_.UncaughtExceptionHandler getUncaughtExceptionHandler()
 		{
-			return Instance.CallMethod<Thread.UncaughtExceptionHandler>("getUncaughtExceptionHandler", "()Ljava/lang/Thread/UncaughtExceptionHandler;");
+			return Instance.CallMethod<Thread_.UncaughtExceptionHandler>("getUncaughtExceptionHandler", "()Ljava/lang/Thread/UncaughtExceptionHandler;");
 		}
 		
 		[JavaSignature("()I")]
@@ -101,24 +101,6 @@ namespace jvm4csharp.java.util.concurrent
 		public new ForkJoinTask<IJavaObject> submit(Runnable arg0)
 		{
 			return Instance.CallMethod<ForkJoinTask<IJavaObject>>("submit", "(Ljava/lang/Runnable;)Ljava/util/concurrent/ForkJoinTask;", arg0);
-		}
-		
-		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
-		public bool awaitTermination(long arg0, TimeUnit arg1)
-		{
-			return Instance.CallMethod<bool>("awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1);
-		}
-		
-		[JavaSignature("()Z")]
-		public bool isShutdown()
-		{
-			return Instance.CallMethod<bool>("isShutdown", "()Z");
-		}
-		
-		[JavaSignature("()Z")]
-		public bool isTerminated()
-		{
-			return Instance.CallMethod<bool>("isTerminated", "()Z");
 		}
 		
 		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
@@ -194,7 +176,7 @@ namespace jvm4csharp.java.util.concurrent
 		}
 		
 		[JavaSignature("(Ljava/util/concurrent/ForkJoinPool/ManagedBlocker;)V")]
-		public static void managedBlock(ForkJoinPool.ManagedBlocker arg0)
+		public static void managedBlock(ForkJoinPool_.ManagedBlocker arg0)
 		{
 			Static.CallMethod(typeof(ForkJoinPool), "managedBlock", "(Ljava/util/concurrent/ForkJoinPool/ManagedBlocker;)V", arg0);
 		}
@@ -210,7 +192,28 @@ namespace jvm4csharp.java.util.concurrent
 		{
 			return Instance.CallMethod<long>("getQueuedTaskCount", "()J");
 		}
+		
+		[JavaSignature("(JLjava/util/concurrent/TimeUnit;)Z")]
+		public bool awaitTermination(long arg0, TimeUnit arg1)
+		{
+			return Instance.CallMethod<bool>("awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z", arg0, arg1);
+		}
+		
+		[JavaSignature("()Z")]
+		public bool isShutdown()
+		{
+			return Instance.CallMethod<bool>("isShutdown", "()Z");
+		}
+		
+		[JavaSignature("()Z")]
+		public bool isTerminated()
+		{
+			return Instance.CallMethod<bool>("isTerminated", "()Z");
+		}
+	}
 	
+	public static partial class ForkJoinPool_
+	{
 		[JavaProxy("java/util/concurrent/ForkJoinPool/ForkJoinWorkerThreadFactory")]
 		public partial interface ForkJoinWorkerThreadFactory : IJavaObject
 		{

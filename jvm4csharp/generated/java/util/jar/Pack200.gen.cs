@@ -20,17 +20,20 @@ namespace jvm4csharp.java.util.jar
 		protected Pack200(ProxyCtor p) : base(p) {}
 	
 		[JavaSignature("()Ljava/util/jar/Pack200/Packer;")]
-		public static Pack200.Packer newPacker()
+		public static Pack200_.Packer newPacker()
 		{
-			return Static.CallMethod<Pack200.Packer>(typeof(Pack200), "newPacker", "()Ljava/util/jar/Pack200/Packer;");
+			return Static.CallMethod<Pack200_.Packer>(typeof(Pack200), "newPacker", "()Ljava/util/jar/Pack200/Packer;");
 		}
 		
 		[JavaSignature("()Ljava/util/jar/Pack200/Unpacker;")]
-		public static Pack200.Unpacker newUnpacker()
+		public static Pack200_.Unpacker newUnpacker()
 		{
-			return Static.CallMethod<Pack200.Unpacker>(typeof(Pack200), "newUnpacker", "()Ljava/util/jar/Pack200/Unpacker;");
+			return Static.CallMethod<Pack200_.Unpacker>(typeof(Pack200), "newUnpacker", "()Ljava/util/jar/Pack200/Unpacker;");
 		}
+	}
 	
+	public static partial class Pack200_
+	{
 		[JavaProxy("java/util/jar/Pack200/Packer")]
 		public partial interface Packer : IJavaObject
 		{
@@ -44,7 +47,7 @@ namespace jvm4csharp.java.util.jar
 			void pack(JarFile arg0, OutputStream arg1);
 		}
 		
-		public static class Packer_
+		public static partial class Packer_
 		{
 			private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 			
@@ -177,7 +180,7 @@ namespace jvm4csharp.java.util.jar
 			void unpack(InputStream arg0, JarOutputStream arg1);
 		}
 		
-		public static class Unpacker_
+		public static partial class Unpacker_
 		{
 			private static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 			

@@ -29,10 +29,10 @@ namespace jvm4csharp.java.text
 			return Instance.CallMethod<int>("getIndex", "()I");
 		}
 		
-		[JavaSignature("(I)V")]
-		public void setErrorIndex(int arg0)
+		[JavaSignature("()I")]
+		public int getErrorIndex()
 		{
-			Instance.CallMethod("setErrorIndex", "(I)V", arg0);
+			return Instance.CallMethod<int>("getErrorIndex", "()I");
 		}
 		
 		[JavaSignature("(I)V")]
@@ -41,10 +41,10 @@ namespace jvm4csharp.java.text
 			Instance.CallMethod("setIndex", "(I)V", arg0);
 		}
 		
-		[JavaSignature("()I")]
-		public int getErrorIndex()
+		[JavaSignature("(I)V")]
+		public void setErrorIndex(int arg0)
 		{
-			return Instance.CallMethod<int>("getErrorIndex", "()I");
+			Instance.CallMethod("setErrorIndex", "(I)V", arg0);
 		}
 	}
 }

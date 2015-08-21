@@ -31,6 +31,12 @@ namespace jvm4csharp.java.util
 			return Static.CallMethod<OptionalInt>(typeof(OptionalInt), "empty", "()Ljava/util/OptionalInt;");
 		}
 		
+		[JavaSignature("()I")]
+		public int getAsInt()
+		{
+			return Instance.CallMethod<int>("getAsInt", "()I");
+		}
+		
 		[JavaSignature("(Ljava/util/function/IntConsumer;)V")]
 		public void ifPresent(IntConsumer arg0)
 		{
@@ -60,12 +66,6 @@ namespace jvm4csharp.java.util
 			where X : Throwable
 		{
 			return Instance.CallMethod<int>("orElseThrow", "(Ljava/util/function/Supplier;)I", arg0);
-		}
-		
-		[JavaSignature("()I")]
-		public int getAsInt()
-		{
-			return Instance.CallMethod<int>("getAsInt", "()I");
 		}
 	}
 }

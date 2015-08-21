@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang.reflect;
 using jvm4csharp.java.util;
 
@@ -20,36 +20,6 @@ namespace jvm4csharp.java.lang.invoke
 	{
 		protected MethodHandles(ProxyCtor p) : base(p) {}
 	
-		[JavaSignature("(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;")]
-		public static MethodHandle arrayElementGetter(Class<IJavaObject> arg0)
-		{
-			return Static.CallMethod<MethodHandle>(typeof(MethodHandles), "arrayElementGetter", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", arg0);
-		}
-		
-		[JavaSignature("(Ljava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;")]
-		public static MethodHandle collectArguments(MethodHandle arg0, int arg1, MethodHandle arg2)
-		{
-			return Static.CallMethod<MethodHandle>(typeof(MethodHandles), "collectArguments", "(Ljava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", arg0, arg1, arg2);
-		}
-		
-		[JavaSignature("(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;")]
-		public static MethodHandle constant(Class<IJavaObject> arg0, IJavaObject arg1)
-		{
-			return Static.CallMethod<MethodHandle>(typeof(MethodHandles), "constant", "(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", arg0, arg1);
-		}
-		
-		[JavaSignature("(Ljava/lang/invoke/MethodHandle;ILjava/util/List;)Ljava/lang/invoke/MethodHandle;")]
-		public static MethodHandle dropArguments(MethodHandle arg0, int arg1, List<Class<IJavaObject>> arg2)
-		{
-			return Static.CallMethod<MethodHandle>(typeof(MethodHandles), "dropArguments", "(Ljava/lang/invoke/MethodHandle;ILjava/util/List;)Ljava/lang/invoke/MethodHandle;", arg0, arg1, arg2);
-		}
-		
-		[JavaSignature("(Ljava/lang/invoke/MethodHandle;I[Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;")]
-		public static MethodHandle dropArguments(MethodHandle arg0, int arg1, ObjectArray<Class<IJavaObject>> arg2)
-		{
-			return Static.CallMethod<MethodHandle>(typeof(MethodHandles), "dropArguments", "(Ljava/lang/invoke/MethodHandle;I[Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", arg0, arg1, arg2);
-		}
-		
 		[JavaSignature("(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;")]
 		public static MethodHandle throwException(Class<IJavaObject> arg0, Class<Throwable> arg1)
 		{
@@ -87,9 +57,39 @@ namespace jvm4csharp.java.lang.invoke
 		}
 		
 		[JavaSignature("()Ljava/lang/invoke/MethodHandles/Lookup;")]
-		public static MethodHandles.Lookup lookup()
+		public static MethodHandles_.Lookup lookup()
 		{
-			return Static.CallMethod<MethodHandles.Lookup>(typeof(MethodHandles), "lookup", "()Ljava/lang/invoke/MethodHandles/Lookup;");
+			return Static.CallMethod<MethodHandles_.Lookup>(typeof(MethodHandles), "lookup", "()Ljava/lang/invoke/MethodHandles/Lookup;");
+		}
+		
+		[JavaSignature("(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;")]
+		public static MethodHandle arrayElementGetter(Class<IJavaObject> arg0)
+		{
+			return Static.CallMethod<MethodHandle>(typeof(MethodHandles), "arrayElementGetter", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", arg0);
+		}
+		
+		[JavaSignature("(Ljava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;")]
+		public static MethodHandle collectArguments(MethodHandle arg0, int arg1, MethodHandle arg2)
+		{
+			return Static.CallMethod<MethodHandle>(typeof(MethodHandles), "collectArguments", "(Ljava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", arg0, arg1, arg2);
+		}
+		
+		[JavaSignature("(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;")]
+		public static MethodHandle constant(Class<IJavaObject> arg0, IJavaObject arg1)
+		{
+			return Static.CallMethod<MethodHandle>(typeof(MethodHandles), "constant", "(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", arg0, arg1);
+		}
+		
+		[JavaSignature("(Ljava/lang/invoke/MethodHandle;I[Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;")]
+		public static MethodHandle dropArguments(MethodHandle arg0, int arg1, ObjectArray<Class<IJavaObject>> arg2)
+		{
+			return Static.CallMethod<MethodHandle>(typeof(MethodHandles), "dropArguments", "(Ljava/lang/invoke/MethodHandle;I[Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", arg0, arg1, arg2);
+		}
+		
+		[JavaSignature("(Ljava/lang/invoke/MethodHandle;ILjava/util/List;)Ljava/lang/invoke/MethodHandle;")]
+		public static MethodHandle dropArguments(MethodHandle arg0, int arg1, List<Class<IJavaObject>> arg2)
+		{
+			return Static.CallMethod<MethodHandle>(typeof(MethodHandles), "dropArguments", "(Ljava/lang/invoke/MethodHandle;ILjava/util/List;)Ljava/lang/invoke/MethodHandle;", arg0, arg1, arg2);
 		}
 		
 		[JavaSignature("(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;")]
@@ -99,9 +99,9 @@ namespace jvm4csharp.java.lang.invoke
 		}
 		
 		[JavaSignature("()Ljava/lang/invoke/MethodHandles/Lookup;")]
-		public static MethodHandles.Lookup publicLookup()
+		public static MethodHandles_.Lookup publicLookup()
 		{
-			return Static.CallMethod<MethodHandles.Lookup>(typeof(MethodHandles), "publicLookup", "()Ljava/lang/invoke/MethodHandles/Lookup;");
+			return Static.CallMethod<MethodHandles_.Lookup>(typeof(MethodHandles), "publicLookup", "()Ljava/lang/invoke/MethodHandles/Lookup;");
 		}
 		
 		[JavaSignature("(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;")]
@@ -152,7 +152,10 @@ namespace jvm4csharp.java.lang.invoke
 		{
 			return Static.CallMethod<T>(typeof(MethodHandles), "reflectAs", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandle;)Ljava/lang/reflect/Member;", arg0, arg1);
 		}
+	}
 	
+	public static partial class MethodHandles_
+	{
 		[JavaProxy("java/lang/invoke/MethodHandles/Lookup")]
 		public partial class Lookup : Object
 		{
@@ -183,9 +186,9 @@ namespace jvm4csharp.java.lang.invoke
 			}
 		
 			[JavaSignature("(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandles/Lookup;")]
-			public MethodHandles.Lookup @in(Class<IJavaObject> arg0)
+			public MethodHandles_.Lookup @in(Class<IJavaObject> arg0)
 			{
-				return Instance.CallMethod<MethodHandles.Lookup>("in", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandles/Lookup;", arg0);
+				return Instance.CallMethod<MethodHandles_.Lookup>("in", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandles/Lookup;", arg0);
 			}
 			
 			[JavaSignature("(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;")]
@@ -198,12 +201,6 @@ namespace jvm4csharp.java.lang.invoke
 			public MethodHandle findVirtual(Class<IJavaObject> arg0, String arg1, MethodType arg2)
 			{
 				return Instance.CallMethod<MethodHandle>("findVirtual", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", arg0, arg1, arg2);
-			}
-			
-			[JavaSignature("(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;")]
-			public MethodHandle bind(IJavaObject arg0, String arg1, MethodType arg2)
-			{
-				return Instance.CallMethod<MethodHandle>("bind", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", arg0, arg1, arg2);
 			}
 			
 			[JavaSignature("(Ljava/lang/Class;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;")]
@@ -288,6 +285,12 @@ namespace jvm4csharp.java.lang.invoke
 			public MethodHandle unreflectSpecial(Method arg0, Class<IJavaObject> arg1)
 			{
 				return Instance.CallMethod<MethodHandle>("unreflectSpecial", "(Ljava/lang/reflect/Method;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", arg0, arg1);
+			}
+			
+			[JavaSignature("(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;")]
+			public MethodHandle bind(IJavaObject arg0, String arg1, MethodType arg2)
+			{
+				return Instance.CallMethod<MethodHandle>("bind", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", arg0, arg1, arg2);
 			}
 		}
 	}

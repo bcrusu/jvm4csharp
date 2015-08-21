@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.net;
 using jvm4csharp.java.nio.channels.spi;
 using jvm4csharp.java.util;
@@ -106,12 +106,6 @@ namespace jvm4csharp.java.nio.channels
 			return Instance.CallMethod<DatagramSocket>("socket", "()Ljava/net/DatagramSocket;");
 		}
 		
-		[JavaSignature("()Ljava/net/SocketAddress;")]
-		public SocketAddress getRemoteAddress()
-		{
-			return Instance.CallMethod<SocketAddress>("getRemoteAddress", "()Ljava/net/SocketAddress;");
-		}
-		
 		[JavaSignature("(Ljava/nio/ByteBuffer;)Ljava/net/SocketAddress;")]
 		public SocketAddress receive(ByteBuffer arg0)
 		{
@@ -128,6 +122,12 @@ namespace jvm4csharp.java.nio.channels
 		public int send(ByteBuffer arg0, SocketAddress arg1)
 		{
 			return Instance.CallMethod<int>("send", "(Ljava/nio/ByteBuffer;Ljava/net/SocketAddress;)I", arg0, arg1);
+		}
+		
+		[JavaSignature("()Ljava/net/SocketAddress;")]
+		public SocketAddress getRemoteAddress()
+		{
+			return Instance.CallMethod<SocketAddress>("getRemoteAddress", "()Ljava/net/SocketAddress;");
 		}
 		
 		[JavaSignature("(Ljava/net/InetAddress;Ljava/net/NetworkInterface;)Ljava/nio/channels/MembershipKey;")]

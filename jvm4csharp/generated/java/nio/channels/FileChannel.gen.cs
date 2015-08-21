@@ -8,7 +8,7 @@
 //	java_vm_version					: 25.51-b03
 //------------------------------------------------------------------------
 
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.lang;
 using jvm4csharp.java.nio.channels.spi;
 using jvm4csharp.java.nio.file;
@@ -120,7 +120,7 @@ namespace jvm4csharp.java.nio.channels
 		}
 		
 		[JavaSignature("(Ljava/nio/channels/FileChannel/MapMode;JJ)Ljava/nio/MappedByteBuffer;")]
-		public MappedByteBuffer map(FileChannel.MapMode arg0, long arg1, long arg2)
+		public MappedByteBuffer map(FileChannel_.MapMode arg0, long arg1, long arg2)
 		{
 			return Instance.CallMethod<MappedByteBuffer>("map", "(Ljava/nio/channels/FileChannel/MapMode;JJ)Ljava/nio/MappedByteBuffer;", arg0, arg1, arg2);
 		}
@@ -166,28 +166,31 @@ namespace jvm4csharp.java.nio.channels
 		{
 			return Instance.CallMethod<SeekableByteChannel>("truncate", "(J)Ljava/nio/channels/SeekableByteChannel;", arg0);
 		}
+	}
 	
+	public static partial class FileChannel_
+	{
 		[JavaProxy("java/nio/channels/FileChannel/MapMode")]
 		public partial class MapMode : Object
 		{
 			protected MapMode(ProxyCtor p) : base(p) {}
 		
 			[JavaSignature("Ljava/nio/channels/FileChannel/MapMode;")]
-			public static FileChannel.MapMode READ_ONLY
+			public static FileChannel_.MapMode READ_ONLY
 			{
-				get { return Static.GetField<FileChannel.MapMode>(typeof(MapMode), "READ_ONLY", "Ljava/nio/channels/FileChannel/MapMode;"); }
+				get { return Static.GetField<FileChannel_.MapMode>(typeof(MapMode), "READ_ONLY", "Ljava/nio/channels/FileChannel/MapMode;"); }
 			}
 			
 			[JavaSignature("Ljava/nio/channels/FileChannel/MapMode;")]
-			public static FileChannel.MapMode READ_WRITE
+			public static FileChannel_.MapMode READ_WRITE
 			{
-				get { return Static.GetField<FileChannel.MapMode>(typeof(MapMode), "READ_WRITE", "Ljava/nio/channels/FileChannel/MapMode;"); }
+				get { return Static.GetField<FileChannel_.MapMode>(typeof(MapMode), "READ_WRITE", "Ljava/nio/channels/FileChannel/MapMode;"); }
 			}
 			
 			[JavaSignature("Ljava/nio/channels/FileChannel/MapMode;")]
-			public static FileChannel.MapMode PRIVATE
+			public static FileChannel_.MapMode PRIVATE
 			{
-				get { return Static.GetField<FileChannel.MapMode>(typeof(MapMode), "PRIVATE", "Ljava/nio/channels/FileChannel/MapMode;"); }
+				get { return Static.GetField<FileChannel_.MapMode>(typeof(MapMode), "PRIVATE", "Ljava/nio/channels/FileChannel/MapMode;"); }
 			}
 		}
 	}

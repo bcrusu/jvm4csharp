@@ -19,21 +19,6 @@ namespace jvm4csharp.java.net
 	{
 		protected URI(ProxyCtor p) : base(p) {}
 		
-		public URI(String arg0, String arg1, String arg2, String arg3, String arg4) : base(ProxyCtor.I)
-		{
-			Instance.CallConstructor("(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", arg0, arg1, arg2, arg3, arg4);
-		}
-		
-		public URI(String arg0, String arg1, String arg2, int arg3, String arg4, String arg5, String arg6) : base(ProxyCtor.I)
-		{
-			Instance.CallConstructor("(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", arg0, arg1, arg2, arg3, arg4, arg5, arg6);
-		}
-		
-		public URI(String arg0) : base(ProxyCtor.I)
-		{
-			Instance.CallConstructor("(Ljava/lang/String;)V", arg0);
-		}
-		
 		public URI(String arg0, String arg1, String arg2) : base(ProxyCtor.I)
 		{
 			Instance.CallConstructor("(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", arg0, arg1, arg2);
@@ -42,6 +27,21 @@ namespace jvm4csharp.java.net
 		public URI(String arg0, String arg1, String arg2, String arg3) : base(ProxyCtor.I)
 		{
 			Instance.CallConstructor("(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", arg0, arg1, arg2, arg3);
+		}
+		
+		public URI(String arg0, String arg1, String arg2, String arg3, String arg4) : base(ProxyCtor.I)
+		{
+			Instance.CallConstructor("(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", arg0, arg1, arg2, arg3, arg4);
+		}
+		
+		public URI(String arg0) : base(ProxyCtor.I)
+		{
+			Instance.CallConstructor("(Ljava/lang/String;)V", arg0);
+		}
+		
+		public URI(String arg0, String arg1, String arg2, int arg3, String arg4, String arg5, String arg6) : base(ProxyCtor.I)
+		{
+			Instance.CallConstructor("(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", arg0, arg1, arg2, arg3, arg4, arg5, arg6);
 		}
 	
 		[JavaSignature("(Ljava/net/URI;)I")]
@@ -56,16 +56,16 @@ namespace jvm4csharp.java.net
 			return Instance.CallMethod<bool>("isAbsolute", "()Z");
 		}
 		
-		[JavaSignature("(Ljava/lang/String;)Ljava/net/URI;")]
-		public URI resolve(String arg0)
-		{
-			return Instance.CallMethod<URI>("resolve", "(Ljava/lang/String;)Ljava/net/URI;", arg0);
-		}
-		
 		[JavaSignature("(Ljava/net/URI;)Ljava/net/URI;")]
 		public URI resolve(URI arg0)
 		{
 			return Instance.CallMethod<URI>("resolve", "(Ljava/net/URI;)Ljava/net/URI;", arg0);
+		}
+		
+		[JavaSignature("(Ljava/lang/String;)Ljava/net/URI;")]
+		public URI resolve(String arg0)
+		{
+			return Instance.CallMethod<URI>("resolve", "(Ljava/lang/String;)Ljava/net/URI;", arg0);
 		}
 		
 		[JavaSignature("(Ljava/lang/String;)Ljava/net/URI;")]
