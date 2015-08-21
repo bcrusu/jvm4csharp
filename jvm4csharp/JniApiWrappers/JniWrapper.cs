@@ -11,11 +11,12 @@ namespace jvm4csharp.JniApiWrappers
     {
         public const JniVersion PreferredJniVersion = JniVersion.v1_6;
 
-        public unsafe static IntPtr CreateJavaVm(IEnumerable<string> jvmOptions)
+        public unsafe static IntPtr CreateJavaVm(IEnumerable<string> jvmOptions, JvmHooks jvmHooks)
         {
             Debug.Assert(jvmOptions != null);
+            Debug.Assert(jvmHooks != null);
 
-            var initArgs = GetJavaVmInitArgs(jvmOptions.EmptyIfNull().ToArray());
+            var initArgs = GetJavaVmInitArgs(jvmOptions.EmptyIfNull().ToArray(), jvmHooks);
             try
             {
                 IntPtr jvmPtr;
@@ -32,21 +33,21 @@ namespace jvm4csharp.JniApiWrappers
             }
         }
 
-        private static unsafe JavaVmInitArgs GetJavaVmInitArgs(string[] jvmOptions)
+        private static unsafe JavaVmInitArgs GetJavaVmInitArgs(string[] jvmOptions, JvmHooks jvmHooks)
         {
             var initArgs = default(JavaVmInitArgs);
             initArgs.version = (int)PreferredJniVersion;
-            initArgs.ignoreUnrecognized = JniBooleanValue.True;
+            initArgs.ignoreUnrecognized = JniBooleanValue.False;
 
             var nativeJvmOptions = new JavaVmOption[jvmOptions.Length + 3];
 
             //exit
-            JniHooksSig.Exit exitHook = DefaultExitHook;
+            JniHooksSig.Exit exitHook = jvmHooks.GetExitHook() ?? DefaultExitHook;
             nativeJvmOptions[0].optionString = Marshal.StringToHGlobalAnsi("exit");
             nativeJvmOptions[0].extraInfo = Marshal.GetFunctionPointerForDelegate(exitHook);
 
             //abort
-            JniHooksSig.Abort abortHook = DefaultAbortHook;
+            JniHooksSig.Abort abortHook = jvmHooks.GetAbortHook() ?? DefaultAbortHook;
             nativeJvmOptions[1].optionString = Marshal.StringToHGlobalAnsi("abort");
             nativeJvmOptions[1].extraInfo = Marshal.GetFunctionPointerForDelegate(abortHook);
 

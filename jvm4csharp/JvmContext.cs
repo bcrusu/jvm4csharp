@@ -5,7 +5,6 @@ using jvm4csharp.JniApiWrappers;
 
 namespace jvm4csharp
 {
-    //TODO: expose Global context 
     public sealed class JvmContext
     {
         [ThreadStatic]
@@ -69,6 +68,11 @@ namespace jvm4csharp
         {
             if (message == null) throw new ArgumentNullException(nameof(message));
             JniEnv.Exceptions.FatalError(message);
+        }
+
+        public java.lang.String NewString(string str)
+        {
+            return JniEnv.Strings.NewString(str);
         }
 
         internal static JvmContext GetCurrentContext(bool throwIfNotFound)

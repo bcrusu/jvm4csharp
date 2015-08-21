@@ -15,11 +15,14 @@ namespace jvm4csharp
         public JvmManagerOptions()
         {
             MinThreadPoolSize = 8;
+            JvmHooks = new JvmHooks();
         }
 
         public string JavaHome { get; set; }
 
         public int MinThreadPoolSize { get; set; }
+
+        public JvmHooks JvmHooks { get; private set; }
 
         public void AddClassPath(string classPath)
         {

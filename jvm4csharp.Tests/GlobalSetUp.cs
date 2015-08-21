@@ -1,4 +1,7 @@
-﻿using NUnit.Framework;
+﻿using System.Diagnostics;
+using jvm4csharp.java.lang;
+using NUnit.Framework;
+using System = jvm4csharp.java.lang.System;
 
 namespace jvm4csharp.Tests
 {
@@ -8,19 +11,30 @@ namespace jvm4csharp.Tests
         public static JvmManager JvmManager { get; set; }
 
         [SetUp]
-        public void RunBeforeAnyTests()
+        public void SetUp()
         {
             var options = new JvmManagerOptions();
             options.JavaHome = Configuration.JavaHome;
+            options.JvmHooks.SetExitHook(ExitHook);
+            options.JvmHooks.SetAbortHook(AbortHook);
 
             JvmManager = JvmManager.Create(options);
         }
 
         [TearDown]
-        public void RunAfterAnyTests()
+        public void TearDown()
         {
-            if (JvmManager != null)
-                JvmManager.DestroyJavaVm();
+            JvmManager?.Dispose();
+        }
+
+        private static void ExitHook(int code)
+        {
+            Debug.WriteLine($"JVM exited with code '{code}'.");
+        }
+
+        private static void AbortHook()
+        {
+            Debug.WriteLine("JVM aborted.");
         }
     }
 }

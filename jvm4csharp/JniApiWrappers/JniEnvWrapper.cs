@@ -135,7 +135,7 @@ namespace jvm4csharp.JniApiWrappers
             if (result < 0)
             {
                 Exceptions.CheckLastException();
-                throw new JvmException("Could not exit monitor. Error code '{result}'.");
+                throw new JvmException($"Could not exit monitor. Error code '{result}'.");
             }
         }
 

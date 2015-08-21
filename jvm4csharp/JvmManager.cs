@@ -101,7 +101,7 @@ namespace jvm4csharp
                     var jvmDllDirectory = GetJvmDllDirectory();
                     AddToEnvironmentPath(jvmDllDirectory);
 
-                    var jvmPtr = JniWrapper.CreateJavaVm(_options.GetJvmOptions());
+                    var jvmPtr = JniWrapper.CreateJavaVm(_options.GetJvmOptions(), _options.JvmHooks);
                     _javaVm = new JavaVmWrapper(this, jvmPtr);
 
                     //detach the current thread (is automatically attached during JVM startup)
