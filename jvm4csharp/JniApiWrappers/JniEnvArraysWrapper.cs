@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.JniApi;
 
 namespace jvm4csharp.JniApiWrappers

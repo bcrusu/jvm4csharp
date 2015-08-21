@@ -1,5 +1,5 @@
 ﻿using System;
-using jvm4csharp.ArrayUtils;
+using jvm4csharp.Arrays;
 using jvm4csharp.java.util;
 using jvm4csharp.JniApiWrappers.ProxyActivation;
 using NUnit.Framework;
