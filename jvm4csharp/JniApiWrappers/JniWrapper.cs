@@ -37,7 +37,7 @@ namespace jvm4csharp.JniApiWrappers
         {
             var initArgs = default(JavaVmInitArgs);
             initArgs.version = (int)PreferredJniVersion;
-            initArgs.ignoreUnrecognized = JniBooleanValue.False;
+            initArgs.ignoreUnrecognized = JniBooleanValue.True;
 
             var nativeJvmOptions = new JavaVmOption[jvmOptions.Length + 3];
 
@@ -56,16 +56,14 @@ namespace jvm4csharp.JniApiWrappers
             nativeJvmOptions[2].optionString = Marshal.StringToHGlobalAnsi("vfprintf");
             nativeJvmOptions[2].extraInfo = Marshal.GetFunctionPointerForDelegate(vfprintfHook);
 
-            if (jvmOptions.Length > 0)
-            {
-                for (var i = 0; i < jvmOptions.Length; i++)
-                    nativeJvmOptions[i + 3].optionString = Marshal.StringToHGlobalAnsi(jvmOptions[i]);
 
-                fixed (JavaVmOption* ptr = &nativeJvmOptions[0])
-                {
-                    initArgs.options = ptr;
-                    initArgs.nOptions = jvmOptions.Length;
-                }
+            for (var i = 0; i < jvmOptions.Length; i++)
+                nativeJvmOptions[i + 3].optionString = Marshal.StringToHGlobalAnsi(jvmOptions[i]);
+
+            fixed (JavaVmOption* ptr = &nativeJvmOptions[0])
+            {
+                initArgs.options = ptr;
+                initArgs.nOptions = nativeJvmOptions.Length;
             }
 
             return initArgs;

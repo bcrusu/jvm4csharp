@@ -604,23 +604,6 @@ namespace jvm4csharp.JniApiWrappers
             }
         }
 
-        //TODO: better logging 4 debug mode
-        //public string CallToString(IntPtr objPtr)
-        //{
-        //    Debug.Assert(objPtr != IntPtr.Zero);
-
-        //    var classPtr = _getObjectClass(_jniEnvWrapper.JniEnvPtr, objPtr);
-        //    _jniEnvWrapper.Exceptions.CheckLastException();
-
-        //    var methodId = GetMethodId(classPtr, "toString", false, "()Ljava/lang/String;");
-
-        //    var strPtr = _callObjectMethod(_jniEnvWrapper.JniEnvPtr, objPtr, methodId);
-        //    _jniEnvWrapper.Exceptions.CheckLastException();
-
-        //    var clrStr = _jniEnvWrapper.Strings.ToClrString(strPtr);
-        //    return clrStr;
-        //}
-
         private IntPtr GetFieldId(Class clazz, string name, bool isStatic, string signature)
         {
             Debug.Assert(clazz != null);

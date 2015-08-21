@@ -5,14 +5,22 @@ namespace jvm4csharp.java.lang
     [JavaProxy("java/lang/Object")]
     public class Object : IJavaProxy, IJavaObject
     {
-        protected JavaProxyOperations.Instance Instance { get; }
+        private JavaProxyOperations.Instance _instance;
+
+        protected JavaProxyOperations.Instance Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new JavaProxyOperations.Instance(this);
+                return _instance;
+            }
+        }
 
         protected static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 
-        // ReSharper disable once UnusedParameter.Local
         protected internal Object(ProxyCtor p)
         {
-            Instance = new JavaProxyOperations.Instance(this);
         }
 
         public Object() : this(ProxyCtor.I)

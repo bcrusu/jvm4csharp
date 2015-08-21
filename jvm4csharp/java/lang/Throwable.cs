@@ -5,13 +5,22 @@ namespace jvm4csharp.java.lang
 {
     public partial class Throwable : global::System.Exception, IJavaProxy, IJavaObject
     {
-        protected JavaProxyOperations.Instance Instance { get; }
+        private JavaProxyOperations.Instance _instance;
+
+        protected JavaProxyOperations.Instance Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new JavaProxyOperations.Instance(this);
+                return _instance;
+            }
+        }
 
         protected static readonly JavaProxyOperations.Static Static = JavaProxyOperations.Static.Singleton;
 
         protected Throwable(ProxyCtor p)
         {
-            Instance = new JavaProxyOperations.Instance(this);
         }
 
         protected Throwable(SerializationInfo info, StreamingContext context)
