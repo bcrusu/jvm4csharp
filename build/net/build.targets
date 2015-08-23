@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="All" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="build.properties"/>
+  <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.Targets"/>
+
+  <Target Name="All">
+    <CallTarget Targets="CleanOutput"/>
+    <CallTarget Targets="Build"/>
+    <CallTarget Targets="RunTests"/>
+  </Target>
+
+  <Target Name="CleanOutput">
+    <RemoveDir Directories="$(OutputDir)"/>
+    <MakeDir Directories="$(OutputDir)"/>
+  </Target>
+
+  <Target Name="Build">
+    <MSBuild Projects="$(SolutionPath)" Properties="Configuration=$(Configuration)" Targets="Clean;Build"/>
+  </Target>
+
+  <Target Name="RunTests">
+    <ItemGroup>
+      <TestAssemblies Include="$(SolutionDir)\jvm4csharp.Tests\bin\$(Configuration)\jvm4csharp.Tests.dll"/>
+    </ItemGroup>
+
+    <NUnit Assemblies="@(TestAssemblies)" Framework="net-4.6" ShowLabels="true" OutputXmlFile="$(OutputDir)\testResults.xml" ToolPath="$(NuGetPackagesPath)\NUnit.Runners.2.6.4\tools\"/>
+  </Target>
+</Project>

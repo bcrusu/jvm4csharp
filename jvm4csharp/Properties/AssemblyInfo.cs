@@ -16,6 +16,4 @@ using System.Runtime.InteropServices;
 
 [assembly: ComVisible(false)]
 
-#if DEBUG
 [assembly: InternalsVisibleTo("jvm4csharp.Tests")]
-#endif
