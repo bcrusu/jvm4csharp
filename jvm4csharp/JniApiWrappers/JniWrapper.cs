@@ -11,6 +11,14 @@ namespace jvm4csharp.JniApiWrappers
     {
         public const JniVersion PreferredJniVersion = JniVersion.v1_6;
 
+        private static readonly JniHooksSig.Exit DefaultExitHookDelegate = DefaultExitHook;
+        private static readonly JniHooksSig.Abort DefaultAbortHookDelegate = DefaultAbortHook;
+        private unsafe static readonly JniHooksSig.Vfprintf DefaultVfprintfHookDelegate = DefaultVfprintfHook;
+
+        private static readonly IntPtr DefaultExitHookPtr = Marshal.GetFunctionPointerForDelegate(DefaultExitHookDelegate);
+        private static readonly IntPtr DefaultAbortHookPtr = Marshal.GetFunctionPointerForDelegate(DefaultAbortHookDelegate);
+        private unsafe static readonly IntPtr DefaultVfprintfHookPtr = Marshal.GetFunctionPointerForDelegate(DefaultVfprintfHookDelegate);
+
         public unsafe static IntPtr CreateJavaVm(IEnumerable<string> jvmOptions, JvmHooks jvmHooks)
         {
             Debug.Assert(jvmOptions != null);
@@ -42,24 +50,29 @@ namespace jvm4csharp.JniApiWrappers
             var nativeJvmOptions = new JavaVmOption[jvmOptions.Length + 3];
 
             //exit
-            JniHooksSig.Exit exitHook = jvmHooks.GetExitHook() ?? DefaultExitHook;
             nativeJvmOptions[0].optionString = Marshal.StringToHGlobalAnsi("exit");
-            nativeJvmOptions[0].extraInfo = Marshal.GetFunctionPointerForDelegate(exitHook);
+            JniHooksSig.Exit exitHook = jvmHooks.GetExitHook();
+            if (exitHook != null)
+                nativeJvmOptions[0].extraInfo = Marshal.GetFunctionPointerForDelegate(exitHook);
+            else
+                nativeJvmOptions[0].extraInfo = DefaultExitHookPtr;
 
             //abort
-            JniHooksSig.Abort abortHook = jvmHooks.GetAbortHook() ?? DefaultAbortHook;
             nativeJvmOptions[1].optionString = Marshal.StringToHGlobalAnsi("abort");
-            nativeJvmOptions[1].extraInfo = Marshal.GetFunctionPointerForDelegate(abortHook);
+            JniHooksSig.Abort abortHook = jvmHooks.GetAbortHook();
+            if (abortHook != null)
+                nativeJvmOptions[1].extraInfo = Marshal.GetFunctionPointerForDelegate(abortHook);
+            else
+                nativeJvmOptions[1].extraInfo = DefaultAbortHookPtr;
 
             //vfprintf
-            JniHooksSig.Vfprintf vfprintfHook = DefaultVfprintfHook;
             nativeJvmOptions[2].optionString = Marshal.StringToHGlobalAnsi("vfprintf");
-            nativeJvmOptions[2].extraInfo = Marshal.GetFunctionPointerForDelegate(vfprintfHook);
-
-
+            nativeJvmOptions[2].extraInfo = DefaultVfprintfHookPtr;
+            
             for (var i = 0; i < jvmOptions.Length; i++)
                 nativeJvmOptions[i + 3].optionString = Marshal.StringToHGlobalAnsi(jvmOptions[i]);
 
+            //TODO: review fixed statement
             fixed (JavaVmOption* ptr = &nativeJvmOptions[0])
             {
                 initArgs.options = ptr;
